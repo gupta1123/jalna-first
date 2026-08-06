@@ -240,7 +240,7 @@ h1,h2,h3,h4{ margin:0 }
 .qr{
   border:2px solid var(--ink); border-radius:6px; background:var(--paper-lift);
   padding:18px 18px 16px; display:flex; flex-direction:column; align-items:center; gap:12px;
-  transition:transform .2s,box-shadow .2s;
+  color:inherit; text-decoration:none; cursor:pointer; transition:transform .2s,box-shadow .2s;
 }
 .qr:hover{ transform:translate(-3px,-4px); box-shadow:7px 8px 0 var(--teal) }
 .qr .store{ font:500 11px/1 var(--mono); letter-spacing:.16em; text-transform:uppercase; color:var(--ink) }
@@ -250,6 +250,7 @@ h1,h2,h3,h4{ margin:0 }
 }
 .qr-slot img{ width:100%; height:100%; object-fit:contain; display:block }
 .qr .qr-sub{ font-size:12.5px; color:var(--ink-48) }
+.qr .qr-download{ font:600 10px/1 var(--mono); letter-spacing:.1em; text-transform:uppercase; color:var(--teal) }
 .qr-note{ margin:20px 0 0; font:400 12.5px/1.6 var(--mono); letter-spacing:.06em; color:var(--ink-48) }
 .chip-a{ animation:float 5.6s ease-in-out infinite }
 .chip-b{ animation:float 5.6s ease-in-out 1.1s infinite }
@@ -939,26 +940,28 @@ h1,h2,h3,h4{ margin:0 }
       <p class="tag"><i>06</i> The app</p>
       <h2 class="h2" style="margin:20px 0 22px">Jalna, in your<br><em>pocket</em>.</h2>
       <p class="lede">My Jalna is designed to put the city's civic layer on your phone — updates, notices and useful everyday information in one easier-to-access place.</p>
-      <p class="lede" style="margin-top:14px">Scan the appropriate QR code to open the My Jalna app in your device's app store.</p>
+      <p class="lede" style="margin-top:14px">Scan a QR code or click a download card to open the My Jalna app in your device's app store.</p>
 
       <div class="qr-row">
-        <div class="qr">
+        <a class="qr" href="https://apps.apple.com/in/app/my-jalna/id6757333459" target="_blank" rel="noopener noreferrer" aria-label="Click to download the My Jalna app from the App Store">
           <span class="store">App Store</span>
           <div class="qr-slot" id="qr-appstore">
             <img src="/iosapp.png" alt="Scan to download the My Jalna app from the App Store" width="2205" height="2205" loading="lazy" decoding="async">
           </div>
           <span class="qr-sub">iPhone &amp; iPad</span>
-        </div>
-        <div class="qr">
+          <span class="qr-download">Click to download ↗</span>
+        </a>
+        <a class="qr" href="https://play.google.com/store/apps/details?id=com.nyx123.jalnafirst&amp;pcampaignid=web_share" target="_blank" rel="noopener noreferrer" aria-label="Click to download the My Jalna app from Google Play">
           <span class="store">Google Play</span>
           <div class="qr-slot" id="qr-playstore">
             <img src="/androidapp.png" alt="Scan to download the My Jalna app from Google Play" width="2166" height="2166" loading="lazy" decoding="async">
           </div>
           <span class="qr-sub">Android</span>
-        </div>
+          <span class="qr-download">Click to download ↗</span>
+        </a>
       </div>
 
-      <p class="qr-note">Scan with your phone camera to continue to the App Store or Google Play.</p>
+      <p class="qr-note">Scan with your phone camera or click either card to continue to the App Store or Google Play.</p>
     </div>
 
     <figure class="app-art rv">
@@ -1262,8 +1265,7 @@ h1,h2,h3,h4{ margin:0 }
       <div>
         <h4>Reach us</h4>
         <ul>
-          <li><a href="https://www.instagram.com/jalnafirstcf/" target="_blank" rel="noopener noreferrer">Instagram · @jalnafirstcf</a></li>
-          <li><a href="/investment">Jalna Investment Summit</a></li>
+          <li><a href="mailto:jalnafirstcs@gmail.com">jalnafirstcs@gmail.com</a></li>
         </ul>
       </div>
     </div>
