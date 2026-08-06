@@ -100,6 +100,13 @@ h1,h2,h3,h4{ margin:0 }
 .when{ font:400 11px/1.7 var(--mono); letter-spacing:.1em; text-transform:uppercase; color:var(--i48); text-align:right }
 .when b{ color:var(--ink); font-weight:500 }
 .hcta{ padding:13px 22px; font-size:13.5px; box-shadow:3px 3px 0 var(--ink) }
+.mobile-actions{ display:none }
+.mobile-action{
+  min-height:38px; display:flex; align-items:center; justify-content:center; padding:9px 12px;
+  border:1.5px solid var(--i16); border-radius:2px; color:var(--i72); text-decoration:none;
+  font:600 11px/1 var(--body); text-align:center; white-space:nowrap;
+}
+.mobile-action.primary{ background:var(--navy); border-color:var(--navy); color:var(--paper); box-shadow:2px 2px 0 var(--ink) }
 
 .railw{ border-top:1px solid var(--i16); border-bottom:1px solid var(--i16); background:var(--paper) }
 .rail{ position:relative; display:flex; gap:4px; overflow-x:auto; scrollbar-width:none; padding:9px 0 }
@@ -295,16 +302,18 @@ h1,h2,h3,h4{ margin:0 }
   .when,.hcta{ display:none }
   .fg{ grid-template-columns:1fr 1fr }
 }
-@media (max-width:680px){
+@media (max-width:760px){
   body{ font-size:16px }
-  :root{ --head:122px }
+  :root{ --head:170px }
   .why,.sg,.eg,.fg{ grid-template-columns:1fr }
   .olist,.slist{ grid-template-columns:1fr }
   .hero .l1{ font-size:clamp(44px,13vw,72px) }
   .meta div{ flex:1 1 100%; border-right:0; border-bottom:1.5px solid var(--i16) }
   .meta div:last-child{ border-bottom:0 }
   .btn{ padding:15px 22px }
-  .site-switch{ display:none }
+  .htop{ height:68px }
+  .htop > .site-switch,.htop > .hcta{ display:none }
+  .mobile-actions{ display:grid; grid-template-columns:1fr 1fr; gap:8px; padding-bottom:9px }
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{ animation:none !important; transition-duration:.01ms !important }
@@ -336,6 +345,10 @@ h1,h2,h3,h4{ margin:0 }
     <a class="site-switch" href="/">Jalna First</a>
     <p class="when"><b>Date announcing soon</b><br>Venue announcing soon · Jalna</p>
     <a class="btn b-navy hcta" href="#programme">View programme</a>
+  </div>
+  <div class="wrap mobile-actions" aria-label="Quick links">
+    <a class="mobile-action" href="/">Jalna First</a>
+    <a class="mobile-action primary" href="#programme">View programme</a>
   </div>
   <div class="railw">
     <nav class="wrap rail" id="rail" aria-label="Sections">

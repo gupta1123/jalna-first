@@ -113,6 +113,14 @@ h1,h2,h3,h4{ margin:0 }
 .invest-link:hover,.ig-link:hover{ background:var(--ink); border-color:var(--ink); color:var(--paper) }
 .ig-link{ color:var(--teal); border-color:rgba(15,110,104,.34) }
 .head-cta{ padding:12px 21px; font-size:13.5px; box-shadow:3px 3px 0 var(--ink) }
+.mobile-actions{ display:none }
+.mobile-action{
+  min-width:0; min-height:38px; display:flex; align-items:center; justify-content:center; padding:9px 7px;
+  border:1.5px solid var(--ink-16); border-radius:100px; color:var(--ink-72); text-decoration:none;
+  font:700 10.5px/1 var(--body); text-align:center; white-space:nowrap;
+}
+.mobile-action.instagram-action{ color:var(--teal); border-color:rgba(15,110,104,.34) }
+.mobile-action.primary{ background:var(--teal); border-color:var(--teal); color:var(--paper); box-shadow:2px 2px 0 var(--ink) }
 
 .rail-wrap{ border-top:1px solid var(--ink-16); border-bottom:1px solid var(--ink-16); background:var(--paper) }
 .rail{
@@ -327,15 +335,18 @@ h1,h2,h3,h4{ margin:0 }
   .head-cta{ display:none }
   .fgrid{ grid-template-columns:1fr 1fr }
 }
-@media (max-width:640px){
+@media (max-width:760px){
   body{ font-size:16px }
-  :root{ --head:122px }
+  :root{ --head:170px }
   .flow,.fg,.ig,.fgrid{ grid-template-columns:1fr }
   .hero .l1{ font-size:clamp(48px,15vw,76px) }
   .btn{ padding:15px 23px }
   .rail{ padding:8px 0 }
-  .invest-link{ display:none }
-  .ig-link{ padding:9px 11px; font-size:10.5px }
+  .head-top{ height:68px }
+  .head-top > .invest-link,.head-top > .ig-link,.head-top > .head-cta{ display:none }
+  .mobile-actions{
+    display:grid; grid-template-columns:1.18fr .82fr 1fr; gap:7px; padding-bottom:9px;
+  }
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{ animation:none !important; transition-duration:.01ms !important }
@@ -365,6 +376,11 @@ h1,h2,h3,h4{ margin:0 }
     <a class="invest-link" href="/investment">Investment Summit ↗</a>
     <a class="ig-link" href="https://www.instagram.com/jalnafirstcf/" target="_blank" rel="noopener noreferrer">Instagram · @jalnafirstcf</a>
     <a class="btn b-teal head-cta" href="#join">Get involved</a>
+  </div>
+  <div class="wrap mobile-actions" aria-label="Quick links">
+    <a class="mobile-action" href="/investment">Investment Summit ↗</a>
+    <a class="mobile-action instagram-action" href="https://www.instagram.com/jalnafirstcf/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a class="mobile-action primary" href="#join">Get involved</a>
   </div>
   <div class="rail-wrap">
     <nav class="wrap rail" id="rail" aria-label="Sections">
