@@ -1,0 +1,21 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/my-jalna"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/jalna-investment"
+  to = "/investment"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/jalna-investment/*"
+  to = "/investment/:splat"
+  status = 301
+  force = true

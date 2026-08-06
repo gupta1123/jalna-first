@@ -1,0 +1,12 @@
+{
+  "name": "jalna-landing-pages",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "my-jalna",
+    "jalna-investment"
+  ],
+  "scripts": {
+    "build": "node scripts/build-sites.mjs"
+  }
+}
