@@ -8,5 +8,8 @@
   ],
   "scripts": {
     "build": "node scripts/build-sites.mjs"
+  },
+  "overrides": {
+    "readdirp": "5.0.0"
   }
 }
