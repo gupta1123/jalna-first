@@ -7,389 +7,315 @@
 <meta name="theme-color" content="#093C54">
 <link rel="icon" type="image/png" href="/jalna-first-logo.png">
 <link rel="apple-touch-icon" href="/jalna-first-logo.png">
-<title>Jalna First Citizen Forum — Change Begins With Action</title>
+<title>Jalna First Citizen Forum — A Collective Vision for a Progressive City</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
 
 <style is:global>
-/* ═══════════════ TOKENS ═══════════════ */
+/* ═══════════ BRAND TOKENS — sampled from the JFCF logo ═══════════ */
 :root{
-  --paper:      #F5FBFB;
-  --paper-lift: #FFFFFF;
-  --paper-deep: #EFF9F9;
-  --ink:        #093C54;
-  --teal:       #0DA1A7;
-  --teal-deep:  #052C3E;
-  --marigold:   #48B8BD;
-  --leaf:       #4FC6CB;
-  --teal-7:     #0B8A90;
-  --teal-3:     #71C8CC;
-  --teal-2:     #99D7DA;
-  --teal-1:     #C2E7E9;
-  --teal-05:    #D6EFF0;
+  --navy:#093C54;  --navy-8:#0C4A66;  --navy-6:#166080;
+  --teal:#0DA1A7;  --teal-7:#0B8A90;  --teal-4:#48B8BD;
+  --teal-3:#71C8CC; --teal-2:#99D7DA; --teal-1:#C2E7E9; --teal-05:#D6EFF0;
+  --mist:#EFF9F9;  --paper:#F5FBFB;  --white:#FFFFFF;
 
-  --ink-72: rgba(9,60,84,.72);
-  --ink-48: rgba(9,60,84,.48);
-  --ink-16: rgba(9,60,84,.16);
-  --ink-08: rgba(9,60,84,.08);
+  --n72:rgba(9,60,84,.72); --n56:rgba(9,60,84,.56); --n40:rgba(9,60,84,.40);
+  --n16:rgba(9,60,84,.16); --n08:rgba(9,60,84,.08);
 
-  --dsp:  "Instrument Serif",Georgia,"Times New Roman",serif;
-  --body: "Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
-  --mono: "JetBrains Mono",ui-monospace,Menlo,monospace;
-  --deva: "Tiro Devanagari Marathi","Hanken Grotesk",serif;
+  --dsp:"Instrument Serif",Georgia,serif;
+  --body:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --deva:"Tiro Devanagari Marathi","Hanken Grotesk",serif;
 
-  --wrap: min(1200px, 90vw);
-  --pad:  clamp(76px, 9vw, 132px);
-  --head: 128px;
+  --wrap:min(1200px,90vw);
+  --pad:clamp(76px,9vw,132px);
+  --head:128px;
+  --r:16px;
 }
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--navy);font:400 17px/1.72 var(--body);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+svg,img{display:block;max-width:100%}
+a{color:inherit}
+section[id]{scroll-margin-top:var(--head)}
 
-*,*::before,*::after{ box-sizing:border-box }
-html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth }
-body{
-  margin:0; background:var(--paper); color:var(--ink);
-  font:400 17px/1.72 var(--body); -webkit-font-smoothing:antialiased; overflow-x:hidden;
-}
-svg,img{ display:block; max-width:100% }
-a{ color:inherit }
-section[id]{ scroll-margin-top:var(--head) }
+/* ═══════════ TYPE ═══════════ */
+h1,h2,h3,h4{margin:0}
+.h2{font:400 clamp(33px,4.3vw,60px)/1.05 var(--dsp);letter-spacing:-.018em}
+.h2 em{font-style:italic;color:var(--teal)}
+.h3{font:400 clamp(20px,1.8vw,25px)/1.22 var(--dsp);letter-spacing:-.012em}
+.lede{font-size:clamp(16px,1.15vw,18.5px);color:var(--n72);max-width:58ch}
+.marathi{font-family:var(--deva)}
+.tag{display:inline-flex;align-items:center;gap:12px;font:400 11px/1 var(--mono);
+  letter-spacing:.2em;text-transform:uppercase;color:var(--teal-7)}
+.tag::before{content:"";width:32px;height:2px;border-radius:2px;background:var(--teal);order:-1}
+.tag i{font-style:normal;color:var(--n40)}
+.tag.inv{color:var(--teal-2)}
+.tag.inv::before{background:var(--teal-3)}
 
-/* ═══════════════ TYPE ═══════════════ */
-h1,h2,h3,h4{ margin:0 }
-.h2{ font:400 clamp(34px,4.4vw,62px)/1.04 var(--dsp); letter-spacing:-.018em }
-.h2 em{ font-style:italic; color:var(--teal) }
-.h3{ font:400 clamp(21px,1.8vw,26px)/1.2 var(--dsp); letter-spacing:-.012em }
-.lede{ font-size:clamp(16px,1.15vw,18px); color:var(--ink-72); max-width:58ch }
-.marathi{ font-family:var(--deva); font-weight:400; line-height:1.65 }
+.wrap{width:var(--wrap);margin-inline:auto}
+.sec{padding-block:var(--pad);position:relative}
 
-.tag{
-  display:inline-flex; align-items:center; gap:12px;
-  font:400 11px/1 var(--mono); letter-spacing:.18em; text-transform:uppercase; color:var(--teal);
-}
-.tag i{ font-style:normal; color:var(--ink-48) }
-.tag::before{ content:""; width:32px; height:2px; border-radius:2px; background:var(--teal); order:-1 }
-.tag.inv{ color:var(--teal-2) }
-.tag.inv::before{ background:var(--teal-3) }
+/* ═══════════ BUTTONS ═══════════ */
+.btn{display:inline-flex;align-items:center;gap:10px;cursor:pointer;text-decoration:none;
+  font:600 14.5px/1 var(--body);padding:16px 28px;border-radius:100px;border:2px solid var(--navy);
+  transition:transform .18s,box-shadow .18s,background .18s,color .18s}
+.btn svg{transition:transform .18s}
+.btn:hover svg{transform:translateX(4px)}
+.b-teal{background:var(--teal);border-color:var(--teal);color:#fff;box-shadow:0 4px 0 var(--navy)}
+.b-teal:hover{transform:translateY(-3px);box-shadow:0 7px 0 var(--navy)}
+.b-navy{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 4px 0 var(--teal)}
+.b-navy:hover{transform:translateY(-3px);box-shadow:0 7px 0 var(--teal)}
+.b-line{background:transparent;color:var(--navy)}
+.b-line:hover{background:var(--navy);color:#fff}
+.b-white{background:#fff;border-color:#fff;color:var(--navy)}
+.b-white:hover{transform:translateY(-3px)}
+.b-linew{background:transparent;border-color:rgba(255,255,255,.5);color:#fff}
+.b-linew:hover{background:#fff;color:var(--navy);border-color:#fff}
 
-/* ═══════════════ LAYOUT ═══════════════ */
-.wrap{ width:var(--wrap); margin-inline:auto }
-.sec{ padding-block:var(--pad); position:relative }
+/* ═══════════ HEADER ═══════════ */
+.prog{position:fixed;top:0;left:0;height:3px;background:var(--teal);z-index:200;width:0}
+.head{position:sticky;top:0;z-index:150;background:var(--paper)}
+.htop{display:flex;align-items:center;gap:24px;height:76px}
+.logo{display:flex;align-items:center;gap:13px;text-decoration:none;margin-right:auto}
+.logo svg{width:44px;height:44px;flex:none}
+.logo b{display:block;font:700 20px/1 var(--body);letter-spacing:.01em;text-transform:uppercase}
+.logo b s{text-decoration:none;color:var(--teal)}
+.logo small{display:block;font:400 7.5px/1 var(--mono);letter-spacing:.2em;color:var(--n56);
+  text-transform:uppercase;margin-top:4px}
+.hcta{padding:12px 22px;font-size:13.5px}
+.mobile-actions{display:none}
+.railw{border-top:1px solid var(--n16);border-bottom:1px solid var(--n16);background:var(--paper)}
+.rail{position:relative;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding:9px 0}
+.rail::-webkit-scrollbar{display:none}
+.rail a{position:relative;z-index:2;flex:none;text-decoration:none;padding:9px 17px;border-radius:100px;
+  font:500 13.5px/1 var(--body);color:var(--n56);white-space:nowrap;display:flex;align-items:center;gap:9px;
+  transition:color .28s}
+.rail a em{font:400 10px/1 var(--mono);font-style:normal;opacity:.65}
+.rail a:hover{color:var(--navy)}
+.rail a.on{color:#fff}
+.ind{position:absolute;z-index:1;top:9px;left:0;height:34px;border-radius:100px;background:var(--navy);
+  transition:transform .42s cubic-bezier(.65,.05,.15,1),width .42s cubic-bezier(.65,.05,.15,1)}
 
-/* ═══════════════ BUTTONS ═══════════════ */
-.btn{
-  display:inline-flex; align-items:center; gap:10px; cursor:pointer; text-decoration:none;
-  font:600 14.5px/1 var(--body); letter-spacing:.01em; padding:16px 28px; border-radius:100px;
-  border:2px solid var(--ink); transition:transform .18s, box-shadow .18s, background .18s, color .18s;
-}
-.btn svg{ transition:transform .18s }
-.btn:hover svg{ transform:translateX(4px) }
-.b-teal{ background:var(--teal); border-color:var(--teal); color:#fff; box-shadow:0 4px 0 var(--ink) }
-.b-teal:hover{ transform:translateY(-3px); box-shadow:0 7px 0 var(--ink) }
-.b-gold{ background:var(--marigold); border-color:var(--marigold); color:var(--ink); box-shadow:0 4px 0 var(--teal-deep) }
-.b-gold:hover{ transform:translateY(-3px); box-shadow:0 7px 0 var(--teal-deep) }
-.b-line{ background:transparent; color:var(--ink) }
-.b-line:hover{ background:var(--ink); color:#fff }
-.b-paper{ background:#fff; border-color:#fff; color:var(--ink) }
-.b-paper:hover{ transform:translateY(-3px) }
-.b-linep{ background:transparent; border-color:rgba(255,255,255,.5); color:#fff }
-.b-linep:hover{ background:#fff; border-color:#fff; color:var(--ink) }
+/* ═══════════ HERO ═══════════ */
+.hero{padding-top:clamp(40px,5vw,72px);padding-bottom:0;overflow:hidden}
+.hg{display:grid;grid-template-columns:1fr 1.34fr;gap:clamp(24px,3vw,46px);align-items:center}
+.hg>div:last-child{margin-right:-5vw}
+.hg>div:last-child svg{width:100%;height:auto}
+.hero h1{margin:24px 0 0;font-family:var(--dsp);font-weight:400;letter-spacing:-.024em}
+.hero .l1{display:block;font-size:clamp(50px,7.2vw,104px);line-height:.96}
+.hero .l2{display:block;font-size:clamp(27px,3.5vw,50px);line-height:1.1;color:var(--teal);
+  letter-spacing:-.02em;margin-top:6px}
+.hero .l2 em{font-style:italic;position:relative;z-index:1}
+.hero .l2 em::after{content:"";position:absolute;z-index:-1;inset:auto 0 .07em 0;height:.22em;
+  border-radius:100px;background:var(--teal-2);transform:scaleX(0);transform-origin:left;
+  animation:swipe .8s cubic-bezier(.2,.75,.3,1) 1.1s forwards}
+@keyframes swipe{to{transform:scaleX(1)}}
+.hero p{margin:24px 0 0}
+.hcta2{display:flex;flex-wrap:wrap;gap:13px;margin-top:32px}
+.hmr{margin-top:36px;padding-left:20px;border-left:3px solid var(--teal);border-radius:2px;
+  font-size:clamp(17px,1.5vw,20px);max-width:36ch}
+.hmr b{color:var(--teal-7);font-weight:400;font-style:italic}
 
-/* ═══════════════ HEADER + SECTION RAIL ═══════════════ */
-.prog{ position:fixed; top:0; left:0; height:3px; background:var(--teal); z-index:200; width:0 }
-.head{ position:sticky; top:0; z-index:150; background:var(--paper) }
-.head-top{ display:flex; align-items:center; gap:24px; height:74px }
-.logo{ display:flex; align-items:center; gap:12px; text-decoration:none; margin-right:auto }
-.logo-mark{
-  width:42px; height:42px; flex:none; position:relative; overflow:hidden; border-radius:50%;
-  background:var(--paper-lift); box-shadow:0 0 0 1px rgba(13,161,167,.2);
-}
-.logo-mark img{
-  position:absolute; width:132%; max-width:none; height:auto; left:50%; top:50%;
-  transform:translate(-52.1%,-42.5%);
-}
-.logo b{ display:block; font:700 20px/1 var(--body); letter-spacing:.01em; text-transform:uppercase }
-.logo b s{ color:var(--teal); text-decoration:none }
-.logo small{ display:block; font:400 7.5px/1 var(--mono); letter-spacing:.2em; color:var(--ink-48); text-transform:uppercase; margin-top:4px }
-.invest-link,.ig-link{
-  flex:none; text-decoration:none; padding:10px 15px; border:1.5px solid var(--ink-16); border-radius:100px;
-  font:600 12px/1 var(--body); color:var(--ink-72); transition:background .18s,color .18s,border-color .18s;
-}
-.invest-link:hover,.ig-link:hover{ background:var(--ink); border-color:var(--ink); color:var(--paper) }
-.ig-link{ color:var(--teal); border-color:rgba(13,161,167,.34) }
-.head-cta{ padding:12px 21px; font-size:13.5px; box-shadow:3px 3px 0 var(--ink) }
-.mobile-actions{ display:none }
-.mobile-action{
-  min-width:0; min-height:38px; display:flex; align-items:center; justify-content:center; padding:9px 7px;
-  border:1.5px solid var(--ink-16); border-radius:100px; color:var(--ink-72); text-decoration:none;
-  font:700 10.5px/1 var(--body); text-align:center; white-space:nowrap;
-}
-.mobile-action.instagram-action{ color:var(--teal); border-color:rgba(13,161,167,.34) }
-.mobile-action.primary{ background:var(--teal); border-color:var(--teal); color:#fff; box-shadow:0 3px 0 var(--ink) }
+/* ═══════════ TICKER ═══════════ */
+.marq{background:var(--navy);color:#fff;overflow:hidden}
+.marqin{display:flex;width:max-content;animation:slide 44s linear infinite}
+.marq span{display:flex;align-items:center;gap:30px;padding:0 15px;height:54px;white-space:nowrap;
+  font:400 11.5px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--teal-2)}
+.marq span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);flex:none}
+.marq .mr{font-family:var(--deva);letter-spacing:.02em;text-transform:none;font-size:17px;color:#fff}
+@keyframes slide{to{transform:translateX(-50%)}}
 
-.rail-wrap{ border-top:1px solid var(--ink-16); border-bottom:1px solid var(--ink-16); background:var(--paper) }
-.rail{
-  position:relative; display:flex; gap:4px; overflow-x:auto; scrollbar-width:none;
-  padding:9px 0; -webkit-overflow-scrolling:touch;
-}
-.rail::-webkit-scrollbar{ display:none }
-.rail a{
-  position:relative; z-index:2; flex:none; text-decoration:none; padding:9px 17px; border-radius:100px;
-  font:600 13.5px/1 var(--body); color:var(--ink-48); white-space:nowrap;
-  display:flex; align-items:center; gap:9px; transition:color .28s;
-}
-.rail a em{ font:400 10.5px/1 var(--mono); font-style:normal; opacity:.6 }
-.rail a:hover{ color:var(--ink) }
-.rail a.on{ color:#fff }
-.rail a.on em{ opacity:.75 }
-.rail-ind{
-  position:absolute; z-index:1; top:9px; left:0; height:34px; border-radius:100px; background:var(--ink);
-  transition:transform .42s cubic-bezier(.65,.05,.15,1), width .42s cubic-bezier(.65,.05,.15,1);
-  will-change:transform,width;
-}
+/* ═══════════ PURPOSE ═══════════ */
+.purpose{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.purpose .h2{color:#fff}
+.pq{font:400 clamp(23px,2.6vw,38px)/1.36 var(--dsp);letter-spacing:-.012em;margin:30px 0 0;
+  max-width:26ch;position:relative;z-index:2}
+.pq em{font-style:italic;color:var(--teal-3)}
+.pq .qm{display:block;font-size:2.4em;line-height:.4;color:var(--teal);margin-bottom:16px}
+.pq cite{display:block;font:400 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;
+  color:var(--teal-3);font-style:normal;margin-top:32px}
+.pgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(30px,5vw,72px);align-items:center;
+  position:relative;z-index:2}
+.pmark{position:absolute;right:-9%;top:50%;transform:translateY(-50%);width:min(52%,620px);
+  opacity:.09;pointer-events:none;z-index:1}
 
-/* ═══════════════ HERO ═══════════════ */
-.hero{ padding-top:clamp(40px,5vw,72px); padding-bottom:0; overflow:hidden }
-.hero-grid{ display:grid; grid-template-columns:1fr 1.34fr; gap:clamp(24px,3vw,46px); align-items:center }
-.hero h1{ margin:24px 0 0; font-family:var(--dsp); font-weight:400; letter-spacing:-.022em }
-.hero .l1{ display:block; font-size:clamp(50px,7.2vw,104px); line-height:.96 }
-.hero .l2{ display:block; font-size:clamp(27px,3.5vw,50px); line-height:1.1; color:var(--teal); letter-spacing:-.02em; margin-top:6px }
-.hero .l2 em{ font-style:italic; position:relative; z-index:1; padding-right:.04em }
-.hero .l2 em::after{
-  content:""; position:absolute; z-index:-1; inset:auto 0 .07em 0; height:.22em; border-radius:100px; background:var(--teal-2);
-  transform:scaleX(0); transform-origin:left; animation:swipe .8s cubic-bezier(.2,.75,.3,1) 1.1s forwards;
-}
-@keyframes swipe{ to{ transform:scaleX(1) } }
-.hero p{ margin:24px 0 0 }
-.hero-cta{ display:flex; flex-wrap:wrap; gap:13px; margin-top:34px }
-.hero-mr{ margin-top:36px; padding-left:20px; border-left:3px solid var(--teal); border-radius:2px; font-size:clamp(17px,1.5vw,20px); max-width:36ch }
-.hero-mr b{ color:var(--teal-7); font-weight:400; font-style:italic }
-.hero-art{ position:relative; margin-right:-5vw }
-.hero-art svg{ width:100%; height:auto }
-.plx{ will-change:transform }
+/* ═══════════ ABOUT ═══════════ */
+.ab{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(30px,5vw,80px);align-items:start}
+.ab-l{position:sticky;top:calc(var(--head) + 26px)}
+.ab-b p{margin:0 0 20px;color:var(--n72)}
+.ab-b p.first{font-size:20.5px;color:var(--navy);line-height:1.55}
+.pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:30px}
+.pill{font:500 13.5px/1 var(--body);padding:11px 18px;border-radius:100px;background:var(--white);
+  border:1.5px solid var(--n16);display:flex;align-items:center;gap:9px}
+.pill i{width:8px;height:8px;border-radius:50%;flex:none;font-style:normal;background:var(--teal)}
+.badge8{display:inline-flex;align-items:center;gap:10px;margin-top:8px;padding:10px 16px;
+  border-radius:100px;background:var(--teal-05);border:1.5px solid var(--teal-2);
+  font:400 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--teal-7)}
 
-/* ═══════════════ MARQUEE ═══════════════ */
-.marq{ background:var(--ink); color:#fff; overflow:hidden }
-.marq-in{ display:flex; width:max-content; animation:slide 42s linear infinite }
-.marq span{
-  display:flex; align-items:center; gap:34px; padding:0 17px;
-  font:400 11.5px/1 var(--mono); letter-spacing:.18em; text-transform:uppercase; height:54px; white-space:nowrap; color:var(--teal-2);
-}
-.marq span::after{ content:""; width:6px; height:6px; border-radius:50%; background:var(--teal); flex:none }
-.marq .mr{ font-family:var(--deva); letter-spacing:.02em; color:#fff; text-transform:none; font-size:17px }
-@keyframes slide{ to{ transform:translateX(-50%) } }
+/* ═══════════ VERTICALS ═══════════ */
+.band{background:var(--mist)}
+.vhead{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.4vw,20px);margin-top:44px}
+.vc{position:relative;background:var(--white);border:1.5px solid var(--n16);border-radius:18px;
+  padding:26px 26px 28px;transition:transform .22s,box-shadow .22s,border-color .22s}
+.vc:hover{transform:translateY(-4px);border-color:var(--navy);box-shadow:0 8px 0 var(--teal-1)}
+.vc .no{position:absolute;top:22px;right:24px;font:400 10px/1 var(--mono);letter-spacing:.16em;
+  color:var(--n40)}
+.vc figure{margin:0 0 20px;width:74px}
+.vc figure svg{width:74px;height:74px}
+.vc h3{margin:0 0 9px;font-size:clamp(18px,1.4vw,20.5px);letter-spacing:-.008em;max-width:20ch}
+.vc p{margin:0;font-size:14.5px;line-height:1.62;color:var(--n72)}
+.vc-cta{background:var(--navy);border-color:var(--navy);display:flex;flex-direction:column;
+  justify-content:center}
+.vc-cta:hover{box-shadow:0 8px 0 var(--teal)}
+.vc-cta h3{color:#fff}
+.vc-cta p{color:rgba(255,255,255,.72)}
+.vc-cta .btn{align-self:flex-start;margin-top:22px;padding:13px 22px;font-size:13.5px}
 
-/* ═══════════════ ABOUT ═══════════════ */
-.ab{ display:grid; grid-template-columns:1fr 1.08fr; gap:clamp(30px,5vw,84px); align-items:start }
-.ab-l{ position:sticky; top:calc(var(--head) + 28px) }
-.ab-b p{ margin:0 0 20px; color:var(--ink-72); font-size:17.5px }
-.ab-b p.first{ font-size:20.5px; color:var(--ink); font-weight:400; line-height:1.55 }
-.chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:32px }
-.chip{
-  font:600 13px/1 var(--body); padding:9px 16px; border-radius:100px;
-  border:1.5px solid var(--ink-16); background:#fff; display:flex; align-items:center; gap:8px;
-}
-.chip i{ width:7px; height:7px; border-radius:50%; flex:none; font-style:normal }
+/* ═══════════ OBJECTIVES ═══════════ */
+.obj{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,5vw,72px);align-items:start}
+.obj-l{position:sticky;top:calc(var(--head) + 26px)}
+.acc{border-top:2px solid var(--navy)}
+.ai{border-bottom:1.5px solid var(--n16)}
+.ai:last-child{border-bottom:2px solid var(--navy)}
+.ah{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;width:100%;
+  background:none;border:0;cursor:pointer;padding:22px 4px;text-align:left;font:inherit;color:inherit;
+  transition:padding-left .2s}
+.ah:hover{padding-left:12px}
+.ah .n{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--teal-05);
+  border:1.5px solid var(--teal-2);font:400 12px/1 var(--mono);color:var(--teal-7);transition:.2s}
+.ai.on .ah .n{background:var(--teal);border-color:var(--teal);color:#fff}
+.ah h3{margin:0}
+.ah .pm{width:22px;height:22px;position:relative;flex:none}
+.ah .pm::before,.ah .pm::after{content:"";position:absolute;background:var(--navy);border-radius:2px;
+  transition:transform .25s,opacity .25s}
+.ah .pm::before{inset:10px 0 10px 0;height:2px}
+.ah .pm::after{inset:0 10px 0 10px;width:2px}
+.ai.on .ah .pm::after{transform:scaleY(0);opacity:0}
+.ap{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+.ap ul{list-style:none;margin:0;padding:0 0 26px 52px}
+.ap li{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;padding:9px 0;
+  font-size:15.5px;color:var(--n72);line-height:1.6}
+.ap li svg{margin-top:6px;flex:none}
 
-/* ═══════════════ FLOW ═══════════════ */
-.band{ background:var(--paper-deep) }
-.flow-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; margin-bottom:56px }
-.flow{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(16px,2vw,28px) }
-.stepc{
-  background:#fff; border:1.5px solid var(--ink-16); border-radius:18px; padding:0 0 26px;
-  overflow:hidden; transition:transform .22s, box-shadow .22s;
-}
-.stepc:hover{ transform:translateY(-4px); border-color:var(--ink); box-shadow:0 8px 0 var(--teal-1) }
-.stepc figure{ margin:0; background:var(--paper); border-bottom:1.5px solid var(--ink-16) }
-.stepc .txt{ padding:22px clamp(18px,1.8vw,26px) 0 }
-.stepc .lab{ font:500 10.5px/1 var(--mono); letter-spacing:.18em; text-transform:uppercase; color:var(--teal); display:block; margin-bottom:8px }
-.stepc h3{ margin-bottom:10px }
-.stepc p{ margin:0; font-size:15px; color:var(--ink-72) }
+/* ═══════════ APP ═══════════ */
+.app-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,72px);align-items:center}
+.qr-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.6vw,20px);margin-top:32px;max-width:430px}
+.qr{border:2px solid var(--navy);border-radius:var(--r);background:var(--white);padding:18px 18px 16px;
+  display:flex;flex-direction:column;align-items:center;gap:12px;color:inherit;text-decoration:none;cursor:pointer;
+  transition:transform .2s,box-shadow .2s}
+.qr:hover{transform:translateY(-4px);box-shadow:0 8px 0 var(--teal)}
+.qr .store{font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase}
+.qr-slot{width:100%;aspect-ratio:1/1;background:#fff;border:1.5px dashed var(--n16);border-radius:8px}
+.qr-slot img{width:100%;height:100%;object-fit:contain;display:block}
+.qr .qr-sub{font-size:12.5px;color:var(--n40)}
+.qr .qr-download{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
+.qr-note{margin:20px 0 0;font:400 12.5px/1.6 var(--mono);color:var(--n40)}
 
-/* ═══════════════ FOCUS ═══════════════ */
-.fg{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,1.8vw,24px); margin-top:56px }
-.fc{
-  border:1.5px solid var(--ink-16); border-radius:18px; overflow:hidden; background:#fff;
-  display:flex; flex-direction:column; transition:transform .22s, box-shadow .22s;
-}
-.fc:hover{ transform:translateY(-4px); border-color:var(--ink); box-shadow:0 8px 0 var(--teal-1) }
-.fc figure{ margin:0; border-bottom:1.5px solid var(--ink-16); position:relative }
-.fc .no{
-  position:absolute; top:12px; left:14px; font:500 10.5px/1 var(--mono);
-  letter-spacing:.14em; color:var(--ink-48);
-}
-.fc .txt{ padding:24px clamp(20px,2vw,28px) 28px }
-.fc h3{ margin-bottom:11px }
-.fc p{ margin:0; font-size:15px; color:var(--ink-72) }
-.sky-a{ background:#D6EFF0 } .sky-b{ background:#DFF2F3 } .sky-c{ background:#E4F5F0 }
+/* ═══════════ JOIN ═══════════ */
+.jg{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,1.8vw,24px);margin-top:50px}
+.jc{border:2px solid var(--navy);border-radius:var(--r);background:var(--white);padding:clamp(24px,2.4vw,32px);
+  display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s}
+.jc:hover{transform:translateY(-5px);box-shadow:0 10px 0 var(--navy)}
+.jc svg{width:56px;height:56px;margin-bottom:22px}
+.jc .lab{font:400 10.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--teal-7);
+  margin-bottom:12px}
+.jc h3{margin-bottom:10px}
+.jc p{margin:0;font-size:15px;color:var(--n72)}
+.jcta{display:flex;flex-wrap:wrap;gap:14px;margin-top:44px}
 
-/* ═══════════════ WORK ═══════════════ */
-.work{ background:var(--teal-deep); color:#fff }
-.work .h2, .work .lede{ color:#fff }
-.work .h2 em{ color:var(--teal-3) }
-.work .lede{ color:rgba(255,255,255,.72) }
-.wk{ display:grid; grid-template-columns:.82fr 1.18fr; gap:clamp(30px,5vw,76px); align-items:start }
-.wk ul{ list-style:none; margin:0; padding:0 }
-.wk li{
-  display:grid; grid-template-columns:auto 1fr; gap:18px; align-items:center;
-  padding:18px 0; border-top:1px solid rgba(255,255,255,.16); font-size:16.5px;
-  transition:padding-left .22s;
-}
-.wk li:hover{ padding-left:8px }
-.wk li:last-child{ border-bottom:1px solid rgba(255,255,255,.16) }
-.wk li svg{ flex:none }
+/* ═══════════ FINAL ═══════════ */
+.fin{background:var(--teal);color:#fff;text-align:center;position:relative;overflow:hidden}
+.fin .h2{color:#fff;font-size:clamp(36px,5.2vw,74px);line-height:1.04;max-width:16ch;margin-inline:auto}
+.fin .h2 em{color:var(--navy);font-style:italic}
+.fin p{color:rgba(255,255,255,.86);max-width:56ch;margin:24px auto 0}
+.fin .bcz{font:italic 400 clamp(21px,2.4vw,32px)/1.3 var(--dsp);margin-top:30px}
+.fcta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:34px}
+.fin .blob{position:absolute;pointer-events:none;opacity:.16}
 
-/* ═══════════════ APP ═══════════════ */
-.app-grid{ display:grid; grid-template-columns:1.08fr .92fr; gap:clamp(30px,5vw,72px); align-items:center }
-.app-art{ width:100%; margin:0 }
-.qr-row{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(14px,1.6vw,20px); margin-top:34px; max-width:440px }
-.qr{
-  border:2px solid var(--ink); border-radius:16px; background:#fff;
-  padding:18px 18px 16px; display:flex; flex-direction:column; align-items:center; gap:12px;
-  color:inherit; text-decoration:none; cursor:pointer; transition:transform .2s,box-shadow .2s;
-}
-.qr:hover{ transform:translateY(-4px); box-shadow:0 8px 0 var(--teal) }
-.qr .store{ font:500 11px/1 var(--mono); letter-spacing:.16em; text-transform:uppercase; color:var(--ink) }
-.qr-slot{
-  width:100%; aspect-ratio:1/1; background:#fff; border:1.5px dashed var(--ink-16); border-radius:8px;
-  display:grid; place-items:center; overflow:hidden;
-}
-.qr-slot img{ width:100%; height:100%; object-fit:contain; display:block }
-.qr .qr-sub{ font-size:12.5px; color:var(--ink-48) }
-.qr .qr-download{ font:600 10px/1 var(--mono); letter-spacing:.1em; text-transform:uppercase; color:var(--teal) }
-.qr-note{ margin:20px 0 0; font:400 12.5px/1.6 var(--mono); letter-spacing:.06em; color:var(--ink-48) }
-.chip-a{ animation:float 5.6s ease-in-out infinite }
-.chip-b{ animation:float 5.6s ease-in-out 1.1s infinite }
-.chip-c{ animation:float 5.6s ease-in-out 2.2s infinite }
-@keyframes float{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+/* ═══════════ FOOTER ═══════════ */
+.foot{background:var(--navy);color:#fff;padding:clamp(56px,6vw,84px) 0 32px}
+.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:clamp(26px,4vw,56px)}
+.foot .logo b{color:#fff}
+.foot .logo b s{color:var(--teal-3)}
+.foot .logo small{color:var(--teal-3)}
+.ftag{font:italic 400 20px/1.35 var(--dsp);color:var(--teal-3);margin:18px 0 0}
+.fdesc{font-size:14.5px;color:rgba(255,255,255,.62);margin:14px 0 0;max-width:34ch}
+.foot h4{font:400 10.5px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--teal-3);
+  margin-bottom:20px}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot li{margin-bottom:12px}
+.foot a{font-size:14.5px;color:rgba(255,255,255,.8);text-decoration:none;transition:color .16s}
+.foot a:hover{color:var(--teal-3)}
+.flegal{margin-top:clamp(40px,5vw,64px);padding-top:26px;border-top:1px solid rgba(255,255,255,.16);
+  display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between;
+  font:400 12px/1.7 var(--mono);color:rgba(255,255,255,.5)}
 
-/* ═══════════════ ORBIT / TOGETHER ═══════════════ */
-.tg{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(34px,5vw,76px); align-items:center }
-.quote{
-  font:italic 400 clamp(26px,2.9vw,40px)/1.2 var(--dsp); letter-spacing:-.015em; margin:36px 0 0;
-  border-left:4px solid var(--teal); padding-left:clamp(20px,2.4vw,32px);
-}
-.quote cite{ display:block; font:500 11.5px/1 var(--mono); letter-spacing:.18em; text-transform:uppercase; color:var(--teal); font-style:normal; margin-top:20px }
-.orbit-r{ animation:spin 90s linear infinite; transform-origin:300px 300px }
-.orbit-r2{ animation:spin 70s linear infinite reverse; transform-origin:300px 300px }
-@keyframes spin{ to{ transform:rotate(360deg) } }
+.top{position:fixed;right:22px;bottom:22px;z-index:140;width:50px;height:50px;border-radius:50%;
+  background:var(--navy);color:#fff;border:2px solid #fff;display:grid;place-items:center;cursor:pointer;
+  opacity:0;transform:translateY(14px);pointer-events:none;transition:.3s}
+.top.show{opacity:1;transform:none;pointer-events:auto}
+.top:hover{background:var(--teal)}
 
-/* ═══════════════ VISION ═══════════════ */
-.vis{ background:var(--ink); color:#fff; overflow:hidden; text-align:center }
-.vis .h2{ color:#fff; max-width:18ch; margin-inline:auto }
-.vis .h2 em{ color:var(--teal-3) }
-.vis p{ color:rgba(255,255,255,.7); max-width:64ch; margin:26px auto 0 }
-.vis .tag{ justify-content:center }
-.vis-art{ margin:56px auto 0 }
-.draw{ stroke-dasharray:1400; stroke-dashoffset:1400; transition:stroke-dashoffset 2.4s ease .2s }
-.in .draw{ stroke-dashoffset:0 }
-
-/* ═══════════════ JOIN ═══════════════ */
-.ig{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,1.8vw,24px); margin-top:54px }
-.ic{
-  border:2px solid var(--ink); border-radius:16px; background:#fff; overflow:hidden;
-  display:flex; flex-direction:column; transition:transform .22s, box-shadow .22s;
-}
-.ic:hover{ transform:translateY(-5px); box-shadow:0 10px 0 var(--ink) }
-.ic figure{ margin:0; padding:26px 26px 0 }
-.ic .txt{ padding:14px clamp(20px,2vw,28px) 30px }
-.ic .lab{ font:500 10.5px/1 var(--mono); letter-spacing:.16em; text-transform:uppercase; color:var(--teal); display:block; margin-bottom:12px }
-.ic h3{ margin-bottom:10px }
-.ic p{ margin:0; font-size:15px; color:var(--ink-72) }
-.ic-cta{ display:flex; flex-wrap:wrap; gap:14px; margin-top:46px }
-
-/* ═══════════════ FINAL ═══════════════ */
-.fin{ background:var(--teal); color:#fff; text-align:center; position:relative; overflow:hidden }
-.fin .h2{ color:#fff; font-size:clamp(38px,5.4vw,76px); line-height:1.02; max-width:16ch; margin-inline:auto }
-.fin .h2 em{ color:var(--ink) }
-.fin p{ color:rgba(255,255,255,.86); max-width:58ch; margin:26px auto 0 }
-.fin .bcz{ font:italic 400 clamp(23px,2.5vw,34px)/1.2 var(--dsp); letter-spacing:-.015em; color:#fff; margin-top:32px }
-.fin-cta{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:38px }
-.blob{ position:absolute; pointer-events:none; opacity:.12 }
-
-/* ═══════════════ FOOTER ═══════════════ */
-.foot{ background:var(--ink); color:#fff; padding:clamp(58px,6vw,86px) 0 34px }
-.fgrid{ display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:clamp(28px,4vw,60px) }
-.foot .logo b{ color:#fff; font-size:20px }
-.foot .logo b s{ color:var(--teal-3) }
-.foot .logo small{ color:var(--teal-3) }
-.foot h4{ font:500 11px/1 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--teal-3); margin-bottom:20px }
-.foot ul{ list-style:none; margin:0; padding:0 }
-.foot li{ margin-bottom:12px }
-.foot a{ font-size:14.5px; color:rgba(255,255,255,.8); text-decoration:none; transition:color .16s }
-.foot a:hover{ color:var(--teal-3) }
-.ftag{ font:italic 400 21px/1.3 var(--dsp); letter-spacing:-.01em; color:var(--teal-3); margin:16px 0 0 }
-.fdesc{ font-size:14.5px; color:rgba(255,255,255,.62); margin:14px 0 0; max-width:34ch }
-.flegal{
-  margin-top:clamp(42px,5vw,66px); padding-top:26px; border-top:1px solid rgba(255,255,255,.16);
-  display:flex; flex-wrap:wrap; gap:10px 28px; justify-content:space-between;
-  font:400 12.5px/1.6 var(--mono); color:rgba(255,255,255,.5);
-}
-
-/* ═══════════════ TOP BUTTON ═══════════════ */
-.top{
-  position:fixed; right:22px; bottom:22px; z-index:140; width:50px; height:50px; border-radius:50%;
-  background:var(--ink); color:#fff; border:2px solid #fff; display:grid; place-items:center;
-  cursor:pointer; opacity:0; transform:translateY(14px); pointer-events:none;
-  transition:opacity .3s, transform .3s, background .2s;
-}
-.top.show{ opacity:1; transform:none; pointer-events:auto }
-.top:hover{ background:var(--teal) }
-
-/* ═══════════════ MOTION ═══════════════ */
-.rv{ opacity:0; transform:translateY(26px); transition:opacity .75s cubic-bezier(.2,.7,.3,1), transform .75s cubic-bezier(.2,.7,.3,1) }
-.rv.in{ opacity:1; transform:none }
-.anim{ opacity:0; transform:translateY(22px); animation:rise .85s cubic-bezier(.2,.7,.3,1) forwards }
-@keyframes rise{ to{ opacity:1; transform:none } }
+/* ═══════════ MOTION ═══════════ */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.2,.7,.3,1),transform .75s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+.anim{opacity:0;transform:translateY(22px);animation:rise .85s cubic-bezier(.2,.7,.3,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
 .d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.31s}.d4{animation-delay:.44s}.d5{animation-delay:.58s}
-.al{ opacity:0; animation:rise .95s cubic-bezier(.2,.7,.3,1) forwards }
-.l1d{animation-delay:.18s}.l2d{animation-delay:.36s}.l3d{animation-delay:.54s}.l4d{animation-delay:.72s}
-#sunring{ transform-origin:940px 168px; animation:spin 80s linear infinite }
-.smoke{ animation:puff 7s ease-in-out infinite }
-.smoke2{ animation:puff 7s ease-in-out 1.1s infinite }
-@keyframes puff{ 0%,100%{ transform:translate(0,0); opacity:.7 } 50%{ transform:translate(7px,-13px); opacity:.32 } }
-#truck{ animation:drive 22s linear infinite }
-@keyframes drive{ from{ transform:translateX(-260px) } to{ transform:translateX(1300px) } }
-#birds{ animation:fly 26s linear infinite }
-@keyframes fly{ from{ transform:translate(-140px,18px) } to{ transform:translate(1320px,-34px) } }
-.bob{ animation:bob 4.5s ease-in-out infinite }
-@keyframes bob{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-7px) } }
+.al{opacity:0;animation:rise .95s cubic-bezier(.2,.7,.3,1) forwards}
+.a1{animation-delay:.2s}.a2{animation-delay:.4s}.a3{animation-delay:.6s}.a4{animation-delay:.8s}
+.spin{animation:spin 90s linear infinite;transform-origin:center}
+@keyframes spin{to{transform:rotate(360deg)}}
+.bob{animation:bob 5s ease-in-out infinite}
+.bob2{animation:bob 5s ease-in-out 1.4s infinite}
+.bob3{animation:bob 5s ease-in-out 2.6s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:4px}
 
-:focus-visible{ outline:3px solid var(--teal); outline-offset:3px; border-radius:4px }
 
-/* ═══════════════ RESPONSIVE ═══════════════ */
-@media (max-width:1040px){
-  :root{ --head:124px }
-  .hero-grid,.ab,.wk,.tg,.app-grid{ grid-template-columns:1fr }
-  .ab-l{ position:static }
-  .hero-art{ margin-right:0 }
-  .app-art{ max-width:360px; margin-inline:auto; order:-1 }
-  .qr-row{ max-width:none }
-  .flow,.fg,.ig{ grid-template-columns:repeat(2,1fr) }
-  .head-cta{ display:none }
-  .fgrid{ grid-template-columns:1fr 1fr }
+/* ══ hero panorama ══ */
+.plx{will-change:transform}
+#sunring{transform-origin:940px 168px;animation:spin 80s linear infinite}
+.smoke{animation:puff 7s ease-in-out infinite}
+.smoke2{animation:puff 7s ease-in-out 1.1s infinite}
+@keyframes puff{0%,100%{transform:translate(0,0);opacity:.7}50%{transform:translate(7px,-13px);opacity:.32}}
+#truck{animation:drive 22s linear infinite}
+@keyframes drive{from{transform:translateX(-260px)}to{transform:translateX(1300px)}}
+#birds{animation:fly 26s linear infinite}
+@keyframes fly{from{transform:translate(-140px,18px)}to{transform:translate(1320px,-34px)}}
+.al.a1{animation-delay:.2s}.al.a2{animation-delay:.4s}.al.a3{animation-delay:.6s}
+.al.a4{animation-delay:.8s}.al.a5{animation-delay:1s}.al.a6{animation-delay:1.2s}
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media(max-width:1040px){
+  :root{--head:176px}
+  .hg,.ab,.obj,.pgrid,.app-grid{grid-template-columns:1fr}
+  .hg>div:last-child{margin-right:0}
+  .ab-l,.obj-l{position:static}
+  .vg,.jg{grid-template-columns:repeat(2,1fr)}
+  .hcta{display:none}
+  .mobile-actions{display:flex;padding-bottom:9px}
+  .mobile-actions .btn{width:100%;justify-content:center;padding:12px 22px;font-size:13px}
+  .pmark{display:none}
+  .fg{grid-template-columns:1fr 1fr}
 }
-@media (max-width:760px){
-  body{ font-size:16px }
-  :root{ --head:170px }
-  .flow,.fg,.ig,.fgrid{ grid-template-columns:1fr }
-  .hero .l1{ font-size:clamp(48px,15vw,76px) }
-  .btn{ padding:15px 23px }
-  .rail{ padding:8px 0 }
-  .head-top{ height:68px }
-  .head-top > .invest-link,.head-top > .ig-link,.head-top > .head-cta{ display:none }
-  .mobile-actions{
-    display:grid; grid-template-columns:1.18fr .82fr 1fr; gap:7px; padding-bottom:9px;
-  }
+@media(max-width:660px){
+  body{font-size:16px}
+  .vg,.jg,.fg{grid-template-columns:1fr}
+  .qr-row{grid-template-columns:1fr;max-width:290px}
+  .hero .l1{font-size:clamp(44px,13vw,72px)}
+  .ap ul{padding-left:0}
 }
-@media (max-width:640px){
-  .qr-row{ grid-template-columns:1fr; max-width:300px }
-}
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{ animation:none !important; transition-duration:.01ms !important }
-  html{ scroll-behavior:auto }
-  .rv,.anim,.al{ opacity:1; transform:none }
-  .hero .l2 em::after{ transform:scaleX(1) }
-  .draw{ stroke-dashoffset:0 }
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .rv,.anim,.al{opacity:1;transform:none}
+  .plx{transform:none!important}
+  .hero .l2 em::after{transform:scaleX(1)}
 }
 </style>
 </head>
@@ -397,64 +323,70 @@ h1,h2,h3,h4{ margin:0 }
 
 <div class="prog" id="prog"></div>
 
-<!-- ══════════════ HEADER ══════════════ -->
+<!-- ═══════ shared logo mark ═══════ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <g id="jfmark">
+    <g transform="rotate(0)"><g transform="translate(40,-40)"><path d="M-83.44,83.44 L0,0 A24,24 0 1 1 -12.00,20.78" fill="none" stroke="#093C54" stroke-width="22" stroke-linecap="round"/></g></g>
+    <g transform="rotate(90)"><g transform="translate(40,-40)"><path d="M-83.44,83.44 L0,0 A24,24 0 1 1 -12.00,20.78" fill="none" stroke="#0DA1A7" stroke-width="22" stroke-linecap="round"/></g></g>
+    <g transform="rotate(180)"><g transform="translate(40,-40)"><path d="M-83.44,83.44 L0,0 A24,24 0 1 1 -12.00,20.78" fill="none" stroke="#093C54" stroke-width="22" stroke-linecap="round"/></g></g>
+    <g transform="rotate(270)"><g transform="translate(40,-40)"><path d="M-83.44,83.44 L0,0 A24,24 0 1 1 -12.00,20.78" fill="none" stroke="#0DA1A7" stroke-width="22" stroke-linecap="round"/></g></g>
+    <circle cx="0" cy="-100" r="11" fill="#0DA1A7"/><circle cx="100" cy="0" r="11" fill="#093C54"/>
+    <circle cx="0" cy="100" r="11" fill="#0DA1A7"/><circle cx="-100" cy="0" r="11" fill="#093C54"/>
+  </g>
+</defs></svg>
+
+<!-- ═══════ HEADER ═══════ -->
 <header class="head">
-  <div class="wrap head-top">
+  <div class="wrap htop">
     <a class="logo" href="#home">
-      <span class="logo-mark"><img src="/jalna-first-logo.png" width="42" height="42" alt="Jalna First Citizen Forum logo"></span>
+      <svg viewBox="-124 -124 248 248" aria-hidden="true"><use href="#jfmark"/></svg>
       <span><b>Jalna <s>First</s></b><small>Citizen Forum</small></span>
     </a>
-    <a class="invest-link" href="/investment">Investment Summit ↗</a>
-    <a class="ig-link" href="https://www.instagram.com/jalnafirstcf/" target="_blank" rel="noopener noreferrer">Instagram · @jalnafirstcf</a>
-    <a class="btn b-teal head-cta" href="#join">Get involved</a>
+    <a class="btn b-teal hcta" href="#join">Join the forum</a>
   </div>
-  <div class="wrap mobile-actions" aria-label="Quick links">
-    <a class="mobile-action" href="/investment">Investment Summit ↗</a>
-    <a class="mobile-action instagram-action" href="https://www.instagram.com/jalnafirstcf/" target="_blank" rel="noopener noreferrer">Instagram</a>
-    <a class="mobile-action primary" href="#join">Get involved</a>
+  <div class="wrap mobile-actions" aria-label="Quick action">
+    <a class="btn b-teal" href="#join">Join the forum</a>
   </div>
-  <div class="rail-wrap">
+  <div class="railw">
     <nav class="wrap rail" id="rail" aria-label="Sections">
-      <span class="rail-ind" id="ind" aria-hidden="true"></span>
-      <a href="#home"  class="on"><em>01</em>Home</a>
-      <a href="#about"><em>02</em>Who we are</a>
-      <a href="#doing"><em>03</em>What we do</a>
-      <a href="#focus"><em>04</em>Focus areas</a>
-      <a href="#work"><em>05</em>Our work</a>
+      <span class="ind" id="ind" aria-hidden="true"></span>
+      <a href="#home" class="on"><em>01</em>Home</a>
+      <a href="#purpose"><em>02</em>Our purpose</a>
+      <a href="#about"><em>03</em>About JFCF</a>
+      <a href="#verticals"><em>04</em>Our verticals</a>
+      <a href="#objectives"><em>05</em>Objectives</a>
       <a href="#app"><em>06</em>The app</a>
-      <a href="#together"><em>07</em>Together</a>
-      <a href="#vision"><em>08</em>Vision</a>
-      <a href="#join"><em>09</em>Get involved</a>
+      <a href="#join"><em>07</em>Get involved</a>
     </nav>
   </div>
 </header>
 
-<main>
-<!-- ══════════════ 01 · HERO ══════════════ -->
-<section class="sec hero" id="home">
-  <div class="wrap hero-grid">
+<main id="home">
+<!-- ═══════ 01 · HERO ═══════ -->
+<section class="sec hero">
+  <div class="wrap hg">
     <div>
-      <p class="tag anim d1"><i>◆</i> Jalna First Citizen Forum</p>
+      <p class="tag anim d1">Jalna First Citizen Forum</p>
       <h1>
         <span class="l1 anim d2">Jalna First.</span>
         <span class="l2 anim d3">Change begins with <em>action.</em></span>
       </h1>
-      <p class="lede anim d4">We bring citizens, entrepreneurs, institutions, experts and public authorities to the same table — so shared concerns can become collective action for a cleaner, greener, healthier and more prosperous Jalna.</p>
-      <div class="hero-cta anim d4">
-        <a class="btn b-teal" href="#join">Join the movement
+      <p class="lede anim d4">A collective vision for a progressive city — uniting citizens, industry and government behind a cleaner, healthier Jalna that all of us are proud to call home.</p>
+      <div class="hcta2 anim d4">
+        <a class="btn b-teal" href="#join">Join the forum
           <svg width="15" height="12" viewBox="0 0 15 12" fill="none" aria-hidden="true"><path d="M1 6h12M9 1.5 13.5 6 9 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="btn b-line" href="#focus">Explore our work</a>
+        <a class="btn b-line" href="#objectives">See our objectives</a>
       </div>
-      <p class="hero-mr marathi anim d5">आपलं शहर. आपली जबाबदारी. आपलं भविष्य.<br><b>कारण पहिलं जालना!</b></p>
+      <p class="hmr marathi anim d5">आपलं शहर. आपली जबाबदारी. आपलं भविष्य.<br><b>कारण पहिलं जालना!</b></p>
     </div>
 
-    <!-- ─── SIGNATURE: parallax panorama of Jalna ─── -->
-    <div class="hero-art">
+    <!-- ─── SIGNATURE: the city rests on the interlock ─── -->
+    <div>
       <svg viewBox="0 0 1200 640" role="img" aria-label="Illustration of Jalna: orchards, temple and mosque, water tower, apartment blocks, steel mill, gantry crane, logistics containers, a truck on the highway, and citizens in the foreground.">
         <defs>
           <clipPath id="hclip"><rect width="1200" height="640"/></clipPath>
           <pattern id="fld" width="14" height="14" patternUnits="userSpaceOnUse">
-            <circle cx="3.5" cy="3.5" r="1.8" fill="#0C4A66" opacity=".3"/>
+            <circle cx="3.5" cy="3.5" r="1.8" fill="#0DA1A7" opacity=".34"/>
           </pattern>
           <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
             <line x1="0" y1="0" x2="0" y2="8" stroke="#093C54" stroke-width="1.6" opacity=".28"/>
@@ -463,19 +395,19 @@ h1,h2,h3,h4{ margin:0 }
         <g clip-path="url(#hclip)" style="mix-blend-mode:multiply">
 
           <!-- ── layer 1: sky ── -->
-          <g class="plx al l1d" data-d="0.05">
+          <g class="plx al a1" data-d="0.05">
             <circle cx="940" cy="168" r="104" fill="#0DA1A7" opacity=".82"/>
-            <g id="sunring" fill="none" stroke="#0DA1A7" stroke-width="3" opacity=".5">
+            <g id="sunring" fill="none" stroke="#0DA1A7" stroke-width="3.8" opacity=".45">
               <circle cx="940" cy="168" r="128" stroke-dasharray="18 14"/>
             </g>
-            <path d="M0 372c140-72 268-38 388-14 132 26 226-28 356-20 138 9 314-24 456-4v78H0Z" fill="#0C4A66" opacity=".14"/>
-            <g id="birds" fill="none" stroke="#093C54" stroke-width="2.6" stroke-linecap="round" opacity=".5">
+            <path d="M0 372c140-72 268-38 388-14 132 26 226-28 356-20 138 9 314-24 456-4v78H0Z" fill="#99D7DA" opacity=".55"/>
+            <g id="birds" fill="none" stroke="#093C54" stroke-width="3.4" stroke-linecap="round" opacity=".5">
               <path d="M0 90c7-8 14-8 20 0M26 76c6-7 12-7 17 0M14 112c5-6 10-6 14 0"/>
             </g>
           </g>
 
           <!-- ── layer 2: skyline ── -->
-          <g class="plx al l2d" data-d="0.13" stroke="#093C54" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">
+          <g class="plx al a2" data-d="0.13" stroke="#093C54" stroke-width="4.2" stroke-linejoin="round" stroke-linecap="round">
             <!-- orchard -->
             <g fill="none"><path d="M46 440v-34M112 440v-26"/></g>
             <circle cx="46" cy="392" r="30" fill="#4FC6CB" fill-opacity=".85"/>
@@ -487,16 +419,16 @@ h1,h2,h3,h4{ margin:0 }
             <path d="M150 440v-52l28-58 28 58v52Z" fill="#FFFFFF"/>
             <path d="M178 330v-18" fill="none"/>
             <circle cx="178" cy="307" r="6" fill="#0DA1A7"/>
-            <path d="M164 402h28" fill="none" stroke-width="2.6"/>
+            <path d="M164 402h28" fill="none" stroke-width="3.4"/>
 
             <!-- low block -->
             <rect x="214" y="368" width="70" height="72" fill="#0C4A66" fill-opacity=".85"/>
-            <path d="M228 384h14v14h-14zM256 384h14v14h-14zM228 412h14v14h-14zM256 412h14v14h-14z" fill="#FFFFFF" stroke-width="2.2"/>
+            <path d="M228 384h14v14h-14zM256 384h14v14h-14zM228 412h14v14h-14zM256 412h14v14h-14z" fill="#FFFFFF" stroke-width="2.9"/>
 
             <!-- mosque dome + minaret -->
-            <path d="M296 440v-44a28 28 0 0 1 56 0v44Z" fill="#FFFFFF"/>
+            <path d="M296 440v-44a28 28 0 0 1 56 0v44Z" fill="#E4F2F4"/>
             <path d="M324 366v-16" fill="none"/>
-            <path d="M310 412h28" fill="none" stroke-width="2.6"/>
+            <path d="M310 412h28" fill="none" stroke-width="3.4"/>
             <rect x="362" y="352" width="17" height="88" fill="#0DA1A7" fill-opacity=".9"/>
             <path d="M370.5 352v-14" fill="none"/>
 
@@ -505,8 +437,8 @@ h1,h2,h3,h4{ margin:0 }
             <path d="M426 342l7 98M464 342l-7 98M431 392h28" fill="none"/>
 
             <!-- apartments -->
-            <rect x="500" y="322" width="84" height="118" fill="#FFFFFF"/>
-            <path d="M514 340h16v18h-16zM552 340h16v18h-16zM514 374h16v18h-16zM552 374h16v18h-16zM514 408h16v18h-16zM552 408h16v18h-16z" fill="#0C4A66" fill-opacity=".5" stroke-width="2.2"/>
+            <rect x="500" y="322" width="84" height="118" fill="#D6EFF0"/>
+            <path d="M514 340h16v18h-16zM552 340h16v18h-16zM514 374h16v18h-16zM552 374h16v18h-16zM514 408h16v18h-16zM552 408h16v18h-16z" fill="#0C4A66" fill-opacity=".5" stroke-width="2.9"/>
 
             <!-- steel mill -->
             <path d="M604 440v-62l38 22v-22l38 22v-26h52v66Z" fill="#0C4A66" fill-opacity=".88"/>
@@ -526,7 +458,7 @@ h1,h2,h3,h4{ margin:0 }
             <rect x="900" y="412" width="92" height="28" fill="#FFFFFF"/>
             <rect x="998" y="412" width="80" height="28" fill="#0C4A66" fill-opacity=".85"/>
             <rect x="1006" y="384" width="72" height="28" fill="#FFFFFF"/>
-            <g stroke-width="2.2">
+            <g stroke-width="2.9">
               <path d="M912 390v20M926 390v20M940 390v20M954 390v20M968 390v20"/>
               <path d="M912 416v20M926 416v20M940 416v20M954 416v20M968 416v20"/>
               <path d="M1018 388v20M1032 388v20M1046 388v20"/>
@@ -538,65 +470,65 @@ h1,h2,h3,h4{ margin:0 }
           </g>
 
           <!-- ── layer 2b: smoke ── -->
-          <g class="al l2d" fill="none" stroke="#093C54" stroke-width="3" stroke-linecap="round" opacity=".55">
+          <g class="al a2" fill="none" stroke="#093C54" stroke-width="3.8" stroke-linecap="round" opacity=".55">
             <path class="smoke" d="M709 284c-16-14 14-25 0-39-12-12 7-21 7-21"/>
             <path class="smoke2" d="M737 314c-14-12 12-21 0-33"/>
           </g>
 
           <!-- ── layer 3: road + foreground ── -->
-          <g class="plx al l3d" data-d="0.24">
-            <rect y="440" width="1200" height="76" fill="#093C54" opacity=".9"/>
-            <path d="M0 478h1200" stroke="#FFFFFF" stroke-width="5" stroke-dasharray="34 30" opacity=".8"/>
-            <rect y="516" width="1200" height="124" fill="#0C4A66" opacity=".15"/>
+          <g class="plx al a3" data-d="0.24">
+            <rect y="440" width="1200" height="76" fill="#093C54" opacity=".92"/>
+            <path d="M0 478h1200" stroke="#FFFFFF" stroke-width="6" stroke-dasharray="34 30" opacity=".8"/>
+            <rect y="516" width="1200" height="124" fill="#0DA1A7" opacity=".13"/>
             <rect y="516" width="1200" height="124" fill="url(#fld)" opacity=".55"/>
-            <path d="M0 516h1200" stroke="#093C54" stroke-width="3" opacity=".5"/>
+            <path d="M0 516h1200" stroke="#093C54" stroke-width="3.8" opacity=".5"/>
 
             <!-- truck -->
-            <g id="truck" stroke="#093C54" stroke-width="3.2" stroke-linejoin="round">
+            <g id="truck" stroke="#093C54" stroke-width="4.2" stroke-linejoin="round">
               <rect x="0" y="418" width="118" height="56" fill="#FFFFFF"/>
               <path d="M118 440h40l22 22v12h-62Z" fill="#0C4A66" fill-opacity=".9"/>
-              <path d="M128 444h22l12 14h-34Z" fill="#FFFFFF" stroke-width="2.4"/>
-              <path d="M14 428v36M40 428v36M66 428v36M92 428v36" stroke-width="2.2"/>
+              <path d="M128 444h22l12 14h-34Z" fill="#FFFFFF" stroke-width="3.2"/>
+              <path d="M14 428v36M40 428v36M66 428v36M92 428v36" stroke-width="2.9"/>
               <circle cx="34" cy="478" r="13" fill="#093C54"/><circle cx="34" cy="478" r="5" fill="#FFFFFF"/>
               <circle cx="150" cy="478" r="13" fill="#093C54"/><circle cx="150" cy="478" r="5" fill="#FFFFFF"/>
             </g>
 
             <!-- citizens -->
-            <g fill="#093C54" stroke="#093C54" stroke-width="3.2" stroke-linecap="round">
+            <g fill="#093C54" stroke="#093C54" stroke-width="4.2" stroke-linecap="round">
               <g transform="translate(170 516)">
                 <circle cx="0" cy="-92" r="18" stroke="none"/>
                 <path d="M-17-68h34l8 68h-50Z" stroke="none"/>
-                <path d="M-19-64-37-30M19-64 37-92" fill="none" stroke-width="9"/>
+                <path d="M-19-64-37-30M19-64 37-92" fill="none" stroke-width="10.5"/>
               </g>
-              <g transform="translate(300 516)" class="bob">
+              <g transform="translate(300 516)"><g class="bob">
                 <circle cx="0" cy="-100" r="19" stroke="none"/>
                 <path d="M-18-76h36l9 76h-54Z" fill="#0C4A66" stroke="none"/>
-                <path d="M21-74 47-92" fill="none" stroke-width="9"/>
+                <path d="M21-74 47-92" fill="none" stroke-width="10.5"/>
                 <rect x="34" y="-166" width="100" height="66" rx="4" fill="#0DA1A7"/>
                 <path d="M50-146h68M50-132h68M50-118h44" stroke-width="4.5" fill="none" stroke="#093C54"/>
-                <path d="M84-100v18" stroke-width="5" fill="none"/>
+                <path d="M84-100v18" stroke-width="6" fill="none"/>
               </g>
-              <g transform="translate(470 516)">
+              </g><g transform="translate(470 516)">
                 <circle cx="0" cy="-86" r="17" stroke="none"/>
                 <path d="M-16-64h32l7 64h-46Z" fill="#4FC6CB" stroke="none"/>
-                <path d="M-18-60-38-32M18-60 38-32" fill="none" stroke-width="8.5"/>
+                <path d="M-18-60-38-32M18-60 38-32" fill="none" stroke-width="10"/>
               </g>
               <g transform="translate(830 516)">
                 <circle cx="0" cy="-96" r="18" stroke="none"/>
                 <path d="M-17-72h34l8 72h-50Z" fill="#0DA1A7" stroke="none"/>
-                <path d="M-19-68-41-98M19-68 41-36" fill="none" stroke-width="9"/>
+                <path d="M-19-68-41-98M19-68 41-36" fill="none" stroke-width="10.5"/>
               </g>
               <g transform="translate(960 516)">
                 <circle cx="0" cy="-88" r="17" stroke="none"/>
                 <path d="M-16-66h32l7 66h-46Z" stroke="none"/>
-                <path d="M-18-62-38-30M18-62 38-90" fill="none" stroke-width="8.5"/>
+                <path d="M-18-62-38-30M18-62 38-90" fill="none" stroke-width="10"/>
               </g>
-              <g transform="translate(1080 516)" class="bob">
+              <g transform="translate(1080 516)"><g class="bob">
                 <circle cx="0" cy="-84" r="16" stroke="none"/>
                 <path d="M-15-62h30l6 62h-42Z" fill="#0C4A66" stroke="none"/>
-                <path d="M-17-58-35-28M17-58 35-28" fill="none" stroke-width="8"/>
+                <path d="M-17-58-35-28M17-58 35-28" fill="none" stroke-width="9.5"/>
               </g>
-            </g>
+            </g></g>
           </g>
         </g>
       </svg>
@@ -604,344 +536,203 @@ h1,h2,h3,h4{ margin:0 }
   </div>
 </section>
 
-<!-- ══════════════ MARQUEE ══════════════ -->
+<!-- ═══════ TICKER ═══════ -->
 <div class="marq" aria-hidden="true">
-  <div class="marq-in">
-    <span>Citizen-powered</span><span>Section 8 nonprofit</span><span>Jalna-focused</span>
-    <span class="mr">कारण पहिलं जालना</span><span>Action-oriented</span><span>Change begins with action</span>
-    <span>Citizen-powered</span><span>Section 8 nonprofit</span><span>Jalna-focused</span>
-    <span class="mr">कारण पहिलं जालना</span><span>Action-oriented</span><span>Change begins with action</span>
+  <div class="marqin">
+    <span>A collective vision for a progressive city</span><span>Section 8 non-profit</span>
+    <span class="mr">कारण पहिलं जालना</span><span>Change begins with action</span><span>Citizen-powered</span>
+    <span>A collective vision for a progressive city</span><span>Section 8 non-profit</span>
+    <span class="mr">कारण पहिलं जालना</span><span>Change begins with action</span><span>Citizen-powered</span>
   </div>
 </div>
 
-<!-- ══════════════ 02 · ABOUT ══════════════ -->
+<!-- ═══════ 02 · PURPOSE ═══════ -->
+<section class="sec purpose" id="purpose">
+  <svg class="pmark" viewBox="-124 -124 248 248" aria-hidden="true"><use href="#jfmark"/></svg>
+  <div class="wrap pgrid">
+    <div class="rv">
+      <p class="tag inv"><i>02</i> Our purpose</p>
+      <blockquote class="pq">
+        <span class="qm">“</span>
+        To unite citizens, industry, and government in building a cleaner, healthier, and progressive Jalna — where <em>world-class infrastructure, innovative enterprises, quality education, vibrant sports, and sustainable living</em> come together to create a thriving city we are all proud to call home.
+        <cite>Jalna First Citizen Forum</cite>
+      </blockquote>
+    </div>
+    <div class="rv">
+      <svg viewBox="0 0 480 480" role="img" aria-label="Diagram: citizens, industry and government converging on five outcomes — infrastructure, enterprise, education, sport and sustainable living.">
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="#0DA1A7" stop-opacity=".30"/>
+            <stop offset="1" stop-color="#0DA1A7" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="240" cy="240" r="215" fill="url(#glow)"/>
+        <circle class="spin" cx="240" cy="240" r="196" fill="none" stroke="#71C8CC" stroke-width="1.6"
+                stroke-dasharray="3 13" opacity=".7"/>
+        <circle cx="240" cy="240" r="152" fill="none" stroke="#71C8CC" stroke-width="1.2" opacity=".35"/>
+
+        <!-- three constituencies -->
+        <g font-family="'JetBrains Mono',monospace" font-size="10.5" letter-spacing="2.2" fill="#C2E7E9">
+          <text x="240" y="52" text-anchor="middle">CITIZENS</text>
+          <text x="432" y="330" text-anchor="end">INDUSTRY</text>
+          <text x="48" y="330">GOVERNMENT</text>
+        </g>
+        <g fill="none" stroke="#4FC6CB" stroke-width="1.6" stroke-dasharray="4 8" opacity=".75">
+          <path d="M240 74v88M406 316 314 268M74 316l92-48"/>
+        </g>
+        <g fill="#0DA1A7">
+          <circle cx="240" cy="72" r="7"/><circle cx="408" cy="318" r="7"/><circle cx="72" cy="318" r="7"/>
+        </g>
+
+        <!-- five outcomes, drawn as a ring of monoline marks -->
+        <g fill="none" stroke="#EFF9F9" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <!-- infrastructure -->
+          <g transform="translate(240,146)">
+            <rect x="-20" y="-14" width="13" height="28" rx="2"/>
+            <rect x="-4" y="-24" width="14" height="38" rx="2" fill="#0DA1A7" stroke="#EFF9F9"/>
+            <rect x="13" y="-6" width="11" height="20" rx="2"/>
+            <path d="M-26 14h50"/>
+          </g>
+          <!-- enterprise -->
+          <g transform="translate(329,211)">
+            <path d="M-19 15v-20l13 7v-7l13 7v-11h11v24Z" fill="#0DA1A7" stroke="#EFF9F9"/>
+            <path d="M-24 15h48"/><path d="M6-11v-9"/>
+          </g>
+          <!-- education -->
+          <g transform="translate(295,316)">
+            <path d="M-20 10c7-5 13-5 20 0v-19c-7-5-13-5-20 0Z"/>
+            <path d="M0 10c7-5 13-5 20 0v-19c-7-5-13-5-20 0Z" fill="#0DA1A7" stroke="#EFF9F9"/>
+            <path d="M0-9v19"/>
+          </g>
+          <!-- sport -->
+          <g transform="translate(185,316)">
+            <circle cx="0" cy="2" r="13" fill="#0DA1A7" stroke="#EFF9F9"/>
+            <path d="M0-24v9M-9-13 -3-5M9-13 3-5"/>
+          </g>
+          <!-- sustainable living -->
+          <g transform="translate(151,211)">
+            <path d="M0 16V0"/>
+            <path d="M0 2c-13 0-18-9-18-19 11 0 18 8 18 19Z" fill="#0DA1A7" stroke="#EFF9F9"/>
+            <path d="M0-2c12-1 17-10 16-19-11 0-17 9-16 19Z"/>
+            <path d="M-20 16h40"/>
+          </g>
+        </g>
+
+        <!-- centre -->
+        <circle cx="240" cy="240" r="52" fill="#052C3E" stroke="#0DA1A7" stroke-width="2"/>
+        <text x="240" y="236" text-anchor="middle" fill="#EFF9F9" style="font:400 25px 'Instrument Serif',serif">Jalna</text>
+        <text x="240" y="256" text-anchor="middle" fill="#0DA1A7" style="font:400 8px 'JetBrains Mono',monospace;letter-spacing:.22em">ONE CITY</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 03 · ABOUT ═══════ -->
 <section class="sec" id="about">
   <div class="wrap ab">
     <div class="ab-l rv">
-      <p class="tag"><i>02</i> Who we are</p>
-      <h2 class="h2" style="margin-top:20px">One city.<br>One <em>shared</em><br>responsibility.</h2>
-      <svg viewBox="0 0 300 150" style="margin-top:36px;max-width:300px" aria-hidden="true">
-        <g fill="none" stroke="#093C54" stroke-width="2.6" stroke-linecap="round">
-          <path d="M10 120h280" opacity=".3"/>
-          <path d="M40 120V70h50v50M90 120V50h50v70M140 120V80h50v40M190 120V60h60v60" fill="#0C4A66" fill-opacity=".18"/>
-          <path d="M55 92h8M105 78h8M158 98h8M212 84h8" stroke="#0DA1A7" stroke-width="5"/>
-          <circle cx="248" cy="34" r="15" fill="#0DA1A7" fill-opacity=".45" stroke="none"/>
-        </g>
-      </svg>
+      <p class="tag"><i>03</i> About</p>
+      <h2 class="h2" style="margin-top:20px">A catalyst.<br>A <em>bridge</em>.</h2>
+      <span class="badge8">Section 8 non-profit</span>
     </div>
     <div class="ab-b rv">
-      <p class="first">Jalna's progress cannot rest on one person, one organisation or one department.</p>
-      <p>Jalna First Citizen Forum is a citizen-led platform for Jalna's development. It brings residents, entrepreneurs, businesses, institutions, experts and public authorities into a constructive civic conversation.</p>
-      <p>We are not a municipal department and do not replace official civic channels. We share verified information, encourage participation and help connect stakeholders around Jalna's development priorities. At the centre of it is collective ownership — everyone who calls Jalna home has a part in shaping it.</p>
-      <div class="chips">
-        <span class="chip"><i style="background:var(--teal)"></i>Citizens</span>
-        <span class="chip"><i style="background:var(--marigold)"></i>Government &amp; administration</span>
-        <span class="chip"><i style="background:var(--leaf)"></i>Businesses &amp; entrepreneurs</span>
-        <span class="chip"><i style="background:var(--teal)"></i>Schools &amp; institutions</span>
-        <span class="chip"><i style="background:var(--marigold)"></i>Experts</span>
-        <span class="chip"><i style="background:var(--leaf)"></i>Community organisations</span>
+      <p class="first">Jalna First Citizen Forum (JFCF) is a Section 8 non-profit organisation formed by citizens, entrepreneurs and thought leaders of Jalna who are deeply committed to the integrated and inclusive development of our city.</p>
+      <p>The Forum aims to act as a catalyst and bridge between citizens and the government across various verticals, including but not limited to:</p>
+      <div class="pills">
+        <span class="pill"><i></i>Urban &amp; Industrial Infrastructure</span>
+        <span class="pill"><i></i>Health &amp; Sanitation</span>
+        <span class="pill"><i></i>Education &amp; Skill Development</span>
+        <span class="pill"><i></i>Sports &amp; Youth Empowerment</span>
+        <span class="pill"><i></i>Civic Engagement &amp; Cleanliness</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════ 03 · WHAT WE DO ══════════════ -->
-<section class="sec band" id="doing">
+<!-- ═══════ 04 · VERTICALS ═══════ -->
+<section class="sec band" id="verticals">
   <div class="wrap">
-    <div class="flow-head rv">
+    <div class="rv vhead">
       <div>
-        <p class="tag"><i>03</i> What we do</p>
-        <h2 class="h2" style="margin-top:20px">From awareness<br>to <em>action</em>.</h2>
+        <p class="tag"><i>04</i> Our verticals</p>
+        <h2 class="h2" style="margin-top:20px">Where the Forum<br><em>works</em>.</h2>
       </div>
-      <p class="lede" style="max-width:36ch">Four things happen in sequence. Each one works because the one before it created the conditions for it.</p>
+      <p class="lede" style="max-width:34ch">The Forum acts as a catalyst and bridge between citizens and the government across these verticals — including, but not limited to, the five below.</p>
     </div>
 
-    <div class="flow">
-      <!-- INFORM -->
-      <article class="stepc rv">
-        <figure>
-          <svg viewBox="0 0 220 150" aria-hidden="true">
-            <g stroke="#093C54" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M52 62h30l38-24v66l-38-24H52a10 10 0 0 1 0-18Z" fill="#0C4A66" fill-opacity=".3"/>
-              <path d="M70 80v26" fill="none"/>
-              <g fill="none" stroke="#0DA1A7" stroke-width="3.4" opacity=".9">
-                <path d="M136 52a30 30 0 0 1 0 42M150 40a48 48 0 0 1 0 66"/>
-              </g>
-              <path d="M28 118h164" opacity=".22"/>
-              <circle cx="42" cy="34" r="5" fill="#0DA1A7" stroke="none"/>
-            </g>
-          </svg>
-        </figure>
-        <div class="txt">
-          <span class="lab">01 · Share</span>
-          <h3 class="h3">Inform</h3>
-          <p>We share verified civic information in a practical form — including public services, official processes, project updates and citizen opportunities.</p>
-        </div>
-      </article>
+    <div class="vg"><article class="vc rv"><span class="no">01</span><figure><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="44.4" fill="#0DA1A7" fill-opacity=".055"/><circle cx="48" cy="48" r="44.4" fill="none" stroke="#093C54" stroke-opacity=".16" stroke-width="1.1"/><g fill="none" stroke="#093C54" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="45" width="14" height="27" rx="2.5"/><g stroke-width="1.4" stroke-opacity=".5"><path d="M30 51h6M30 57h6M30 63h6"/></g><rect x="43" y="31" width="15" height="41" rx="2.5" fill="#0DA1A7" stroke="#093C54"/><g stroke="#fff" stroke-width="1.6" stroke-opacity=".85"><path d="M47.5 38h6M47.5 46h6M47.5 54h6"/></g><rect x="61" y="40" width="13" height="32" rx="2.5"/><g stroke-width="1.4" stroke-opacity=".5"><path d="M65 46h5M65 52h5M65 58h5"/></g><path d="M20 72h56"/><g stroke-width="1.4" stroke-opacity=".38"><path d="M20 78h9M35 78h9M50 78h9M65 78h9"/></g><circle cx="69" cy="26" r="3" fill="#0DA1A7" stroke="none"/></g></svg></figure><h3 class="h3">Urban &amp; Industrial Infrastructure</h3><p>A long-term vision plan for Jalna's holistic growth — with civic amenities, public transport and mobility improved through participatory planning.</p></article><article class="vc rv"><span class="no">02</span><figure><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="44.4" fill="#0DA1A7" fill-opacity=".055"/><circle cx="48" cy="48" r="44.4" fill="none" stroke="#093C54" stroke-opacity=".16" stroke-width="1.1"/><g fill="none" stroke="#093C54" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M48 22c0 0 17 20 17 30a17 17 0 0 1-34 0c0-10 17-30 17-30Z"/><path d="M41 53h14M48 46v14" stroke="#0DA1A7" stroke-width="3.2"/><path d="M22 76h52" stroke-opacity=".55"/><path d="M28 68c-3-3-3-6 0-9 3 3 3 6 0 9Z" stroke-width="1.6" stroke-opacity=".55"/><circle cx="70" cy="30" r="3" fill="#0DA1A7" stroke="none"/></g></svg></figure><h3 class="h3">Health &amp; Sanitation</h3><p>Sustainable urban development focused on environment, health and sanitation, and workable solutions for traffic, waste and water supply.</p></article><article class="vc rv"><span class="no">03</span><figure><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="44.4" fill="#0DA1A7" fill-opacity=".055"/><circle cx="48" cy="48" r="44.4" fill="none" stroke="#093C54" stroke-opacity=".16" stroke-width="1.1"/><g fill="none" stroke="#093C54" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M23 62c8-6 16-6 24 0V38c-8-6-16-6-24 0Z"/><path d="M49 62c8-6 16-6 24 0V38c-8-6-16-6-24 0Z" fill="#0DA1A7" stroke="#093C54"/><path d="M48 38v24"/><g stroke-width="1.4" stroke-opacity=".45"><path d="M29 46h12M29 52h12"/></g><g stroke="#fff" stroke-width="1.6" stroke-opacity=".85"><path d="M55 46h12M55 52h12"/></g><path d="M48 18 66 25 48 32 30 25Z" stroke-width="1.9"/><path d="M66 25v7"/><circle cx="66" cy="34" r="2.6" fill="#0DA1A7" stroke="none"/></g></svg></figure><h3 class="h3">Education &amp; Skill Development</h3><p>Positioning Jalna as a hub for industry, education and innovation — to attract investment and open real opportunities for its youth.</p></article><article class="vc rv"><span class="no">04</span><figure><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="44.4" fill="#0DA1A7" fill-opacity=".055"/><circle cx="48" cy="48" r="44.4" fill="none" stroke="#093C54" stroke-opacity=".16" stroke-width="1.1"/><g fill="none" stroke="#093C54" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M39 20 44 45M57 20 52 45" stroke-width="2.4"/><path d="M34 19h11M51 19h11" stroke-width="2.4"/><path d="M27 46c-4 9-2 18 5 24" stroke-width="1.6" stroke-opacity=".45"/><path d="M69 46c4 9 2 18-5 24" stroke-width="1.6" stroke-opacity=".45"/><g stroke-width="1.5" stroke-opacity=".45"><path d="M26 52c-4-1-6-4-6-7 4 0 7 2 8 5M27 61c-4 0-7-3-8-6 4-1 7 1 9 4M31 69c-4 1-8-1-9-4 3-2 7-1 9 1"/><path d="M70 52c4-1 6-4 6-7-4 0-7 2-8 5M69 61c4 0 7-3 8-6-4-1-7 1-9 4M65 69c4 1 8-1 9-4-3-2-7-1-9 1"/></g><circle cx="48" cy="59" r="15.5" fill="#0DA1A7" stroke="#093C54" stroke-width="2.1"/><path d="M48 51.5 50.6 57l6 .8-4.3 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.3-4.2 6-.8Z" fill="#fff" stroke="#fff" stroke-width="1.2"/><circle cx="24" cy="27" r="3" fill="#0DA1A7" stroke="none"/></g></svg></figure><h3 class="h3">Sports &amp; Youth Empowerment</h3><p>Supporting and recognising local sportspersons, social workers and the initiatives contributing to Jalna's progress.</p></article><article class="vc rv"><span class="no">05</span><figure><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="44.4" fill="#0DA1A7" fill-opacity=".055"/><circle cx="48" cy="48" r="44.4" fill="none" stroke="#093C54" stroke-opacity=".16" stroke-width="1.1"/><g fill="none" stroke="#093C54" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="38" cy="42" r="15"/><circle cx="58" cy="42" r="15"/><circle cx="48" cy="60" r="15"/><circle cx="48" cy="48" r="6" fill="#0DA1A7" stroke="none"/><g fill="#093C54" stroke="none"><circle cx="26" cy="30" r="2.6"/><circle cx="70" cy="30" r="2.6"/><circle cx="48" cy="80" r="2.6"/></g></g></svg></figure><h3 class="h3">Civic Engagement &amp; Cleanliness</h3><p>A platform for citizens, professionals and youth to shape decision-making, and awareness of civic responsibility and good governance.</p></article><article class="vc vc-cta rv"><h3 class="h3">Including, but not limited to.</h3><p>These are the verticals the Forum was formed around — not the limit of what it will take on. Bring us a problem worth solving in Jalna.</p><a class="btn b-white" href="#join">Talk to the forum<svg width="15" height="12" viewBox="0 0 15 12" fill="none" aria-hidden="true"><path d="M1 6h12M9 1.5 13.5 6 9 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article></div>
+  </div>
+</section>
 
-      <!-- CONNECT -->
-      <article class="stepc rv">
-        <figure>
-          <svg viewBox="0 0 220 150" aria-hidden="true">
-            <g stroke="#093C54" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none">
-              <path d="M24 96V64M196 96V64"/>
-              <path d="M24 70q86-44 172 0" stroke="#0DA1A7" stroke-width="3.4"/>
-              <path d="M24 84h172" stroke-width="3.4"/>
-              <path d="M62 78v-9M100 74v-13M138 78v-9"/>
-              <rect x="10" y="96" width="28" height="26" fill="#0C4A66" fill-opacity=".3"/>
-              <rect x="182" y="96" width="28" height="26" fill="#0C4A66" fill-opacity=".3"/>
-              <path d="M0 122h220" opacity=".22"/>
-              <path d="M96 100q14 10 28 0" stroke-width="2.4" opacity=".5"/>
-            </g>
-          </svg>
-        </figure>
-        <div class="txt">
-          <span class="lab">02 · Bridge</span>
-          <h3 class="h3">Connect</h3>
-          <p>We help create constructive dialogue among citizens, authorities, businesses, institutions and community groups around shared local priorities.</p>
-        </div>
-      </article>
+<!-- ═══════ 05 · OBJECTIVES ═══════ -->
+<section class="sec" id="objectives">
+  <div class="wrap obj">
+    <div class="obj-l rv">
+      <p class="tag"><i>05</i> Objectives</p>
+      <h2 class="h2" style="margin:20px 0 22px">What we've<br>set out to <em>do</em>.</h2>
+      <p class="lede">Not aspirations — the specific commitments the Forum was constituted to pursue.</p>
+    </div>
 
-      <!-- COLLABORATE -->
-      <article class="stepc rv">
-        <figure>
-          <svg viewBox="0 0 220 150" aria-hidden="true">
-            <g stroke="#093C54" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M70 96 46 74l14-14 26 22" fill="#0C4A66" fill-opacity=".3"/>
-              <path d="M150 96l24-22-14-14-26 22" fill="#0DA1A7" fill-opacity=".45"/>
-              <path d="M86 82h48v18a9 9 0 0 1-9 9H95a9 9 0 0 1-9-9Z" fill="#FFFFFF"/>
-              <path d="M110 82V54" fill="none"/>
-              <circle cx="110" cy="44" r="11" fill="#4FC6CB" fill-opacity=".6"/>
-              <path d="M20 120h180" opacity=".22"/>
-            </g>
-          </svg>
-        </figure>
-        <div class="txt">
-          <span class="lab">03 · Work together</span>
-          <h3 class="h3">Collaborate</h3>
-          <p>We encourage public-private and community collaboration that brings citizens, businesses, institutions and authorities around Jalna's development priorities.</p>
-        </div>
-      </article>
+    <div class="acc rv" id="acc">
+      <div class="ai on">
+        <button class="ah" aria-expanded="true"><span class="n">01</span>
+          <h3 class="h3">Urban Development &amp; Infrastructure</h3><span class="pm"></span></button>
+        <div class="ap"><ul>
+          <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" fill="#0DA1A7"/></svg>Create and implement a long-term vision plan for Jalna's holistic growth.</li>
+          <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" fill="#0DA1A7"/></svg>Improve civic amenities, public transport and mobility through participatory planning.</li>
+          <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" fill="#0DA1A7"/></svg>Advocate for better urban planning, green cover and pollution control.</li>
+          <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" fill="#0DA1A7"/></svg>Promote digital governance and data-driven urban management.</li>
+        </ul></div>
+      </div>
 
-      <!-- CATALYSE -->
-      <article class="stepc rv">
-        <figure>
-          <svg viewBox="0 0 220 150" aria-hidden="true">
-            <g stroke="#093C54" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M110 116V70" fill="none"/>
-              <path d="M110 82c-24 0-32-16-32-30 18 0 32 12 32 30Z" fill="#4FC6CB" fill-opacity=".65"/>
-              <path d="M110 74c22-2 30-18 28-32-18 1-30 14-28 32Z" fill="#0C4A66" fill-opacity=".45"/>
-              <path d="M86 116h48l-6 14H92Z" fill="#0DA1A7" fill-opacity=".7"/>
-              <path d="M24 130h172" opacity=".22"/>
-              <path d="M60 44l6 10M170 52l-8 8" stroke="#0DA1A7" stroke-width="3.4"/>
-            </g>
-          </svg>
-        </figure>
-        <div class="txt">
-          <span class="lab">04 · Participate</span>
-          <h3 class="h3">Catalyse</h3>
-          <p>We encourage people to contribute ideas, volunteer their time and take responsible, practical steps for the city.</p>
-        </div>
-      </article>
+      <div class="ai">
+        <button class="ah" aria-expanded="false"><span class="n">02</span>
+          <h3 class="h3">Sustainability &amp; Public Health</h3><span class="pm"></span></button>
+        <div class="ap"><ul>
+          <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" fill="#0DA1A7"/></svg>Drive sustainable urban development with a focus on environment, health and sanitation.</li>
+          <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" fill="#0DA1A7"/></svg>Develop solutions for traffic, waste, water supply and related civic issues.</li>
+          <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" fill="#0DA1A7"/></svg>Build awareness on civic responsibility, sustainability and good governance.</li>
+        </ul></div>
+      </div>
+
+      <div class="ai">
+        <button class="ah" aria-expanded="false"><span class="n">03</span>
+          <h3 class="h3">Industry, Education &amp; Innovation</h3><span class="pm"></span></button>
+        <div class="ap"><ul>
+          <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" fill="#0DA1A7"/></svg>Position Jalna as a hub for industry, education and innovation, to attract investment and youth opportunities.</li>
+          <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" fill="#0DA1A7"/></svg>Collaborate with government, NGOs and institutions on impactful projects.</li>
+        </ul></div>
+      </div>
+
+      <div class="ai">
+        <button class="ah" aria-expanded="false"><span class="n">04</span>
+          <h3 class="h3">Citizen Engagement &amp; Representation</h3><span class="pm"></span></button>
+        <div class="ap"><ul>
+          <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" fill="#0DA1A7"/></svg>Act as a bridge with local, state and central authorities for better policies and services.</li>
+          <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" fill="#0DA1A7"/></svg>Represent Jalna's citizens before government and allied bodies.</li>
+          <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" fill="#0DA1A7"/></svg>Provide a platform for citizens, professionals and youth to shape decision-making.</li>
+          <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" fill="#0DA1A7"/></svg>Organise events, workshops and consultations to unite stakeholders.</li>
+        </ul></div>
+      </div>
+
+      <div class="ai">
+        <button class="ah" aria-expanded="false"><span class="n">05</span>
+          <h3 class="h3">Sports &amp; Community Recognition</h3><span class="pm"></span></button>
+        <div class="ap"><ul>
+          <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" fill="#0DA1A7"/></svg>Support and recognise local sportspersons, social workers and initiatives contributing to Jalna's progress.</li>
+        </ul></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════ 04 · FOCUS ══════════════ -->
-<section class="sec" id="focus">
-  <div class="wrap">
-    <div class="rv" style="max-width:32ch">
-      <p class="tag"><i>04</i> Focus areas</p>
-      <h2 class="h2" style="margin-top:20px">Six areas.<br>One <em>vision</em><br>for Jalna.</h2>
-    </div>
-
-    <div class="fg">
-      <!-- 1 -->
-      <article class="fc rv">
-        <figure class="sky-a">
-          <span class="no">01</span>
-          <svg viewBox="0 0 300 190" aria-hidden="true">
-            <g stroke="#093C54" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
-              <rect x="30" y="52" width="52" height="82" fill="#0C4A66" fill-opacity=".28"/>
-              <path d="M42 66h12v12H42zM60 66h12v12H60zM42 90h12v12H42zM60 90h12v12H60z" stroke-width="2.2"/>
-              <rect x="96" y="34" width="44" height="100" fill="#FFFFFF"/>
-              <path d="M106 48h10v14h-10zM122 48h10v14h-10zM106 76h10v14h-10zM122 76h10v14h-10zM106 104h10v14h-10zM122 104h10v14h-10z" stroke-width="2.2" fill="#0C4A66" fill-opacity=".35"/>
-              <path d="M108 134 88 178h124l-20-44Z" fill="#093C54" fill-opacity=".85"/>
-              <path d="M150 142v8M150 160v10" stroke="#FFFFFF" stroke-width="4"/>
-              <path d="M228 134V56" fill="none"/>
-              <path d="M228 56h-16a11 11 0 0 1 0-22h16" fill="#0DA1A7" fill-opacity=".7"/>
-              <circle cx="252" cy="152" r="13" fill="#0DA1A7" fill-opacity=".55"/>
-              <path d="M244 152h16M252 144v16" stroke-width="2.2"/>
-              <path d="M0 178h300" opacity=".3"/>
-            </g>
-          </svg>
-        </figure>
-        <div class="txt">
-          <h3 class="h3">City infrastructure</h3>
-          <p>Roads, drainage, traffic management, public spaces, water supply and long-term city planning.</p>
-        </div>
-      </article>
-
-      <!-- 2 -->
-      <article class="fc rv">
-        <figure class="sky-b">
-          <span class="no">02</span>
-          <svg viewBox="0 0 300 190" aria-hidden="true">
-            <g stroke="#093C54" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
-              <path d="M28 148V86l34 20V86l34 20V66h46v82Z" fill="#0C4A66" fill-opacity=".3"/>
-              <rect x="142" y="34" width="20" height="114" fill="#FFFFFF"/>
-              <path d="M152 26c-13-11 11-20 0-31" stroke-width="2.4" opacity=".55" fill="none"/>
-              <path d="M186 148V66h84v82M178 66h100M228 66v34" fill="none"/>
-              <rect x="212" y="100" width="32" height="24" fill="#0DA1A7" fill-opacity=".75"/>
-              <rect x="192" y="124" width="42" height="24" fill="#FFFFFF"/>
-              <rect x="240" y="124" width="42" height="24" fill="#0C4A66" fill-opacity=".55"/>
-              <path d="M202 128v16M212 128v16M222 128v16M250 128v16M260 128v16M270 128v16" stroke-width="2.2"/>
-              <circle cx="52" cy="132" r="12" fill="#0DA1A7" fill-opacity=".7"/>
-              <circle cx="80" cy="132" r="12" fill="#0DA1A7" fill-opacity=".7"/>
-              <circle cx="66" cy="110" r="12" fill="#0DA1A7" fill-opacity=".7"/>
-              <path d="M0 148h300" opacity=".3"/>
-            </g>
-          </svg>
-        </figure>
-        <div class="txt">
-          <h3 class="h3">Industry &amp; economy</h3>
-          <p>Industrial growth, the MIDC ecosystem, MMLP and dry-port opportunities, business clusters, investment potential and employment opportunities.</p>
-        </div>
-      </article>
-
-      <!-- 3 -->
-      <article class="fc rv">
-        <figure class="sky-c">
-          <span class="no">03</span>
-          <svg viewBox="0 0 300 190" aria-hidden="true">
-            <g stroke="#093C54" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
-              <rect x="34" y="52" width="86" height="96" fill="#FFFFFF"/>
-              <path d="M70 74v26M58 87h24" stroke="#0DA1A7" stroke-width="6"/>
-              <path d="M48 114h58M48 130h58" stroke-width="2.4" opacity=".45"/>
-              <path d="M34 52 77 26l43 26" fill="#0C4A66" fill-opacity=".35"/>
-              <path d="M176 148c-17 0-29-12-29-27 0-18 29-53 29-53s29 35 29 53c0 15-12 27-29 27Z" fill="#0C4A66" fill-opacity=".38"/>
-              <path d="M176 106v26M164 118h24" stroke="#FFFFFF" stroke-width="5"/>
-              <path d="M240 148v-40M226 108h30l-4-22h-22Z" fill="#0DA1A7" fill-opacity=".65"/>
-              <path d="M241 86V64" stroke-width="2.6"/>
-              <path d="M232 60h18" stroke-width="3.4"/>
-              <path d="M0 148h300" opacity=".3"/>
-            </g>
-          </svg>
-        </figure>
-        <div class="txt">
-          <h3 class="h3">Health &amp; sanitation</h3>
-          <p>Cleanliness, responsible waste management, public hygiene and practical health awareness for the community.</p>
-        </div>
-      </article>
-
-      <!-- 4 -->
-      <article class="fc rv">
-        <figure class="sky-b">
-          <span class="no">04</span>
-          <svg viewBox="0 0 300 190" aria-hidden="true">
-            <g stroke="#093C54" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
-              <path d="M34 148V80l50-30 50 30v68Z" fill="#0C4A66" fill-opacity=".3"/>
-              <path d="M68 148v-32h32v32" fill="#FFFFFF"/>
-              <path d="M84 50V30h26l-8 9 8 9H84" fill="#0DA1A7" fill-opacity=".8"/>
-              <path d="M164 92c14-8 26-8 40 0v50c-14-8-26-8-40 0Z" fill="#FFFFFF"/>
-              <path d="M204 92c14-8 26-8 40 0v50c-14-8-26-8-40 0Z" fill="#0C4A66" fill-opacity=".3"/>
-              <path d="M204 92v50"/>
-              <path d="M174 108h20M174 122h20M214 108h20M214 122h20" stroke-width="2.2" opacity=".55"/>
-              <path d="M248 44l14 12-34 30-16 4 4-16Z" fill="#0DA1A7" fill-opacity=".7"/>
-              <path d="M0 148h300" opacity=".3"/>
-            </g>
-          </svg>
-        </figure>
-        <div class="txt">
-          <h3 class="h3">Education &amp; skills</h3>
-          <p>School and college infrastructure, digital learning and practical skill development for Jalna's youth.</p>
-        </div>
-      </article>
-
-      <!-- 5 -->
-      <article class="fc rv">
-        <figure class="sky-a">
-          <span class="no">05</span>
-          <svg viewBox="0 0 300 190" aria-hidden="true">
-            <g stroke="#093C54" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" fill="none">
-              <path d="M10 148q60-46 132-46t148 46" stroke-width="2.4" opacity=".35"/>
-              <path d="M10 168q60-46 132-46t148 46" stroke-width="2.4" opacity=".35"/>
-              <circle cx="118" cy="42" r="14" fill="#0DA1A7" fill-opacity=".75"/>
-              <path d="M130 66l-24 12 12 26-20 34"/>
-              <path d="M118 104l26 16 4 28"/>
-              <path d="M106 78 74 88"/>
-              <path d="M130 66l26 18"/>
-              <path d="M236 148V44l-38 12 38 12" fill="#0C4A66" fill-opacity=".35"/>
-              <circle cx="52" cy="60" r="16" fill="#0DA1A7" fill-opacity=".4"/>
-              <path d="M52 76v14M40 90h24" stroke-width="2.4"/>
-              <path d="M0 168h300" opacity=".3"/>
-            </g>
-          </svg>
-        </figure>
-        <div class="txt">
-          <h3 class="h3">Sports &amp; youth</h3>
-          <p>Sports facilities, youth participation, local talent and recognition for Jalna's athletes.</p>
-        </div>
-      </article>
-
-      <!-- 6 -->
-      <article class="fc rv">
-        <figure class="sky-c">
-          <span class="no">06</span>
-          <svg viewBox="0 0 300 190" aria-hidden="true">
-            <g stroke="#093C54" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
-              <path d="M96 148V88" fill="none"/>
-              <circle cx="96" cy="66" r="40" fill="#4FC6CB" fill-opacity=".55"/>
-              <circle cx="62" cy="86" r="22" fill="#4FC6CB" fill-opacity=".4"/>
-              <circle cx="130" cy="86" r="20" fill="#4FC6CB" fill-opacity=".4"/>
-              <path d="M96 100 72 84M96 116l26-18" stroke-width="2.4"/>
-              <path d="M186 148v-30M172 118h30l-5-24h-20Z" fill="#0C4A66" fill-opacity=".45"/>
-              <path d="M226 100l24-14h42l-16 14Z" fill="#0DA1A7" fill-opacity=".65"/>
-              <path d="M262 100v48" fill="none"/>
-              <path d="M240 148h44" fill="none"/>
-              <g fill="none" stroke-width="2.4" opacity=".6"><path d="M198 44c6-7 12-7 17 0M222 32c5-6 10-6 14 0"/></g>
-              <path d="M0 148h300" opacity=".3"/>
-            </g>
-          </svg>
-        </figure>
-        <div class="txt">
-          <h3 class="h3">Environment</h3>
-          <p>More green cover, water conservation, less plastic, responsible consumption and community-led environmental action.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════ 05 · WORK ══════════════ -->
-<section class="sec work" id="work">
-  <div class="wrap wk">
-    <div class="rv">
-      <p class="tag inv"><i>05</i> Our work</p>
-      <h2 class="h2" style="margin-top:20px">Useful information<br>for a <em>better-informed</em><br>Jalna.</h2>
-      <p class="lede" style="margin-top:26px">We cover the developments, services and opportunities that actually affect daily life here.</p>
-      <a class="btn b-gold" style="margin-top:32px" href="https://www.instagram.com/jalnafirstcf/" target="_blank" rel="noopener noreferrer">View latest updates on Instagram
-        <svg width="15" height="12" viewBox="0 0 15 12" fill="none" aria-hidden="true"><path d="M1 6h12M9 1.5 13.5 6 9 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-    <ul class="rv">
-      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="7" y="5" width="20" height="24" rx="2" stroke="#0DA1A7" stroke-width="2.4"/><path d="M12 13h10M12 19h6" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round"/></svg>Voter registration and verification, step by step</li>
-      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="10" y="4" width="14" height="26" rx="3" stroke="#0DA1A7" stroke-width="2.4"/><path d="M13 11h8M13 16h8" stroke="#0DA1A7" stroke-width="2.2" stroke-linecap="round"/><circle cx="17" cy="24" r="2" fill="#0DA1A7"/></svg>How to use municipal complaint and citizen-service apps</li>
-      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M5 28V16h7v12M14 28V8h7v20M23 28v-9h6v9" stroke="#0DA1A7" stroke-width="2.4" stroke-linejoin="round"/></svg>Updates on major infrastructure and industrial projects</li>
-      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M5 26 13 16l6 6 10-13" stroke="#0DA1A7" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 9h6v6" stroke="#0DA1A7" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Data and insight on Jalna's economy and growth</li>
-      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M17 29V17" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round"/><circle cx="17" cy="12" r="8" stroke="#0DA1A7" stroke-width="2.4"/></svg>Awareness drives across environment, health, education and sport</li>
-      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><circle cx="17" cy="13" r="7" stroke="#0DA1A7" stroke-width="2.4"/><path d="m13 19-2 10 6-4 6 4-2-10" stroke="#0DA1A7" stroke-width="2.4" stroke-linejoin="round"/></svg>Recognition for people and organisations serving the community</li>
-      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="4.5" stroke="#0DA1A7" stroke-width="2.4"/><circle cx="23" cy="23" r="4.5" stroke="#0DA1A7" stroke-width="2.4"/><path d="m14.5 14.5 5 5" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round"/></svg>Joint work with civic authorities and local institutions</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ══════════════ 06 · APP ══════════════ -->
+<!-- ═══════ 06 · APP ═══════ -->
 <section class="sec band" id="app">
   <div class="wrap app-grid">
     <div class="rv">
       <p class="tag"><i>06</i> The app</p>
       <h2 class="h2" style="margin:20px 0 22px">Jalna, in your<br><em>pocket</em>.</h2>
-      <p class="lede">My Jalna is designed to put the city's civic layer on your phone — updates, notices and useful everyday information in one easier-to-access place.</p>
+      <p class="lede">My Jalna puts the city's civic layer on your phone — updates, notices and the everyday services residents actually need, without hunting across offices and websites.</p>
       <p class="lede" style="margin-top:14px">Scan a QR code or click a download card to open the My Jalna app in your device's app store.</p>
 
       <div class="qr-row">
@@ -962,318 +753,161 @@ h1,h2,h3,h4{ margin:0 }
           <span class="qr-download">Click to download ↗</span>
         </a>
       </div>
-
       <p class="qr-note">Scan with your phone camera or click either card to continue to the App Store or Google Play.</p>
     </div>
 
-    <figure class="app-art rv">
-      <svg viewBox="0 0 400 470" role="img" aria-label="Illustration of the My Jalna app on a phone, showing the city skyline, a feed of civic updates and a reporting button.">
-        <g style="mix-blend-mode:multiply">
-          <ellipse cx="200" cy="438" rx="132" ry="18" fill="#0C4A66" opacity=".14"/>
-          <g class="chip-a">
-            <rect x="16" y="96" width="86" height="34" rx="17" fill="#FFFFFF" stroke="#093C54" stroke-width="2.6"/>
-            <circle cx="36" cy="113" r="6" fill="#0DA1A7"/>
-            <path d="M52 107h34M52 119h22" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity=".55"/>
-          </g>
-          <g class="chip-b">
-            <rect x="298" y="172" width="88" height="34" rx="17" fill="#FFFFFF" stroke="#093C54" stroke-width="2.6"/>
-            <circle cx="318" cy="189" r="6" fill="#4FC6CB"/>
-            <path d="M334 183h34M334 195h20" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity=".55"/>
-          </g>
-          <g class="chip-c">
-            <rect x="304" y="330" width="80" height="34" rx="17" fill="#FFFFFF" stroke="#093C54" stroke-width="2.6"/>
-            <circle cx="324" cy="347" r="6" fill="#0C4A66"/>
-            <path d="M340 341h28M340 353h16" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity=".55"/>
-          </g>
-          <rect x="118" y="24" width="164" height="392" rx="26" fill="#E4F2F4" stroke="#093C54" stroke-width="3.4"/>
-          <rect x="176" y="36" width="48" height="8" rx="4" fill="#093C54" opacity=".45"/>
-          <rect x="129" y="56" width="142" height="336" rx="14" fill="#FFFFFF" stroke="#093C54" stroke-width="2.2"/>
-          <path d="M129 70a14 14 0 0 1 14-14h114a14 14 0 0 1 14 14v40H129Z" fill="#0C4A66"/>
-          <text x="145" y="93" fill="#FFFFFF" style="font:400 17px 'Instrument Serif',serif">My Jalna</text>
-          <circle cx="256" cy="86" r="9" fill="#0DA1A7" stroke="#093C54" stroke-width="2"/>
-          <rect x="139" y="120" width="122" height="72" rx="4" fill="#D6EFF0" stroke="#093C54" stroke-width="2.2"/>
-          <g stroke="#093C54" stroke-width="2.2" stroke-linejoin="round">
-            <path d="M147 192v-26h16v26Z" fill="#0C4A66" fill-opacity=".85"/>
-            <path d="M167 192v-38l11-14 11 14v38Z" fill="#FFFFFF"/>
-            <path d="M193 192v-30h14v30Z" fill="#0DA1A7" fill-opacity=".85"/>
-            <path d="M211 192v-22h14v22Z" fill="#FFFFFF"/>
-            <circle cx="240" cy="176" r="12" fill="#4FC6CB" fill-opacity=".8"/>
-            <path d="M240 192v-6" fill="none"/>
-            <path d="M139 192h122" fill="none"/>
-          </g>
-          <g>
-            <rect x="139" y="204" width="122" height="34" rx="4" fill="#E4F2F4" stroke="#093C54" stroke-width="2"/>
-            <circle cx="154" cy="221" r="6" fill="#0DA1A7"/>
-            <path d="M168 215h72M168 227h44" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity=".5"/>
-          </g>
-          <g>
-            <rect x="139" y="246" width="122" height="34" rx="4" fill="#E4F2F4" stroke="#093C54" stroke-width="2"/>
-            <circle cx="154" cy="263" r="6" fill="#0C4A66"/>
-            <path d="M168 257h72M168 269h52" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity=".5"/>
-          </g>
-          <g>
-            <rect x="139" y="288" width="122" height="34" rx="4" fill="#E4F2F4" stroke="#093C54" stroke-width="2"/>
-            <circle cx="154" cy="305" r="6" fill="#4FC6CB"/>
-            <path d="M168 299h72M168 311h36" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity=".5"/>
-          </g>
-          <rect x="139" y="332" width="122" height="30" rx="15" fill="#0DA1A7" stroke="#093C54" stroke-width="2.4"/>
-          <path d="M186 347h28M200 340v14" stroke="#093C54" stroke-width="2.8" stroke-linecap="round"/>
-          <path d="M164 341h12" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity=".6"/>
-          <path d="M164 351h16" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity=".6"/>
-          <path d="M129 372h142v6a14 14 0 0 1-14 14H143a14 14 0 0 1-14-14Z" fill="#FFFFFF" stroke="#093C54" stroke-width="2.2"/>
-          <g fill="#093C54">
-            <circle cx="153" cy="380" r="4"/><circle cx="184" cy="380" r="4" opacity=".4"/>
-            <circle cx="215" cy="380" r="4" opacity=".4"/><circle cx="246" cy="380" r="4" opacity=".4"/>
-          </g>
-          <g stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity=".35" fill="none">
-            <path d="M96 214c-10 0-16 6-16 16M96 258c-10 0-16-6-16-16"/>
-            <path d="M304 214c10 0 16 6 16 16M304 258c10 0 16-6 16-16"/>
-          </g>
+    <figure class="rv" style="margin:0">
+      <svg viewBox="0 0 400 470" role="img" aria-label="Illustration of the My Jalna app on a phone, showing the city skyline and a feed of civic updates.">
+        <ellipse cx="200" cy="440" rx="130" ry="17" fill="#0DA1A7" opacity=".14"/>
+        <g class="bob"><rect x="14" y="98" width="94" height="38" rx="19" fill="#fff" stroke="#093C54" stroke-width="7"/>
+          <circle cx="38" cy="117" r="7" fill="#0DA1A7"/>
+          <path d="M56 111h36M56 123h22" stroke="#093C54" stroke-width="6" stroke-linecap="round" opacity=".45"/></g>
+        <g class="bob2"><rect x="292" y="176" width="94" height="38" rx="19" fill="#fff" stroke="#093C54" stroke-width="7"/>
+          <circle cx="316" cy="195" r="7" fill="#48B8BD"/>
+          <path d="M334 189h36M334 201h20" stroke="#093C54" stroke-width="6" stroke-linecap="round" opacity=".45"/></g>
+        <g class="bob3"><rect x="298" y="332" width="86" height="38" rx="19" fill="#fff" stroke="#093C54" stroke-width="7"/>
+          <circle cx="322" cy="351" r="7" fill="#093C54"/>
+          <path d="M340 345h30M340 357h16" stroke="#093C54" stroke-width="6" stroke-linecap="round" opacity=".45"/></g>
+
+        <rect x="118" y="24" width="164" height="392" rx="34" fill="#fff" stroke="#093C54" stroke-width="9"/>
+        <rect x="176" y="40" width="48" height="8" rx="4" fill="#093C54" opacity=".35"/>
+        <path d="M129 84a18 18 0 0 1 18-18h106a18 18 0 0 1 18 18v34H129Z" fill="#0DA1A7"/>
+        <text x="146" y="104" fill="#fff" style="font:400 18px 'Instrument Serif',serif">My Jalna</text>
+        <circle cx="256" cy="97" r="9" fill="#fff" opacity=".9"/>
+        <rect x="139" y="130" width="122" height="76" rx="12" fill="#D6EFF0" stroke="#093C54" stroke-width="6"/>
+        <g fill="none" stroke="#093C54" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="150" y="164" width="24" height="34" rx="6" fill="#0DA1A7" stroke="#093C54"/>
+          <path d="M184 198v-30l14-16 14 16v30"/>
+          <rect x="222" y="158" width="26" height="40" rx="6" fill="#48B8BD"/>
+          <path d="M143 198h114"/>
         </g>
+        <g>
+          <rect x="139" y="218" width="122" height="36" rx="10" fill="#F5FBFB" stroke="#093C54" stroke-width="5"/>
+          <circle cx="156" cy="236" r="7" fill="#0DA1A7"/>
+          <path d="M172 230h70M172 242h44" stroke="#093C54" stroke-width="5.5" stroke-linecap="round" opacity=".4"/>
+        </g>
+        <g>
+          <rect x="139" y="262" width="122" height="36" rx="10" fill="#F5FBFB" stroke="#093C54" stroke-width="5"/>
+          <circle cx="156" cy="280" r="7" fill="#48B8BD"/>
+          <path d="M172 274h70M172 286h52" stroke="#093C54" stroke-width="5.5" stroke-linecap="round" opacity=".4"/>
+        </g>
+        <g>
+          <rect x="139" y="306" width="122" height="36" rx="10" fill="#F5FBFB" stroke="#093C54" stroke-width="5"/>
+          <circle cx="156" cy="324" r="7" fill="#99D7DA"/>
+          <path d="M172 318h70M172 330h36" stroke="#093C54" stroke-width="5.5" stroke-linecap="round" opacity=".4"/>
+        </g>
+        <rect x="139" y="354" width="122" height="34" rx="17" fill="#093C54"/>
+        <path d="M186 371h28M200 364v14" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+        <g fill="#093C54"><circle cx="155" cy="402" r="5"/><circle cx="185" cy="402" r="5" opacity=".35"/>
+          <circle cx="215" cy="402" r="5" opacity=".35"/><circle cx="245" cy="402" r="5" opacity=".35"/></g>
       </svg>
     </figure>
   </div>
 </section>
 
-<!-- ══════════════ 07 · TOGETHER ══════════════ -->
-<section class="sec" id="together">
-  <div class="wrap tg">
-    <div class="rv">
-      <p class="tag"><i>07</i> Together</p>
-      <h2 class="h2" style="margin:20px 0 24px">Progress happens<br>when Jalna<br><em>works together</em>.</h2>
-      <p class="lede">Sustainable development starts with communication and grows through collaboration. Jalna First seeks to bring together the lived experience of citizens, the capability of businesses, the knowledge of institutions and the reach of public authorities to support practical, community-centred progress.</p>
-      <blockquote class="quote">Every citizen is a stakeholder in Jalna's future.<cite>Jalna First Citizen Forum</cite></blockquote>
-    </div>
-
-    <!-- ─── stakeholder orbit ─── -->
-    <div class="rv">
-      <svg viewBox="0 0 600 600" role="img" aria-label="Diagram: Jalna at the centre, ringed by six stakeholder groups — citizens, government, businesses, institutions, experts and community organisations — all connected.">
-        <g fill="none" stroke="#093C54">
-          <circle class="orbit-r" cx="300" cy="300" r="248" stroke-width="2" stroke-dasharray="14 12" opacity=".28"/>
-          <circle class="orbit-r2" cx="300" cy="300" r="186" stroke-width="2" stroke-dasharray="6 10" opacity=".22"/>
-        </g>
-        <!-- spokes -->
-        <g stroke="#093C54" stroke-width="2" opacity=".3" stroke-dasharray="5 7">
-          <path d="M300 300 300 76M300 300 494 188M300 300 494 412M300 300 300 524M300 300 106 412M300 300 106 188"/>
-        </g>
-        <!-- centre -->
-        <circle cx="300" cy="300" r="88" fill="#0C4A66"/>
-        <circle cx="300" cy="300" r="88" fill="none" stroke="#093C54" stroke-width="3.2"/>
-        <text x="300" y="294" text-anchor="middle" fill="#FFFFFF" style="font:400 46px var(--dsp); letter-spacing:-.01em">Jalna</text>
-        <text x="300" y="328" text-anchor="middle" fill="#0DA1A7" style="font:400 11px var(--mono); letter-spacing:.24em">FIRST</text>
-
-        <!-- nodes -->
-        <g stroke="#093C54" stroke-width="3.2">
-          <g><circle cx="300" cy="76" r="54" fill="#0DA1A7"/>
-             <g fill="none" stroke-width="3" stroke-linecap="round"><circle cx="300" cy="62" r="11"/><path d="M282 96c0-11 8-19 18-19s18 8 18 19"/></g>
-             <text x="300" y="152" text-anchor="middle" stroke="none" fill="#093C54" style="font:600 14px var(--body)">Citizens</text></g>
-
-          <g><circle cx="494" cy="188" r="54" fill="#FFFFFF"/>
-             <g fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M470 206v-24l24-14 24 14v24Z"/><path d="M486 206v-14h16v14"/></g>
-             <text x="494" y="264" text-anchor="middle" stroke="none" fill="#093C54" style="font:600 14px var(--body)">Government</text></g>
-
-          <g><circle cx="494" cy="412" r="54" fill="#4FC6CB"/>
-             <g fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M472 430v-32l16 8v-8l16 8v-12h14v36Z"/></g>
-             <text x="494" y="488" text-anchor="middle" stroke="none" fill="#093C54" style="font:600 14px var(--body)">Businesses</text></g>
-
-          <g><circle cx="300" cy="524" r="54" fill="#FFFFFF"/>
-             <g fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M278 512c8-5 14-5 22 0v26c-8-5-14-5-22 0Z"/><path d="M300 512c8-5 14-5 22 0v26c-8-5-14-5-22 0Z"/></g>
-             <text x="300" y="600" text-anchor="middle" stroke="none" fill="#093C54" style="font:600 14px var(--body)">Institutions</text></g>
-
-          <g><circle cx="106" cy="412" r="54" fill="#0DA1A7"/>
-             <g fill="none" stroke-width="3" stroke-linecap="round"><circle cx="100" cy="406" r="16"/><path d="M112 418l14 14"/></g>
-             <text x="106" y="488" text-anchor="middle" stroke="none" fill="#093C54" style="font:600 14px var(--body)">Experts</text></g>
-
-          <g><circle cx="106" cy="188" r="54" fill="#4FC6CB"/>
-             <g fill="none" stroke-width="3" stroke-linecap="round"><circle cx="94" cy="180" r="9"/><circle cx="118" cy="180" r="9"/><path d="M80 208c0-8 6-14 14-14s14 6 14 14M104 208c0-8 6-14 14-14s14 6 14 14"/></g>
-             <text x="106" y="264" text-anchor="middle" stroke="none" fill="#093C54" style="font:600 14px var(--body)">Community</text></g>
-        </g>
-      </svg>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════ 08 · VISION ══════════════ -->
-<section class="sec vis" id="vision">
-  <div class="wrap">
-    <p class="tag inv rv"><i>08</i> Long-term vision</p>
-    <h2 class="h2 rv" style="margin-top:22px">Building a <em>model city</em> for the future.</h2>
-    <p class="rv">Our long-term vision is for Jalna to become progressive, clean, inclusive and future-ready — supported by robust infrastructure, active citizen participation, economic opportunity and sustainable development. A Jalna where citizens stay informed and citizens, institutions, businesses and public authorities work together.</p>
-
-    <svg class="vis-art rv" viewBox="0 0 1000 260" role="img" aria-label="Illustration of a future Jalna: green cover, solar rooftops, a hospital, a school, rail and logistics links, water harvesting and connected neighbourhoods.">
-      <g fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-        <path class="draw" d="M20 218h960" opacity=".55"/>
-
-        <circle cx="66" cy="164" r="26" fill="#4FC6CB" fill-opacity=".55"/><path d="M66 190v28"/>
-        <circle cx="112" cy="180" r="16" fill="#4FC6CB" fill-opacity=".4"/><path d="M112 196v22"/>
-
-        <rect x="162" y="118" width="66" height="100" fill="#0C4A66" fill-opacity=".32"/>
-        <path d="M178 138h12M204 138h12M178 162h12M204 162h12M178 186h12M204 186h12" stroke-width="2.2"/>
-        <path d="M156 110l22-16h56l-16 16Z" fill="#0DA1A7" fill-opacity=".5"/>
-
-        <rect x="250" y="78" width="52" height="140" fill="#0DA1A7" fill-opacity=".3"/>
-        <path d="M264 98h10M282 98h10M264 124h10M282 124h10M264 150h10M282 150h10M264 176h10M282 176h10" stroke-width="2.2"/>
-
-        <rect x="326" y="126" width="80" height="92" fill="#FFFFFF" fill-opacity=".12"/>
-        <path d="M366 146v26M353 159h26" stroke="#0DA1A7" stroke-width="5"/>
-        <path d="M326 126l40-24 40 24" fill="#0C4A66" fill-opacity=".3"/>
-
-        <path d="M434 218v-64l44-28 44 28v64Z" fill="#0C4A66" fill-opacity=".32"/>
-        <path d="M462 218v-32h32v32" fill="#FFFFFF" fill-opacity=".14"/>
-        <path d="M478 126v-20h20l-6 7 6 7h-20" fill="#0DA1A7" fill-opacity=".6"/>
-
-        <path class="draw" d="M550 200h250" stroke-dasharray="12 10" opacity=".55"/>
-        <rect x="556" y="150" width="60" height="34" fill="#0DA1A7" fill-opacity=".45"/>
-        <rect x="624" y="150" width="60" height="34" fill="#FFFFFF" fill-opacity=".14"/>
-        <rect x="590" y="116" width="60" height="34" fill="#0C4A66" fill-opacity=".4"/>
-        <path d="M700 184V118h84v66M692 118h100M742 118v34" />
-        <rect x="726" y="152" width="32" height="24" fill="#0DA1A7" fill-opacity=".5"/>
-
-        <path d="M846 218v-52M826 166h40l-6-30h-28Z" fill="#0C4A66" fill-opacity=".4"/>
-        <path d="M846 136v-16M834 116h24" stroke-width="3"/>
-
-        <circle cx="924" cy="86" r="30" fill="#0DA1A7" fill-opacity=".5"/>
-        <circle cx="934" cy="176" r="24" fill="#4FC6CB" fill-opacity=".5"/><path d="M934 200v18"/>
-
-        <g opacity=".5" stroke-width="2.2"><path d="M876 54c6-7 12-7 17 0M842 40c5-6 10-6 14 0"/></g>
-      </g>
-    </svg>
-  </div>
-</section>
-
-<!-- ══════════════ 09 · JOIN ══════════════ -->
+<!-- ═══════ 07 · JOIN ═══════ -->
 <section class="sec" id="join">
   <div class="wrap">
     <div class="rv" style="max-width:26ch">
-      <p class="tag"><i>09</i> Get involved</p>
+      <p class="tag"><i>07</i> Get involved</p>
       <h2 class="h2" style="margin-top:20px">Jalna needs more than ideas. It needs <em>participation</em>.</h2>
     </div>
 
-    <div class="ig">
-      <article class="ic rv">
-        <figure>
-          <svg viewBox="0 0 240 110" aria-hidden="true">
-            <g stroke="#093C54" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="56" cy="34" r="15" fill="#0DA1A7" fill-opacity=".7"/>
-              <path d="M34 96c0-14 10-24 22-24s22 10 22 24" fill="#0C4A66" fill-opacity=".28"/>
-              <circle cx="104" cy="42" r="12" fill="#4FC6CB" fill-opacity=".55"/>
-              <path d="M86 96c0-11 8-19 18-19s18 8 18 19" fill="none"/>
-              <path d="M150 96V52h56v44Z" fill="#FFFFFF"/>
-              <path d="M162 64h32M162 78h20" stroke-width="2.4" opacity=".55"/>
-              <path d="M178 52V34" fill="none"/>
-              <path d="M0 96h240" opacity=".25"/>
-            </g>
-          </svg>
-        </figure>
-        <div class="txt">
-          <span class="lab">For citizens</span>
-          <h3 class="h3">Show up for your own street.</h3>
-          <p>Stay informed, raise constructive ideas, volunteer for drives, and hold the civic conversation to a higher standard.</p>
-        </div>
+    <div class="jg">
+      <article class="jc rv">
+        <svg viewBox="0 0 56 56" fill="none" stroke="#093C54" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="20" cy="16" r="8" fill="#0DA1A7" stroke="#093C54"/>
+          <path d="M6 48c0-9 6-16 14-16s14 7 14 16"/>
+          <circle cx="40" cy="20" r="6" fill="#99D7DA" stroke="#093C54"/>
+          <path d="M34 48c0-8 4-12 10-12s10 4 10 12"/>
+        </svg>
+        <span class="lab">For citizens</span>
+        <h3 class="h3">Show up for your own street.</h3>
+        <p>Stay informed, raise constructive ideas, volunteer for drives, and hold the civic conversation to a higher standard.</p>
       </article>
 
-      <article class="ic rv">
-        <figure>
-          <svg viewBox="0 0 240 110" aria-hidden="true">
-            <g stroke="#093C54" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M26 96V44l30 18V44l30 18V30h34v66Z" fill="#0C4A66" fill-opacity=".3"/>
-              <rect x="128" y="46" width="52" height="50" fill="#FFFFFF"/>
-              <path d="M138 60h12v12h-12zM158 60h12v12h-12zM138 80h32v16h-32z" stroke-width="2.2" fill="#0DA1A7" fill-opacity=".4"/>
-              <path d="M196 96V60h30v36Z" fill="#4FC6CB" fill-opacity=".4"/>
-              <path d="M0 96h240" opacity=".25"/>
-            </g>
-          </svg>
-        </figure>
-        <div class="txt">
-          <span class="lab">For businesses &amp; institutions</span>
-          <h3 class="h3">Put capability behind local work.</h3>
-          <p>Contribute expertise, resources and collaborative support to initiatives aligned with Jalna's development priorities.</p>
-        </div>
+      <article class="jc rv">
+        <svg viewBox="0 0 56 56" fill="none" stroke="#093C54" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 50V22l12 8v-8l12 8V16h14v34Z" fill="#0DA1A7" stroke="#093C54"/>
+          <path d="M36 30h6M36 40h6" stroke="#fff"/>
+          <circle cx="16" cy="8" r="5" fill="#48B8BD" stroke="#093C54"/>
+        </svg>
+        <span class="lab">For businesses &amp; institutions</span>
+        <h3 class="h3">Put capability behind local work.</h3>
+        <p>Contribute expertise, resources and partnerships to initiatives with measurable impact in Jalna.</p>
       </article>
 
-      <article class="ic rv">
-        <figure>
-          <svg viewBox="0 0 240 110" aria-hidden="true">
-            <g stroke="#093C54" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M32 96V52l34-20 34 20v44Z" fill="#FFFFFF"/>
-              <path d="M52 96V70h28v26" fill="#0C4A66" fill-opacity=".3"/>
-              <path d="M66 32V16" fill="none"/>
-              <path d="M66 16h22l-6 7 6 7H66" fill="#0DA1A7" fill-opacity=".75"/>
-              <circle cx="152" cy="46" r="18" fill="none"/>
-              <path d="M166 60l16 16" fill="none"/>
-              <path d="M198 96V56h28v40Z" fill="#4FC6CB" fill-opacity=".4"/>
-              <path d="M0 96h240" opacity=".25"/>
-            </g>
-          </svg>
-        </figure>
-        <div class="txt">
-          <span class="lab">For authorities &amp; experts</span>
-          <h3 class="h3">Build solutions with local input.</h3>
-          <p>Work alongside citizens, share reliable guidance, and shape decisions around what the ground actually needs.</p>
-        </div>
+      <article class="jc rv">
+        <svg viewBox="0 0 56 56" fill="none" stroke="#093C54" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M10 50V26l18-12 18 12v24Z" fill="#fff" stroke="#093C54"/>
+          <path d="M22 50V36h12v14" fill="#0DA1A7" stroke="#093C54"/>
+          <path d="M28 14V4" stroke-width="4"/>
+          <circle cx="28" cy="4" r="4" fill="#0DA1A7" stroke="none"/>
+        </svg>
+        <span class="lab">For authorities &amp; experts</span>
+        <h3 class="h3">Build solutions with local input.</h3>
+        <p>Work alongside citizens, share reliable guidance, and shape decisions around what the ground actually needs.</p>
       </article>
     </div>
 
-    <div class="ic-cta rv">
-      <a class="btn b-teal" href="https://www.instagram.com/jalnafirstcf/" target="_blank" rel="noopener noreferrer">Follow @jalnafirstcf
+    <div class="jcta rv">
+      <a class="btn b-navy" href="mailto:jalnafirstcf@gmail.com">Write to the forum
         <svg width="15" height="12" viewBox="0 0 15 12" fill="none" aria-hidden="true"><path d="M1 6h12M9 1.5 13.5 6 9 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a class="btn b-line" href="https://www.instagram.com/jalnafirstcf/" target="_blank" rel="noopener noreferrer">Discuss collaboration</a>
+      <a class="btn b-line" href="#app">Get the My Jalna app</a>
     </div>
   </div>
 </section>
 
-<!-- ══════════════ FINAL ══════════════ -->
+<!-- ═══════ FINAL ═══════ -->
 <section class="sec fin">
-  <svg class="blob" style="top:-110px;right:-90px;width:400px" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="#FFFFFF"/></svg>
-  <svg class="blob" style="bottom:-140px;left:-80px;width:330px" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="#0DA1A7"/></svg>
+  <svg class="blob" style="top:-140px;right:-110px;width:440px" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="#fff"/></svg>
+  <svg class="blob" style="bottom:-160px;left:-90px;width:360px" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="#093C54"/></svg>
   <div class="wrap" style="position:relative">
     <h2 class="h2 rv">The future of Jalna belongs to <em>all of us</em>.</h2>
-    <p class="rv">Every informed citizen, every responsible action, every collaboration that holds — each one moves the city a step forward. Let's build a cleaner, stronger, healthier and more prosperous Jalna.</p>
+    <p class="rv">Every informed citizen, every responsible action, every collaboration that holds — each one moves the city a step forward.</p>
     <p class="bcz rv">Because Jalna comes first.</p>
-    <div class="fin-cta rv">
-      <a class="btn b-paper" href="#join">Explore ways to contribute
+    <div class="fcta rv">
+      <a class="btn b-white" href="#join">Join Jalna First
         <svg width="15" height="12" viewBox="0 0 15 12" fill="none" aria-hidden="true"><path d="M1 6h12M9 1.5 13.5 6 9 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a class="btn b-linep" href="https://www.instagram.com/jalnafirstcf/" target="_blank" rel="noopener noreferrer">Follow @jalnafirstcf on Instagram</a>
+      <a class="btn b-linew" href="mailto:jalnafirstcf@gmail.com">jalnafirstcf@gmail.com</a>
     </div>
   </div>
 </section>
 </main>
 
-<!-- ══════════════ FOOTER ══════════════ -->
+<!-- ═══════ FOOTER ═══════ -->
 <footer class="foot">
   <div class="wrap">
-    <div class="fgrid">
+    <div class="fg">
       <div>
         <a class="logo" href="#home" style="margin:0">
-          <span class="logo-mark"><img src="/jalna-first-logo.png" width="42" height="42" alt="Jalna First Citizen Forum logo"></span>
+          <svg viewBox="-124 -124 248 248" aria-hidden="true"><use href="#jfmark"/></svg>
           <span><b>Jalna <s>First</s></b><small>Citizen Forum</small></span>
         </a>
-        <p class="ftag">Change begins with action.</p>
-        <p class="fdesc">Citizen awareness · Community engagement · Collaborative development</p>
+        <p class="ftag">A collective vision for a progressive city.</p>
+        <p class="fdesc">Change begins with action. A Section 8 non-profit formed by the citizens, entrepreneurs and thought leaders of Jalna.</p>
         <p class="fdesc marathi" style="color:rgba(255,255,255,.82);font-size:17px">कारण पहिलं जालना!</p>
       </div>
       <div>
         <h4>Explore</h4>
         <ul>
-          <li><a href="#about">Who we are</a></li>
-          <li><a href="#doing">What we do</a></li>
-          <li><a href="#focus">Focus areas</a></li>
-          <li><a href="#work">Our work</a></li>
-          <li><a href="#app">The app</a></li>
-          <li><a href="#vision">Vision</a></li>
+          <li><a href="#purpose">Our purpose</a></li>
+          <li><a href="#about">About JFCF</a></li>
+          <li><a href="#verticals">Our verticals</a></li>
+          <li><a href="#objectives">Objectives</a></li>
+          <li><a href="#app">The My Jalna app</a></li>
           <li><a href="#join">Get involved</a></li>
         </ul>
       </div>
       <div>
         <h4>Reach us</h4>
         <ul>
-          <li><a href="mailto:jalnafirstcs@gmail.com">jalnafirstcs@gmail.com</a></li>
+          <li><a href="mailto:jalnafirstcf@gmail.com">jalnafirstcf@gmail.com</a></li>
         </ul>
       </div>
     </div>
     <div class="flegal">
-      <span>Jalna First Citizen Forum · Jalna, Maharashtra</span>
-      <span>Citizen awareness · Verified information · Community engagement</span>
+      <span>Jalna First Citizen Forum · Section 8 non-profit · Jalna, Maharashtra</span>
     </div>
   </div>
 </footer>
@@ -1284,100 +918,92 @@ h1,h2,h3,h4{ margin:0 }
 
 <script>
 (function(){
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ── section rail: sliding indicator + scroll-spy ── */
-  var rail = document.getElementById('rail'),
-      ind  = document.getElementById('ind'),
-      links = Array.prototype.slice.call(rail.querySelectorAll('a')),
-      secs  = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
-
-  function move(a){
-    if(!a) return;
-    ind.style.width = a.offsetWidth + 'px';
-    ind.style.transform = 'translateX(' + a.offsetLeft + 'px)';
-  }
+  /* rail */
+  var rail=document.getElementById("rail"), ind=document.getElementById("ind"),
+      links=Array.prototype.slice.call(rail.querySelectorAll("a")),
+      secs=links.map(function(a){ return document.querySelector(a.getAttribute("href")); });
+  function move(a){ if(!a) return; ind.style.width=a.offsetWidth+"px"; ind.style.transform="translateX("+a.offsetLeft+"px)"; }
   function setActive(a){
-    links.forEach(function(l){ l.classList.toggle('on', l === a); });
+    links.forEach(function(l){ l.classList.toggle("on", l===a); });
     move(a);
-    // keep the active chip in view on narrow screens
-    var l = a.offsetLeft, r = l + a.offsetWidth;
-    if(l < rail.scrollLeft + 12 || r > rail.scrollLeft + rail.clientWidth - 12){
-      rail.scrollTo({ left: l - 24, behavior: reduce ? 'auto' : 'smooth' });
-    }
+    var l=a.offsetLeft, r=l+a.offsetWidth;
+    if(l<rail.scrollLeft+12 || r>rail.scrollLeft+rail.clientWidth-12)
+      rail.scrollTo({left:l-24, behavior:reduce?"auto":"smooth"});
   }
-  window.addEventListener('load', function(){ move(links[0]); });
-  window.addEventListener('resize', function(){
-    var cur = rail.querySelector('a.on'); move(cur || links[0]);
-  });
-
-  links.forEach(function(a){
-    a.addEventListener('click', function(){ setActive(a); });
-  });
-
-  if('IntersectionObserver' in window){
-    var spy = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(en.isIntersecting){
-          var i = secs.indexOf(en.target);
-          if(i > -1) setActive(links[i]);
-        }
-      });
-    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+  window.addEventListener("load", function(){ move(links[0]); });
+  window.addEventListener("resize", function(){ move(rail.querySelector("a.on")||links[0]); });
+  links.forEach(function(a){ a.addEventListener("click", function(){ setActive(a); }); });
+  if("IntersectionObserver" in window){
+    var spy=new IntersectionObserver(function(es){
+      es.forEach(function(en){ if(en.isIntersecting){ var i=secs.indexOf(en.target); if(i>-1) setActive(links[i]); } });
+    },{rootMargin:"-45% 0px -50% 0px",threshold:0});
     secs.forEach(function(s){ if(s) spy.observe(s); });
   }
 
-  /* ── scroll progress ── */
-  var prog = document.getElementById('prog'), topBtn = document.getElementById('top'), tick = false;
-  function onScroll(){
-    var h = document.documentElement.scrollHeight - window.innerHeight;
-    prog.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
-    topBtn.classList.toggle('show', window.scrollY > 700);
-    parallax();
-    tick = false;
+  /* accordion */
+  var items=document.querySelectorAll(".ai");
+  function setPanel(it, open){
+    var p=it.querySelector(".ap"), b=it.querySelector(".ah");
+    it.classList.toggle("on", open);
+    b.setAttribute("aria-expanded", open);
+    p.style.maxHeight = open ? p.scrollHeight + "px" : "0px";
   }
-  window.addEventListener('scroll', function(){
-    if(!tick){ tick = true; window.requestAnimationFrame(onScroll); }
-  }, { passive: true });
-
-  topBtn.addEventListener('click', function(){
-    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
-    setActive(links[0]);
+  items.forEach(function(it){
+    it.querySelector(".ah").addEventListener("click", function(){
+      var open = !it.classList.contains("on");
+      items.forEach(function(o){ setPanel(o, false); });
+      if(open) setPanel(it, true);
+    });
+  });
+  setPanel(items[0], true);
+  window.addEventListener("resize", function(){
+    items.forEach(function(it){ if(it.classList.contains("on")) setPanel(it, true); });
   });
 
-  /* ── hero parallax (scroll + pointer) ── */
-  var layers = Array.prototype.slice.call(document.querySelectorAll('.plx')), mx = 0, my = 0;
+
+  /* hero parallax — scroll + pointer */
+  var layers = Array.prototype.slice.call(document.querySelectorAll(".plx")), mx = 0, my = 0;
   function parallax(){
     if(reduce || !layers.length) return;
     var y = window.scrollY;
     layers.forEach(function(el){
       var d = parseFloat(el.dataset.d) || 0;
-      el.style.transform = 'translate3d(' + (mx * d * 42) + 'px,' + (y * d * -0.35 + my * d * 22) + 'px,0)';
+      el.style.transform = "translate3d(" + (mx*d*42) + "px," + (y*d*-0.35 + my*d*22) + "px,0)";
     });
   }
-  if(!reduce && window.matchMedia('(pointer:fine)').matches){
-    window.addEventListener('mousemove', function(e){
-      mx = (e.clientX / window.innerWidth  - .5) * 2;
-      my = (e.clientY / window.innerHeight - .5) * 2;
-      window.requestAnimationFrame(parallax);
-    }, { passive: true });
+  if(!reduce && window.matchMedia("(pointer:fine)").matches){
+    window.addEventListener("mousemove", function(e){
+      mx = (e.clientX/window.innerWidth - .5) * 2;
+      my = (e.clientY/window.innerHeight - .5) * 2;
+      requestAnimationFrame(parallax);
+    }, {passive:true});
   }
 
-  /* ── scroll reveal ── */
-  var items = document.querySelectorAll('.rv');
-  if(!('IntersectionObserver' in window) || reduce){
-    items.forEach(function(el){ el.classList.add('in'); });
-  } else {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en, i){
-        if(en.isIntersecting){
-          en.target.style.transitionDelay = (i * 80) + 'ms';
-          en.target.classList.add('in');
-          io.unobserve(en.target);
-        }
+  /* progress + top */
+  var prog=document.getElementById("prog"), topBtn=document.getElementById("top"), tick=false;
+  function onScroll(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    prog.style.width=(h>0?(window.scrollY/h)*100:0)+"%";
+    topBtn.classList.toggle("show", window.scrollY>760);
+    if(window.scrollY<80) setActive(links[0]);
+    parallax();
+    tick=false;
+  }
+  window.addEventListener("scroll", function(){ if(!tick){ tick=true; requestAnimationFrame(onScroll); } }, {passive:true});
+  topBtn.addEventListener("click", function(){ window.scrollTo({top:0,behavior:reduce?"auto":"smooth"}); setActive(links[0]); });
+
+  /* reveal */
+  var rvs=document.querySelectorAll(".rv");
+  if(!("IntersectionObserver" in window) || reduce){ rvs.forEach(function(e){ e.classList.add("in"); }); }
+  else {
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(en,i){
+        if(en.isIntersecting){ en.target.style.transitionDelay=(i*80)+"ms"; en.target.classList.add("in"); io.unobserve(en.target); }
       });
-    }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
-    items.forEach(function(el){ io.observe(el); });
+    },{threshold:.12,rootMargin:"0px 0px -8% 0px"});
+    rvs.forEach(function(e){ io.observe(e); });
   }
   onScroll();
 })();
