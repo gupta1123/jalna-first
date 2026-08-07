@@ -70,14 +70,8 @@ h1,h2,h3,h4{ margin:0 }
   font:600 14.5px/1 var(--body); letter-spacing:.01em; padding:16px 27px; border-radius:100px;
   border:1.5px solid var(--ink); transition:transform .18s, box-shadow .18s, background .18s, color .18s;
 }
-.btn svg{ transition:transform .18s }
-.btn:hover svg{ transform:translateX(4px) }
 .b-navy{ background:var(--navy); border-color:var(--navy); color:var(--paper); box-shadow:4px 4px 0 var(--ink) }
 .b-navy:hover{ transform:translate(-2px,-2px); box-shadow:7px 7px 0 var(--ink) }
-.b-brass{ background:var(--brass); color:var(--ink); box-shadow:4px 4px 0 var(--ink) }
-.b-brass:hover{ transform:translate(-2px,-2px); box-shadow:7px 7px 0 var(--ink) }
-.b-paper{ background:var(--paper); border-color:var(--paper); color:var(--ink) }
-.b-paper:hover{ transform:translateY(-3px) }
 
 /* ═════════ HEADER ═════════ */
 .prog{ position:fixed; top:0; left:0; height:3px; background:var(--brass); z-index:200; width:0 }
@@ -294,7 +288,6 @@ h1,h2,h3,h4{ margin:0 }
 .fin .h2 em{ color:var(--brass) }
 .fin p{ color:rgba(245,251,251,.8); max-width:60ch; margin:26px auto 0 }
 .fin .sig{ font:italic 400 clamp(21px,2.3vw,30px)/1.3 var(--dsp); color:var(--brass); margin-top:32px }
-.fincta{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:36px }
 .blob{ position:absolute; pointer-events:none; opacity:.1 }
 
 /* ═════════ FOOTER ═════════ */
@@ -313,14 +306,6 @@ h1,h2,h3,h4{ margin:0 }
 .flegal{ margin-top:clamp(42px,5vw,66px); padding-top:26px; border-top:1px solid rgba(245,251,251,.14);
   display:flex; flex-wrap:wrap; gap:10px 28px; justify-content:space-between;
   font:400 12px/1.7 var(--mono); color:rgba(245,251,251,.45) }
-
-/* ═════════ STICKY REGISTRATION ═════════ */
-.sticky{ position:fixed; left:0; right:0; bottom:0; z-index:160; background:var(--ink); color:var(--paper); transform:translateY(100%); transition:transform .35s cubic-bezier(.2,.7,.3,1) }
-.sticky.show{ transform:none }
-.sticky-in{ display:flex; align-items:center; gap:20px; padding:13px 0; flex-wrap:wrap }
-.sticky p{ margin:0 auto 0 0; font:400 11.5px/1.6 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:rgba(245,251,251,.65) }
-.sticky p b{ color:var(--paper); font-weight:500 }
-.sticky .btn{ padding:12px 22px; font-size:13.5px }
 
 /* ═════════ MOTION ═════════ */
 .rv{ opacity:0; transform:translateY(26px); transition:opacity .75s cubic-bezier(.2,.7,.3,1), transform .75s cubic-bezier(.2,.7,.3,1) }
@@ -373,8 +358,6 @@ h1,h2,h3,h4{ margin:0 }
   .ev{ grid-template-columns:64px 1fr; gap:14px }
   .ev .len{ display:none }
   .when-card{ width:100% }
-  .sticky p{ display:none }
-  .sticky-in{ justify-content:center }
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{ animation:none !important; transition-duration:.01ms !important }
@@ -860,10 +843,6 @@ h1,h2,h3,h4{ margin:0 }
     <h2 class="h2 rv">The opportunity is here. The time to <em>build</em> is now.</h2>
     <p class="rv">Jalna has industrial experience, entrepreneurial capability, agricultural strength and emerging logistics infrastructure. What it needs next are partners ready to participate in the phase that follows.</p>
     <p class="sig rv">Connect. Collaborate. Invest.</p>
-    <div class="fincta rv">
-      <a class="btn b-paper" href="https://jalna-investment-summit.netlify.app" target="_blank" rel="noopener noreferrer">Register your interest
-        <svg width="15" height="12" viewBox="0 0 15 12" fill="none" aria-hidden="true"><path d="M1 6h12M9 1.5 13.5 6 9 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
   </div>
 </section>
 </main>
@@ -891,9 +870,8 @@ h1,h2,h3,h4{ margin:0 }
         </ul>
       </div>
       <div>
-        <h4>Participate</h4>
+        <h4>Explore</h4>
         <ul>
-          <li><a href="https://jalna-investment-summit.netlify.app" target="_blank" rel="noopener noreferrer">Registration</a></li>
           <li><a href="#sectors">Investment sectors</a></li>
           <li><a href="https://www.instagram.com/jalnafirstcf/" target="_blank" rel="noopener noreferrer">Summit updates on Instagram</a></li>
           <li><a href="/">Jalna First Citizen Forum</a></li>
@@ -915,13 +893,6 @@ h1,h2,h3,h4{ margin:0 }
     </div>
   </div>
 </footer>
-
-<div class="sticky" id="sticky">
-  <div class="wrap sticky-in">
-    <p><b>MMLP Promotion &amp; New Investment Summit 2026</b> · Thu 3 September · Jalna</p>
-    <a class="btn b-brass" href="https://jalna-investment-summit.netlify.app" target="_blank" rel="noopener noreferrer">Register your interest</a>
-  </div>
-</div>
 
 <script>
 (function(){
@@ -954,12 +925,11 @@ h1,h2,h3,h4{ margin:0 }
     secs.forEach(function(s){ if(s) spy.observe(s); });
   }
 
-  /* progress + registration bar */
-  var prog=document.getElementById('prog'), sticky=document.getElementById('sticky'), tick=false;
+  /* scroll progress */
+  var prog=document.getElementById('prog'), tick=false;
   function onScroll(){
     var h=document.documentElement.scrollHeight-window.innerHeight;
     prog.style.width=(h>0?(window.scrollY/h)*100:0)+'%';
-    sticky.classList.toggle('show', window.scrollY>760 && window.scrollY<h-260);
     tick=false;
   }
   window.addEventListener('scroll', function(){ if(!tick){ tick=true; window.requestAnimationFrame(onScroll); } }, { passive:true });
