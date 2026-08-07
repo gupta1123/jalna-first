@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Jalna First Citizen Forum brings citizens, businesses, institutions and authorities together for civic awareness, collaboration and positive action in Jalna.">
-<meta name="theme-color" content="#EFE5D2">
+<meta name="theme-color" content="#093C54">
 <link rel="icon" type="image/png" href="/jalna-first-logo.png">
 <link rel="apple-touch-icon" href="/jalna-first-logo.png">
 <title>Jalna First Citizen Forum — Change Begins With Action</title>
@@ -15,28 +15,33 @@
 <style is:global>
 /* ═══════════════ TOKENS ═══════════════ */
 :root{
-  --paper:      #EFE5D2;   /* beige base */
-  --paper-lift: #F7F1E4;   /* card paper */
-  --paper-deep: #E3D5BA;   /* banded beige */
-  --ink:        #0E2233;   /* deep navy ink */
-  --teal:       #0F6E68;
-  --teal-deep:  #073633;
-  --marigold:   #E8912A;
-  --leaf:       #78933C;   /* mosambi orchard green */
+  --paper:      #F5FBFB;
+  --paper-lift: #FFFFFF;
+  --paper-deep: #EFF9F9;
+  --ink:        #093C54;
+  --teal:       #0DA1A7;
+  --teal-deep:  #052C3E;
+  --marigold:   #48B8BD;
+  --leaf:       #4FC6CB;
+  --teal-7:     #0B8A90;
+  --teal-3:     #71C8CC;
+  --teal-2:     #99D7DA;
+  --teal-1:     #C2E7E9;
+  --teal-05:    #D6EFF0;
 
-  --ink-72: rgba(14,34,51,.72);
-  --ink-48: rgba(14,34,51,.48);
-  --ink-16: rgba(14,34,51,.16);
-  --ink-08: rgba(14,34,51,.08);
+  --ink-72: rgba(9,60,84,.72);
+  --ink-48: rgba(9,60,84,.48);
+  --ink-16: rgba(9,60,84,.16);
+  --ink-08: rgba(9,60,84,.08);
 
   --dsp:  "Instrument Serif",Georgia,"Times New Roman",serif;
   --body: "Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
   --mono: "JetBrains Mono",ui-monospace,Menlo,monospace;
   --deva: "Tiro Devanagari Marathi","Hanken Grotesk",serif;
 
-  --wrap: min(1220px, 90vw);
-  --pad:  clamp(80px, 10vw, 148px);
-  --head: 132px;
+  --wrap: min(1200px, 90vw);
+  --pad:  clamp(76px, 9vw, 132px);
+  --head: 128px;
 }
 
 *,*::before,*::after{ box-sizing:border-box }
@@ -48,8 +53,6 @@ body{
 svg,img{ display:block; max-width:100% }
 a{ color:inherit }
 section[id]{ scroll-margin-top:var(--head) }
-
-.grain{ position:fixed; inset:0; z-index:9999; pointer-events:none; opacity:.09; mix-blend-mode:multiply }
 
 /* ═══════════════ TYPE ═══════════════ */
 h1,h2,h3,h4{ margin:0 }
@@ -63,10 +66,10 @@ h1,h2,h3,h4{ margin:0 }
   display:inline-flex; align-items:center; gap:12px;
   font:400 11px/1 var(--mono); letter-spacing:.18em; text-transform:uppercase; color:var(--teal);
 }
-.tag i{ font-style:normal; color:var(--marigold) }
-.tag::before{ content:""; width:38px; height:1.5px; background:var(--marigold); order:-1 }
-.tag.inv{ color:var(--marigold) }
-.tag.inv::before{ background:rgba(239,229,210,.45) }
+.tag i{ font-style:normal; color:var(--ink-48) }
+.tag::before{ content:""; width:32px; height:2px; border-radius:2px; background:var(--teal); order:-1 }
+.tag.inv{ color:var(--teal-2) }
+.tag.inv::before{ background:var(--teal-3) }
 
 /* ═══════════════ LAYOUT ═══════════════ */
 .wrap{ width:var(--wrap); margin-inline:auto }
@@ -75,43 +78,44 @@ h1,h2,h3,h4{ margin:0 }
 /* ═══════════════ BUTTONS ═══════════════ */
 .btn{
   display:inline-flex; align-items:center; gap:10px; cursor:pointer; text-decoration:none;
-  font:700 14.5px/1 var(--body); letter-spacing:.015em; padding:16px 27px; border-radius:100px;
+  font:600 14.5px/1 var(--body); letter-spacing:.01em; padding:16px 28px; border-radius:100px;
   border:2px solid var(--ink); transition:transform .18s, box-shadow .18s, background .18s, color .18s;
 }
 .btn svg{ transition:transform .18s }
 .btn:hover svg{ transform:translateX(4px) }
-.b-teal{ background:var(--teal); border-color:var(--teal); color:var(--paper); box-shadow:4px 4px 0 var(--ink) }
-.b-teal:hover{ transform:translate(-2px,-2px); box-shadow:7px 7px 0 var(--ink) }
-.b-gold{ background:var(--marigold); color:var(--ink); box-shadow:4px 4px 0 var(--ink) }
-.b-gold:hover{ transform:translate(-2px,-2px); box-shadow:7px 7px 0 var(--ink) }
+.b-teal{ background:var(--teal); border-color:var(--teal); color:#fff; box-shadow:0 4px 0 var(--ink) }
+.b-teal:hover{ transform:translateY(-3px); box-shadow:0 7px 0 var(--ink) }
+.b-gold{ background:var(--marigold); border-color:var(--marigold); color:var(--ink); box-shadow:0 4px 0 var(--teal-deep) }
+.b-gold:hover{ transform:translateY(-3px); box-shadow:0 7px 0 var(--teal-deep) }
 .b-line{ background:transparent; color:var(--ink) }
-.b-line:hover{ background:var(--ink); color:var(--paper) }
-.b-paper{ background:var(--paper); border-color:var(--paper); color:var(--ink) }
+.b-line:hover{ background:var(--ink); color:#fff }
+.b-paper{ background:#fff; border-color:#fff; color:var(--ink) }
 .b-paper:hover{ transform:translateY(-3px) }
-.b-linep{ background:transparent; border-color:rgba(239,229,210,.5); color:var(--paper) }
-.b-linep:hover{ background:var(--paper); border-color:var(--paper); color:var(--ink) }
+.b-linep{ background:transparent; border-color:rgba(255,255,255,.5); color:#fff }
+.b-linep:hover{ background:#fff; border-color:#fff; color:var(--ink) }
 
 /* ═══════════════ HEADER + SECTION RAIL ═══════════════ */
-.prog{ position:fixed; top:0; left:0; height:3px; background:var(--marigold); z-index:200; width:0 }
+.prog{ position:fixed; top:0; left:0; height:3px; background:var(--teal); z-index:200; width:0 }
 .head{ position:sticky; top:0; z-index:150; background:var(--paper) }
 .head-top{ display:flex; align-items:center; gap:24px; height:74px }
 .logo{ display:flex; align-items:center; gap:12px; text-decoration:none; margin-right:auto }
 .logo-mark{
   width:42px; height:42px; flex:none; position:relative; overflow:hidden; border-radius:50%;
-  background:var(--paper-lift); box-shadow:0 0 0 1px rgba(15,110,104,.2);
+  background:var(--paper-lift); box-shadow:0 0 0 1px rgba(13,161,167,.2);
 }
 .logo-mark img{
   position:absolute; width:132%; max-width:none; height:auto; left:50%; top:50%;
   transform:translate(-52.1%,-42.5%);
 }
-.logo b{ font:400 23px/1 var(--dsp); display:block; letter-spacing:-.015em }
-.logo small{ display:block; font:500 8.5px/1 var(--mono); letter-spacing:.22em; color:var(--teal); text-transform:uppercase; margin-top:4px }
+.logo b{ display:block; font:700 20px/1 var(--body); letter-spacing:.01em; text-transform:uppercase }
+.logo b s{ color:var(--teal); text-decoration:none }
+.logo small{ display:block; font:400 7.5px/1 var(--mono); letter-spacing:.2em; color:var(--ink-48); text-transform:uppercase; margin-top:4px }
 .invest-link,.ig-link{
   flex:none; text-decoration:none; padding:10px 15px; border:1.5px solid var(--ink-16); border-radius:100px;
   font:600 12px/1 var(--body); color:var(--ink-72); transition:background .18s,color .18s,border-color .18s;
 }
 .invest-link:hover,.ig-link:hover{ background:var(--ink); border-color:var(--ink); color:var(--paper) }
-.ig-link{ color:var(--teal); border-color:rgba(15,110,104,.34) }
+.ig-link{ color:var(--teal); border-color:rgba(13,161,167,.34) }
 .head-cta{ padding:12px 21px; font-size:13.5px; box-shadow:3px 3px 0 var(--ink) }
 .mobile-actions{ display:none }
 .mobile-action{
@@ -119,8 +123,8 @@ h1,h2,h3,h4{ margin:0 }
   border:1.5px solid var(--ink-16); border-radius:100px; color:var(--ink-72); text-decoration:none;
   font:700 10.5px/1 var(--body); text-align:center; white-space:nowrap;
 }
-.mobile-action.instagram-action{ color:var(--teal); border-color:rgba(15,110,104,.34) }
-.mobile-action.primary{ background:var(--teal); border-color:var(--teal); color:var(--paper); box-shadow:2px 2px 0 var(--ink) }
+.mobile-action.instagram-action{ color:var(--teal); border-color:rgba(13,161,167,.34) }
+.mobile-action.primary{ background:var(--teal); border-color:var(--teal); color:#fff; box-shadow:0 3px 0 var(--ink) }
 
 .rail-wrap{ border-top:1px solid var(--ink-16); border-bottom:1px solid var(--ink-16); background:var(--paper) }
 .rail{
@@ -135,53 +139,54 @@ h1,h2,h3,h4{ margin:0 }
 }
 .rail a em{ font:400 10.5px/1 var(--mono); font-style:normal; opacity:.6 }
 .rail a:hover{ color:var(--ink) }
-.rail a.on{ color:var(--paper) }
+.rail a.on{ color:#fff }
 .rail a.on em{ opacity:.75 }
 .rail-ind{
-  position:absolute; z-index:1; top:9px; left:0; height:34px; border-radius:100px; background:var(--teal);
+  position:absolute; z-index:1; top:9px; left:0; height:34px; border-radius:100px; background:var(--ink);
   transition:transform .42s cubic-bezier(.65,.05,.15,1), width .42s cubic-bezier(.65,.05,.15,1);
   will-change:transform,width;
 }
 
 /* ═══════════════ HERO ═══════════════ */
 .hero{ padding-top:clamp(40px,5vw,72px); padding-bottom:0; overflow:hidden }
-.hero-grid{ display:grid; grid-template-columns:1.02fr .98fr; gap:clamp(24px,3.5vw,56px); align-items:center }
+.hero-grid{ display:grid; grid-template-columns:1fr 1.34fr; gap:clamp(24px,3vw,46px); align-items:center }
 .hero h1{ margin:24px 0 0; font-family:var(--dsp); font-weight:400; letter-spacing:-.022em }
-.hero .l1{ display:block; font-size:clamp(50px,7.1vw,102px); line-height:.98 }
-.hero .l2{ display:block; font-size:clamp(30px,3.9vw,56px); line-height:1.1; color:var(--teal); letter-spacing:-.02em; margin-top:6px }
+.hero .l1{ display:block; font-size:clamp(50px,7.2vw,104px); line-height:.96 }
+.hero .l2{ display:block; font-size:clamp(27px,3.5vw,50px); line-height:1.1; color:var(--teal); letter-spacing:-.02em; margin-top:6px }
 .hero .l2 em{ font-style:italic; position:relative; z-index:1; padding-right:.04em }
 .hero .l2 em::after{
-  content:""; position:absolute; z-index:-1; inset:auto 0 .08em 0; height:.2em; background:var(--marigold);
-  opacity:.6; transform:scaleX(0); transform-origin:left; animation:swipe .75s cubic-bezier(.2,.75,.3,1) 1.15s forwards;
+  content:""; position:absolute; z-index:-1; inset:auto 0 .07em 0; height:.22em; border-radius:100px; background:var(--teal-2);
+  transform:scaleX(0); transform-origin:left; animation:swipe .8s cubic-bezier(.2,.75,.3,1) 1.1s forwards;
 }
 @keyframes swipe{ to{ transform:scaleX(1) } }
 .hero p{ margin:24px 0 0 }
 .hero-cta{ display:flex; flex-wrap:wrap; gap:13px; margin-top:34px }
-.hero-mr{ margin-top:40px; padding-left:20px; border-left:3px solid var(--marigold); font-size:clamp(17px,1.5vw,20px); max-width:36ch }
-.hero-mr b{ color:var(--teal); font-weight:400; font-style:italic }
-.hero-art{ position:relative }
+.hero-mr{ margin-top:36px; padding-left:20px; border-left:3px solid var(--teal); border-radius:2px; font-size:clamp(17px,1.5vw,20px); max-width:36ch }
+.hero-mr b{ color:var(--teal-7); font-weight:400; font-style:italic }
+.hero-art{ position:relative; margin-right:-5vw }
+.hero-art svg{ width:100%; height:auto }
 .plx{ will-change:transform }
 
 /* ═══════════════ MARQUEE ═══════════════ */
-.marq{ background:var(--ink); color:var(--paper); overflow:hidden; border-block:2px solid var(--ink) }
+.marq{ background:var(--ink); color:#fff; overflow:hidden }
 .marq-in{ display:flex; width:max-content; animation:slide 42s linear infinite }
 .marq span{
   display:flex; align-items:center; gap:34px; padding:0 17px;
-  font:400 12px/1 var(--mono); letter-spacing:.16em; text-transform:uppercase; height:52px; white-space:nowrap;
+  font:400 11.5px/1 var(--mono); letter-spacing:.18em; text-transform:uppercase; height:54px; white-space:nowrap; color:var(--teal-2);
 }
-.marq span::after{ content:""; width:5px; height:5px; border-radius:50%; background:var(--marigold); flex:none }
-.marq .mr{ font-family:var(--deva); letter-spacing:.02em; color:var(--marigold); text-transform:none; font-size:17px }
+.marq span::after{ content:""; width:6px; height:6px; border-radius:50%; background:var(--teal); flex:none }
+.marq .mr{ font-family:var(--deva); letter-spacing:.02em; color:#fff; text-transform:none; font-size:17px }
 @keyframes slide{ to{ transform:translateX(-50%) } }
 
 /* ═══════════════ ABOUT ═══════════════ */
 .ab{ display:grid; grid-template-columns:1fr 1.08fr; gap:clamp(30px,5vw,84px); align-items:start }
 .ab-l{ position:sticky; top:calc(var(--head) + 28px) }
 .ab-b p{ margin:0 0 20px; color:var(--ink-72); font-size:17.5px }
-.ab-b p.first{ font-size:21px; color:var(--ink); font-weight:500; line-height:1.45 }
+.ab-b p.first{ font-size:20.5px; color:var(--ink); font-weight:400; line-height:1.55 }
 .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:32px }
 .chip{
   font:600 13px/1 var(--body); padding:9px 16px; border-radius:100px;
-  border:1.5px solid var(--ink-16); background:var(--paper-lift); display:flex; align-items:center; gap:8px;
+  border:1.5px solid var(--ink-16); background:#fff; display:flex; align-items:center; gap:8px;
 }
 .chip i{ width:7px; height:7px; border-radius:50%; flex:none; font-style:normal }
 
@@ -190,11 +195,11 @@ h1,h2,h3,h4{ margin:0 }
 .flow-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; margin-bottom:56px }
 .flow{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(16px,2vw,28px) }
 .stepc{
-  background:var(--paper-lift); border:2px solid var(--ink); border-radius:6px; padding:0 0 26px;
+  background:#fff; border:1.5px solid var(--ink-16); border-radius:18px; padding:0 0 26px;
   overflow:hidden; transition:transform .22s, box-shadow .22s;
 }
-.stepc:hover{ transform:translate(-3px,-4px); box-shadow:8px 9px 0 var(--teal) }
-.stepc figure{ margin:0; background:var(--paper); border-bottom:2px solid var(--ink) }
+.stepc:hover{ transform:translateY(-4px); border-color:var(--ink); box-shadow:0 8px 0 var(--teal-1) }
+.stepc figure{ margin:0; background:var(--paper); border-bottom:1.5px solid var(--ink-16) }
 .stepc .txt{ padding:22px clamp(18px,1.8vw,26px) 0 }
 .stepc .lab{ font:500 10.5px/1 var(--mono); letter-spacing:.18em; text-transform:uppercase; color:var(--teal); display:block; margin-bottom:8px }
 .stepc h3{ margin-bottom:10px }
@@ -203,11 +208,11 @@ h1,h2,h3,h4{ margin:0 }
 /* ═══════════════ FOCUS ═══════════════ */
 .fg{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,1.8vw,24px); margin-top:56px }
 .fc{
-  border:2px solid var(--ink); border-radius:6px; overflow:hidden; background:var(--paper-lift);
+  border:1.5px solid var(--ink-16); border-radius:18px; overflow:hidden; background:#fff;
   display:flex; flex-direction:column; transition:transform .22s, box-shadow .22s;
 }
-.fc:hover{ transform:translate(-3px,-4px); box-shadow:8px 9px 0 var(--marigold) }
-.fc figure{ margin:0; border-bottom:2px solid var(--ink); position:relative }
+.fc:hover{ transform:translateY(-4px); border-color:var(--ink); box-shadow:0 8px 0 var(--teal-1) }
+.fc figure{ margin:0; border-bottom:1.5px solid var(--ink-16); position:relative }
 .fc .no{
   position:absolute; top:12px; left:14px; font:500 10.5px/1 var(--mono);
   letter-spacing:.14em; color:var(--ink-48);
@@ -215,22 +220,22 @@ h1,h2,h3,h4{ margin:0 }
 .fc .txt{ padding:24px clamp(20px,2vw,28px) 28px }
 .fc h3{ margin-bottom:11px }
 .fc p{ margin:0; font-size:15px; color:var(--ink-72) }
-.sky-a{ background:#DCE9E4 } .sky-b{ background:#F0E0C4 } .sky-c{ background:#E2EBD6 }
+.sky-a{ background:#D6EFF0 } .sky-b{ background:#DFF2F3 } .sky-c{ background:#E4F5F0 }
 
 /* ═══════════════ WORK ═══════════════ */
-.work{ background:var(--teal-deep); color:var(--paper) }
-.work .h2, .work .lede{ color:var(--paper) }
-.work .h2 em{ color:var(--marigold) }
-.work .lede{ color:rgba(239,229,210,.72) }
+.work{ background:var(--teal-deep); color:#fff }
+.work .h2, .work .lede{ color:#fff }
+.work .h2 em{ color:var(--teal-3) }
+.work .lede{ color:rgba(255,255,255,.72) }
 .wk{ display:grid; grid-template-columns:.82fr 1.18fr; gap:clamp(30px,5vw,76px); align-items:start }
 .wk ul{ list-style:none; margin:0; padding:0 }
 .wk li{
   display:grid; grid-template-columns:auto 1fr; gap:18px; align-items:center;
-  padding:18px 0; border-top:1px solid rgba(239,229,210,.16); font-size:16.5px;
+  padding:18px 0; border-top:1px solid rgba(255,255,255,.16); font-size:16.5px;
   transition:padding-left .22s;
 }
 .wk li:hover{ padding-left:8px }
-.wk li:last-child{ border-bottom:1px solid rgba(239,229,210,.16) }
+.wk li:last-child{ border-bottom:1px solid rgba(255,255,255,.16) }
 .wk li svg{ flex:none }
 
 /* ═══════════════ APP ═══════════════ */
@@ -238,14 +243,14 @@ h1,h2,h3,h4{ margin:0 }
 .app-art{ width:100%; margin:0 }
 .qr-row{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(14px,1.6vw,20px); margin-top:34px; max-width:440px }
 .qr{
-  border:2px solid var(--ink); border-radius:6px; background:var(--paper-lift);
+  border:2px solid var(--ink); border-radius:16px; background:#fff;
   padding:18px 18px 16px; display:flex; flex-direction:column; align-items:center; gap:12px;
   color:inherit; text-decoration:none; cursor:pointer; transition:transform .2s,box-shadow .2s;
 }
-.qr:hover{ transform:translate(-3px,-4px); box-shadow:7px 8px 0 var(--teal) }
+.qr:hover{ transform:translateY(-4px); box-shadow:0 8px 0 var(--teal) }
 .qr .store{ font:500 11px/1 var(--mono); letter-spacing:.16em; text-transform:uppercase; color:var(--ink) }
 .qr-slot{
-  width:100%; aspect-ratio:1/1; background:#fff; border:1.5px solid var(--ink-16); border-radius:3px;
+  width:100%; aspect-ratio:1/1; background:#fff; border:1.5px dashed var(--ink-16); border-radius:8px;
   display:grid; place-items:center; overflow:hidden;
 }
 .qr-slot img{ width:100%; height:100%; object-fit:contain; display:block }
@@ -261,7 +266,7 @@ h1,h2,h3,h4{ margin:0 }
 .tg{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(34px,5vw,76px); align-items:center }
 .quote{
   font:italic 400 clamp(26px,2.9vw,40px)/1.2 var(--dsp); letter-spacing:-.015em; margin:36px 0 0;
-  border-left:4px solid var(--marigold); padding-left:clamp(20px,2.4vw,32px);
+  border-left:4px solid var(--teal); padding-left:clamp(20px,2.4vw,32px);
 }
 .quote cite{ display:block; font:500 11.5px/1 var(--mono); letter-spacing:.18em; text-transform:uppercase; color:var(--teal); font-style:normal; margin-top:20px }
 .orbit-r{ animation:spin 90s linear infinite; transform-origin:300px 300px }
@@ -269,10 +274,10 @@ h1,h2,h3,h4{ margin:0 }
 @keyframes spin{ to{ transform:rotate(360deg) } }
 
 /* ═══════════════ VISION ═══════════════ */
-.vis{ background:var(--ink); color:var(--paper); overflow:hidden; text-align:center }
-.vis .h2{ color:var(--paper); max-width:18ch; margin-inline:auto }
-.vis .h2 em{ color:var(--marigold) }
-.vis p{ color:rgba(239,229,210,.7); max-width:64ch; margin:26px auto 0 }
+.vis{ background:var(--ink); color:#fff; overflow:hidden; text-align:center }
+.vis .h2{ color:#fff; max-width:18ch; margin-inline:auto }
+.vis .h2 em{ color:var(--teal-3) }
+.vis p{ color:rgba(255,255,255,.7); max-width:64ch; margin:26px auto 0 }
 .vis .tag{ justify-content:center }
 .vis-art{ margin:56px auto 0 }
 .draw{ stroke-dasharray:1400; stroke-dashoffset:1400; transition:stroke-dashoffset 2.4s ease .2s }
@@ -281,10 +286,10 @@ h1,h2,h3,h4{ margin:0 }
 /* ═══════════════ JOIN ═══════════════ */
 .ig{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,1.8vw,24px); margin-top:54px }
 .ic{
-  border:2px solid var(--ink); border-radius:6px; background:var(--paper-lift); overflow:hidden;
+  border:2px solid var(--ink); border-radius:16px; background:#fff; overflow:hidden;
   display:flex; flex-direction:column; transition:transform .22s, box-shadow .22s;
 }
-.ic:hover{ transform:translate(-3px,-4px); box-shadow:8px 9px 0 var(--leaf) }
+.ic:hover{ transform:translateY(-5px); box-shadow:0 10px 0 var(--ink) }
 .ic figure{ margin:0; padding:26px 26px 0 }
 .ic .txt{ padding:14px clamp(20px,2vw,28px) 30px }
 .ic .lab{ font:500 10.5px/1 var(--mono); letter-spacing:.16em; text-transform:uppercase; color:var(--teal); display:block; margin-bottom:12px }
@@ -293,36 +298,37 @@ h1,h2,h3,h4{ margin:0 }
 .ic-cta{ display:flex; flex-wrap:wrap; gap:14px; margin-top:46px }
 
 /* ═══════════════ FINAL ═══════════════ */
-.fin{ background:var(--teal); color:var(--paper); text-align:center; position:relative; overflow:hidden }
-.fin .h2{ color:var(--paper); font-size:clamp(38px,5.4vw,76px); line-height:1.02; max-width:16ch; margin-inline:auto }
-.fin .h2 em{ color:var(--marigold) }
-.fin p{ color:rgba(239,229,210,.82); max-width:58ch; margin:26px auto 0 }
-.fin .bcz{ font:italic 400 clamp(23px,2.5vw,34px)/1.2 var(--dsp); letter-spacing:-.015em; color:var(--marigold); margin-top:32px }
+.fin{ background:var(--teal); color:#fff; text-align:center; position:relative; overflow:hidden }
+.fin .h2{ color:#fff; font-size:clamp(38px,5.4vw,76px); line-height:1.02; max-width:16ch; margin-inline:auto }
+.fin .h2 em{ color:var(--ink) }
+.fin p{ color:rgba(255,255,255,.86); max-width:58ch; margin:26px auto 0 }
+.fin .bcz{ font:italic 400 clamp(23px,2.5vw,34px)/1.2 var(--dsp); letter-spacing:-.015em; color:#fff; margin-top:32px }
 .fin-cta{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:38px }
 .blob{ position:absolute; pointer-events:none; opacity:.12 }
 
 /* ═══════════════ FOOTER ═══════════════ */
-.foot{ background:var(--ink); color:var(--paper); padding:clamp(58px,6vw,86px) 0 34px }
+.foot{ background:var(--ink); color:#fff; padding:clamp(58px,6vw,86px) 0 34px }
 .fgrid{ display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:clamp(28px,4vw,60px) }
-.foot .logo b{ color:var(--paper); font-size:26px }
-.foot .logo small{ color:var(--marigold) }
-.foot h4{ font:500 11px/1 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--marigold); margin-bottom:20px }
+.foot .logo b{ color:#fff; font-size:20px }
+.foot .logo b s{ color:var(--teal-3) }
+.foot .logo small{ color:var(--teal-3) }
+.foot h4{ font:500 11px/1 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--teal-3); margin-bottom:20px }
 .foot ul{ list-style:none; margin:0; padding:0 }
 .foot li{ margin-bottom:12px }
-.foot a{ font-size:14.5px; color:rgba(239,229,210,.76); text-decoration:none; transition:color .16s }
-.foot a:hover{ color:var(--marigold) }
-.ftag{ font:italic 400 21px/1.3 var(--dsp); letter-spacing:-.01em; color:var(--marigold); margin:16px 0 0 }
-.fdesc{ font-size:14.5px; color:rgba(239,229,210,.58); margin:14px 0 0; max-width:34ch }
+.foot a{ font-size:14.5px; color:rgba(255,255,255,.8); text-decoration:none; transition:color .16s }
+.foot a:hover{ color:var(--teal-3) }
+.ftag{ font:italic 400 21px/1.3 var(--dsp); letter-spacing:-.01em; color:var(--teal-3); margin:16px 0 0 }
+.fdesc{ font-size:14.5px; color:rgba(255,255,255,.62); margin:14px 0 0; max-width:34ch }
 .flegal{
-  margin-top:clamp(42px,5vw,66px); padding-top:26px; border-top:1px solid rgba(239,229,210,.14);
+  margin-top:clamp(42px,5vw,66px); padding-top:26px; border-top:1px solid rgba(255,255,255,.16);
   display:flex; flex-wrap:wrap; gap:10px 28px; justify-content:space-between;
-  font:400 12.5px/1.6 var(--mono); color:rgba(239,229,210,.45);
+  font:400 12.5px/1.6 var(--mono); color:rgba(255,255,255,.5);
 }
 
 /* ═══════════════ TOP BUTTON ═══════════════ */
 .top{
   position:fixed; right:22px; bottom:22px; z-index:140; width:50px; height:50px; border-radius:50%;
-  background:var(--ink); color:var(--paper); border:2px solid var(--paper); display:grid; place-items:center;
+  background:var(--ink); color:#fff; border:2px solid #fff; display:grid; place-items:center;
   cursor:pointer; opacity:0; transform:translateY(14px); pointer-events:none;
   transition:opacity .3s, transform .3s, background .2s;
 }
@@ -348,13 +354,14 @@ h1,h2,h3,h4{ margin:0 }
 .bob{ animation:bob 4.5s ease-in-out infinite }
 @keyframes bob{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-7px) } }
 
-:focus-visible{ outline:3px solid var(--marigold); outline-offset:3px; border-radius:4px }
+:focus-visible{ outline:3px solid var(--teal); outline-offset:3px; border-radius:4px }
 
 /* ═══════════════ RESPONSIVE ═══════════════ */
 @media (max-width:1040px){
-  :root{ --head:126px }
+  :root{ --head:124px }
   .hero-grid,.ab,.wk,.tg,.app-grid{ grid-template-columns:1fr }
   .ab-l{ position:static }
+  .hero-art{ margin-right:0 }
   .app-art{ max-width:360px; margin-inline:auto; order:-1 }
   .qr-row{ max-width:none }
   .flow,.fg,.ig{ grid-template-columns:repeat(2,1fr) }
@@ -388,11 +395,6 @@ h1,h2,h3,h4{ margin:0 }
 </head>
 <body>
 
-<svg class="grain" aria-hidden="true">
-  <filter id="gf"><feTurbulence type="fractalNoise" baseFrequency=".84" numOctaves="4" stitchTiles="stitch"/></filter>
-  <rect width="100%" height="100%" filter="url(#gf)"/>
-</svg>
-
 <div class="prog" id="prog"></div>
 
 <!-- ══════════════ HEADER ══════════════ -->
@@ -400,7 +402,7 @@ h1,h2,h3,h4{ margin:0 }
   <div class="wrap head-top">
     <a class="logo" href="#home">
       <span class="logo-mark"><img src="/jalna-first-logo.png" width="42" height="42" alt="Jalna First Citizen Forum logo"></span>
-      <span><b>Jalna First</b><small>Citizen Forum</small></span>
+      <span><b>Jalna <s>First</s></b><small>Citizen Forum</small></span>
     </a>
     <a class="invest-link" href="/investment">Investment Summit ↗</a>
     <a class="ig-link" href="https://www.instagram.com/jalnafirstcf/" target="_blank" rel="noopener noreferrer">Instagram · @jalnafirstcf</a>
@@ -452,78 +454,78 @@ h1,h2,h3,h4{ margin:0 }
         <defs>
           <clipPath id="hclip"><rect width="1200" height="640"/></clipPath>
           <pattern id="fld" width="14" height="14" patternUnits="userSpaceOnUse">
-            <circle cx="3.5" cy="3.5" r="1.8" fill="#0F6E68" opacity=".3"/>
+            <circle cx="3.5" cy="3.5" r="1.8" fill="#0C4A66" opacity=".3"/>
           </pattern>
           <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-            <line x1="0" y1="0" x2="0" y2="8" stroke="#0E2233" stroke-width="1.6" opacity=".28"/>
+            <line x1="0" y1="0" x2="0" y2="8" stroke="#093C54" stroke-width="1.6" opacity=".28"/>
           </pattern>
         </defs>
         <g clip-path="url(#hclip)" style="mix-blend-mode:multiply">
 
           <!-- ── layer 1: sky ── -->
           <g class="plx al l1d" data-d="0.05">
-            <circle cx="940" cy="168" r="104" fill="#E8912A" opacity=".82"/>
-            <g id="sunring" fill="none" stroke="#E8912A" stroke-width="3" opacity=".5">
+            <circle cx="940" cy="168" r="104" fill="#0DA1A7" opacity=".82"/>
+            <g id="sunring" fill="none" stroke="#0DA1A7" stroke-width="3" opacity=".5">
               <circle cx="940" cy="168" r="128" stroke-dasharray="18 14"/>
             </g>
-            <path d="M0 372c140-72 268-38 388-14 132 26 226-28 356-20 138 9 314-24 456-4v78H0Z" fill="#0F6E68" opacity=".14"/>
-            <g id="birds" fill="none" stroke="#0E2233" stroke-width="2.6" stroke-linecap="round" opacity=".5">
+            <path d="M0 372c140-72 268-38 388-14 132 26 226-28 356-20 138 9 314-24 456-4v78H0Z" fill="#0C4A66" opacity=".14"/>
+            <g id="birds" fill="none" stroke="#093C54" stroke-width="2.6" stroke-linecap="round" opacity=".5">
               <path d="M0 90c7-8 14-8 20 0M26 76c6-7 12-7 17 0M14 112c5-6 10-6 14 0"/>
             </g>
           </g>
 
           <!-- ── layer 2: skyline ── -->
-          <g class="plx al l2d" data-d="0.13" stroke="#0E2233" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">
+          <g class="plx al l2d" data-d="0.13" stroke="#093C54" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">
             <!-- orchard -->
             <g fill="none"><path d="M46 440v-34M112 440v-26"/></g>
-            <circle cx="46" cy="392" r="30" fill="#78933C" fill-opacity=".85"/>
-            <circle cx="112" cy="404" r="22" fill="#78933C" fill-opacity=".6"/>
-            <circle cx="38" cy="384" r="4" fill="#E8912A" stroke="none"/>
-            <circle cx="56" cy="400" r="4" fill="#E8912A" stroke="none"/>
+            <circle cx="46" cy="392" r="30" fill="#4FC6CB" fill-opacity=".85"/>
+            <circle cx="112" cy="404" r="22" fill="#4FC6CB" fill-opacity=".6"/>
+            <circle cx="38" cy="384" r="4" fill="#0DA1A7" stroke="none"/>
+            <circle cx="56" cy="400" r="4" fill="#0DA1A7" stroke="none"/>
 
             <!-- temple shikhara -->
-            <path d="M150 440v-52l28-58 28 58v52Z" fill="#EFE5D2"/>
+            <path d="M150 440v-52l28-58 28 58v52Z" fill="#FFFFFF"/>
             <path d="M178 330v-18" fill="none"/>
-            <circle cx="178" cy="307" r="6" fill="#E8912A"/>
+            <circle cx="178" cy="307" r="6" fill="#0DA1A7"/>
             <path d="M164 402h28" fill="none" stroke-width="2.6"/>
 
             <!-- low block -->
-            <rect x="214" y="368" width="70" height="72" fill="#0F6E68" fill-opacity=".85"/>
-            <path d="M228 384h14v14h-14zM256 384h14v14h-14zM228 412h14v14h-14zM256 412h14v14h-14z" fill="#EFE5D2" stroke-width="2.2"/>
+            <rect x="214" y="368" width="70" height="72" fill="#0C4A66" fill-opacity=".85"/>
+            <path d="M228 384h14v14h-14zM256 384h14v14h-14zM228 412h14v14h-14zM256 412h14v14h-14z" fill="#FFFFFF" stroke-width="2.2"/>
 
             <!-- mosque dome + minaret -->
-            <path d="M296 440v-44a28 28 0 0 1 56 0v44Z" fill="#EFE5D2"/>
+            <path d="M296 440v-44a28 28 0 0 1 56 0v44Z" fill="#FFFFFF"/>
             <path d="M324 366v-16" fill="none"/>
             <path d="M310 412h28" fill="none" stroke-width="2.6"/>
-            <rect x="362" y="352" width="17" height="88" fill="#E8912A" fill-opacity=".9"/>
+            <rect x="362" y="352" width="17" height="88" fill="#0DA1A7" fill-opacity=".9"/>
             <path d="M370.5 352v-14" fill="none"/>
 
             <!-- water tower -->
-            <path d="M406 302h78l-11 40h-56Z" fill="#0F6E68" fill-opacity=".9"/>
+            <path d="M406 302h78l-11 40h-56Z" fill="#0C4A66" fill-opacity=".9"/>
             <path d="M426 342l7 98M464 342l-7 98M431 392h28" fill="none"/>
 
             <!-- apartments -->
-            <rect x="500" y="322" width="84" height="118" fill="#EFE5D2"/>
-            <path d="M514 340h16v18h-16zM552 340h16v18h-16zM514 374h16v18h-16zM552 374h16v18h-16zM514 408h16v18h-16zM552 408h16v18h-16z" fill="#0F6E68" fill-opacity=".5" stroke-width="2.2"/>
+            <rect x="500" y="322" width="84" height="118" fill="#FFFFFF"/>
+            <path d="M514 340h16v18h-16zM552 340h16v18h-16zM514 374h16v18h-16zM552 374h16v18h-16zM514 408h16v18h-16zM552 408h16v18h-16z" fill="#0C4A66" fill-opacity=".5" stroke-width="2.2"/>
 
             <!-- steel mill -->
-            <path d="M604 440v-62l38 22v-22l38 22v-26h52v66Z" fill="#0F6E68" fill-opacity=".88"/>
-            <rect x="700" y="292" width="19" height="148" fill="#EFE5D2"/>
-            <rect x="728" y="322" width="19" height="118" fill="#EFE5D2"/>
+            <path d="M604 440v-62l38 22v-22l38 22v-26h52v66Z" fill="#0C4A66" fill-opacity=".88"/>
+            <rect x="700" y="292" width="19" height="148" fill="#FFFFFF"/>
+            <rect x="728" y="322" width="19" height="118" fill="#FFFFFF"/>
             <!-- coil stack -->
-            <circle cx="622" cy="424" r="13" fill="#E8912A" fill-opacity=".8"/>
-            <circle cx="652" cy="424" r="13" fill="#E8912A" fill-opacity=".8"/>
-            <circle cx="637" cy="400" r="13" fill="#E8912A" fill-opacity=".8"/>
+            <circle cx="622" cy="424" r="13" fill="#0DA1A7" fill-opacity=".8"/>
+            <circle cx="652" cy="424" r="13" fill="#0DA1A7" fill-opacity=".8"/>
+            <circle cx="637" cy="400" r="13" fill="#0DA1A7" fill-opacity=".8"/>
 
             <!-- gantry crane -->
             <path d="M772 440V318h108v122M760 318h132M826 318v52M812 370h28v22h-28z" fill="none"/>
-            <rect x="812" y="370" width="28" height="22" fill="#E8912A" fill-opacity=".85"/>
+            <rect x="812" y="370" width="28" height="22" fill="#0DA1A7" fill-opacity=".85"/>
 
             <!-- containers -->
-            <rect x="900" y="386" width="92" height="28" fill="#E8912A" fill-opacity=".9"/>
-            <rect x="900" y="412" width="92" height="28" fill="#EFE5D2"/>
-            <rect x="998" y="412" width="80" height="28" fill="#0F6E68" fill-opacity=".85"/>
-            <rect x="1006" y="384" width="72" height="28" fill="#EFE5D2"/>
+            <rect x="900" y="386" width="92" height="28" fill="#0DA1A7" fill-opacity=".9"/>
+            <rect x="900" y="412" width="92" height="28" fill="#FFFFFF"/>
+            <rect x="998" y="412" width="80" height="28" fill="#0C4A66" fill-opacity=".85"/>
+            <rect x="1006" y="384" width="72" height="28" fill="#FFFFFF"/>
             <g stroke-width="2.2">
               <path d="M912 390v20M926 390v20M940 390v20M954 390v20M968 390v20"/>
               <path d="M912 416v20M926 416v20M940 416v20M954 416v20M968 416v20"/>
@@ -532,35 +534,35 @@ h1,h2,h3,h4{ margin:0 }
 
             <!-- far orchard -->
             <g fill="none"><path d="M1136 440v-30"/></g>
-            <circle cx="1136" cy="396" r="26" fill="#78933C" fill-opacity=".8"/>
+            <circle cx="1136" cy="396" r="26" fill="#4FC6CB" fill-opacity=".8"/>
           </g>
 
           <!-- ── layer 2b: smoke ── -->
-          <g class="al l2d" fill="none" stroke="#0E2233" stroke-width="3" stroke-linecap="round" opacity=".55">
+          <g class="al l2d" fill="none" stroke="#093C54" stroke-width="3" stroke-linecap="round" opacity=".55">
             <path class="smoke" d="M709 284c-16-14 14-25 0-39-12-12 7-21 7-21"/>
             <path class="smoke2" d="M737 314c-14-12 12-21 0-33"/>
           </g>
 
           <!-- ── layer 3: road + foreground ── -->
           <g class="plx al l3d" data-d="0.24">
-            <rect y="440" width="1200" height="76" fill="#0E2233" opacity=".9"/>
-            <path d="M0 478h1200" stroke="#EFE5D2" stroke-width="5" stroke-dasharray="34 30" opacity=".8"/>
-            <rect y="516" width="1200" height="124" fill="#0F6E68" opacity=".15"/>
+            <rect y="440" width="1200" height="76" fill="#093C54" opacity=".9"/>
+            <path d="M0 478h1200" stroke="#FFFFFF" stroke-width="5" stroke-dasharray="34 30" opacity=".8"/>
+            <rect y="516" width="1200" height="124" fill="#0C4A66" opacity=".15"/>
             <rect y="516" width="1200" height="124" fill="url(#fld)" opacity=".55"/>
-            <path d="M0 516h1200" stroke="#0E2233" stroke-width="3" opacity=".5"/>
+            <path d="M0 516h1200" stroke="#093C54" stroke-width="3" opacity=".5"/>
 
             <!-- truck -->
-            <g id="truck" stroke="#0E2233" stroke-width="3.2" stroke-linejoin="round">
-              <rect x="0" y="418" width="118" height="56" fill="#EFE5D2"/>
-              <path d="M118 440h40l22 22v12h-62Z" fill="#0F6E68" fill-opacity=".9"/>
-              <path d="M128 444h22l12 14h-34Z" fill="#EFE5D2" stroke-width="2.4"/>
+            <g id="truck" stroke="#093C54" stroke-width="3.2" stroke-linejoin="round">
+              <rect x="0" y="418" width="118" height="56" fill="#FFFFFF"/>
+              <path d="M118 440h40l22 22v12h-62Z" fill="#0C4A66" fill-opacity=".9"/>
+              <path d="M128 444h22l12 14h-34Z" fill="#FFFFFF" stroke-width="2.4"/>
               <path d="M14 428v36M40 428v36M66 428v36M92 428v36" stroke-width="2.2"/>
-              <circle cx="34" cy="478" r="13" fill="#0E2233"/><circle cx="34" cy="478" r="5" fill="#EFE5D2"/>
-              <circle cx="150" cy="478" r="13" fill="#0E2233"/><circle cx="150" cy="478" r="5" fill="#EFE5D2"/>
+              <circle cx="34" cy="478" r="13" fill="#093C54"/><circle cx="34" cy="478" r="5" fill="#FFFFFF"/>
+              <circle cx="150" cy="478" r="13" fill="#093C54"/><circle cx="150" cy="478" r="5" fill="#FFFFFF"/>
             </g>
 
             <!-- citizens -->
-            <g fill="#0E2233" stroke="#0E2233" stroke-width="3.2" stroke-linecap="round">
+            <g fill="#093C54" stroke="#093C54" stroke-width="3.2" stroke-linecap="round">
               <g transform="translate(170 516)">
                 <circle cx="0" cy="-92" r="18" stroke="none"/>
                 <path d="M-17-68h34l8 68h-50Z" stroke="none"/>
@@ -568,20 +570,20 @@ h1,h2,h3,h4{ margin:0 }
               </g>
               <g transform="translate(300 516)" class="bob">
                 <circle cx="0" cy="-100" r="19" stroke="none"/>
-                <path d="M-18-76h36l9 76h-54Z" fill="#0F6E68" stroke="none"/>
+                <path d="M-18-76h36l9 76h-54Z" fill="#0C4A66" stroke="none"/>
                 <path d="M21-74 47-92" fill="none" stroke-width="9"/>
-                <rect x="34" y="-166" width="100" height="66" rx="4" fill="#E8912A"/>
-                <path d="M50-146h68M50-132h68M50-118h44" stroke-width="4.5" fill="none" stroke="#0E2233"/>
+                <rect x="34" y="-166" width="100" height="66" rx="4" fill="#0DA1A7"/>
+                <path d="M50-146h68M50-132h68M50-118h44" stroke-width="4.5" fill="none" stroke="#093C54"/>
                 <path d="M84-100v18" stroke-width="5" fill="none"/>
               </g>
               <g transform="translate(470 516)">
                 <circle cx="0" cy="-86" r="17" stroke="none"/>
-                <path d="M-16-64h32l7 64h-46Z" fill="#78933C" stroke="none"/>
+                <path d="M-16-64h32l7 64h-46Z" fill="#4FC6CB" stroke="none"/>
                 <path d="M-18-60-38-32M18-60 38-32" fill="none" stroke-width="8.5"/>
               </g>
               <g transform="translate(830 516)">
                 <circle cx="0" cy="-96" r="18" stroke="none"/>
-                <path d="M-17-72h34l8 72h-50Z" fill="#E8912A" stroke="none"/>
+                <path d="M-17-72h34l8 72h-50Z" fill="#0DA1A7" stroke="none"/>
                 <path d="M-19-68-41-98M19-68 41-36" fill="none" stroke-width="9"/>
               </g>
               <g transform="translate(960 516)">
@@ -591,7 +593,7 @@ h1,h2,h3,h4{ margin:0 }
               </g>
               <g transform="translate(1080 516)" class="bob">
                 <circle cx="0" cy="-84" r="16" stroke="none"/>
-                <path d="M-15-62h30l6 62h-42Z" fill="#0F6E68" stroke="none"/>
+                <path d="M-15-62h30l6 62h-42Z" fill="#0C4A66" stroke="none"/>
                 <path d="M-17-58-35-28M17-58 35-28" fill="none" stroke-width="8"/>
               </g>
             </g>
@@ -619,11 +621,11 @@ h1,h2,h3,h4{ margin:0 }
       <p class="tag"><i>02</i> Who we are</p>
       <h2 class="h2" style="margin-top:20px">One city.<br>One <em>shared</em><br>responsibility.</h2>
       <svg viewBox="0 0 300 150" style="margin-top:36px;max-width:300px" aria-hidden="true">
-        <g fill="none" stroke="#0E2233" stroke-width="2.6" stroke-linecap="round">
+        <g fill="none" stroke="#093C54" stroke-width="2.6" stroke-linecap="round">
           <path d="M10 120h280" opacity=".3"/>
-          <path d="M40 120V70h50v50M90 120V50h50v70M140 120V80h50v40M190 120V60h60v60" fill="#0F6E68" fill-opacity=".18"/>
-          <path d="M55 92h8M105 78h8M158 98h8M212 84h8" stroke="#E8912A" stroke-width="5"/>
-          <circle cx="248" cy="34" r="15" fill="#E8912A" fill-opacity=".45" stroke="none"/>
+          <path d="M40 120V70h50v50M90 120V50h50v70M140 120V80h50v40M190 120V60h60v60" fill="#0C4A66" fill-opacity=".18"/>
+          <path d="M55 92h8M105 78h8M158 98h8M212 84h8" stroke="#0DA1A7" stroke-width="5"/>
+          <circle cx="248" cy="34" r="15" fill="#0DA1A7" fill-opacity=".45" stroke="none"/>
         </g>
       </svg>
     </div>
@@ -659,14 +661,14 @@ h1,h2,h3,h4{ margin:0 }
       <article class="stepc rv">
         <figure>
           <svg viewBox="0 0 220 150" aria-hidden="true">
-            <g stroke="#0E2233" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M52 62h30l38-24v66l-38-24H52a10 10 0 0 1 0-18Z" fill="#0F6E68" fill-opacity=".3"/>
+            <g stroke="#093C54" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M52 62h30l38-24v66l-38-24H52a10 10 0 0 1 0-18Z" fill="#0C4A66" fill-opacity=".3"/>
               <path d="M70 80v26" fill="none"/>
-              <g fill="none" stroke="#E8912A" stroke-width="3.4" opacity=".9">
+              <g fill="none" stroke="#0DA1A7" stroke-width="3.4" opacity=".9">
                 <path d="M136 52a30 30 0 0 1 0 42M150 40a48 48 0 0 1 0 66"/>
               </g>
               <path d="M28 118h164" opacity=".22"/>
-              <circle cx="42" cy="34" r="5" fill="#E8912A" stroke="none"/>
+              <circle cx="42" cy="34" r="5" fill="#0DA1A7" stroke="none"/>
             </g>
           </svg>
         </figure>
@@ -681,13 +683,13 @@ h1,h2,h3,h4{ margin:0 }
       <article class="stepc rv">
         <figure>
           <svg viewBox="0 0 220 150" aria-hidden="true">
-            <g stroke="#0E2233" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <g stroke="#093C54" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none">
               <path d="M24 96V64M196 96V64"/>
-              <path d="M24 70q86-44 172 0" stroke="#E8912A" stroke-width="3.4"/>
+              <path d="M24 70q86-44 172 0" stroke="#0DA1A7" stroke-width="3.4"/>
               <path d="M24 84h172" stroke-width="3.4"/>
               <path d="M62 78v-9M100 74v-13M138 78v-9"/>
-              <rect x="10" y="96" width="28" height="26" fill="#0F6E68" fill-opacity=".3"/>
-              <rect x="182" y="96" width="28" height="26" fill="#0F6E68" fill-opacity=".3"/>
+              <rect x="10" y="96" width="28" height="26" fill="#0C4A66" fill-opacity=".3"/>
+              <rect x="182" y="96" width="28" height="26" fill="#0C4A66" fill-opacity=".3"/>
               <path d="M0 122h220" opacity=".22"/>
               <path d="M96 100q14 10 28 0" stroke-width="2.4" opacity=".5"/>
             </g>
@@ -704,12 +706,12 @@ h1,h2,h3,h4{ margin:0 }
       <article class="stepc rv">
         <figure>
           <svg viewBox="0 0 220 150" aria-hidden="true">
-            <g stroke="#0E2233" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M70 96 46 74l14-14 26 22" fill="#0F6E68" fill-opacity=".3"/>
-              <path d="M150 96l24-22-14-14-26 22" fill="#E8912A" fill-opacity=".45"/>
-              <path d="M86 82h48v18a9 9 0 0 1-9 9H95a9 9 0 0 1-9-9Z" fill="#EFE5D2"/>
+            <g stroke="#093C54" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M70 96 46 74l14-14 26 22" fill="#0C4A66" fill-opacity=".3"/>
+              <path d="M150 96l24-22-14-14-26 22" fill="#0DA1A7" fill-opacity=".45"/>
+              <path d="M86 82h48v18a9 9 0 0 1-9 9H95a9 9 0 0 1-9-9Z" fill="#FFFFFF"/>
               <path d="M110 82V54" fill="none"/>
-              <circle cx="110" cy="44" r="11" fill="#78933C" fill-opacity=".6"/>
+              <circle cx="110" cy="44" r="11" fill="#4FC6CB" fill-opacity=".6"/>
               <path d="M20 120h180" opacity=".22"/>
             </g>
           </svg>
@@ -725,13 +727,13 @@ h1,h2,h3,h4{ margin:0 }
       <article class="stepc rv">
         <figure>
           <svg viewBox="0 0 220 150" aria-hidden="true">
-            <g stroke="#0E2233" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+            <g stroke="#093C54" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M110 116V70" fill="none"/>
-              <path d="M110 82c-24 0-32-16-32-30 18 0 32 12 32 30Z" fill="#78933C" fill-opacity=".65"/>
-              <path d="M110 74c22-2 30-18 28-32-18 1-30 14-28 32Z" fill="#0F6E68" fill-opacity=".45"/>
-              <path d="M86 116h48l-6 14H92Z" fill="#E8912A" fill-opacity=".7"/>
+              <path d="M110 82c-24 0-32-16-32-30 18 0 32 12 32 30Z" fill="#4FC6CB" fill-opacity=".65"/>
+              <path d="M110 74c22-2 30-18 28-32-18 1-30 14-28 32Z" fill="#0C4A66" fill-opacity=".45"/>
+              <path d="M86 116h48l-6 14H92Z" fill="#0DA1A7" fill-opacity=".7"/>
               <path d="M24 130h172" opacity=".22"/>
-              <path d="M60 44l6 10M170 52l-8 8" stroke="#E8912A" stroke-width="3.4"/>
+              <path d="M60 44l6 10M170 52l-8 8" stroke="#0DA1A7" stroke-width="3.4"/>
             </g>
           </svg>
         </figure>
@@ -759,16 +761,16 @@ h1,h2,h3,h4{ margin:0 }
         <figure class="sky-a">
           <span class="no">01</span>
           <svg viewBox="0 0 300 190" aria-hidden="true">
-            <g stroke="#0E2233" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
-              <rect x="30" y="52" width="52" height="82" fill="#0F6E68" fill-opacity=".28"/>
+            <g stroke="#093C54" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
+              <rect x="30" y="52" width="52" height="82" fill="#0C4A66" fill-opacity=".28"/>
               <path d="M42 66h12v12H42zM60 66h12v12H60zM42 90h12v12H42zM60 90h12v12H60z" stroke-width="2.2"/>
-              <rect x="96" y="34" width="44" height="100" fill="#EFE5D2"/>
-              <path d="M106 48h10v14h-10zM122 48h10v14h-10zM106 76h10v14h-10zM122 76h10v14h-10zM106 104h10v14h-10zM122 104h10v14h-10z" stroke-width="2.2" fill="#0F6E68" fill-opacity=".35"/>
-              <path d="M108 134 88 178h124l-20-44Z" fill="#0E2233" fill-opacity=".85"/>
-              <path d="M150 142v8M150 160v10" stroke="#EFE5D2" stroke-width="4"/>
+              <rect x="96" y="34" width="44" height="100" fill="#FFFFFF"/>
+              <path d="M106 48h10v14h-10zM122 48h10v14h-10zM106 76h10v14h-10zM122 76h10v14h-10zM106 104h10v14h-10zM122 104h10v14h-10z" stroke-width="2.2" fill="#0C4A66" fill-opacity=".35"/>
+              <path d="M108 134 88 178h124l-20-44Z" fill="#093C54" fill-opacity=".85"/>
+              <path d="M150 142v8M150 160v10" stroke="#FFFFFF" stroke-width="4"/>
               <path d="M228 134V56" fill="none"/>
-              <path d="M228 56h-16a11 11 0 0 1 0-22h16" fill="#E8912A" fill-opacity=".7"/>
-              <circle cx="252" cy="152" r="13" fill="#E8912A" fill-opacity=".55"/>
+              <path d="M228 56h-16a11 11 0 0 1 0-22h16" fill="#0DA1A7" fill-opacity=".7"/>
+              <circle cx="252" cy="152" r="13" fill="#0DA1A7" fill-opacity=".55"/>
               <path d="M244 152h16M252 144v16" stroke-width="2.2"/>
               <path d="M0 178h300" opacity=".3"/>
             </g>
@@ -785,18 +787,18 @@ h1,h2,h3,h4{ margin:0 }
         <figure class="sky-b">
           <span class="no">02</span>
           <svg viewBox="0 0 300 190" aria-hidden="true">
-            <g stroke="#0E2233" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
-              <path d="M28 148V86l34 20V86l34 20V66h46v82Z" fill="#0F6E68" fill-opacity=".3"/>
-              <rect x="142" y="34" width="20" height="114" fill="#EFE5D2"/>
+            <g stroke="#093C54" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
+              <path d="M28 148V86l34 20V86l34 20V66h46v82Z" fill="#0C4A66" fill-opacity=".3"/>
+              <rect x="142" y="34" width="20" height="114" fill="#FFFFFF"/>
               <path d="M152 26c-13-11 11-20 0-31" stroke-width="2.4" opacity=".55" fill="none"/>
               <path d="M186 148V66h84v82M178 66h100M228 66v34" fill="none"/>
-              <rect x="212" y="100" width="32" height="24" fill="#E8912A" fill-opacity=".75"/>
-              <rect x="192" y="124" width="42" height="24" fill="#EFE5D2"/>
-              <rect x="240" y="124" width="42" height="24" fill="#0F6E68" fill-opacity=".55"/>
+              <rect x="212" y="100" width="32" height="24" fill="#0DA1A7" fill-opacity=".75"/>
+              <rect x="192" y="124" width="42" height="24" fill="#FFFFFF"/>
+              <rect x="240" y="124" width="42" height="24" fill="#0C4A66" fill-opacity=".55"/>
               <path d="M202 128v16M212 128v16M222 128v16M250 128v16M260 128v16M270 128v16" stroke-width="2.2"/>
-              <circle cx="52" cy="132" r="12" fill="#E8912A" fill-opacity=".7"/>
-              <circle cx="80" cy="132" r="12" fill="#E8912A" fill-opacity=".7"/>
-              <circle cx="66" cy="110" r="12" fill="#E8912A" fill-opacity=".7"/>
+              <circle cx="52" cy="132" r="12" fill="#0DA1A7" fill-opacity=".7"/>
+              <circle cx="80" cy="132" r="12" fill="#0DA1A7" fill-opacity=".7"/>
+              <circle cx="66" cy="110" r="12" fill="#0DA1A7" fill-opacity=".7"/>
               <path d="M0 148h300" opacity=".3"/>
             </g>
           </svg>
@@ -812,14 +814,14 @@ h1,h2,h3,h4{ margin:0 }
         <figure class="sky-c">
           <span class="no">03</span>
           <svg viewBox="0 0 300 190" aria-hidden="true">
-            <g stroke="#0E2233" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
-              <rect x="34" y="52" width="86" height="96" fill="#EFE5D2"/>
-              <path d="M70 74v26M58 87h24" stroke="#E8912A" stroke-width="6"/>
+            <g stroke="#093C54" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
+              <rect x="34" y="52" width="86" height="96" fill="#FFFFFF"/>
+              <path d="M70 74v26M58 87h24" stroke="#0DA1A7" stroke-width="6"/>
               <path d="M48 114h58M48 130h58" stroke-width="2.4" opacity=".45"/>
-              <path d="M34 52 77 26l43 26" fill="#0F6E68" fill-opacity=".35"/>
-              <path d="M176 148c-17 0-29-12-29-27 0-18 29-53 29-53s29 35 29 53c0 15-12 27-29 27Z" fill="#0F6E68" fill-opacity=".38"/>
-              <path d="M176 106v26M164 118h24" stroke="#EFE5D2" stroke-width="5"/>
-              <path d="M240 148v-40M226 108h30l-4-22h-22Z" fill="#E8912A" fill-opacity=".65"/>
+              <path d="M34 52 77 26l43 26" fill="#0C4A66" fill-opacity=".35"/>
+              <path d="M176 148c-17 0-29-12-29-27 0-18 29-53 29-53s29 35 29 53c0 15-12 27-29 27Z" fill="#0C4A66" fill-opacity=".38"/>
+              <path d="M176 106v26M164 118h24" stroke="#FFFFFF" stroke-width="5"/>
+              <path d="M240 148v-40M226 108h30l-4-22h-22Z" fill="#0DA1A7" fill-opacity=".65"/>
               <path d="M241 86V64" stroke-width="2.6"/>
               <path d="M232 60h18" stroke-width="3.4"/>
               <path d="M0 148h300" opacity=".3"/>
@@ -837,15 +839,15 @@ h1,h2,h3,h4{ margin:0 }
         <figure class="sky-b">
           <span class="no">04</span>
           <svg viewBox="0 0 300 190" aria-hidden="true">
-            <g stroke="#0E2233" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
-              <path d="M34 148V80l50-30 50 30v68Z" fill="#0F6E68" fill-opacity=".3"/>
-              <path d="M68 148v-32h32v32" fill="#EFE5D2"/>
-              <path d="M84 50V30h26l-8 9 8 9H84" fill="#E8912A" fill-opacity=".8"/>
-              <path d="M164 92c14-8 26-8 40 0v50c-14-8-26-8-40 0Z" fill="#EFE5D2"/>
-              <path d="M204 92c14-8 26-8 40 0v50c-14-8-26-8-40 0Z" fill="#0F6E68" fill-opacity=".3"/>
+            <g stroke="#093C54" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
+              <path d="M34 148V80l50-30 50 30v68Z" fill="#0C4A66" fill-opacity=".3"/>
+              <path d="M68 148v-32h32v32" fill="#FFFFFF"/>
+              <path d="M84 50V30h26l-8 9 8 9H84" fill="#0DA1A7" fill-opacity=".8"/>
+              <path d="M164 92c14-8 26-8 40 0v50c-14-8-26-8-40 0Z" fill="#FFFFFF"/>
+              <path d="M204 92c14-8 26-8 40 0v50c-14-8-26-8-40 0Z" fill="#0C4A66" fill-opacity=".3"/>
               <path d="M204 92v50"/>
               <path d="M174 108h20M174 122h20M214 108h20M214 122h20" stroke-width="2.2" opacity=".55"/>
-              <path d="M248 44l14 12-34 30-16 4 4-16Z" fill="#E8912A" fill-opacity=".7"/>
+              <path d="M248 44l14 12-34 30-16 4 4-16Z" fill="#0DA1A7" fill-opacity=".7"/>
               <path d="M0 148h300" opacity=".3"/>
             </g>
           </svg>
@@ -861,16 +863,16 @@ h1,h2,h3,h4{ margin:0 }
         <figure class="sky-a">
           <span class="no">05</span>
           <svg viewBox="0 0 300 190" aria-hidden="true">
-            <g stroke="#0E2233" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" fill="none">
+            <g stroke="#093C54" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" fill="none">
               <path d="M10 148q60-46 132-46t148 46" stroke-width="2.4" opacity=".35"/>
               <path d="M10 168q60-46 132-46t148 46" stroke-width="2.4" opacity=".35"/>
-              <circle cx="118" cy="42" r="14" fill="#E8912A" fill-opacity=".75"/>
+              <circle cx="118" cy="42" r="14" fill="#0DA1A7" fill-opacity=".75"/>
               <path d="M130 66l-24 12 12 26-20 34"/>
               <path d="M118 104l26 16 4 28"/>
               <path d="M106 78 74 88"/>
               <path d="M130 66l26 18"/>
-              <path d="M236 148V44l-38 12 38 12" fill="#0F6E68" fill-opacity=".35"/>
-              <circle cx="52" cy="60" r="16" fill="#E8912A" fill-opacity=".4"/>
+              <path d="M236 148V44l-38 12 38 12" fill="#0C4A66" fill-opacity=".35"/>
+              <circle cx="52" cy="60" r="16" fill="#0DA1A7" fill-opacity=".4"/>
               <path d="M52 76v14M40 90h24" stroke-width="2.4"/>
               <path d="M0 168h300" opacity=".3"/>
             </g>
@@ -887,14 +889,14 @@ h1,h2,h3,h4{ margin:0 }
         <figure class="sky-c">
           <span class="no">06</span>
           <svg viewBox="0 0 300 190" aria-hidden="true">
-            <g stroke="#0E2233" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
+            <g stroke="#093C54" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
               <path d="M96 148V88" fill="none"/>
-              <circle cx="96" cy="66" r="40" fill="#78933C" fill-opacity=".55"/>
-              <circle cx="62" cy="86" r="22" fill="#78933C" fill-opacity=".4"/>
-              <circle cx="130" cy="86" r="20" fill="#78933C" fill-opacity=".4"/>
+              <circle cx="96" cy="66" r="40" fill="#4FC6CB" fill-opacity=".55"/>
+              <circle cx="62" cy="86" r="22" fill="#4FC6CB" fill-opacity=".4"/>
+              <circle cx="130" cy="86" r="20" fill="#4FC6CB" fill-opacity=".4"/>
               <path d="M96 100 72 84M96 116l26-18" stroke-width="2.4"/>
-              <path d="M186 148v-30M172 118h30l-5-24h-20Z" fill="#0F6E68" fill-opacity=".45"/>
-              <path d="M226 100l24-14h42l-16 14Z" fill="#E8912A" fill-opacity=".65"/>
+              <path d="M186 148v-30M172 118h30l-5-24h-20Z" fill="#0C4A66" fill-opacity=".45"/>
+              <path d="M226 100l24-14h42l-16 14Z" fill="#0DA1A7" fill-opacity=".65"/>
               <path d="M262 100v48" fill="none"/>
               <path d="M240 148h44" fill="none"/>
               <g fill="none" stroke-width="2.4" opacity=".6"><path d="M198 44c6-7 12-7 17 0M222 32c5-6 10-6 14 0"/></g>
@@ -922,19 +924,19 @@ h1,h2,h3,h4{ margin:0 }
         <svg width="15" height="12" viewBox="0 0 15 12" fill="none" aria-hidden="true"><path d="M1 6h12M9 1.5 13.5 6 9 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <ul class="rv">
-      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="7" y="5" width="20" height="24" rx="2" stroke="#E8912A" stroke-width="2.4"/><path d="M12 13h10M12 19h6" stroke="#E8912A" stroke-width="2.4" stroke-linecap="round"/></svg>Voter registration and verification, step by step</li>
-      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="10" y="4" width="14" height="26" rx="3" stroke="#E8912A" stroke-width="2.4"/><path d="M13 11h8M13 16h8" stroke="#E8912A" stroke-width="2.2" stroke-linecap="round"/><circle cx="17" cy="24" r="2" fill="#E8912A"/></svg>How to use municipal complaint and citizen-service apps</li>
-      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M5 28V16h7v12M14 28V8h7v20M23 28v-9h6v9" stroke="#E8912A" stroke-width="2.4" stroke-linejoin="round"/></svg>Updates on major infrastructure and industrial projects</li>
-      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M5 26 13 16l6 6 10-13" stroke="#E8912A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 9h6v6" stroke="#E8912A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Data and insight on Jalna's economy and growth</li>
-      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M17 29V17" stroke="#E8912A" stroke-width="2.4" stroke-linecap="round"/><circle cx="17" cy="12" r="8" stroke="#E8912A" stroke-width="2.4"/></svg>Awareness drives across environment, health, education and sport</li>
-      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><circle cx="17" cy="13" r="7" stroke="#E8912A" stroke-width="2.4"/><path d="m13 19-2 10 6-4 6 4-2-10" stroke="#E8912A" stroke-width="2.4" stroke-linejoin="round"/></svg>Recognition for people and organisations serving the community</li>
-      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="4.5" stroke="#E8912A" stroke-width="2.4"/><circle cx="23" cy="23" r="4.5" stroke="#E8912A" stroke-width="2.4"/><path d="m14.5 14.5 5 5" stroke="#E8912A" stroke-width="2.4" stroke-linecap="round"/></svg>Joint work with civic authorities and local institutions</li>
+      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="7" y="5" width="20" height="24" rx="2" stroke="#0DA1A7" stroke-width="2.4"/><path d="M12 13h10M12 19h6" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round"/></svg>Voter registration and verification, step by step</li>
+      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="10" y="4" width="14" height="26" rx="3" stroke="#0DA1A7" stroke-width="2.4"/><path d="M13 11h8M13 16h8" stroke="#0DA1A7" stroke-width="2.2" stroke-linecap="round"/><circle cx="17" cy="24" r="2" fill="#0DA1A7"/></svg>How to use municipal complaint and citizen-service apps</li>
+      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M5 28V16h7v12M14 28V8h7v20M23 28v-9h6v9" stroke="#0DA1A7" stroke-width="2.4" stroke-linejoin="round"/></svg>Updates on major infrastructure and industrial projects</li>
+      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M5 26 13 16l6 6 10-13" stroke="#0DA1A7" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 9h6v6" stroke="#0DA1A7" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Data and insight on Jalna's economy and growth</li>
+      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M17 29V17" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round"/><circle cx="17" cy="12" r="8" stroke="#0DA1A7" stroke-width="2.4"/></svg>Awareness drives across environment, health, education and sport</li>
+      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><circle cx="17" cy="13" r="7" stroke="#0DA1A7" stroke-width="2.4"/><path d="m13 19-2 10 6-4 6 4-2-10" stroke="#0DA1A7" stroke-width="2.4" stroke-linejoin="round"/></svg>Recognition for people and organisations serving the community</li>
+      <li><svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="4.5" stroke="#0DA1A7" stroke-width="2.4"/><circle cx="23" cy="23" r="4.5" stroke="#0DA1A7" stroke-width="2.4"/><path d="m14.5 14.5 5 5" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round"/></svg>Joint work with civic authorities and local institutions</li>
     </ul>
   </div>
 </section>
 
 <!-- ══════════════ 06 · APP ══════════════ -->
-<section class="sec" id="app">
+<section class="sec band" id="app">
   <div class="wrap app-grid">
     <div class="rv">
       <p class="tag"><i>06</i> The app</p>
@@ -967,63 +969,63 @@ h1,h2,h3,h4{ margin:0 }
     <figure class="app-art rv">
       <svg viewBox="0 0 400 470" role="img" aria-label="Illustration of the My Jalna app on a phone, showing the city skyline, a feed of civic updates and a reporting button.">
         <g style="mix-blend-mode:multiply">
-          <ellipse cx="200" cy="438" rx="132" ry="18" fill="#0F6E68" opacity=".14"/>
+          <ellipse cx="200" cy="438" rx="132" ry="18" fill="#0C4A66" opacity=".14"/>
           <g class="chip-a">
-            <rect x="16" y="96" width="86" height="34" rx="17" fill="#EFE5D2" stroke="#0E2233" stroke-width="2.6"/>
-            <circle cx="36" cy="113" r="6" fill="#E8912A"/>
-            <path d="M52 107h34M52 119h22" stroke="#0E2233" stroke-width="2.4" stroke-linecap="round" opacity=".55"/>
+            <rect x="16" y="96" width="86" height="34" rx="17" fill="#FFFFFF" stroke="#093C54" stroke-width="2.6"/>
+            <circle cx="36" cy="113" r="6" fill="#0DA1A7"/>
+            <path d="M52 107h34M52 119h22" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity=".55"/>
           </g>
           <g class="chip-b">
-            <rect x="298" y="172" width="88" height="34" rx="17" fill="#EFE5D2" stroke="#0E2233" stroke-width="2.6"/>
-            <circle cx="318" cy="189" r="6" fill="#78933C"/>
-            <path d="M334 183h34M334 195h20" stroke="#0E2233" stroke-width="2.4" stroke-linecap="round" opacity=".55"/>
+            <rect x="298" y="172" width="88" height="34" rx="17" fill="#FFFFFF" stroke="#093C54" stroke-width="2.6"/>
+            <circle cx="318" cy="189" r="6" fill="#4FC6CB"/>
+            <path d="M334 183h34M334 195h20" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity=".55"/>
           </g>
           <g class="chip-c">
-            <rect x="304" y="330" width="80" height="34" rx="17" fill="#EFE5D2" stroke="#0E2233" stroke-width="2.6"/>
-            <circle cx="324" cy="347" r="6" fill="#0F6E68"/>
-            <path d="M340 341h28M340 353h16" stroke="#0E2233" stroke-width="2.4" stroke-linecap="round" opacity=".55"/>
+            <rect x="304" y="330" width="80" height="34" rx="17" fill="#FFFFFF" stroke="#093C54" stroke-width="2.6"/>
+            <circle cx="324" cy="347" r="6" fill="#0C4A66"/>
+            <path d="M340 341h28M340 353h16" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity=".55"/>
           </g>
-          <rect x="118" y="24" width="164" height="392" rx="26" fill="#F7F1E4" stroke="#0E2233" stroke-width="3.4"/>
-          <rect x="176" y="36" width="48" height="8" rx="4" fill="#0E2233" opacity=".45"/>
-          <rect x="129" y="56" width="142" height="336" rx="14" fill="#EFE5D2" stroke="#0E2233" stroke-width="2.2"/>
-          <path d="M129 70a14 14 0 0 1 14-14h114a14 14 0 0 1 14 14v40H129Z" fill="#0F6E68"/>
-          <text x="145" y="93" fill="#EFE5D2" style="font:400 17px 'Instrument Serif',serif">My Jalna</text>
-          <circle cx="256" cy="86" r="9" fill="#E8912A" stroke="#0E2233" stroke-width="2"/>
-          <rect x="139" y="120" width="122" height="72" rx="4" fill="#DCE7E0" stroke="#0E2233" stroke-width="2.2"/>
-          <g stroke="#0E2233" stroke-width="2.2" stroke-linejoin="round">
-            <path d="M147 192v-26h16v26Z" fill="#0F6E68" fill-opacity=".85"/>
-            <path d="M167 192v-38l11-14 11 14v38Z" fill="#EFE5D2"/>
-            <path d="M193 192v-30h14v30Z" fill="#E8912A" fill-opacity=".85"/>
-            <path d="M211 192v-22h14v22Z" fill="#EFE5D2"/>
-            <circle cx="240" cy="176" r="12" fill="#78933C" fill-opacity=".8"/>
+          <rect x="118" y="24" width="164" height="392" rx="26" fill="#E4F2F4" stroke="#093C54" stroke-width="3.4"/>
+          <rect x="176" y="36" width="48" height="8" rx="4" fill="#093C54" opacity=".45"/>
+          <rect x="129" y="56" width="142" height="336" rx="14" fill="#FFFFFF" stroke="#093C54" stroke-width="2.2"/>
+          <path d="M129 70a14 14 0 0 1 14-14h114a14 14 0 0 1 14 14v40H129Z" fill="#0C4A66"/>
+          <text x="145" y="93" fill="#FFFFFF" style="font:400 17px 'Instrument Serif',serif">My Jalna</text>
+          <circle cx="256" cy="86" r="9" fill="#0DA1A7" stroke="#093C54" stroke-width="2"/>
+          <rect x="139" y="120" width="122" height="72" rx="4" fill="#D6EFF0" stroke="#093C54" stroke-width="2.2"/>
+          <g stroke="#093C54" stroke-width="2.2" stroke-linejoin="round">
+            <path d="M147 192v-26h16v26Z" fill="#0C4A66" fill-opacity=".85"/>
+            <path d="M167 192v-38l11-14 11 14v38Z" fill="#FFFFFF"/>
+            <path d="M193 192v-30h14v30Z" fill="#0DA1A7" fill-opacity=".85"/>
+            <path d="M211 192v-22h14v22Z" fill="#FFFFFF"/>
+            <circle cx="240" cy="176" r="12" fill="#4FC6CB" fill-opacity=".8"/>
             <path d="M240 192v-6" fill="none"/>
             <path d="M139 192h122" fill="none"/>
           </g>
           <g>
-            <rect x="139" y="204" width="122" height="34" rx="4" fill="#F7F1E4" stroke="#0E2233" stroke-width="2"/>
-            <circle cx="154" cy="221" r="6" fill="#E8912A"/>
-            <path d="M168 215h72M168 227h44" stroke="#0E2233" stroke-width="2.4" stroke-linecap="round" opacity=".5"/>
+            <rect x="139" y="204" width="122" height="34" rx="4" fill="#E4F2F4" stroke="#093C54" stroke-width="2"/>
+            <circle cx="154" cy="221" r="6" fill="#0DA1A7"/>
+            <path d="M168 215h72M168 227h44" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity=".5"/>
           </g>
           <g>
-            <rect x="139" y="246" width="122" height="34" rx="4" fill="#F7F1E4" stroke="#0E2233" stroke-width="2"/>
-            <circle cx="154" cy="263" r="6" fill="#0F6E68"/>
-            <path d="M168 257h72M168 269h52" stroke="#0E2233" stroke-width="2.4" stroke-linecap="round" opacity=".5"/>
+            <rect x="139" y="246" width="122" height="34" rx="4" fill="#E4F2F4" stroke="#093C54" stroke-width="2"/>
+            <circle cx="154" cy="263" r="6" fill="#0C4A66"/>
+            <path d="M168 257h72M168 269h52" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity=".5"/>
           </g>
           <g>
-            <rect x="139" y="288" width="122" height="34" rx="4" fill="#F7F1E4" stroke="#0E2233" stroke-width="2"/>
-            <circle cx="154" cy="305" r="6" fill="#78933C"/>
-            <path d="M168 299h72M168 311h36" stroke="#0E2233" stroke-width="2.4" stroke-linecap="round" opacity=".5"/>
+            <rect x="139" y="288" width="122" height="34" rx="4" fill="#E4F2F4" stroke="#093C54" stroke-width="2"/>
+            <circle cx="154" cy="305" r="6" fill="#4FC6CB"/>
+            <path d="M168 299h72M168 311h36" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity=".5"/>
           </g>
-          <rect x="139" y="332" width="122" height="30" rx="15" fill="#E8912A" stroke="#0E2233" stroke-width="2.4"/>
-          <path d="M186 347h28M200 340v14" stroke="#0E2233" stroke-width="2.8" stroke-linecap="round"/>
-          <path d="M164 341h12" stroke="#0E2233" stroke-width="2.4" stroke-linecap="round" opacity=".6"/>
-          <path d="M164 351h16" stroke="#0E2233" stroke-width="2.4" stroke-linecap="round" opacity=".6"/>
-          <path d="M129 372h142v6a14 14 0 0 1-14 14H143a14 14 0 0 1-14-14Z" fill="#EFE5D2" stroke="#0E2233" stroke-width="2.2"/>
-          <g fill="#0E2233">
+          <rect x="139" y="332" width="122" height="30" rx="15" fill="#0DA1A7" stroke="#093C54" stroke-width="2.4"/>
+          <path d="M186 347h28M200 340v14" stroke="#093C54" stroke-width="2.8" stroke-linecap="round"/>
+          <path d="M164 341h12" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity=".6"/>
+          <path d="M164 351h16" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity=".6"/>
+          <path d="M129 372h142v6a14 14 0 0 1-14 14H143a14 14 0 0 1-14-14Z" fill="#FFFFFF" stroke="#093C54" stroke-width="2.2"/>
+          <g fill="#093C54">
             <circle cx="153" cy="380" r="4"/><circle cx="184" cy="380" r="4" opacity=".4"/>
             <circle cx="215" cy="380" r="4" opacity=".4"/><circle cx="246" cy="380" r="4" opacity=".4"/>
           </g>
-          <g stroke="#0E2233" stroke-width="2.4" stroke-linecap="round" opacity=".35" fill="none">
+          <g stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity=".35" fill="none">
             <path d="M96 214c-10 0-16 6-16 16M96 258c-10 0-16-6-16-16"/>
             <path d="M304 214c10 0 16 6 16 16M304 258c10 0 16-6 16-16"/>
           </g>
@@ -1034,7 +1036,7 @@ h1,h2,h3,h4{ margin:0 }
 </section>
 
 <!-- ══════════════ 07 · TOGETHER ══════════════ -->
-<section class="sec band" id="together">
+<section class="sec" id="together">
   <div class="wrap tg">
     <div class="rv">
       <p class="tag"><i>07</i> Together</p>
@@ -1046,45 +1048,45 @@ h1,h2,h3,h4{ margin:0 }
     <!-- ─── stakeholder orbit ─── -->
     <div class="rv">
       <svg viewBox="0 0 600 600" role="img" aria-label="Diagram: Jalna at the centre, ringed by six stakeholder groups — citizens, government, businesses, institutions, experts and community organisations — all connected.">
-        <g fill="none" stroke="#0E2233">
+        <g fill="none" stroke="#093C54">
           <circle class="orbit-r" cx="300" cy="300" r="248" stroke-width="2" stroke-dasharray="14 12" opacity=".28"/>
           <circle class="orbit-r2" cx="300" cy="300" r="186" stroke-width="2" stroke-dasharray="6 10" opacity=".22"/>
         </g>
         <!-- spokes -->
-        <g stroke="#0E2233" stroke-width="2" opacity=".3" stroke-dasharray="5 7">
+        <g stroke="#093C54" stroke-width="2" opacity=".3" stroke-dasharray="5 7">
           <path d="M300 300 300 76M300 300 494 188M300 300 494 412M300 300 300 524M300 300 106 412M300 300 106 188"/>
         </g>
         <!-- centre -->
-        <circle cx="300" cy="300" r="88" fill="#0F6E68"/>
-        <circle cx="300" cy="300" r="88" fill="none" stroke="#0E2233" stroke-width="3.2"/>
-        <text x="300" y="294" text-anchor="middle" fill="#EFE5D2" style="font:400 46px var(--dsp); letter-spacing:-.01em">Jalna</text>
-        <text x="300" y="328" text-anchor="middle" fill="#E8912A" style="font:400 11px var(--mono); letter-spacing:.24em">FIRST</text>
+        <circle cx="300" cy="300" r="88" fill="#0C4A66"/>
+        <circle cx="300" cy="300" r="88" fill="none" stroke="#093C54" stroke-width="3.2"/>
+        <text x="300" y="294" text-anchor="middle" fill="#FFFFFF" style="font:400 46px var(--dsp); letter-spacing:-.01em">Jalna</text>
+        <text x="300" y="328" text-anchor="middle" fill="#0DA1A7" style="font:400 11px var(--mono); letter-spacing:.24em">FIRST</text>
 
         <!-- nodes -->
-        <g stroke="#0E2233" stroke-width="3.2">
-          <g><circle cx="300" cy="76" r="54" fill="#E8912A"/>
+        <g stroke="#093C54" stroke-width="3.2">
+          <g><circle cx="300" cy="76" r="54" fill="#0DA1A7"/>
              <g fill="none" stroke-width="3" stroke-linecap="round"><circle cx="300" cy="62" r="11"/><path d="M282 96c0-11 8-19 18-19s18 8 18 19"/></g>
-             <text x="300" y="152" text-anchor="middle" stroke="none" fill="#0E2233" style="font:600 14px var(--body)">Citizens</text></g>
+             <text x="300" y="152" text-anchor="middle" stroke="none" fill="#093C54" style="font:600 14px var(--body)">Citizens</text></g>
 
-          <g><circle cx="494" cy="188" r="54" fill="#EFE5D2"/>
+          <g><circle cx="494" cy="188" r="54" fill="#FFFFFF"/>
              <g fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M470 206v-24l24-14 24 14v24Z"/><path d="M486 206v-14h16v14"/></g>
-             <text x="494" y="264" text-anchor="middle" stroke="none" fill="#0E2233" style="font:600 14px var(--body)">Government</text></g>
+             <text x="494" y="264" text-anchor="middle" stroke="none" fill="#093C54" style="font:600 14px var(--body)">Government</text></g>
 
-          <g><circle cx="494" cy="412" r="54" fill="#78933C"/>
+          <g><circle cx="494" cy="412" r="54" fill="#4FC6CB"/>
              <g fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M472 430v-32l16 8v-8l16 8v-12h14v36Z"/></g>
-             <text x="494" y="488" text-anchor="middle" stroke="none" fill="#0E2233" style="font:600 14px var(--body)">Businesses</text></g>
+             <text x="494" y="488" text-anchor="middle" stroke="none" fill="#093C54" style="font:600 14px var(--body)">Businesses</text></g>
 
-          <g><circle cx="300" cy="524" r="54" fill="#EFE5D2"/>
+          <g><circle cx="300" cy="524" r="54" fill="#FFFFFF"/>
              <g fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M278 512c8-5 14-5 22 0v26c-8-5-14-5-22 0Z"/><path d="M300 512c8-5 14-5 22 0v26c-8-5-14-5-22 0Z"/></g>
-             <text x="300" y="600" text-anchor="middle" stroke="none" fill="#0E2233" style="font:600 14px var(--body)">Institutions</text></g>
+             <text x="300" y="600" text-anchor="middle" stroke="none" fill="#093C54" style="font:600 14px var(--body)">Institutions</text></g>
 
-          <g><circle cx="106" cy="412" r="54" fill="#E8912A"/>
+          <g><circle cx="106" cy="412" r="54" fill="#0DA1A7"/>
              <g fill="none" stroke-width="3" stroke-linecap="round"><circle cx="100" cy="406" r="16"/><path d="M112 418l14 14"/></g>
-             <text x="106" y="488" text-anchor="middle" stroke="none" fill="#0E2233" style="font:600 14px var(--body)">Experts</text></g>
+             <text x="106" y="488" text-anchor="middle" stroke="none" fill="#093C54" style="font:600 14px var(--body)">Experts</text></g>
 
-          <g><circle cx="106" cy="188" r="54" fill="#78933C"/>
+          <g><circle cx="106" cy="188" r="54" fill="#4FC6CB"/>
              <g fill="none" stroke-width="3" stroke-linecap="round"><circle cx="94" cy="180" r="9"/><circle cx="118" cy="180" r="9"/><path d="M80 208c0-8 6-14 14-14s14 6 14 14M104 208c0-8 6-14 14-14s14 6 14 14"/></g>
-             <text x="106" y="264" text-anchor="middle" stroke="none" fill="#0E2233" style="font:600 14px var(--body)">Community</text></g>
+             <text x="106" y="264" text-anchor="middle" stroke="none" fill="#093C54" style="font:600 14px var(--body)">Community</text></g>
         </g>
       </svg>
     </div>
@@ -1099,39 +1101,39 @@ h1,h2,h3,h4{ margin:0 }
     <p class="rv">Our long-term vision is for Jalna to become progressive, clean, inclusive and future-ready — supported by robust infrastructure, active citizen participation, economic opportunity and sustainable development. A Jalna where citizens stay informed and citizens, institutions, businesses and public authorities work together.</p>
 
     <svg class="vis-art rv" viewBox="0 0 1000 260" role="img" aria-label="Illustration of a future Jalna: green cover, solar rooftops, a hospital, a school, rail and logistics links, water harvesting and connected neighbourhoods.">
-      <g fill="none" stroke="#EFE5D2" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+      <g fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
         <path class="draw" d="M20 218h960" opacity=".55"/>
 
-        <circle cx="66" cy="164" r="26" fill="#78933C" fill-opacity=".55"/><path d="M66 190v28"/>
-        <circle cx="112" cy="180" r="16" fill="#78933C" fill-opacity=".4"/><path d="M112 196v22"/>
+        <circle cx="66" cy="164" r="26" fill="#4FC6CB" fill-opacity=".55"/><path d="M66 190v28"/>
+        <circle cx="112" cy="180" r="16" fill="#4FC6CB" fill-opacity=".4"/><path d="M112 196v22"/>
 
-        <rect x="162" y="118" width="66" height="100" fill="#0F6E68" fill-opacity=".32"/>
+        <rect x="162" y="118" width="66" height="100" fill="#0C4A66" fill-opacity=".32"/>
         <path d="M178 138h12M204 138h12M178 162h12M204 162h12M178 186h12M204 186h12" stroke-width="2.2"/>
-        <path d="M156 110l22-16h56l-16 16Z" fill="#E8912A" fill-opacity=".5"/>
+        <path d="M156 110l22-16h56l-16 16Z" fill="#0DA1A7" fill-opacity=".5"/>
 
-        <rect x="250" y="78" width="52" height="140" fill="#E8912A" fill-opacity=".3"/>
+        <rect x="250" y="78" width="52" height="140" fill="#0DA1A7" fill-opacity=".3"/>
         <path d="M264 98h10M282 98h10M264 124h10M282 124h10M264 150h10M282 150h10M264 176h10M282 176h10" stroke-width="2.2"/>
 
-        <rect x="326" y="126" width="80" height="92" fill="#EFE5D2" fill-opacity=".12"/>
-        <path d="M366 146v26M353 159h26" stroke="#E8912A" stroke-width="5"/>
-        <path d="M326 126l40-24 40 24" fill="#0F6E68" fill-opacity=".3"/>
+        <rect x="326" y="126" width="80" height="92" fill="#FFFFFF" fill-opacity=".12"/>
+        <path d="M366 146v26M353 159h26" stroke="#0DA1A7" stroke-width="5"/>
+        <path d="M326 126l40-24 40 24" fill="#0C4A66" fill-opacity=".3"/>
 
-        <path d="M434 218v-64l44-28 44 28v64Z" fill="#0F6E68" fill-opacity=".32"/>
-        <path d="M462 218v-32h32v32" fill="#EFE5D2" fill-opacity=".14"/>
-        <path d="M478 126v-20h20l-6 7 6 7h-20" fill="#E8912A" fill-opacity=".6"/>
+        <path d="M434 218v-64l44-28 44 28v64Z" fill="#0C4A66" fill-opacity=".32"/>
+        <path d="M462 218v-32h32v32" fill="#FFFFFF" fill-opacity=".14"/>
+        <path d="M478 126v-20h20l-6 7 6 7h-20" fill="#0DA1A7" fill-opacity=".6"/>
 
         <path class="draw" d="M550 200h250" stroke-dasharray="12 10" opacity=".55"/>
-        <rect x="556" y="150" width="60" height="34" fill="#E8912A" fill-opacity=".45"/>
-        <rect x="624" y="150" width="60" height="34" fill="#EFE5D2" fill-opacity=".14"/>
-        <rect x="590" y="116" width="60" height="34" fill="#0F6E68" fill-opacity=".4"/>
+        <rect x="556" y="150" width="60" height="34" fill="#0DA1A7" fill-opacity=".45"/>
+        <rect x="624" y="150" width="60" height="34" fill="#FFFFFF" fill-opacity=".14"/>
+        <rect x="590" y="116" width="60" height="34" fill="#0C4A66" fill-opacity=".4"/>
         <path d="M700 184V118h84v66M692 118h100M742 118v34" />
-        <rect x="726" y="152" width="32" height="24" fill="#E8912A" fill-opacity=".5"/>
+        <rect x="726" y="152" width="32" height="24" fill="#0DA1A7" fill-opacity=".5"/>
 
-        <path d="M846 218v-52M826 166h40l-6-30h-28Z" fill="#0F6E68" fill-opacity=".4"/>
+        <path d="M846 218v-52M826 166h40l-6-30h-28Z" fill="#0C4A66" fill-opacity=".4"/>
         <path d="M846 136v-16M834 116h24" stroke-width="3"/>
 
-        <circle cx="924" cy="86" r="30" fill="#E8912A" fill-opacity=".5"/>
-        <circle cx="934" cy="176" r="24" fill="#78933C" fill-opacity=".5"/><path d="M934 200v18"/>
+        <circle cx="924" cy="86" r="30" fill="#0DA1A7" fill-opacity=".5"/>
+        <circle cx="934" cy="176" r="24" fill="#4FC6CB" fill-opacity=".5"/><path d="M934 200v18"/>
 
         <g opacity=".5" stroke-width="2.2"><path d="M876 54c6-7 12-7 17 0M842 40c5-6 10-6 14 0"/></g>
       </g>
@@ -1151,12 +1153,12 @@ h1,h2,h3,h4{ margin:0 }
       <article class="ic rv">
         <figure>
           <svg viewBox="0 0 240 110" aria-hidden="true">
-            <g stroke="#0E2233" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="56" cy="34" r="15" fill="#E8912A" fill-opacity=".7"/>
-              <path d="M34 96c0-14 10-24 22-24s22 10 22 24" fill="#0F6E68" fill-opacity=".28"/>
-              <circle cx="104" cy="42" r="12" fill="#78933C" fill-opacity=".55"/>
+            <g stroke="#093C54" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="56" cy="34" r="15" fill="#0DA1A7" fill-opacity=".7"/>
+              <path d="M34 96c0-14 10-24 22-24s22 10 22 24" fill="#0C4A66" fill-opacity=".28"/>
+              <circle cx="104" cy="42" r="12" fill="#4FC6CB" fill-opacity=".55"/>
               <path d="M86 96c0-11 8-19 18-19s18 8 18 19" fill="none"/>
-              <path d="M150 96V52h56v44Z" fill="#EFE5D2"/>
+              <path d="M150 96V52h56v44Z" fill="#FFFFFF"/>
               <path d="M162 64h32M162 78h20" stroke-width="2.4" opacity=".55"/>
               <path d="M178 52V34" fill="none"/>
               <path d="M0 96h240" opacity=".25"/>
@@ -1173,11 +1175,11 @@ h1,h2,h3,h4{ margin:0 }
       <article class="ic rv">
         <figure>
           <svg viewBox="0 0 240 110" aria-hidden="true">
-            <g stroke="#0E2233" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M26 96V44l30 18V44l30 18V30h34v66Z" fill="#0F6E68" fill-opacity=".3"/>
-              <rect x="128" y="46" width="52" height="50" fill="#EFE5D2"/>
-              <path d="M138 60h12v12h-12zM158 60h12v12h-12zM138 80h32v16h-32z" stroke-width="2.2" fill="#E8912A" fill-opacity=".4"/>
-              <path d="M196 96V60h30v36Z" fill="#78933C" fill-opacity=".4"/>
+            <g stroke="#093C54" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M26 96V44l30 18V44l30 18V30h34v66Z" fill="#0C4A66" fill-opacity=".3"/>
+              <rect x="128" y="46" width="52" height="50" fill="#FFFFFF"/>
+              <path d="M138 60h12v12h-12zM158 60h12v12h-12zM138 80h32v16h-32z" stroke-width="2.2" fill="#0DA1A7" fill-opacity=".4"/>
+              <path d="M196 96V60h30v36Z" fill="#4FC6CB" fill-opacity=".4"/>
               <path d="M0 96h240" opacity=".25"/>
             </g>
           </svg>
@@ -1192,14 +1194,14 @@ h1,h2,h3,h4{ margin:0 }
       <article class="ic rv">
         <figure>
           <svg viewBox="0 0 240 110" aria-hidden="true">
-            <g stroke="#0E2233" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M32 96V52l34-20 34 20v44Z" fill="#EFE5D2"/>
-              <path d="M52 96V70h28v26" fill="#0F6E68" fill-opacity=".3"/>
+            <g stroke="#093C54" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M32 96V52l34-20 34 20v44Z" fill="#FFFFFF"/>
+              <path d="M52 96V70h28v26" fill="#0C4A66" fill-opacity=".3"/>
               <path d="M66 32V16" fill="none"/>
-              <path d="M66 16h22l-6 7 6 7H66" fill="#E8912A" fill-opacity=".75"/>
+              <path d="M66 16h22l-6 7 6 7H66" fill="#0DA1A7" fill-opacity=".75"/>
               <circle cx="152" cy="46" r="18" fill="none"/>
               <path d="M166 60l16 16" fill="none"/>
-              <path d="M198 96V56h28v40Z" fill="#78933C" fill-opacity=".4"/>
+              <path d="M198 96V56h28v40Z" fill="#4FC6CB" fill-opacity=".4"/>
               <path d="M0 96h240" opacity=".25"/>
             </g>
           </svg>
@@ -1222,8 +1224,8 @@ h1,h2,h3,h4{ margin:0 }
 
 <!-- ══════════════ FINAL ══════════════ -->
 <section class="sec fin">
-  <svg class="blob" style="top:-110px;right:-90px;width:400px" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="#EFE5D2"/></svg>
-  <svg class="blob" style="bottom:-140px;left:-80px;width:330px" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="#E8912A"/></svg>
+  <svg class="blob" style="top:-110px;right:-90px;width:400px" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="#FFFFFF"/></svg>
+  <svg class="blob" style="bottom:-140px;left:-80px;width:330px" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="#0DA1A7"/></svg>
   <div class="wrap" style="position:relative">
     <h2 class="h2 rv">The future of Jalna belongs to <em>all of us</em>.</h2>
     <p class="rv">Every informed citizen, every responsible action, every collaboration that holds — each one moves the city a step forward. Let's build a cleaner, stronger, healthier and more prosperous Jalna.</p>
@@ -1244,11 +1246,11 @@ h1,h2,h3,h4{ margin:0 }
       <div>
         <a class="logo" href="#home" style="margin:0">
           <span class="logo-mark"><img src="/jalna-first-logo.png" width="42" height="42" alt="Jalna First Citizen Forum logo"></span>
-          <span><b>Jalna First</b><small>Citizen Forum</small></span>
+          <span><b>Jalna <s>First</s></b><small>Citizen Forum</small></span>
         </a>
         <p class="ftag">Change begins with action.</p>
         <p class="fdesc">Citizen awareness · Community engagement · Collaborative development</p>
-        <p class="fdesc marathi" style="color:rgba(239,229,210,.78);font-size:17px">कारण पहिलं जालना!</p>
+        <p class="fdesc marathi" style="color:rgba(255,255,255,.82);font-size:17px">कारण पहिलं जालना!</p>
       </div>
       <div>
         <h4>Explore</h4>
