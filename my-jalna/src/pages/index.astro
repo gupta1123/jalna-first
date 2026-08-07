@@ -85,6 +85,9 @@ h1,h2,h3,h4{margin:0}
 .logo b s{text-decoration:none;color:var(--teal)}
 .logo small{display:block;font:400 7.5px/1 var(--mono);letter-spacing:.2em;color:var(--n56);
   text-transform:uppercase;margin-top:4px}
+.site-switch{flex:none;text-decoration:none;padding:11px 18px;border:1.5px solid var(--n16);border-radius:100px;
+  font:600 12px/1 var(--body);color:var(--n72);transition:background .18s,color .18s,border-color .18s}
+.site-switch:hover{background:var(--navy);border-color:var(--navy);color:#fff}
 .hcta{padding:12px 22px;font-size:13.5px}
 .mobile-actions{display:none}
 .railw{border-top:1px solid var(--n16);border-bottom:1px solid var(--n16);background:var(--paper)}
@@ -297,9 +300,9 @@ h1,h2,h3,h4{margin:0}
   .hg>div:last-child{margin-right:0}
   .ab-l,.obj-l{position:static}
   .vg,.jg{grid-template-columns:repeat(2,1fr)}
-  .hcta{display:none}
-  .mobile-actions{display:flex;padding-bottom:9px}
-  .mobile-actions .btn{width:100%;justify-content:center;padding:12px 22px;font-size:13px}
+  .hcta,.site-switch{display:none}
+  .mobile-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-bottom:9px}
+  .mobile-actions .btn{width:100%;justify-content:center;padding:12px 10px;font-size:12.5px;white-space:nowrap}
   .pmark{display:none}
   .fg{grid-template-columns:1fr 1fr}
 }
@@ -342,9 +345,11 @@ h1,h2,h3,h4{margin:0}
       <svg viewBox="-124 -124 248 248" aria-hidden="true"><use href="#jfmark"/></svg>
       <span><b>Jalna <s>First</s></b><small>Citizen Forum</small></span>
     </a>
+    <a class="site-switch" href="/investment">Investment Summit ↗</a>
     <a class="btn b-teal hcta" href="#join">Join the forum</a>
   </div>
   <div class="wrap mobile-actions" aria-label="Quick action">
+    <a class="btn b-line" href="/investment">Investment Summit</a>
     <a class="btn b-teal" href="#join">Join the forum</a>
   </div>
   <div class="railw">
