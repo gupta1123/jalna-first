@@ -45,6 +45,8 @@ section[id]{scroll-margin-top:var(--head)}
 h1,h2,h3,h4{margin:0}
 .h2{font:400 clamp(33px,4.3vw,60px)/1.05 var(--dsp);letter-spacing:-.018em}
 .h2 em{font-style:italic;color:var(--teal)}
+.two-line-title{font-size:clamp(24px,7.8vw,60px)}
+.two-line-title > span{display:block;white-space:nowrap}
 .h3{font:400 clamp(20px,1.8vw,25px)/1.22 var(--dsp);letter-spacing:-.012em}
 .lede{font-size:clamp(16px,1.15vw,18.5px);color:var(--n72);max-width:58ch}
 .marathi{font-family:var(--deva)}
@@ -814,7 +816,10 @@ h1,h2,h3,h4{margin:0}
   <div class="wrap">
     <div class="rv" style="max-width:26ch">
       <p class="tag"><i>07</i> Get involved</p>
-      <h2 class="h2" style="margin-top:20px">Jalna needs more than ideas. It needs <em>participation</em>.</h2>
+      <h2 class="h2 two-line-title" style="margin-top:20px">
+        <span>Jalna needs more than ideas.</span>
+        <span>It needs <em>participation</em>.</span>
+      </h2>
     </div>
 
     <div class="jg">

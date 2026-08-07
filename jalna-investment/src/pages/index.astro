@@ -49,6 +49,8 @@ section[id]{ scroll-margin-top:var(--head) }
 h1,h2,h3,h4{ margin:0 }
 .h2{ font:400 clamp(34px,4.4vw,62px)/1.04 var(--dsp); letter-spacing:-.018em }
 .h2 em{ font-style:italic; color:var(--navy) }
+.two-line-title{ font-size:clamp(25px,8vw,62px) }
+.two-line-title > span{ display:block; white-space:nowrap }
 .h3{ font:400 clamp(21px,1.8vw,26px)/1.2 var(--dsp); letter-spacing:-.012em }
 .lede{ font-size:clamp(16px,1.15vw,18px); color:var(--i72); max-width:58ch }
 .marathi{ font-family:var(--deva) }
@@ -520,7 +522,10 @@ h1,h2,h3,h4{ margin:0 }
   <div class="wrap">
     <div class="rv" style="max-width:32ch">
       <p class="tag"><i>04</i> Focus sectors</p>
-      <h2 class="h2" style="margin-top:20px">Opportunities across<br><em>high-growth</em> sectors.</h2>
+      <h2 class="h2 two-line-title" style="margin-top:20px">
+        <span>Opportunities across</span>
+        <span><em>high-growth</em> sectors.</span>
+      </h2>
     </div>
 
     <div class="sg">
@@ -604,7 +609,10 @@ h1,h2,h3,h4{ margin:0 }
   <div class="wrap">
     <div class="rv" style="max-width:34ch">
       <p class="tag inv"><i>◆</i> Objectives</p>
-      <h2 class="h2" style="margin-top:20px">From investment interest<br>to <em>economic impact</em>.</h2>
+      <h2 class="h2 two-line-title" style="margin-top:20px">
+        <span>From investment interest</span>
+        <span>to <em>economic impact</em>.</span>
+      </h2>
       <p class="lede" style="margin-top:24px">What the summit is organised to produce — stated plainly, so you can judge whether attending is worth your day.</p>
     </div>
     <ol class="olist rv">
