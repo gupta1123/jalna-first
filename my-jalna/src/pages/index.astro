@@ -80,11 +80,8 @@ h1,h2,h3,h4{margin:0}
 .head{position:sticky;top:0;z-index:150;background:var(--paper)}
 .htop{display:flex;align-items:center;gap:24px;height:76px}
 .logo{display:flex;align-items:center;gap:13px;text-decoration:none;margin-right:auto}
-.logo svg{width:44px;height:44px;flex:none}
-.logo b{display:block;font:700 20px/1 var(--body);letter-spacing:.01em;text-transform:uppercase}
-.logo b s{text-decoration:none;color:var(--teal)}
-.logo small{display:block;font:400 7.5px/1 var(--mono);letter-spacing:.2em;color:var(--n56);
-  text-transform:uppercase;margin-top:4px}
+.head .logo{width:182px;height:70px;overflow:hidden;position:relative}
+.head .logo-img{display:block;width:182px;height:auto;transform:translateY(-4px);mix-blend-mode:multiply}
 .site-switch{flex:none;text-decoration:none;padding:11px 18px;border:1.5px solid var(--n16);border-radius:100px;
   font:600 12px/1 var(--body);color:var(--n72);transition:background .18s,color .18s,border-color .18s}
 .site-switch:hover{background:var(--navy);border-color:var(--navy);color:#fff}
@@ -242,9 +239,8 @@ h1,h2,h3,h4{margin:0}
 /* ═══════════ FOOTER ═══════════ */
 .foot{background:var(--navy);color:#fff;padding:clamp(56px,6vw,84px) 0 32px}
 .fg{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:clamp(26px,4vw,56px)}
-.foot .logo b{color:#fff}
-.foot .logo b s{color:var(--teal-3)}
-.foot .logo small{color:var(--teal-3)}
+.foot .logo{display:inline-flex;width:auto;height:auto;overflow:visible;background:#fff;border-radius:4px;padding:4px}
+.foot .logo-img{display:block;width:220px;height:auto}
 .ftag{font:italic 400 20px/1.35 var(--dsp);color:var(--teal-3);margin:18px 0 0}
 .fdesc{font-size:14.5px;color:rgba(255,255,255,.62);margin:14px 0 0;max-width:34ch}
 .foot h4{font:400 10.5px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--teal-3);
@@ -308,6 +304,9 @@ h1,h2,h3,h4{margin:0}
 }
 @media(max-width:660px){
   body{font-size:16px}
+  .head .logo{width:160px;height:64px}
+  .head .logo-img{width:160px;transform:translateY(-3px)}
+  .foot .logo-img{width:200px}
   .vg,.jg,.fg{grid-template-columns:1fr}
   .qr-row{grid-template-columns:1fr;max-width:290px}
   .hero .l1{font-size:clamp(44px,13vw,72px)}
@@ -341,9 +340,8 @@ h1,h2,h3,h4{margin:0}
 <!-- ═══════ HEADER ═══════ -->
 <header class="head">
   <div class="wrap htop">
-    <a class="logo" href="#home">
-      <svg viewBox="-124 -124 248 248" aria-hidden="true"><use href="#jfmark"/></svg>
-      <span><b>Jalna <s>First</s></b><small>Citizen Forum</small></span>
+    <a class="logo" href="#home" aria-label="Jalna First home">
+      <img class="logo-img" src="/JFlogo.png" alt="Jalna First — Change Begins With Action">
     </a>
     <a class="site-switch" href="/investment">Investment Summit ↗</a>
     <a class="btn b-teal hcta" href="#join">Join the forum</a>
@@ -885,9 +883,8 @@ h1,h2,h3,h4{margin:0}
   <div class="wrap">
     <div class="fg">
       <div>
-        <a class="logo" href="#home" style="margin:0">
-          <svg viewBox="-124 -124 248 248" aria-hidden="true"><use href="#jfmark"/></svg>
-          <span><b>Jalna <s>First</s></b><small>Citizen Forum</small></span>
+        <a class="logo" href="#home" style="margin:0" aria-label="Jalna First home">
+          <img class="logo-img" src="/JFlogo.png" alt="Jalna First — A Collective Vision for a Progressive City">
         </a>
         <p class="ftag">A collective vision for a progressive city.</p>
         <p class="fdesc">Change begins with action. A Section 8 non-profit formed by the citizens, entrepreneurs and thought leaders of Jalna.</p>

@@ -78,11 +78,7 @@ h1,h2,h3,h4{ margin:0 }
 .head{ position:sticky; top:0; z-index:150; background:var(--paper) }
 .htop{ display:flex; align-items:center; gap:24px; height:76px }
 .logo{ display:flex; align-items:center; gap:13px; text-decoration:none; margin-right:auto }
-.logo svg{ width:38px; height:38px; flex:none }
-.logo b{ font:700 19px/1.08 var(--body); display:block; letter-spacing:.03em; text-transform:uppercase }
-.logo b s{ color:var(--brass); text-decoration:none }
-.logo b u{ margin-left:3px; padding:2px 9px 3px; border-radius:100px; background:var(--navy); color:#fff; font-size:.8em; letter-spacing:.06em; text-decoration:none }
-.logo small{ display:block; font:400 8.5px/1 var(--mono); letter-spacing:.24em; color:var(--navy); text-transform:uppercase; margin-top:4px }
+.head .logo-img{ display:block; width:250px; height:auto; mix-blend-mode:multiply }
 .site-switch{
   flex:none; text-decoration:none; padding:9px 14px; border:1.5px solid var(--i16); border-radius:100px;
   font:600 12px/1 var(--body); color:var(--i72); transition:background .18s,color .18s,border-color .18s;
@@ -293,10 +289,8 @@ h1,h2,h3,h4{ margin:0 }
 /* ═════════ FOOTER ═════════ */
 .foot{ background:var(--navy-deep); color:var(--paper); padding:clamp(58px,6vw,86px) 0 34px }
 .fg{ display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:clamp(26px,3.5vw,52px) }
-.foot .logo b{ color:var(--paper); font-size:18px }
-.foot .logo b s{ color:#4FC6CB }
-.foot .logo b u{ background:#4FC6CB; color:#052C3E }
-.foot .logo small{ color:var(--brass) }
+.foot .logo{ display:inline-flex; width:auto; height:auto; overflow:visible; background:#fff; border-radius:4px; padding:4px }
+.foot .logo-img{ display:block; width:270px; height:auto }
 .foot h4{ font:400 10.5px/1 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--brass); margin-bottom:20px }
 .foot ul{ list-style:none; margin:0; padding:0 }
 .foot li{ margin-bottom:12px }
@@ -352,6 +346,8 @@ h1,h2,h3,h4{ margin:0 }
   .meta div:last-child{ border-bottom:0 }
   .btn{ padding:15px 22px }
   .htop{ height:68px }
+  .head .logo-img{ width:230px }
+  .foot .logo-img{ width:245px }
   .htop > .site-switch,.htop > .hcta{ display:none }
   .mobile-actions{ display:grid; grid-template-columns:1fr 1fr; gap:8px; padding-bottom:9px }
   .stats{ grid-template-columns:1fr }
@@ -369,24 +365,13 @@ h1,h2,h3,h4{ margin:0 }
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-  <g id="jfmark">
-    <g transform="translate(40,-40)"><path d="M-83.44,83.44 L0,0 A24,24 0 1 1 -12.00,20.78" fill="none" stroke="#093C54" stroke-width="22" stroke-linecap="round"/></g>
-    <g transform="rotate(90)"><g transform="translate(40,-40)"><path d="M-83.44,83.44 L0,0 A24,24 0 1 1 -12.00,20.78" fill="none" stroke="#0DA1A7" stroke-width="22" stroke-linecap="round"/></g></g>
-    <g transform="rotate(180)"><g transform="translate(40,-40)"><path d="M-83.44,83.44 L0,0 A24,24 0 1 1 -12.00,20.78" fill="none" stroke="#093C54" stroke-width="22" stroke-linecap="round"/></g></g>
-    <g transform="rotate(270)"><g transform="translate(40,-40)"><path d="M-83.44,83.44 L0,0 A24,24 0 1 1 -12.00,20.78" fill="none" stroke="#0DA1A7" stroke-width="22" stroke-linecap="round"/></g></g>
-    <circle cx="0" cy="-100" r="11" fill="#0DA1A7"/><circle cx="100" cy="0" r="11" fill="#093C54"/>
-    <circle cx="0" cy="100" r="11" fill="#0DA1A7"/><circle cx="-100" cy="0" r="11" fill="#093C54"/>
-  </g>
-</defs></svg>
 <div class="prog" id="prog"></div>
 
 <!-- ═══════ HEADER ═══════ -->
 <header class="head">
   <div class="wrap htop">
-    <a class="logo" href="#top">
-      <svg viewBox="-124 -124 248 248" aria-hidden="true"><use href="#jfmark"/></svg>
-      <span><b>Investors <s>Summit</s> <u>2026</u></b><small>A Jalna First initiative</small></span>
+    <a class="logo" href="#top" aria-label="Investors Summit 2026 home">
+      <img class="logo-img" src="/investment/investors-summit-2026-logo.png" alt="Investors Summit 2026 — A Jalna First Initiative">
     </a>
     <a class="site-switch" href="/">Jalna First</a>
     <p class="when"><b>Thu 3 September 2026</b><br>Jalna, Maharashtra</p>
@@ -852,9 +837,8 @@ h1,h2,h3,h4{ margin:0 }
   <div class="wrap">
     <div class="fg">
       <div>
-        <a class="logo" href="#top" style="margin:0">
-          <svg viewBox="-124 -124 248 248" aria-hidden="true"><use href="#jfmark"/></svg>
-          <span><b>Investors <s>Summit</s> <u>2026</u></b><small>A Jalna First initiative</small></span>
+        <a class="logo" href="#top" style="margin:0" aria-label="Investors Summit 2026 home">
+          <img class="logo-img" src="/investment/investors-summit-2026-logo.png" alt="Investors Summit 2026 — Jalna's Gateway to Growth">
         </a>
         <p class="fdesc">Thursday, 3 September 2026 · Jalna, Maharashtra<br>Venue announcing soon</p>
         <p class="fdesc">Participant, partner and speaker details will be confirmed by the summit organiser.</p>
