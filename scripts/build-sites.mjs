@@ -29,4 +29,4 @@ for (const site of sites) {
   await cp(join(root, site.name, 'dist'), destination, { recursive: true });
 }
 
-console.log('Combined site ready: / for My Jalna and /investment for Jalna Investment.');
+console.log('Combined site ready: / for Jalna First, /events for Upcoming Events and /investment for the Jalna Industrial Summit.');

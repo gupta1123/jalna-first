@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Jalna First Citizen Forum brings citizens, businesses, institutions and authorities together for civic awareness, collaboration and positive action in Jalna.">
 <meta name="theme-color" content="#093C54">
-<link rel="icon" type="image/png" href="/jalna-first-logo.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/jalna-first-logo.png">
 <title>Jalna First Citizen Forum — A Collective Vision for a Progressive City</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,9 +82,9 @@ h1,h2,h3,h4{margin:0}
 .head{position:sticky;top:0;z-index:150;background:var(--paper)}
 .htop{display:flex;align-items:center;gap:24px;height:76px}
 .logo{display:flex;align-items:center;gap:13px;text-decoration:none;margin-right:auto}
-.head .logo{width:182px;height:70px;overflow:hidden;position:relative}
-.head .logo-img{display:block;width:182px;height:auto;transform:translateY(-4px)}
-.site-switch{flex:none;text-decoration:none;padding:11px 18px;border:1.5px solid var(--n16);border-radius:100px;
+.head .logo{position:absolute;left:clamp(20px,2.6vw,52px);top:6px;width:166px;aspect-ratio:1056/430;overflow:hidden;flex:none;align-items:flex-start}
+.head .logo-img{display:block;width:100%;height:auto}
+.site-switch{flex:none;margin-left:auto;text-decoration:none;padding:11px 18px;border:1.5px solid var(--n16);border-radius:100px;
   font:600 12px/1 var(--body);color:var(--n72);transition:background .18s,color .18s,border-color .18s}
 .site-switch:hover{background:var(--navy);border-color:var(--navy);color:#fff}
 .hcta{padding:12px 22px;font-size:13.5px}
@@ -105,7 +105,7 @@ h1,h2,h3,h4{margin:0}
 .hero{padding-top:clamp(40px,5vw,72px);padding-bottom:0;overflow:hidden}
 .hg{display:grid;grid-template-columns:1fr 1.34fr;gap:clamp(24px,3vw,46px);align-items:center}
 .hg>div:last-child{margin-right:-5vw}
-.hg>div:last-child svg{width:100%;height:auto}
+.hg>div:last-child :is(svg,img){width:100%;height:auto}
 .hero h1{margin:24px 0 0;font-family:var(--dsp);font-weight:400;letter-spacing:-.024em}
 .hero .l1{display:block;font-size:clamp(50px,7.2vw,104px);line-height:.96}
 .hero .l2{display:block;font-size:clamp(27px,3.5vw,50px);line-height:1.1;color:var(--teal);
@@ -116,7 +116,6 @@ h1,h2,h3,h4{margin:0}
   animation:swipe .8s cubic-bezier(.2,.75,.3,1) 1.1s forwards}
 @keyframes swipe{to{transform:scaleX(1)}}
 .hero p{margin:24px 0 0}
-.hcta2{display:flex;flex-wrap:wrap;gap:13px;margin-top:32px}
 .hmr{margin-top:36px;padding-left:20px;border-left:3px solid var(--teal);border-radius:2px;
   font-size:clamp(17px,1.5vw,20px);max-width:36ch}
 .hmr b{color:var(--teal-7);font-weight:400;font-style:italic}
@@ -205,6 +204,9 @@ h1,h2,h3,h4{margin:0}
 
 /* ═══════════ APP ═══════════ */
 .app-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,72px);align-items:center}
+.app-art-new{margin:0;display:flex;align-items:center;justify-content:center}
+.app-art-new img{display:block;width:100%;height:auto;max-width:540px}
+.app-art-old{display:none}
 .qr-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.6vw,20px);margin-top:32px;max-width:430px}
 .qr{border:2px solid var(--navy);border-radius:var(--r);background:var(--white);padding:18px 18px 16px;
   display:flex;flex-direction:column;align-items:center;gap:12px;color:inherit;text-decoration:none;cursor:pointer;
@@ -227,7 +229,6 @@ h1,h2,h3,h4{margin:0}
   margin-bottom:12px}
 .jc h3{margin-bottom:10px}
 .jc p{margin:0;font-size:15px;color:var(--n72)}
-.jcta{display:flex;flex-wrap:wrap;gap:14px;margin-top:44px}
 
 /* ═══════════ FINAL ═══════════ */
 .fin{background:var(--teal);color:#fff;text-align:center;position:relative;overflow:hidden}
@@ -235,14 +236,13 @@ h1,h2,h3,h4{margin:0}
 .fin .h2 em{color:var(--navy);font-style:italic}
 .fin p{color:rgba(255,255,255,.86);max-width:56ch;margin:24px auto 0}
 .fin .bcz{font:italic 400 clamp(21px,2.4vw,32px)/1.3 var(--dsp);margin-top:30px}
-.fcta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:34px}
 .fin .blob{position:absolute;pointer-events:none;opacity:.16}
 
 /* ═══════════ FOOTER ═══════════ */
 .foot{background:var(--navy);color:#fff;padding:clamp(56px,6vw,84px) 0 32px}
 .fg{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:clamp(26px,4vw,56px)}
-.foot .logo{display:inline-flex;width:220px;height:82px;overflow:hidden;position:relative}
-.foot .logo-img{display:block;width:220px;height:auto;transform:translateY(-5px);filter:brightness(0) invert(1);opacity:.95}
+.foot .logo{display:inline-flex;width:220px;aspect-ratio:1056/430;overflow:hidden;align-items:flex-start}
+.foot .logo-img{display:block;width:100%;height:auto;filter:brightness(0) invert(1);opacity:.95}
 .ftag{font:italic 400 20px/1.35 var(--dsp);color:var(--teal-3);margin:18px 0 0}
 .fdesc{font-size:14.5px;color:rgba(255,255,255,.62);margin:14px 0 0;max-width:34ch}
 .foot h4{font:400 10.5px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--teal-3);
@@ -306,12 +306,10 @@ h1,h2,h3,h4{margin:0}
 }
 @media(max-width:660px){
   body{font-size:16px}
-  .head .logo{width:160px;height:64px}
-  .head .logo-img{width:160px;transform:translateY(-3px)}
-  .foot .logo{width:200px;height:76px}
-  .foot .logo-img{width:200px;transform:translateY(-4px)}
+  .head .logo{left:18px;top:8px;width:145px}
+  .foot .logo{width:200px}
   .vg,.jg,.fg{grid-template-columns:1fr}
-  .qr-row{grid-template-columns:1fr;max-width:290px}
+  .qr-row{grid-template-columns:1fr;max-width:290px;margin-inline:auto}
   .hero .l1{font-size:clamp(44px,13vw,72px)}
   .ap ul{padding-left:0}
 }
@@ -346,11 +344,11 @@ h1,h2,h3,h4{margin:0}
     <a class="logo" href="#home" aria-label="Jalna First home">
       <img class="logo-img" src="/JFlogo.png" alt="Jalna First — Change Begins With Action">
     </a>
-    <a class="site-switch" href="/investment">Investment Summit ↗</a>
+    <a class="site-switch" href="/events/">Upcoming Events ↗</a>
     <a class="btn b-teal hcta" href="#join">Join the forum</a>
   </div>
   <div class="wrap mobile-actions" aria-label="Quick action">
-    <a class="btn b-line" href="/investment">Investment Summit</a>
+    <a class="btn b-line" href="/events/">Upcoming Events</a>
     <a class="btn b-teal" href="#join">Join the forum</a>
   </div>
   <div class="railw">
@@ -360,9 +358,8 @@ h1,h2,h3,h4{margin:0}
       <a href="#purpose"><em>02</em>Our purpose</a>
       <a href="#about"><em>03</em>About JFCF</a>
       <a href="#verticals"><em>04</em>Our verticals</a>
-      <a href="#objectives"><em>05</em>Objectives</a>
-      <a href="#app"><em>06</em>The app</a>
-      <a href="#join"><em>07</em>Get involved</a>
+      <a href="#app"><em>05</em>My Jalna App</a>
+      <a href="#join"><em>06</em>Get involved</a>
     </nav>
   </div>
 </header>
@@ -377,15 +374,14 @@ h1,h2,h3,h4{margin:0}
         <span class="l1 anim d2">Jalna First.</span>
         <span class="l2 anim d3">Change begins with <em>action.</em></span>
       </h1>
-      <p class="lede anim d4">A collective vision for a progressive city — uniting citizens, industry and government behind a cleaner, healthier Jalna that all of us are proud to call home.</p>
-      <div class="hcta2 anim d4">
-        <a class="btn b-teal" href="#join">Join the forum
-          <svg width="15" height="12" viewBox="0 0 15 12" fill="none" aria-hidden="true"><path d="M1 6h12M9 1.5 13.5 6 9 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="btn b-line" href="#objectives">See our objectives</a>
-      </div>
       <p class="hmr marathi anim d5">आपलं शहर. आपली जबाबदारी. आपलं भविष्य.<br><b>कारण पहिलं जालना!</b></p>
     </div>
 
+    <div class="hero-bridge anim d4">
+      <img src="/hero-bridge.svg" alt="A suspension bridge connecting citizens and government across Jalna First's five objectives.">
+    </div>
+
+    {/* Previous hero illustration retained in source for easy rollback.
     <!-- ─── SIGNATURE: the city rests on the interlock ─── -->
     <div>
       <svg viewBox="0 0 1200 640" role="img" aria-label="Illustration of Jalna: orchards, temple and mosque, water tower, apartment blocks, steel mill, gantry crane, logistics containers, a truck on the highway, and citizens in the foreground.">
@@ -539,6 +535,7 @@ h1,h2,h3,h4{margin:0}
         </g>
       </svg>
     </div>
+    */}
   </div>
 </section>
 
@@ -642,7 +639,7 @@ h1,h2,h3,h4{margin:0}
       <span class="badge8">Section 8 non-profit</span>
     </div>
     <div class="ab-b rv">
-      <p class="first">Jalna First Citizen Forum (JFCF) is a Section 8 non-profit organisation formed by citizens, entrepreneurs and thought leaders of Jalna who are deeply committed to the integrated and inclusive development of our city.</p>
+      <p class="first">Jalna First Citizen Forum (JFCF) is a Section 8 non-profit organisation formed by like-minded citizens and entrepreneurs of Jalna who are deeply committed to the integrated and inclusive development of our city.</p>
       <p>The Forum aims to act as a catalyst and bridge between citizens and the government across various verticals, including but not limited to:</p>
       <div class="pills">
         <span class="pill"><i></i>Urban &amp; Industrial Infrastructure</span>
@@ -655,6 +652,7 @@ h1,h2,h3,h4{margin:0}
   </div>
 </section>
 
+{/* Removed the former standalone vertical cards section.
 <!-- ═══════ 04 · VERTICALS ═══════ -->
 <section class="sec band" id="verticals">
   <div class="wrap">
@@ -669,14 +667,15 @@ h1,h2,h3,h4{margin:0}
     <div class="vg"><article class="vc rv"><span class="no">01</span><figure><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="44.4" fill="#0DA1A7" fill-opacity=".055"/><circle cx="48" cy="48" r="44.4" fill="none" stroke="#093C54" stroke-opacity=".16" stroke-width="1.1"/><g fill="none" stroke="#093C54" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="45" width="14" height="27" rx="2.5"/><g stroke-width="1.4" stroke-opacity=".5"><path d="M30 51h6M30 57h6M30 63h6"/></g><rect x="43" y="31" width="15" height="41" rx="2.5" fill="#0DA1A7" stroke="#093C54"/><g stroke="#fff" stroke-width="1.6" stroke-opacity=".85"><path d="M47.5 38h6M47.5 46h6M47.5 54h6"/></g><rect x="61" y="40" width="13" height="32" rx="2.5"/><g stroke-width="1.4" stroke-opacity=".5"><path d="M65 46h5M65 52h5M65 58h5"/></g><path d="M20 72h56"/><g stroke-width="1.4" stroke-opacity=".38"><path d="M20 78h9M35 78h9M50 78h9M65 78h9"/></g><circle cx="69" cy="26" r="3" fill="#0DA1A7" stroke="none"/></g></svg></figure><h3 class="h3">Urban &amp; Industrial Infrastructure</h3><p>A long-term vision plan for Jalna's holistic growth — with civic amenities, public transport and mobility improved through participatory planning.</p></article><article class="vc rv"><span class="no">02</span><figure><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="44.4" fill="#0DA1A7" fill-opacity=".055"/><circle cx="48" cy="48" r="44.4" fill="none" stroke="#093C54" stroke-opacity=".16" stroke-width="1.1"/><g fill="none" stroke="#093C54" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M48 22c0 0 17 20 17 30a17 17 0 0 1-34 0c0-10 17-30 17-30Z"/><path d="M41 53h14M48 46v14" stroke="#0DA1A7" stroke-width="3.2"/><path d="M22 76h52" stroke-opacity=".55"/><path d="M28 68c-3-3-3-6 0-9 3 3 3 6 0 9Z" stroke-width="1.6" stroke-opacity=".55"/><circle cx="70" cy="30" r="3" fill="#0DA1A7" stroke="none"/></g></svg></figure><h3 class="h3">Health &amp; Sanitation</h3><p>Sustainable urban development focused on environment, health and sanitation, and workable solutions for traffic, waste and water supply.</p></article><article class="vc rv"><span class="no">03</span><figure><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="44.4" fill="#0DA1A7" fill-opacity=".055"/><circle cx="48" cy="48" r="44.4" fill="none" stroke="#093C54" stroke-opacity=".16" stroke-width="1.1"/><g fill="none" stroke="#093C54" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M23 62c8-6 16-6 24 0V38c-8-6-16-6-24 0Z"/><path d="M49 62c8-6 16-6 24 0V38c-8-6-16-6-24 0Z" fill="#0DA1A7" stroke="#093C54"/><path d="M48 38v24"/><g stroke-width="1.4" stroke-opacity=".45"><path d="M29 46h12M29 52h12"/></g><g stroke="#fff" stroke-width="1.6" stroke-opacity=".85"><path d="M55 46h12M55 52h12"/></g><path d="M48 18 66 25 48 32 30 25Z" stroke-width="1.9"/><path d="M66 25v7"/><circle cx="66" cy="34" r="2.6" fill="#0DA1A7" stroke="none"/></g></svg></figure><h3 class="h3">Education &amp; Skill Development</h3><p>Positioning Jalna as a hub for industry, education and innovation — to attract investment and open real opportunities for its youth.</p></article><article class="vc rv"><span class="no">04</span><figure><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="44.4" fill="#0DA1A7" fill-opacity=".055"/><circle cx="48" cy="48" r="44.4" fill="none" stroke="#093C54" stroke-opacity=".16" stroke-width="1.1"/><g fill="none" stroke="#093C54" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M39 20 44 45M57 20 52 45" stroke-width="2.4"/><path d="M34 19h11M51 19h11" stroke-width="2.4"/><path d="M27 46c-4 9-2 18 5 24" stroke-width="1.6" stroke-opacity=".45"/><path d="M69 46c4 9 2 18-5 24" stroke-width="1.6" stroke-opacity=".45"/><g stroke-width="1.5" stroke-opacity=".45"><path d="M26 52c-4-1-6-4-6-7 4 0 7 2 8 5M27 61c-4 0-7-3-8-6 4-1 7 1 9 4M31 69c-4 1-8-1-9-4 3-2 7-1 9 1"/><path d="M70 52c4-1 6-4 6-7-4 0-7 2-8 5M69 61c4 0 7-3 8-6-4-1-7 1-9 4M65 69c4 1 8-1 9-4-3-2-7-1-9 1"/></g><circle cx="48" cy="59" r="15.5" fill="#0DA1A7" stroke="#093C54" stroke-width="2.1"/><path d="M48 51.5 50.6 57l6 .8-4.3 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.3-4.2 6-.8Z" fill="#fff" stroke="#fff" stroke-width="1.2"/><circle cx="24" cy="27" r="3" fill="#0DA1A7" stroke="none"/></g></svg></figure><h3 class="h3">Sports &amp; Youth Empowerment</h3><p>Supporting and recognising local sportspersons, social workers and the initiatives contributing to Jalna's progress.</p></article><article class="vc rv"><span class="no">05</span><figure><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="44.4" fill="#0DA1A7" fill-opacity=".055"/><circle cx="48" cy="48" r="44.4" fill="none" stroke="#093C54" stroke-opacity=".16" stroke-width="1.1"/><g fill="none" stroke="#093C54" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="38" cy="42" r="15"/><circle cx="58" cy="42" r="15"/><circle cx="48" cy="60" r="15"/><circle cx="48" cy="48" r="6" fill="#0DA1A7" stroke="none"/><g fill="#093C54" stroke="none"><circle cx="26" cy="30" r="2.6"/><circle cx="70" cy="30" r="2.6"/><circle cx="48" cy="80" r="2.6"/></g></g></svg></figure><h3 class="h3">Civic Engagement &amp; Cleanliness</h3><p>A platform for citizens, professionals and youth to shape decision-making, and awareness of civic responsibility and good governance.</p></article><article class="vc vc-cta rv"><h3 class="h3">Including, but not limited to.</h3><p>These are the verticals the Forum was formed around — not the limit of what it will take on. Bring us a problem worth solving in Jalna.</p><a class="btn b-white" href="#join">Talk to the forum<svg width="15" height="12" viewBox="0 0 15 12" fill="none" aria-hidden="true"><path d="M1 6h12M9 1.5 13.5 6 9 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article></div>
   </div>
 </section>
+*/}
 
-<!-- ═══════ 05 · OBJECTIVES ═══════ -->
-<section class="sec" id="objectives">
+<!-- ═══════ 04 · OUR VERTICALS ═══════ -->
+<section class="sec" id="verticals">
   <div class="wrap obj">
     <div class="obj-l rv">
-      <p class="tag"><i>05</i> Objectives</p>
+      <p class="tag"><i>04</i> Our verticals</p>
       <h2 class="h2" style="margin:20px 0 22px">What we've<br>set out to <em>do</em>.</h2>
-      <p class="lede">Not aspirations — the specific commitments the Forum was constituted to pursue.</p>
+      <p class="lede">The focus areas and specific commitments the Forum was constituted to pursue.</p>
     </div>
 
     <div class="acc rv" id="acc">
@@ -732,14 +731,16 @@ h1,h2,h3,h4{margin:0}
   </div>
 </section>
 
-<!-- ═══════ 06 · APP ═══════ -->
+<!-- ═══════ 05 · APP ═══════ -->
 <section class="sec band" id="app">
   <div class="wrap app-grid">
     <div class="rv">
-      <p class="tag"><i>06</i> The app</p>
-      <h2 class="h2" style="margin:20px 0 22px">Jalna, in your<br><em>pocket</em>.</h2>
-      <p class="lede">My Jalna puts the city's civic layer on your phone — updates, notices and the everyday services residents actually need, without hunting across offices and websites.</p>
-      <p class="lede" style="margin-top:14px">Scan a QR code or click a download card to open the My Jalna app in your device's app store.</p>
+      <p class="tag"><i>05</i> My Jalna App</p>
+      <h2 class="h2" style="margin:20px 0 22px">Your Jalna.<br><em>Your Voice.</em></h2>
+      <p class="lede">My Jalna makes it easier for every citizen to report civic problems and help improve the city.</p>
+      <p class="lede" style="margin-top:14px">Report issues like cleanliness, potholes, streetlights and incomplete roads directly through the app. Add a photo and location, and your complaint will be recorded and tracked.</p>
+      <p class="lede" style="margin-top:14px">Your concern deserves to reach the right authorities. My Jalna helps take it there.</p>
+      <p class="lede" style="margin-top:14px">Scan the QR code or click the download card below to get the My Jalna App on your device.</p>
 
       <div class="qr-row">
         <a class="qr" href="https://apps.apple.com/in/app/my-jalna/id6757333459" target="_blank" rel="noopener noreferrer" aria-label="Click to download the My Jalna app from the App Store">
@@ -759,10 +760,13 @@ h1,h2,h3,h4{margin:0}
           <span class="qr-download">Click to download ↗</span>
         </a>
       </div>
-      <p class="qr-note">Scan with your phone camera or click either card to continue to the App Store or Google Play.</p>
     </div>
 
-    <figure class="rv" style="margin:0">
+    <figure class="rv app-art-new">
+      <img src="/my-jalna-reporting.svg" alt="Animated My Jalna app reporting journey: photograph a civic issue, add its location, submit it to the authorities and track it through resolution.">
+    </figure>
+
+    <figure class="rv app-art-old" style="margin:0" aria-hidden="true">
       <svg viewBox="0 0 400 470" role="img" aria-label="Illustration of the My Jalna app on a phone, showing the city skyline and a feed of civic updates.">
         <ellipse cx="200" cy="440" rx="130" ry="17" fill="#0DA1A7" opacity=".14"/>
         <g class="bob"><rect x="14" y="98" width="94" height="38" rx="19" fill="#fff" stroke="#093C54" stroke-width="7"/>
@@ -815,7 +819,7 @@ h1,h2,h3,h4{margin:0}
 <section class="sec" id="join">
   <div class="wrap">
     <div class="rv" style="max-width:26ch">
-      <p class="tag"><i>07</i> Get involved</p>
+      <p class="tag"><i>06</i> Get involved</p>
       <h2 class="h2 two-line-title" style="margin-top:20px">
         <span>Jalna needs more than ideas.</span>
         <span>It needs <em>participation</em>.</span>
@@ -859,9 +863,6 @@ h1,h2,h3,h4{margin:0}
       </article>
     </div>
 
-    <div class="jcta rv">
-      <a class="btn b-line" href="#app">Get the My Jalna app</a>
-    </div>
   </div>
 </section>
 
@@ -873,11 +874,6 @@ h1,h2,h3,h4{margin:0}
     <h2 class="h2 rv">The future of Jalna belongs to <em>all of us</em>.</h2>
     <p class="rv">Every informed citizen, every responsible action, every collaboration that holds — each one moves the city a step forward.</p>
     <p class="bcz rv">Because Jalna comes first.</p>
-    <div class="fcta rv">
-      <a class="btn b-white" href="#join">Join Jalna First
-        <svg width="15" height="12" viewBox="0 0 15 12" fill="none" aria-hidden="true"><path d="M1 6h12M9 1.5 13.5 6 9 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a class="btn b-linew" href="mailto:jalnafirstcf@gmail.com">jalnafirstcf@gmail.com</a>
-    </div>
   </div>
 </section>
 </main>
@@ -891,24 +887,25 @@ h1,h2,h3,h4{margin:0}
           <img class="logo-img" src="/JFlogo.png" alt="Jalna First — A Collective Vision for a Progressive City">
         </a>
         <p class="ftag">A collective vision for a progressive city.</p>
-        <p class="fdesc">Change begins with action. A Section 8 non-profit formed by the citizens, entrepreneurs and thought leaders of Jalna.</p>
+        <p class="fdesc">Change begins with action. A Section 8 non-profit formed by like-minded citizens and entrepreneurs of Jalna.</p>
         <p class="fdesc marathi" style="color:rgba(255,255,255,.82);font-size:17px">कारण पहिलं जालना!</p>
       </div>
       <div>
         <h4>Explore</h4>
         <ul>
-          <li><a href="#purpose">Our purpose</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#purpose">Our Purpose</a></li>
           <li><a href="#about">About JFCF</a></li>
-          <li><a href="#verticals">Our verticals</a></li>
-          <li><a href="#objectives">Objectives</a></li>
-          <li><a href="#app">The My Jalna app</a></li>
-          <li><a href="#join">Get involved</a></li>
+          <li><a href="#verticals">Our Verticals</a></li>
+          <li><a href="#app">My Jalna App</a></li>
+          <li><a href="#join">Get Involved</a></li>
         </ul>
       </div>
       <div>
         <h4>Reach us</h4>
         <ul>
-          <li><a href="mailto:jalnafirstcf@gmail.com">jalnafirstcf@gmail.com</a></li>
+          <li><a href="mailto:office@jalnafirst.in">office@jalnafirst.in</a></li>
+          <li><a href="tel:+918983824434">+91 89838 24434</a></li>
         </ul>
       </div>
     </div>

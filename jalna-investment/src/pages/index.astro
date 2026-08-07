@@ -3,10 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Explore Jalna's industrial strengths, focus sectors and the programme for the MMLP Promotion &amp; New Investment Summit 2026.">
+<meta name="description" content="Discover Jalna's established steel, seed and feed economy, investor tailwinds, logistics advantage and next manufacturing opportunities.">
 <meta name="theme-color" content="#093C54">
-<link rel="icon" href="/favicon.svg">
-<title>MMLP Promotion &amp; New Investment Summit 2026 — Jalna</title>
+<link rel="icon" type="image/svg+xml" href="/investment/favicon.svg">
+<link rel="apple-touch-icon" href="/investment/investors-summit-2026-logo.png">
+<title>Jalna Industrial Summit 2026 - A Land of Opportunity</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
@@ -80,9 +81,10 @@ h1,h2,h3,h4{ margin:0 }
 .head{ position:sticky; top:0; z-index:150; background:var(--paper) }
 .htop{ display:flex; align-items:center; gap:24px; height:76px }
 .logo{ display:flex; align-items:center; gap:13px; text-decoration:none; margin-right:auto }
-.head .logo-img{ display:block; width:250px; height:auto }
+.head .logo{ position:absolute; left:clamp(20px,2.6vw,52px); top:9px }
+.head .logo-img{ display:block; width:230px; height:auto }
 .site-switch{
-  flex:none; text-decoration:none; padding:9px 14px; border:1.5px solid var(--i16); border-radius:100px;
+  flex:none; margin-left:auto; text-decoration:none; padding:9px 14px; border:1.5px solid var(--i16); border-radius:100px;
   font:600 12px/1 var(--body); color:var(--i72); transition:background .18s,color .18s,border-color .18s;
 }
 .site-switch:hover{ background:var(--ink); border-color:var(--ink); color:var(--paper) }
@@ -152,8 +154,9 @@ h1,h2,h3,h4{ margin:0 }
 
 /* ═════════ WHY GRID ═════════ */
 .band{ background:var(--paper-deep) }
-.why{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--i16); border:1.5px solid var(--ink); margin-top:54px }
-.wc{ background:var(--card); padding:clamp(26px,2.5vw,36px); transition:background .22s }
+.why{ display:grid; grid-template-columns:repeat(6,1fr); gap:2px; background:var(--i16); border:1.5px solid var(--ink); margin-top:54px }
+.wc{ grid-column:span 2; background:var(--card); padding:clamp(26px,2.5vw,36px); transition:background .22s }
+.wc:nth-last-child(-n+2){ grid-column:span 3 }
 .wc:hover{ background:#fff }
 .wc .n{ font:400 10.5px/1 var(--mono); letter-spacing:.16em; color:var(--i48); display:block; margin-bottom:22px }
 .wc svg{ width:86px; height:86px; margin-bottom:20px }
@@ -329,6 +332,8 @@ h1,h2,h3,h4{ margin:0 }
   .hg,.intro,.att,.sgrid,.vg{ grid-template-columns:1fr }
   .intro-l{ position:static }
   .why,.sg,.eg{ grid-template-columns:repeat(2,1fr) }
+  .why .wc{ grid-column:auto }
+  .why .wc:last-child{ grid-column:1 / -1 }
   .when,.hcta{ display:none }
   .fg{ grid-template-columns:1fr 1fr }
   .stats{ grid-template-columns:1fr 1fr }
@@ -342,13 +347,15 @@ h1,h2,h3,h4{ margin:0 }
   body{ font-size:16px }
   :root{ --head:170px }
   .why,.sg,.eg,.fg{ grid-template-columns:1fr }
+  .why .wc:last-child{ grid-column:auto }
   .olist,.slist{ grid-template-columns:1fr }
   .hero .l1{ font-size:clamp(40px,12vw,64px); white-space:normal }
   .meta div{ flex:1 1 100%; border-right:0; border-bottom:1.5px solid var(--i16) }
   .meta div:last-child{ border-bottom:0 }
   .btn{ padding:15px 22px }
   .htop{ height:68px }
-  .head .logo-img{ width:230px }
+  .head .logo{ left:18px; top:10px }
+  .head .logo-img{ width:205px }
   .foot .logo-img{ width:245px }
   .htop > .site-switch,.htop > .hcta{ display:none }
   .mobile-actions{ display:grid; grid-template-columns:1fr 1fr; gap:8px; padding-bottom:9px }
@@ -372,11 +379,11 @@ h1,h2,h3,h4{ margin:0 }
 <!-- ═══════ HEADER ═══════ -->
 <header class="head">
   <div class="wrap htop">
-    <a class="logo" href="#top" aria-label="Investors Summit 2026 home">
+    <a class="logo" href="#top" aria-label="Industrial Summit 2026 home">
       <img class="logo-img" src="/investment/investors-summit-2026-logo.png" alt="Investors Summit 2026 — A Jalna First Initiative">
     </a>
     <a class="site-switch" href="/">Jalna First</a>
-    <p class="when"><b>Thu 3 September 2026</b><br>Jalna, Maharashtra</p>
+    <p class="when"><b>Thu 3 September 2026</b><br>The Fern Hotel, Jalna</p>
     <a class="btn b-navy hcta" href="https://jalna-investment-summit.netlify.app" target="_blank" rel="noopener noreferrer">Register your interest</a>
   </div>
   <div class="wrap mobile-actions" aria-label="Quick links">
@@ -402,18 +409,18 @@ h1,h2,h3,h4{ margin:0 }
 <section class="sec hero">
   <div class="wrap hg">
     <div>
-      <p class="tag anim d1"><i>◆</i> MMLP Promotion &amp; New Investment Summit 2026</p>
+      <p class="tag anim d1"><i>◆</i> Jalna Industrial Summit 2026</p>
       <h1>
-        <span class="l1 anim d2">Jalna Rising.</span>
-        <span class="l2 anim d3">Invest in <em>what's next.</em></span>
+        <span class="l1 anim d2">Jalna.</span>
+        <span class="l2 anim d3">A land of <em>opportunity.</em></span>
       </h1>
-      <p class="lede anim d4">Industrial depth, an emerging logistics spine, and a farm economy at scale. The summit is designed to bring investors, industry, policymakers, financial institutions and development partners onto one platform for focused conversations and practical next steps.</p>
+      <p class="lede anim d4">Central Maharashtra's next investment hub - already making steel, seed and feed for the country, and now open for what you build next.</p>
       <div class="meta anim d5">
         <div><span>Date</span><b>Thu 3 Sept 2026</b></div>
         <div><span>Programme</span><b>9:00 AM – 3:00 PM</b></div>
-        <div><span>Location</span><b>Jalna, Maharashtra</b></div>
+        <div><span>Venue</span><b>The Fern Hotel, Jalna</b></div>
       </div>
-      <p class="hline anim d5">Connect. Collaborate. Invest. Grow.</p>
+      <p class="hline anim d5">Steel. Seed. Feed. Logistics. Growth.</p>
     </div>
 
     <!-- ─── SIGNATURE: corridor & freight-flow schematic ─── -->
@@ -426,10 +433,10 @@ h1,h2,h3,h4{ margin:0 }
 <!-- ═══════ MARQUEE ═══════ -->
 <div class="marq" aria-hidden="true">
   <div class="marqin">
-    <span>Seeds &amp; agri-biotech</span><span>Steel &amp; engineering</span><span>Agro &amp; food processing</span>
-    <span>Logistics &amp; warehousing</span><span>Automotive &amp; allied</span><span>MSME &amp; manufacturing tech</span>
-    <span>Seeds &amp; agri-biotech</span><span>Steel &amp; engineering</span><span>Agro &amp; food processing</span>
-    <span>Logistics &amp; warehousing</span><span>Automotive &amp; allied</span><span>MSME &amp; manufacturing tech</span>
+    <span>Steel City of India</span><span>Maharashtra's Seed Capital</span><span>Feed Processing</span>
+    <span>Silk Opportunity</span><span>Multi-Modal Logistics Park</span><span>Auto Ancillaries</span>
+    <span>Steel City of India</span><span>Maharashtra's Seed Capital</span><span>Feed Processing</span>
+    <span>Silk Opportunity</span><span>Multi-Modal Logistics Park</span><span>Auto Ancillaries</span>
   </div>
 </div>
 
@@ -437,8 +444,8 @@ h1,h2,h3,h4{ margin:0 }
 <section class="sec" id="about">
   <div class="wrap intro">
     <div class="intro-l rv">
-      <p class="tag"><i>02</i> About the summit</p>
-      <h2 class="h2" style="margin-top:20px">Where opportunity<br>meets <em>action</em>.</h2>
+      <p class="tag"><i>02</i> About Jalna</p>
+      <h2 class="h2" style="margin-top:20px">Manufacturing gateway<br>of <em>Central India</em>.</h2>
       <svg viewBox="0 0 320 190" style="margin-top:38px" aria-hidden="true">
         <g fill="none" stroke="#093C54" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 168h296" opacity=".3"/>
@@ -455,10 +462,10 @@ h1,h2,h3,h4{ margin:0 }
       </svg>
     </div>
     <div class="intro-b rv">
-      <p class="first">An investment summit is more than a conference. It is where a region puts its economic case on the table, names the opportunities, and puts investors in the same room as the people who can act on them.</p>
-      <p>The Jalna Investment Summit is designed to bring capital, enterprise, infrastructure, policy support and local capability onto one platform — creating focused conversations that can lead to site visits, partnerships and project proposals.</p>
-      <p>Whether you are planning a new manufacturing facility, expanding an existing operation, building an export network, or scoping an emerging sector, the summit is built to help you decide whether Jalna belongs in your growth strategy.</p>
-      <p>Jalna already has established seed, steel, engineering, plastics and agro-based industry. Its planned Multi-Modal Logistics Park is intended to support the region's dry-port, export, agricultural, steel, seed and cotton ecosystems.</p>
+      <p class="first">Jalna is not starting from zero. It already makes steel, seed and feed for the country, with the industrial base to support what investors build next.</p>
+      <p>More than 10% of India's long steel products are manufactured and rolled here. Jalna is also Maharashtra's seed capital and an established centre for feed processing. Industry benefits from continuous, uninterrupted CNG supply and a workforce built for manufacturing at scale.</p>
+      <p>A national-scale Multi-Modal Logistics Park anchors the district's freight economy. With the Samruddhi Mahamarg, rail sidings, the nearest airport 45 minutes away, multiple airports within 300 km and India's top six industrial hubs within 500 km, Jalna is positioned as a manufacturing and logistics gateway for Central India.</p>
+      <p>The summit brings investors into this existing ecosystem - where power, finance and responsive administration are aligned with industry - to explore new facilities, supplier opportunities and value-added manufacturing.</p>
     </div>
   </div>
 </section>
@@ -467,52 +474,57 @@ h1,h2,h3,h4{ margin:0 }
 <section class="sec band" id="why">
   <div class="wrap">
     <div class="rv" style="max-width:30ch">
-      <p class="tag"><i>03</i> The case</p>
-      <h2 class="h2" style="margin-top:20px">Why Jalna.<br>Why <em>now</em>.</h2>
+      <p class="tag"><i>03</i> Investor tailwinds</p>
+      <h2 class="h2 two-line-title" style="margin-top:20px">
+        <span>Why invest in Jalna.</span>
+        <span>The <em>tailwinds</em> are here.</span>
+      </h2>
     </div>
 
     <div class="why rv">
       <article class="wc">
         <span class="n">01</span>
         <svg viewBox="0 0 96 96" fill="none" stroke="#093C54" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 78h84" stroke-width="1.8"/><path d="M12 78V50h9v28zM27 78V34h9v44zM42 78V44h9v34zM57 78V26h9v52zM72 78V56h9v22z" fill="#0C4A66" fill-opacity=".18"/><path d="M57 78V26h9v52z" fill="#0DA1A7" fill-opacity=".55"/><g stroke-width="1.1" opacity=".45"><path d="M6 84v4M27 84v4M48 84v4M69 84v4M90 84v4"/><path d="M6 86h84"/></g><path d="M6 26h5M6 44h5M6 62h5" stroke-width="1.1" opacity=".4"/></svg>
-        <h3 class="h3">Established industrial strength</h3>
-        <p>A working industrial base across seed production, steel re-rolling, engineering, bearings, plastics, agri-inputs, dal mills, food processing and cotton.</p>
+        <h3 class="h3">Power &amp; capital, aligned</h3>
+        <p>MSEB and financial institutions actively partner with industry to back manufacturing growth.</p>
       </article>
 
       <article class="wc">
         <span class="n">02</span>
         <svg viewBox="0 0 96 96" fill="none" stroke="#093C54" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 20h16M10 34h16M10 62h16M10 76h16" stroke-width="1.6" opacity=".55"/><path d="M26 20q22 0 22 28M26 34q14 0 14 14M26 76q22 0 22-28M26 62q14 0 14-14"/><path d="M40 48h46" stroke="#0DA1A7" stroke-width="2.6"/><path d="M78 41l8 7-8 7" stroke="#0DA1A7" stroke-width="2.6"/><circle cx="48" cy="48" r="5" fill="#0DA1A7"/><g opacity=".5"><circle cx="10" cy="20" r="2.4" fill="#093C54"/><circle cx="10" cy="34" r="2.4" fill="#093C54"/><circle cx="10" cy="62" r="2.4" fill="#093C54"/><circle cx="10" cy="76" r="2.4" fill="#093C54"/></g></svg>
-        <h3 class="h3">Emerging logistics advantage</h3>
-        <p>The Jalna Multi-Modal Logistics Park is envisioned as a regional dry-port and freight hub, moving industrial and agricultural goods more efficiently.</p>
+        <h3 class="h3">Multi-Modal Logistics Park</h3>
+        <p>A national-scale MMLP anchoring the district's freight economy.</p>
       </article>
 
       <article class="wc">
         <span class="n">03</span>
         <svg viewBox="0 0 96 96" fill="none" stroke="#093C54" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="48" cy="48" r="34" stroke-dasharray="4 6" opacity=".4"/><circle cx="48" cy="48" r="20" stroke-dasharray="4 6" opacity=".3"/><path d="M48 48 48 8M48 48 82 28M48 48 82 68M48 48 48 88M48 48 14 68M48 48 14 28" stroke-width="1.4" opacity=".45"/><path d="M48 48 82 28M48 48 48 8" stroke="#0DA1A7" stroke-width="2.4" opacity="1"/><circle cx="48" cy="48" r="7" fill="#0C4A66"/><g fill="#093C54" opacity=".55"><circle cx="48" cy="8" r="3"/><circle cx="82" cy="28" r="3"/><circle cx="82" cy="68" r="3"/><circle cx="48" cy="88" r="3"/><circle cx="14" cy="68" r="3"/><circle cx="14" cy="28" r="3"/></g></svg>
-        <h3 class="h3">Strategic connectivity</h3>
-        <p>Links to major transport and industrial corridors can give businesses better access to regional, national and export markets.</p>
+        <h3 class="h3">Road, rail and air</h3>
+        <p>On the Samruddhi Mahamarg, with rail sidings, the nearest airport 45 minutes away and multiple airports within 300 km.</p>
       </article>
 
       <article class="wc">
         <span class="n">04</span>
         <svg viewBox="0 0 96 96" fill="none" stroke="#093C54" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 24h80v56H8z" fill="#2C8F99" fill-opacity=".14"/><path d="M8 24h80v56H8z"/><g stroke-width="1.1" opacity=".5"><path d="M18 24v56M28 24v56M38 24v56M48 24v56M58 24v56M68 24v56M78 24v56"/></g><path d="M8 44h80M8 62h80" stroke-width="1.4" opacity=".7"/><path d="M38 24v56" stroke="#0DA1A7" stroke-width="2.4" opacity="1"/><path d="M8 16h80" stroke-width="1.1" opacity=".4"/><path d="M8 12v8M88 12v8" stroke-width="1.1" opacity=".4"/></svg>
-        <h3 class="h3">A farm economy at scale</h3>
-        <p>An extensive agricultural base opens seeds, agri-inputs, food processing, storage, packaging, cold-chain and agri-export opportunities.</p>
+        <h3 class="h3">Ease of governance</h3>
+        <p>Responsive administration and hands-on support through approvals.</p>
       </article>
 
       <article class="wc">
         <span class="n">05</span>
         <svg viewBox="0 0 96 96" fill="none" stroke="#093C54" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="48" cy="48" r="15" fill="#0C4A66" fill-opacity=".3"/><circle cx="48" cy="48" r="15"/><circle cx="48" cy="48" r="32" stroke-dasharray="3 6" opacity=".4"/><g><circle cx="48" cy="16" r="7" fill="#0DA1A7" fill-opacity=".6"/><circle cx="76" cy="32" r="6" fill="#2C8F99" fill-opacity=".5"/><circle cx="76" cy="64" r="6" fill="#2C8F99" fill-opacity=".5"/><circle cx="48" cy="80" r="7" fill="#0DA1A7" fill-opacity=".6"/><circle cx="20" cy="64" r="6" fill="#2C8F99" fill-opacity=".5"/><circle cx="20" cy="32" r="6" fill="#0DA1A7" fill-opacity=".6"/></g><g stroke-width="1.2" opacity=".45"><path d="M48 33V23M63 40l7-4M63 56l7 4M48 63v10M33 56l-7 4M33 40l-7-4"/></g></svg>
-        <h3 class="h3">A working ecosystem</h3>
-        <p>Existing manufacturers, MIDC industrial areas, local entrepreneurs, skilled workers, suppliers and institutions to build on from day one.</p>
+        <h3 class="h3">Labour-ready ecosystem</h3>
+        <p>An existing base built to run labour-intensive operations at scale.</p>
       </article>
 
+      {/* 500 km reach is presented in the About section, separate from the PDF's five tailwinds.
       <article class="wc">
         <span class="n">06</span>
         <svg viewBox="0 0 96 96" fill="none" stroke="#093C54" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10h40l16 16v60H20z" fill="#FFFFFF"/><path d="M20 10h40l16 16v60H20z"/><path d="M60 10v16h16" stroke-width="1.4"/><g stroke-width="1.3" opacity=".45"><path d="M30 38h30M30 48h30M30 58h18"/></g><circle cx="62" cy="66" r="17" fill="#0DA1A7" fill-opacity=".55"/><circle cx="62" cy="66" r="17" stroke-dasharray="3 4"/><path d="M54 66l6 6 11-13" stroke-width="2.4"/></svg>
-        <h3 class="h3">Investor facilitation</h3>
-        <p>Maharashtra's investor-facilitation system brings departmental services onto a unified platform, helping investors navigate approvals and implementation.</p>
+        <h3 class="h3">500 km industrial reach</h3>
+        <p>Jalna sits within 500 km of India's top six industrial hubs, extending access to customers, suppliers and anchor industries.</p>
       </article>
+      */}
     </div>
   </div>
 </section>
@@ -523,8 +535,8 @@ h1,h2,h3,h4{ margin:0 }
     <div class="rv" style="max-width:32ch">
       <p class="tag"><i>04</i> Focus sectors</p>
       <h2 class="h2 two-line-title" style="margin-top:20px">
-        <span>Opportunities across</span>
-        <span><em>high-growth</em> sectors.</span>
+        <span>Build on what</span>
+        <span>Jalna <em>already does well</em>.</span>
       </h2>
     </div>
 
@@ -536,8 +548,8 @@ h1,h2,h3,h4{ margin:0 }
           <svg viewBox="0 0 300 200" role="img" aria-label="Axonometric: seed silos, a grading shed and a conveyor line."><g transform="translate(152,30)"><polygon points="0.00,0.00 142.89,82.50 37.15,143.55 -105.74,61.05" fill="#E4F5F0" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="1.0"/><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-10.85,29.70 A16.57,9.57 0 0 0 22.29,29.70 L22.29,-23.10 A16.57,9.57 0 0 1 -10.85,-23.10 Z" fill="#E4F2F4"/><ellipse cx="5.72" cy="-23.10" rx="16.57" ry="9.57" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-10.85,-23.10 A16.57,9.57 0 0 0 22.29,-23.10 L5.72,-36.30 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M19.15,40.43 A16.57,9.57 0 0 0 52.29,40.43 L52.29,-12.38 A16.57,9.57 0 0 1 19.15,-12.38 Z" fill="#E4F2F4"/><ellipse cx="35.72" cy="-12.38" rx="16.57" ry="9.57" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M19.15,-12.38 A16.57,9.57 0 0 0 52.29,-12.38 L35.72,-25.57 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-20.86,50.32 A16.57,9.57 0 0 0 12.28,50.32 L12.28,-2.48 A16.57,9.57 0 0 1 -20.86,-2.48 Z" fill="#E4F2F4"/><ellipse cx="-4.29" cy="-2.48" rx="16.57" ry="9.57" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-20.86,-2.48 A16.57,9.57 0 0 0 12.28,-2.48 L-4.29,-15.68 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="-78.59,55.27 -12.86,93.22 -12.86,73.42 -78.59,35.47" fill="#E4F2F4"/><polygon points="8.57,80.85 -12.86,93.22 -12.86,73.42 8.57,61.05" fill="#BFE2E6"/><polygon points="-57.16,23.10 8.57,61.05 -12.86,73.42 -78.59,35.47" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M14.87,62.70 A16.57,9.57 0 0 0 48.01,62.70 L48.01,9.90 A16.57,9.57 0 0 1 14.87,9.90 Z" fill="#E4F2F4"/><ellipse cx="31.44" cy="9.90" rx="16.57" ry="9.57" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M14.87,9.90 A16.57,9.57 0 0 0 48.01,9.90 L31.44,-3.30 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="42.87,84.15 74.30,102.30 74.30,75.90 42.87,57.75" fill="#42B0B8"/><polygon points="105.74,84.15 74.30,102.30 74.30,75.90 105.74,57.75" fill="#2C8F99"/><polygon points="74.30,39.60 105.74,57.75 74.30,75.90 42.87,57.75" fill="#7ACDD3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-85.74,62.70 37.15,133.65 37.15,127.88 -85.74,56.92" fill="#17ABB1"/><polygon points="44.30,129.53 37.15,133.65 37.15,127.88 44.30,123.75" fill="#0B8A90"/><polygon points="-78.59,52.80 44.30,123.75 37.15,127.88 -85.74,56.92" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="5.72,102.30 42.87,123.75 42.87,108.90 5.72,87.45" fill="#0F5878"/><polygon points="65.73,110.55 42.87,123.75 42.87,108.90 65.73,95.70" fill="#093C54"/><polygon points="28.58,74.25 65.73,95.70 42.87,108.90 5.72,87.45" fill="#2E7FA3"/></g></g></svg>
         </figure>
         <div class="txt">
-          <h3 class="h3">Seeds &amp; agri-biotechnology</h3>
-          <p>Seed processing, grading, treatment, storage, packaging, research, biotechnology and agricultural innovation.</p>
+          <h3 class="h3">Maharashtra's seed capital</h3>
+          <p>Build beside a premier centre for hybrid seed development and an established seed-industry ecosystem.</p>
         </div>
       </article>
 
@@ -548,8 +560,8 @@ h1,h2,h3,h4{ margin:0 }
           <svg viewBox="0 0 300 200" role="img" aria-label="Axonometric: a rolling mill with stacks, bar racks and steel coils."><g transform="translate(150,34)"><polygon points="0.00,0.00 134.32,77.55 25.72,140.25 -108.60,62.70" fill="#DDEEF5" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="1.0"/><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M28.82,-4.12 A4.04,2.33 0 0 0 36.91,-4.12 L36.91,-43.73 A4.04,2.33 0 0 1 28.82,-43.73 Z" fill="#7FC0C8"/><ellipse cx="32.87" cy="-43.73" rx="4.04" ry="2.33" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M44.54,4.95 A4.04,2.33 0 0 0 52.63,4.95 L52.63,-34.65 A4.04,2.33 0 0 1 44.54,-34.65 Z" fill="#7FC0C8"/><ellipse cx="48.58" cy="-34.65" rx="4.04" ry="2.33" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-62.35,46.20 A10.91,6.30 0 0 0 -40.53,46.20 L-40.53,30.52 A10.91,6.30 0 0 1 -62.35,30.52 Z" fill="#7FC0C8"/><ellipse cx="-51.44" cy="30.52" rx="10.91" ry="6.30" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M60.26,14.03 A4.04,2.33 0 0 0 68.34,14.03 L68.34,-25.57 A4.04,2.33 0 0 1 60.26,-25.57 Z" fill="#7FC0C8"/><ellipse cx="64.30" cy="-25.57" rx="4.04" ry="2.33" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-43.78,56.92 A10.91,6.30 0 0 0 -21.95,56.92 L-21.95,41.25 A10.91,6.30 0 0 1 -43.78,41.25 Z" fill="#7FC0C8"/><ellipse cx="-32.87" cy="41.25" rx="10.91" ry="6.30" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-80.93,56.92 A10.91,6.30 0 0 0 -59.11,56.92 L-59.11,41.25 A10.91,6.30 0 0 1 -80.93,41.25 Z" fill="#7FC0C8"/><ellipse cx="-70.02" cy="41.25" rx="10.91" ry="6.30" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="-20.01,51.15 51.44,92.40 51.44,59.40 -20.01,18.15" fill="#0F4A68"/><polygon points="97.17,66.00 51.44,92.40 51.44,59.40 97.17,33.00" fill="#052C3E"/><polygon points="25.72,-8.25 97.17,33.00 51.44,59.40 -20.01,18.15" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-20.01,18.15 51.44,59.40 51.44,52.80 -20.01,11.55" fill="#7FC0C8"/><polygon points="97.17,33.00 51.44,59.40 51.44,52.80 97.17,26.40" fill="#5EA5AF"/><polygon points="25.72,-14.85 97.17,26.40 51.44,52.80 -20.01,11.55" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-25.20,67.65 A10.91,6.30 0 0 0 -3.38,67.65 L-3.38,51.97 A10.91,6.30 0 0 1 -25.20,51.97 Z" fill="#7FC0C8"/><ellipse cx="-14.29" cy="51.97" rx="10.91" ry="6.30" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-62.35,67.65 A10.91,6.30 0 0 0 -40.53,67.65 L-40.53,51.97 A10.91,6.30 0 0 1 -62.35,51.97 Z" fill="#7FC0C8"/><ellipse cx="-51.44" cy="51.97" rx="10.91" ry="6.30" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-38.30,58.41 38.87,102.96 38.87,97.02 -38.30,52.47" fill="#17ABB1"/><polygon points="45.73,99.00 38.87,102.96 38.87,97.02 45.73,93.06" fill="#0B8A90"/><polygon points="-31.44,48.51 45.73,93.06 38.87,97.02 -38.30,52.47" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-43.78,78.38 A10.91,6.30 0 0 0 -21.95,78.38 L-21.95,62.70 A10.91,6.30 0 0 1 -43.78,62.70 Z" fill="#7FC0C8"/><ellipse cx="-32.87" cy="62.70" rx="10.91" ry="6.30" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-46.87,63.36 30.29,107.91 30.29,101.97 -46.87,57.42" fill="#17ABB1"/><polygon points="37.15,103.95 30.29,107.91 30.29,101.97 37.15,98.01" fill="#0B8A90"/><polygon points="-40.01,53.46 37.15,98.01 30.29,101.97 -46.87,57.42" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-55.44,68.31 21.72,112.86 21.72,106.92 -55.44,62.37" fill="#17ABB1"/><polygon points="28.58,108.90 21.72,112.86 21.72,106.92 28.58,102.96" fill="#0B8A90"/><polygon points="-48.58,58.41 28.58,102.96 21.72,106.92 -55.44,62.37" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-64.02,73.26 13.15,117.81 13.15,111.87 -64.02,67.32" fill="#17ABB1"/><polygon points="20.01,113.85 13.15,117.81 13.15,111.87 20.01,107.91" fill="#0B8A90"/><polygon points="-57.16,63.36 20.01,107.91 13.15,111.87 -64.02,67.32" fill="#4FC6CB"/></g></g></svg>
         </figure>
         <div class="txt">
-          <h3 class="h3">Steel &amp; engineering</h3>
-          <p>Secondary steel manufacturing, value-added products, recycling, fabrication, industrial machinery and engineering components.</p>
+          <h3 class="h3">Downstream steel manufacturing</h3>
+          <p>A built ecosystem of 800+ vendors and OEMs, 10,000+ direct jobs, 50,000+ indirect jobs and exports to 35 countries supports the next downstream opportunity: galvanising, processing workshops, scaffolding, formwork, pre-engineered systems and precast structures.</p>
         </div>
       </article>
 
@@ -560,8 +572,8 @@ h1,h2,h3,h4{ margin:0 }
           <svg viewBox="0 0 300 200" role="img" aria-label="Axonometric: a processing hall, grain silos, produce crates and a cold store."><g transform="translate(152,32)"><polygon points="0.00,0.00 137.18,79.20 37.15,136.95 -100.03,57.75" fill="#DFF2F3" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="1.0"/><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="-37.15,34.65 14.29,64.35 14.29,28.05 -37.15,-1.65" fill="#E4F2F4"/><polygon points="54.30,41.25 14.29,64.35 14.29,28.05 54.30,4.95" fill="#BFE2E6"/><polygon points="2.86,-24.75 54.30,4.95 14.29,28.05 -37.15,-1.65" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-37.15,-1.65 14.29,28.05 14.29,22.28 -37.15,-7.43" fill="#7FC0C8"/><polygon points="54.30,4.95 14.29,28.05 14.29,22.28 54.30,-0.83" fill="#5EA5AF"/><polygon points="2.86,-30.53 54.30,-0.83 14.29,22.28 -37.15,-7.43" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-64.30,51.98 -47.16,61.88 -47.16,53.62 -64.30,43.73" fill="#42B0B8"/><polygon points="-32.87,53.62 -47.16,61.88 -47.16,53.62 -32.87,45.38" fill="#2C8F99"/><polygon points="-50.01,35.48 -32.87,45.38 -47.16,53.62 -64.30,43.73" fill="#7ACDD3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-64.30,43.73 -47.16,53.62 -47.16,45.38 -64.30,35.48" fill="#17ABB1"/><polygon points="-32.87,45.38 -47.16,53.62 -47.16,45.38 -32.87,37.12" fill="#0B8A90"/><polygon points="-50.01,27.23 -32.87,37.12 -47.16,45.38 -64.30,35.48" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-81.45,61.88 -64.30,71.77 -64.30,63.52 -81.45,53.62" fill="#42B0B8"/><polygon points="-50.01,63.52 -64.30,71.77 -64.30,63.52 -50.01,55.27" fill="#2C8F99"/><polygon points="-67.16,45.38 -50.01,55.27 -64.30,63.52 -81.45,53.62" fill="#7ACDD3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-81.45,53.62 -64.30,63.52 -64.30,55.27 -81.45,45.38" fill="#17ABB1"/><polygon points="-50.01,55.27 -64.30,63.52 -64.30,55.27 -50.01,47.02" fill="#0B8A90"/><polygon points="-67.16,37.12 -50.01,47.02 -64.30,55.27 -81.45,45.38" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-42.87,64.35 -25.72,74.25 -25.72,66.00 -42.87,56.10" fill="#42B0B8"/><polygon points="-11.43,66.00 -25.72,74.25 -25.72,66.00 -11.43,57.75" fill="#2C8F99"/><polygon points="-28.58,47.85 -11.43,57.75 -25.72,66.00 -42.87,56.10" fill="#7ACDD3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-42.87,56.10 -25.72,66.00 -25.72,57.75 -42.87,47.85" fill="#17ABB1"/><polygon points="-11.43,57.75 -25.72,66.00 -25.72,57.75 -11.43,49.50" fill="#0B8A90"/><polygon points="-28.58,39.60 -11.43,49.50 -25.72,57.75 -42.87,47.85" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M48.92,61.88 A12.53,7.23 0 0 0 73.97,61.88 L73.97,22.28 A12.53,7.23 0 0 1 48.92,22.28 Z" fill="#E4F2F4"/><ellipse cx="61.44" cy="22.28" rx="12.53" ry="7.23" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M48.92,22.28 A12.53,7.23 0 0 0 73.97,22.28 L61.44,12.38 Z" fill="#17ABB1"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-60.02,74.25 -42.87,84.15 -42.87,75.90 -60.02,66.00" fill="#42B0B8"/><polygon points="-28.58,75.90 -42.87,84.15 -42.87,75.90 -28.58,67.65" fill="#2C8F99"/><polygon points="-45.73,57.75 -28.58,67.65 -42.87,75.90 -60.02,66.00" fill="#7ACDD3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-60.02,66.00 -42.87,75.90 -42.87,67.65 -60.02,57.75" fill="#17ABB1"/><polygon points="-28.58,67.65 -42.87,75.90 -42.87,67.65 -28.58,59.40" fill="#0B8A90"/><polygon points="-45.73,49.50 -28.58,59.40 -42.87,67.65 -60.02,57.75" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M67.49,72.60 A12.53,7.23 0 0 0 92.55,72.60 L92.55,33.00 A12.53,7.23 0 0 1 67.49,33.00 Z" fill="#E4F2F4"/><ellipse cx="80.02" cy="33.00" rx="12.53" ry="7.23" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M67.49,33.00 A12.53,7.23 0 0 0 92.55,33.00 L80.02,23.10 Z" fill="#17ABB1"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M86.07,83.33 A12.53,7.23 0 0 0 111.13,83.33 L111.13,43.73 A12.53,7.23 0 0 1 86.07,43.73 Z" fill="#E4F2F4"/><ellipse cx="98.60" cy="43.73" rx="12.53" ry="7.23" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M86.07,43.73 A12.53,7.23 0 0 0 111.13,43.73 L98.60,33.82 Z" fill="#17ABB1"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="-11.43,95.70 40.01,125.40 40.01,97.35 -11.43,67.65" fill="#0F5878"/><polygon points="68.59,108.90 40.01,125.40 40.01,97.35 68.59,80.85" fill="#093C54"/><polygon points="17.15,51.15 68.59,80.85 40.01,97.35 -11.43,67.65" fill="#2E7FA3"/></g></g></svg>
         </figure>
         <div class="txt">
-          <h3 class="h3">Agro &amp; food processing</h3>
-          <p>Pulses, oilseeds, cotton, fruits, vegetables, packaged food, cold storage and export-oriented processing.</p>
+          <h3 class="h3">Feed processing</h3>
+          <p>Expand a working base for high-protein animal and poultry feed ingredients.</p>
         </div>
       </article>
 
@@ -572,8 +584,8 @@ h1,h2,h3,h4{ margin:0 }
           <svg viewBox="0 0 300 200" role="img" aria-label="Axonometric: a warehouse, stacked containers, a truck and a rail wagon."><g transform="translate(150,32)"><polygon points="0.00,0.00 134.32,77.55 34.29,135.30 -100.03,57.75" fill="#DBEDF4" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="1.0"/><polygon points="-70.02,40.43 64.30,117.98 47.16,127.88 -87.17,50.33" fill="#C6E4EC" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="1.0"/><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="-42.87,34.65 8.57,64.35 8.57,36.30 -42.87,6.60" fill="#E4F2F4"/><polygon points="51.44,39.60 8.57,64.35 8.57,36.30 51.44,11.55" fill="#BFE2E6"/><polygon points="0.00,-18.15 51.44,11.55 8.57,36.30 -42.87,6.60" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><polygon points="0.00,-18.15 51.44,11.55 30.01,10.73 -21.43,-18.97" fill="#FFFFFF"/><polygon points="-42.87,6.60 8.57,36.30 30.01,10.73 -21.43,-18.97" fill="#E4F2F4"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="42.87,57.75 75.73,76.73 75.73,63.53 42.87,44.55" fill="#17ABB1"/><polygon points="90.02,68.48 75.73,76.73 75.73,63.53 90.02,55.28" fill="#0B8A90"/><polygon points="57.16,36.30 90.02,55.28 75.73,63.53 42.87,44.55" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="42.87,43.73 75.73,62.70 75.73,49.50 42.87,30.53" fill="#0F5878"/><polygon points="90.02,54.45 75.73,62.70 75.73,49.50 90.02,41.25" fill="#093C54"/><polygon points="57.16,22.28 90.02,41.25 75.73,49.50 42.87,30.53" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="42.87,29.70 75.73,48.68 75.73,35.48 42.87,16.50" fill="#7FC0C8"/><polygon points="90.02,40.43 75.73,48.68 75.73,35.48 90.02,27.23" fill="#5EA5AF"/><polygon points="57.16,8.25 90.02,27.23 75.73,35.48 42.87,16.50" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-68.59,59.40 -37.15,77.55 -37.15,66.66 -68.59,48.51" fill="#0F5878"/><polygon points="-25.72,70.95 -37.15,77.55 -37.15,66.66 -25.72,60.06" fill="#093C54"/><polygon points="-57.16,41.91 -25.72,60.06 -37.15,66.66 -68.59,48.51" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-36.44,77.96 -26.15,83.90 -26.15,70.37 -36.44,64.43" fill="#0F4A68"/><polygon points="-14.72,77.30 -26.15,83.90 -26.15,70.37 -14.72,63.77" fill="#052C3E"/><polygon points="-25.01,57.83 -14.72,63.77 -26.15,70.37 -36.44,64.43" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="22.86,69.30 55.73,88.27 55.73,75.08 22.86,56.10" fill="#0F5878"/><polygon points="70.02,80.02 55.73,88.27 55.73,75.08 70.02,66.83" fill="#093C54"/><polygon points="37.15,47.85 70.02,66.83 55.73,75.08 22.86,56.10" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="22.86,55.27 55.73,74.25 55.73,61.05 22.86,42.08" fill="#17ABB1"/><polygon points="70.02,66.00 55.73,74.25 55.73,61.05 70.02,52.80" fill="#0B8A90"/><polygon points="37.15,33.83 70.02,52.80 55.73,61.05 22.86,42.08" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="2.86,80.85 35.72,99.83 35.72,86.62 2.86,67.65" fill="#7FC0C8"/><polygon points="50.01,91.58 35.72,99.83 35.72,86.62 50.01,78.38" fill="#5EA5AF"/><polygon points="17.15,59.40 50.01,78.38 35.72,86.62 2.86,67.65" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="2.86,66.83 35.72,85.80 35.72,72.60 2.86,53.63" fill="#17ABB1"/><polygon points="50.01,77.55 35.72,85.80 35.72,72.60 50.01,64.35" fill="#0B8A90"/><polygon points="17.15,45.38 50.01,64.35 35.72,72.60 2.86,53.63" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="2.86,52.80 35.72,71.77 35.72,58.57 2.86,39.60" fill="#0F5878"/><polygon points="50.01,63.52 35.72,71.77 35.72,58.57 50.01,50.32" fill="#093C54"/><polygon points="17.15,31.35 50.01,50.32 35.72,58.57 2.86,39.60" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-9.86,94.79 24.43,114.59 24.43,102.38 -9.86,82.58" fill="#17ABB1"/><polygon points="35.01,108.49 24.43,114.59 24.43,102.38 35.01,96.28" fill="#0B8A90"/><polygon points="0.71,76.48 35.01,96.28 24.43,102.38 -9.86,82.58" fill="#4FC6CB"/></g></g></svg>
         </figure>
         <div class="txt">
-          <h3 class="h3">Logistics &amp; warehousing</h3>
-          <p>Freight aggregation, warehousing, distribution, cold-chain facilities, container services and export logistics.</p>
+          <h3 class="h3">Silk &amp; sericulture</h3>
+          <p>A genuine open field for sericulture and value-added silk production.</p>
         </div>
       </article>
 
@@ -584,11 +596,12 @@ h1,h2,h3,h4{ margin:0 }
           <svg viewBox="0 0 300 200" role="img" aria-label="Axonometric: a machined flange, a press cell and pallets of components."><g transform="translate(150,28)"><polygon points="0.00,0.00 137.18,79.20 37.15,136.95 -100.03,57.75" fill="#DFF2F3" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="1.0"/><g stroke="#093C54" stroke-width="1.0" stroke-linejoin="round"><path d="M-27.59,23.76 A4.45,2.57 0 0 0 -18.70,23.76 L-18.70,21.78 A4.45,2.57 0 0 1 -27.59,21.78 Z" fill="#0F4A68"/><ellipse cx="-23.15" cy="21.78" rx="4.45" ry="2.57" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.0" stroke-linejoin="round"><path d="M18.70,23.76 A4.45,2.57 0 0 0 27.59,23.76 L27.59,21.78 A4.45,2.57 0 0 1 18.70,21.78 Z" fill="#0F4A68"/><ellipse cx="23.15" cy="21.78" rx="4.45" ry="2.57" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-40.42,46.20 A40.42,23.33 0 0 0 40.42,46.20 L40.42,37.12 A40.42,23.33 0 0 1 -40.42,37.12 Z" fill="#7FC0C8"/><ellipse cx="0.00" cy="37.12" rx="40.42" ry="23.33" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-25.26,37.12 A25.26,14.58 0 0 0 25.26,37.12 L25.26,24.75 A25.26,14.58 0 0 1 -25.26,24.75 Z" fill="#0F5878"/><ellipse cx="0.00" cy="24.75" rx="25.26" ry="14.58" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-10.10,24.75 A10.10,5.83 0 0 0 10.10,24.75 L10.10,16.50 A10.10,5.83 0 0 1 -10.10,16.50 Z" fill="#17ABB1"/><ellipse cx="0.00" cy="16.50" rx="10.10" ry="5.83" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.1" stroke-linejoin="round" opacity="1.0"><polygon points="-80.02,61.05 -60.02,72.60 -60.02,67.98 -80.02,56.43" fill="#E4F2F4"/><polygon points="-44.30,63.52 -60.02,72.60 -60.02,67.98 -44.30,58.91" fill="#BFE2E6"/><polygon points="-64.30,47.36 -44.30,58.91 -60.02,67.98 -80.02,56.43" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.1" stroke-linejoin="round" opacity="1.0"><polygon points="-76.16,56.68 -60.44,65.75 -60.44,56.68 -76.16,47.60" fill="#0F5878"/><polygon points="-48.16,58.66 -60.44,65.75 -60.44,56.68 -48.16,49.58" fill="#093C54"/><polygon points="-63.87,40.51 -48.16,49.58 -60.44,56.68 -76.16,47.60" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.0" stroke-linejoin="round"><path d="M18.70,50.49 A4.45,2.57 0 0 0 27.59,50.49 L27.59,48.51 A4.45,2.57 0 0 1 18.70,48.51 Z" fill="#0F4A68"/><ellipse cx="23.15" cy="48.51" rx="4.45" ry="2.57" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.0" stroke-linejoin="round"><path d="M-27.59,50.49 A4.45,2.57 0 0 0 -18.70,50.49 L-18.70,48.51 A4.45,2.57 0 0 1 -27.59,48.51 Z" fill="#0F4A68"/><ellipse cx="-23.15" cy="48.51" rx="4.45" ry="2.57" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.1" stroke-linejoin="round" opacity="1.0"><polygon points="-55.73,75.08 -35.72,86.62 -35.72,82.00 -55.73,70.45" fill="#E4F2F4"/><polygon points="-20.01,77.55 -35.72,86.62 -35.72,82.00 -20.01,72.93" fill="#BFE2E6"/><polygon points="-40.01,61.38 -20.01,72.93 -35.72,82.00 -55.73,70.45" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.1" stroke-linejoin="round" opacity="1.0"><polygon points="-51.87,70.70 -36.15,79.78 -36.15,70.70 -51.87,61.63" fill="#0F5878"/><polygon points="-23.86,72.68 -36.15,79.78 -36.15,70.70 -23.86,63.61" fill="#093C54"/><polygon points="-39.58,54.53 -23.86,63.61 -36.15,70.70 -51.87,61.63" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="48.58,74.25 85.74,95.70 85.74,56.10 48.58,34.65" fill="#0F4A68"/><polygon points="114.32,79.20 85.74,95.70 85.74,56.10 114.32,39.60" fill="#052C3E"/><polygon points="77.16,18.15 114.32,39.60 85.74,56.10 48.58,34.65" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="42.87,34.65 85.74,59.40 85.74,54.45 42.87,29.70" fill="#17ABB1"/><polygon points="120.03,39.60 85.74,59.40 85.74,54.45 120.03,34.65" fill="#0B8A90"/><polygon points="77.16,9.90 120.03,34.65 85.74,54.45 42.87,29.70" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.1" stroke-linejoin="round" opacity="1.0"><polygon points="-31.44,89.10 -11.43,100.65 -11.43,96.03 -31.44,84.48" fill="#E4F2F4"/><polygon points="4.29,91.58 -11.43,100.65 -11.43,96.03 4.29,86.95" fill="#BFE2E6"/><polygon points="-15.72,75.40 4.29,86.95 -11.43,96.03 -31.44,84.48" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.1" stroke-linejoin="round" opacity="1.0"><polygon points="-27.58,84.73 -11.86,93.80 -11.86,84.73 -27.58,75.65" fill="#0F5878"/><polygon points="0.43,86.71 -11.86,93.80 -11.86,84.73 0.43,77.63" fill="#093C54"/><polygon points="-15.29,68.56 0.43,77.63 -11.86,84.73 -27.58,75.65" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="17.15,89.10 60.02,113.85 60.02,99.00 17.15,74.25" fill="#7FC0C8"/><polygon points="80.02,102.30 60.02,113.85 60.02,99.00 80.02,87.45" fill="#5EA5AF"/><polygon points="37.15,62.70 80.02,87.45 60.02,99.00 17.15,74.25" fill="#A9D6DC"/></g></g></svg>
         </figure>
         <div class="txt">
-          <h3 class="h3">Automotive &amp; allied</h3>
-          <p>Bearings, engineering components, metal products, fabrication and opportunities tied to the wider Marathwada manufacturing ecosystem.</p>
+          <h3 class="h3">Auto ancillaries</h3>
+          <p>AURIC, 60 km away, has attracted more than ₹93,000 crore and plans capacity for 25 lakh EVs a year. Jalna offers the land, power and labour needed for its supplier belt.</p>
         </div>
       </article>
 
+      {/* Removed the sixth card so Focus Sectors contains only opportunities named in the PDF.
       <!-- 6 msme tech -->
       <article class="sc rv">
         <figure class="sky3">
@@ -596,10 +609,11 @@ h1,h2,h3,h4{ margin:0 }
           <svg viewBox="0 0 300 200" role="img" aria-label="Axonometric: a smart factory unit, a gantry robot and a solar array."><g transform="translate(152,26)"><polygon points="0.00,0.00 137.18,79.20 28.58,141.90 -108.60,62.70" fill="#E4F5F0" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="1.0"/><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="-34.29,31.35 14.29,59.40 14.29,28.05 -34.29,0.00" fill="#E4F2F4"/><polygon points="48.58,39.60 14.29,59.40 14.29,28.05 48.58,8.25" fill="#BFE2E6"/><polygon points="0.00,-19.80 48.58,8.25 14.29,28.05 -34.29,0.00" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-34.29,0.00 14.29,28.05 14.29,23.10 -34.29,-4.95" fill="#0F5878"/><polygon points="48.58,8.25 14.29,28.05 14.29,23.10 48.58,3.30" fill="#093C54"/><polygon points="0.00,-24.75 48.58,3.30 14.29,23.10 -34.29,-4.95" fill="#2E7FA3"/></g><line x1="-62.87" y1="52.80" x2="-62.87" y2="37.12" stroke="#093C54" stroke-width="1.8" stroke-linecap="round" opacity="1.0"/><line x1="-14.29" y1="80.85" x2="-14.29" y2="65.17" stroke="#093C54" stroke-width="1.8" stroke-linecap="round" opacity="1.0"/><polygon points="-44.30,5.78 12.86,38.77 -10.00,67.65 -67.16,34.65" fill="#0DA1A7" stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"/><line x1="-55.73" y1="20.29" x2="1.43" y2="53.30" stroke="#9FBBD1" stroke-width="1.1" stroke-linecap="round" opacity="1.0"/><line x1="-25.29" y1="16.75" x2="-48.16" y2="45.62" stroke="#9FBBD1" stroke-width="1.0" stroke-linecap="round" opacity="1.0"/><line x1="-6.29" y1="27.72" x2="-29.15" y2="56.59" stroke="#9FBBD1" stroke-width="1.0" stroke-linecap="round" opacity="1.0"/><line x1="-85.74" y1="66.00" x2="-85.74" y2="50.32" stroke="#093C54" stroke-width="1.8" stroke-linecap="round" opacity="1.0"/><line x1="-37.15" y1="94.05" x2="-37.15" y2="78.38" stroke="#093C54" stroke-width="1.8" stroke-linecap="round" opacity="1.0"/><polygon points="-67.16,18.98 -10.00,51.98 -32.87,80.85 -90.02,47.85" fill="#0DA1A7" stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"/><line x1="-78.59" y1="33.50" x2="-21.43" y2="66.50" stroke="#9FBBD1" stroke-width="1.1" stroke-linecap="round" opacity="1.0"/><line x1="-48.16" y1="29.95" x2="-71.02" y2="58.82" stroke="#9FBBD1" stroke-width="1.0" stroke-linecap="round" opacity="1.0"/><line x1="-29.15" y1="40.92" x2="-52.01" y2="69.79" stroke="#9FBBD1" stroke-width="1.0" stroke-linecap="round" opacity="1.0"/><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="42.87,72.60 82.88,95.70 82.88,88.27 42.87,65.17" fill="#0F4A68"/><polygon points="110.03,80.02 82.88,95.70 82.88,88.27 110.03,72.60" fill="#052C3E"/><polygon points="70.02,49.50 110.03,72.60 82.88,88.27 42.87,65.17" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="58.59,61.05 65.73,65.17 65.73,25.58 58.59,21.45" fill="#7FC0C8"/><polygon points="72.88,61.05 65.73,65.17 65.73,25.58 72.88,21.45" fill="#5EA5AF"/><polygon points="65.73,17.33 72.88,21.45 65.73,25.58 58.59,21.45" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="58.59,21.45 92.88,41.25 92.88,34.32 58.59,14.52" fill="#17ABB1"/><polygon points="100.03,37.12 92.88,41.25 92.88,34.32 100.03,30.19" fill="#0B8A90"/><polygon points="65.73,10.40 100.03,30.19 92.88,34.32 58.59,14.52" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="82.16,44.96 91.02,50.08 91.02,40.51 82.16,35.39" fill="#0F5878"/><polygon points="99.60,45.13 91.02,50.08 91.02,40.51 99.60,35.56" fill="#093C54"/><polygon points="90.74,30.44 99.60,35.56 91.02,40.51 82.16,35.39" fill="#2E7FA3"/></g><line x1="90.74" y1="35.89" x2="90.74" y2="44.96" stroke="#093C54" stroke-width="2.0" stroke-linecap="round" opacity="1.0"/><line x1="-108.60" y1="79.20" x2="-108.60" y2="63.52" stroke="#093C54" stroke-width="1.8" stroke-linecap="round" opacity="1.0"/><line x1="-60.02" y1="107.25" x2="-60.02" y2="91.58" stroke="#093C54" stroke-width="1.8" stroke-linecap="round" opacity="1.0"/><polygon points="-90.02,32.18 -32.87,65.17 -55.73,94.05 -112.89,61.05" fill="#0DA1A7" stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"/><line x1="-101.45" y1="46.70" x2="-44.30" y2="79.70" stroke="#9FBBD1" stroke-width="1.1" stroke-linecap="round" opacity="1.0"/><line x1="-71.02" y1="43.15" x2="-93.88" y2="72.02" stroke="#9FBBD1" stroke-width="1.0" stroke-linecap="round" opacity="1.0"/><line x1="-52.01" y1="54.12" x2="-74.88" y2="82.99" stroke="#9FBBD1" stroke-width="1.0" stroke-linecap="round" opacity="1.0"/><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="-5.72,107.25 31.44,128.70 31.44,108.90 -5.72,87.45" fill="#42B0B8"/><polygon points="55.73,114.67 31.44,128.70 31.44,108.90 55.73,94.88" fill="#2C8F99"/><polygon points="18.58,73.42 55.73,94.88 31.44,108.90 -5.72,87.45" fill="#7ACDD3"/></g></g></svg>
         </figure>
         <div class="txt">
-          <h3 class="h3">MSMEs &amp; manufacturing tech</h3>
-          <p>Automation, industrial services, renewable energy, packaging technology, digital transformation and supply-chain services.</p>
+          <h3 class="h3">MMLP-led manufacturing</h3>
+          <p>Use the district's logistics gateway, industrial reach and plug-and-play ambition to serve national and global manufacturing networks.</p>
         </div>
       </article>
+      */}
     </div>
   </div>
 </section>
@@ -608,24 +622,18 @@ h1,h2,h3,h4{ margin:0 }
 <section class="sec obj">
   <div class="wrap">
     <div class="rv" style="max-width:34ch">
-      <p class="tag inv"><i>◆</i> Objectives</p>
+      <p class="tag inv"><i>◆</i> The road ahead</p>
       <h2 class="h2 two-line-title" style="margin-top:20px">
-        <span>From investment interest</span>
-        <span>to <em>economic impact</em>.</span>
+        <span>A four-part vision</span>
+        <span>for <em>Jalna</em>.</span>
       </h2>
-      <p class="lede" style="margin-top:24px">What the summit is organised to produce — stated plainly, so you can judge whether attending is worth your day.</p>
+      <p class="lede" style="margin-top:24px">Four things the district intends to become - and is building towards now.</p>
     </div>
     <ol class="olist rv">
-      <li><i>01</i>Present Jalna's strongest investible opportunities</li>
-      <li><i>02</i>Connect investors with government and industry representatives</li>
-      <li><i>03</i>Facilitate business-to-business and business-to-government meetings</li>
-      <li><i>04</i>Support partnerships between established businesses and new investors</li>
-      <li><i>05</i>Explain relevant policies, incentives, land and infrastructure</li>
-      <li><i>06</i>Encourage industrial expansion and technology adoption</li>
-      <li><i>07</i>Strengthen Jalna's MSME and supplier ecosystem</li>
-      <li><i>08</i>Promote export-oriented manufacturing</li>
-      <li><i>09</i>Generate quality employment for local youth</li>
-      <li><i>10</i>Facilitate Letters of Intent, partnerships and investment proposals</li>
+      <li><i>01</i>Future-ready talent and innovation through ICT, ITI and an incubation centre</li>
+      <li><i>02</i>Industry-friendly investment backed by ease of doing business and administrative support</li>
+      <li><i>03</i>An MMLP and logistics gateway connecting Central Maharashtra to global manufacturing</li>
+      <li><i>04</i>A manufacturing hub for anchor industries with globally competitive, plug-and-play infrastructure</li>
     </ol>
   </div>
 </section>
@@ -636,7 +644,7 @@ h1,h2,h3,h4{ margin:0 }
     <div class="rv" style="max-width:34ch">
       <p class="tag"><i>05</i> The day</p>
       <h2 class="h2" style="margin-top:20px">What actually<br><em>happens</em>.</h2>
-      <p class="lede" style="margin-top:24px">A focused programme that moves from the ceremonial opening and institutional addresses to keynotes, panels, audience questions and a dry-port visit.</p>
+      <p class="lede" style="margin-top:24px">A focused programme built around Jalna's industrial base, the MMLP logistics gateway, new manufacturing investment and the people who can move projects forward.</p>
     </div>
     <div class="eg">
       <article class="ec rv">
@@ -704,7 +712,7 @@ h1,h2,h3,h4{ margin:0 }
         <div>
           <b>Thursday, 3 September 2026</b>
           <span>9:00 AM – 3:00 PM · Jalna, Maharashtra</span>
-          <span class="ven">Venue announcing soon</span>
+          <span class="ven">The Fern Hotel, Jalna</span>
         </div>
       </div>
     </div>
@@ -713,7 +721,7 @@ h1,h2,h3,h4{ margin:0 }
       <div class="st"><span class="n">6h</span><span class="l">Formal programme</span><span class="s">9:00 AM – 3:00 PM</span></div>
       <div class="st"><span class="n">3</span><span class="l">Keynotes</span><span class="s">Industry perspectives</span></div>
       <div class="st"><span class="n">2</span><span class="l">Panels</span><span class="s">Each with an open floor</span></div>
-      <div class="st"><span class="n">1</span><span class="l">Site visit</span><span class="s">Dry port, after lunch</span></div>
+      <div class="st"><span class="n">1</span><span class="l">Site visit</span><span class="s">Dry port visit, after lunch</span></div>
     </div>
 
     <div class="ag-bar rv">
@@ -760,7 +768,7 @@ h1,h2,h3,h4{ margin:0 }
       <h3 class="h3" style="margin:16px 0 10px">Networking lunch, then the dry port.</h3>
       <p style="margin:0;color:var(--i72);font-size:15.5px">The formal agenda closes at 3:00 PM. Lunch is planned to lead into a visit to the dry port so participants can see the core MMLP asset on the ground.</p>
       <ul class="after-list"><li><span>Next</span>Networking lunch</li><li><span>Then</span>Dry-port visit</li></ul>
-      <p class="note">Final venue, participant names and any changes to timings will be confirmed by the summit organiser.</p>
+      <p class="note">Participant names and any changes to timings will be confirmed by the summit organiser.</p>
     </div>
   </div>
 </section>
@@ -770,57 +778,58 @@ h1,h2,h3,h4{ margin:0 }
   <div class="wrap att">
     <div class="rv">
       <p class="tag"><i>07</i> Who should attend</p>
-      <h2 class="h2" style="margin:20px 0 22px">Built for <em>decision-makers</em> and growth builders.</h2>
-      <p class="lede">The room is designed for people who can commit — or who advise the people who can.</p>
+      <h2 class="h2" style="margin:20px 0 22px">For the people who can<br><em>build on Jalna</em>.</h2>
+      <p class="lede">The summit connects the industries Jalna already has with the investors, suppliers and institutions needed for its next phase.</p>
       <div class="who">
-        <span><i style="background:var(--navy)"></i>Indian &amp; international investors</span>
-        <span><i style="background:var(--brass)"></i>Manufacturers planning expansion</span>
-        <span><i style="background:var(--seed)"></i>Large enterprises &amp; MSMEs</span>
-        <span><i style="background:var(--navy)"></i>Seed &amp; agricultural companies</span>
-        <span><i style="background:var(--brass)"></i>Steel &amp; engineering businesses</span>
-        <span><i style="background:var(--seed)"></i>Food-processing companies</span>
-        <span><i style="background:var(--navy)"></i>Logistics, warehousing &amp; export operators</span>
-        <span><i style="background:var(--brass)"></i>Infrastructure developers</span>
-        <span><i style="background:var(--seed)"></i>Banks, funds &amp; financial institutions</span>
-        <span><i style="background:var(--navy)"></i>Technology &amp; automation providers</span>
-        <span><i style="background:var(--brass)"></i>Entrepreneurs &amp; startups</span>
-        <span><i style="background:var(--seed)"></i>Government &amp; industry bodies</span>
-        <span><i style="background:var(--navy)"></i>Education &amp; skill-development institutions</span>
+        <span><i style="background:var(--navy)"></i>Manufacturing investors</span>
+        <span><i style="background:var(--brass)"></i>Steel mills, vendors &amp; OEMs</span>
+        <span><i style="background:var(--seed)"></i>Downstream steel manufacturers</span>
+        <span><i style="background:var(--navy)"></i>Hybrid seed developers &amp; processors</span>
+        <span><i style="background:var(--brass)"></i>Feed-processing businesses</span>
+        <span><i style="background:var(--seed)"></i>Silk &amp; sericulture entrepreneurs</span>
+        <span><i style="background:var(--navy)"></i>Auto-ancillary suppliers</span>
+        <span><i style="background:var(--brass)"></i>Logistics &amp; warehousing operators</span>
+        <span><i style="background:var(--seed)"></i>Power &amp; infrastructure partners</span>
+        <span><i style="background:var(--navy)"></i>Banks &amp; financial institutions</span>
+        <span><i style="background:var(--brass)"></i>Government &amp; administration</span>
+        <span><i style="background:var(--seed)"></i>ITI, ICT &amp; incubation institutions</span>
       </div>
     </div>
 
   </div>
 </section>
 
+{/* Removed investor-support section.
 <!-- ═══════ INVESTOR SUPPORT ═══════ -->
 <section class="sec sup">
   <div class="wrap sgrid">
     <div class="rv">
-      <p class="tag inv"><i>◆</i> Investor support</p>
-      <h2 class="h2" style="margin-top:20px">Your entry point<br>into <em>Jalna</em>.</h2>
-      <p class="lede" style="margin-top:24px">Use the summit to explore relevant contacts, requirements and possible next steps for your investment opportunity.</p>
+      <p class="tag inv"><i>◆</i> Ready to support industry</p>
+      <h2 class="h2" style="margin-top:20px">The foundations are<br>already <em>working</em>.</h2>
+      <p class="lede" style="margin-top:24px">Jalna combines infrastructure, institutional support, labour and an established supplier base for manufacturing growth.</p>
     </div>
     <ul class="slist rv">
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8.5 6 13 14.5 3" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Industrial opportunities and project locations</li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8.5 6 13 14.5 3" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Land and infrastructure requirements</li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8.5 6 13 14.5 3" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Policies and incentive programmes</li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8.5 6 13 14.5 3" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Approvals and investor facilitation</li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8.5 6 13 14.5 3" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Local partnerships and suppliers</li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8.5 6 13 14.5 3" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Workforce and skill requirements</li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8.5 6 13 14.5 3" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Logistics and export connectivity</li>
-      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8.5 6 13 14.5 3" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Expansion and project implementation</li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8.5 6 13 14.5 3" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>MSEB and financial institutions aligned with manufacturing growth</li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8.5 6 13 14.5 3" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>National-scale Multi-Modal Logistics Park</li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8.5 6 13 14.5 3" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Samruddhi Mahamarg and rail sidings</li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8.5 6 13 14.5 3" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Airport access in 45 minutes and multiple airports within 300 km</li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8.5 6 13 14.5 3" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Responsive administration and hands-on approval support</li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8.5 6 13 14.5 3" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Labour-ready manufacturing ecosystem</li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8.5 6 13 14.5 3" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Established vendor, OEM and supplier networks</li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 8.5 6 13 14.5 3" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Land, power and labour for the AURIC supplier belt</li>
     </ul>
   </div>
 </section>
+*/}
 
 <!-- ═══════ VISION ═══════ -->
 <section class="sec vis">
   <div class="wrap vg">
     <div class="rv">
-      <p class="tag"><i>◆</i> The point of it</p>
-      <h2 class="h2" style="margin:20px 0 22px">Investment that creates<br><em>shared growth</em>.</h2>
-      <p class="lede">The purpose is not simply to attract capital. It is to build an ecosystem where investment strengthens industry, enables innovation, expands exports, supports entrepreneurs and creates real employment. When businesses grow in Jalna, the gain should reach its industries, farmers, workers, young people and communities.</p>
-      <blockquote class="quote">Invest in enterprise. Invest in employment. Invest in Jalna.<cite>Jalna Investment Summit</cite></blockquote>
+      <p class="tag"><i>◆</i> Our purpose</p>
+      <h2 class="h2" style="margin:20px 0 22px">Build on Jalna's<br><em>industrial foundation</em>.</h2>
+      <p class="lede">The summit's purpose is to turn Jalna's existing industrial strength into its next phase of growth. It brings investors, industry, financial institutions, infrastructure partners and government together around four priorities: a future-ready talent and innovation ecosystem, an industry-friendly investment destination, an MMLP-led logistics gateway, and a manufacturing hub that supports anchor industries.</p>
+      <blockquote class="quote">Build the talent. Back the industry. Open the gateway.<cite>Jalna Industrial Summit 2026</cite></blockquote>
     </div>
     <div class="rv">
       <svg viewBox="0 0 620 400" role="img" aria-label="Flow diagram: capital enters industry in Jalna and returns as exports, employment and a local supply chain."><g stroke="#093C54" stroke-width="1.6" stroke-linejoin="round"><path d="M18 152h84v96H18z" fill="#0DA1A7" fill-opacity=".55"/><path d="M102 152h48c34 0 22 -6 46 -6h6v108h-6c-24 0-12-6-46-6h-48z" fill="#0DA1A7" fill-opacity=".32"/><path d="M202 132h116v136H202z" fill="#0C4A66" fill-opacity=".9"/><path d="M318 144h30c28 0 30-10 30-34V78h68v52h-68c-24 0-26 26-54 26h-6z" fill="#2C8F99" fill-opacity=".5"/><path d="M318 174h128v52H318z" fill="#56AEBB" fill-opacity=".55"/><path d="M318 256h6c28 0 30 26 54 26h68v52h-68v-32c0-24-2-34-30-34h-30z" fill="#0DA1A7" fill-opacity=".5"/></g><text x="18" y="132" text-anchor="start" fill="#093C54" style="font:400 10.5px 'JetBrains Mono',monospace;letter-spacing:.14em">CAPITAL</text><text x="18" y="147" text-anchor="start" fill="#093C54" opacity=".55" style="font:400 9px 'JetBrains Mono',monospace;letter-spacing:.08em">INVESTMENT IN</text><text x="260" y="196" text-anchor="middle" fill="#F5FBFB" style="font:400 27px 'Instrument Serif',serif">Industry</text><text x="260" y="220" text-anchor="middle" fill="#0DA1A7" style="font:400 9px 'JetBrains Mono',monospace;letter-spacing:.2em">IN JALNA</text><text x="456" y="98" text-anchor="start" fill="#093C54" style="font:400 10.5px 'JetBrains Mono',monospace;letter-spacing:.14em">EXPORTS</text><text x="456" y="113" text-anchor="start" fill="#093C54" opacity=".55" style="font:400 9px 'JetBrains Mono',monospace;letter-spacing:.08em">MARKET REACH</text><text x="456" y="194" text-anchor="start" fill="#093C54" style="font:400 10.5px 'JetBrains Mono',monospace;letter-spacing:.14em">EMPLOYMENT</text><text x="456" y="209" text-anchor="start" fill="#093C54" opacity=".55" style="font:400 9px 'JetBrains Mono',monospace;letter-spacing:.08em">LOCAL JOBS</text><text x="456" y="302" text-anchor="start" fill="#093C54" style="font:400 10.5px 'JetBrains Mono',monospace;letter-spacing:.14em">SUPPLY CHAIN</text><text x="456" y="317" text-anchor="start" fill="#093C54" opacity=".55" style="font:400 9px 'JetBrains Mono',monospace;letter-spacing:.08em">MSMEs &amp; SUPPLIERS</text><path d="M18 360h522" stroke="#093C54" stroke-width="1" opacity=".28"/><path d="M18 354v12M260 354v12M540 354v12" stroke="#093C54" stroke-width="1" opacity=".28"/><text x="260" y="382" text-anchor="middle" fill="#093C54" opacity=".5" style="font:400 9px 'JetBrains Mono',monospace;letter-spacing:.18em">VALUE RETAINED IN THE REGION</text></svg>
@@ -833,9 +842,9 @@ h1,h2,h3,h4{ margin:0 }
   <svg class="blob" style="top:-120px;right:-90px;width:420px" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="#0DA1A7"/></svg>
   <svg class="blob" style="bottom:-150px;left:-80px;width:340px" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="#F5FBFB"/></svg>
   <div class="wrap" style="position:relative">
-    <h2 class="h2 rv">The opportunity is here. The time to <em>build</em> is now.</h2>
-    <p class="rv">Jalna has industrial experience, entrepreneurial capability, agricultural strength and emerging logistics infrastructure. What it needs next are partners ready to participate in the phase that follows.</p>
-    <p class="sig rv">Connect. Collaborate. Invest.</p>
+    <h2 class="h2 rv">Jalna doesn't need to be discovered. It needs to be <em>built on</em>.</h2>
+    <p class="rv">The steel ecosystem is established. The seed and feed industries are working. The logistics gateway, investor support and talent ecosystem are being built for the next phase.</p>
+    <p class="sig rv">A land of opportunity.</p>
   </div>
 </section>
 </main>
@@ -845,10 +854,10 @@ h1,h2,h3,h4{ margin:0 }
   <div class="wrap">
     <div class="fg">
       <div>
-        <a class="logo" href="#top" style="margin:0" aria-label="Investors Summit 2026 home">
+        <a class="logo" href="#top" style="margin:0" aria-label="Industrial Summit 2026 home">
           <img class="logo-img" src="/investment/investors-summit-2026-logo.png" alt="Investors Summit 2026 — Jalna's Gateway to Growth">
         </a>
-        <p class="fdesc">Thursday, 3 September 2026 · Jalna, Maharashtra<br>Venue announcing soon</p>
+        <p class="fdesc">Thursday, 3 September 2026 · Jalna, Maharashtra<br>The Fern Hotel, Jalna</p>
         <p class="fdesc">Participant, partner and speaker details will be confirmed by the summit organiser.</p>
       </div>
       <div>
@@ -864,7 +873,7 @@ h1,h2,h3,h4{ margin:0 }
       <div>
         <h4>Explore</h4>
         <ul>
-          <li><a href="#sectors">Investment sectors</a></li>
+          <li><a href="#sectors">Focus sectors</a></li>
           <li><a href="https://www.instagram.com/jalnafirstcf/" target="_blank" rel="noopener noreferrer">Summit updates on Instagram</a></li>
           <li><a href="/">Jalna First Citizen Forum</a></li>
         </ul>
@@ -881,7 +890,7 @@ h1,h2,h3,h4{ margin:0 }
     </div>
     <div class="flegal">
       <span>Programme updates · Investor information · Official references</span>
-      <span>Venue, participant names and speaker details remain subject to organiser confirmation.</span>
+      <span>Participant names and speaker details remain subject to organiser confirmation.</span>
     </div>
   </div>
 </footer>

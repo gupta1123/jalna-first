@@ -1,0 +1,290 @@
+<svg viewBox="0 0 540 640" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="Animated illustration of the My Jalna app: a citizen frames a pothole in the camera, drops a location pin, submits the report, watches it travel to the municipal authority, and tracks it from sent to resolved.">
+<style>
+  /* one 15s master loop — every element is a window on the same timeline */
+  .sc{opacity:0}
+  .s1{animation:s1 15s linear infinite}
+  .s2{animation:s2 15s linear infinite}
+  .s3{animation:s3 15s linear infinite}
+  .s4{animation:s4 15s linear infinite}
+  .s5{animation:s5 15s linear infinite}
+  @keyframes s1{0%{opacity:0;transform:translateY(10px)}2%{opacity:1;transform:none}
+    19%{opacity:1;transform:none}22%{opacity:0;transform:translateY(-10px)}100%{opacity:0}}
+  @keyframes s2{0%,22%{opacity:0;transform:translateY(10px)}25%{opacity:1;transform:none}
+    37%{opacity:1;transform:none}40%{opacity:0;transform:translateY(-10px)}100%{opacity:0}}
+  @keyframes s3{0%,40%{opacity:0;transform:translateY(10px)}43%{opacity:1;transform:none}
+    53%{opacity:1;transform:none}56%{opacity:0;transform:translateY(-10px)}100%{opacity:0}}
+  @keyframes s4{0%,56%{opacity:0;transform:translateY(10px)}59%{opacity:1;transform:none}
+    71%{opacity:1;transform:none}74%{opacity:0;transform:translateY(-10px)}100%{opacity:0}}
+  @keyframes s5{0%,74%{opacity:0;transform:translateY(10px)}77%{opacity:1;transform:none}
+    97%{opacity:1;transform:none}100%{opacity:0}}
+
+  /* scene 1 — framing the problem */
+  .retic{transform-box:fill-box;transform-origin:center;animation:retic 15s ease-in-out infinite}
+  @keyframes retic{0%{transform:scale(1.25);opacity:.2}8%{transform:scale(1);opacity:.9}
+    16%{transform:scale(.95);opacity:1}22%,100%{opacity:0}}
+  .flash{animation:flash 15s linear infinite}
+  @keyframes flash{0%,17.5%{opacity:0}18.4%{opacity:.92}20.5%,100%{opacity:0}}
+  .tap1{transform-box:fill-box;transform-origin:center;animation:tap 15s linear infinite}
+  @keyframes tap{0%,16%{transform:scale(.2);opacity:0}17%{opacity:.8}20%{transform:scale(2.4);opacity:0}
+    100%{transform:scale(.2);opacity:0}}
+
+  /* scene 2 — dropping the pin */
+  .pin{animation:pin 15s cubic-bezier(.3,1.5,.5,1) infinite}
+  @keyframes pin{0%,25%{transform:translateY(-46px);opacity:0}27%{opacity:1}
+    31%{transform:translateY(0)}40%,100%{transform:translateY(0)}}
+  .ripple{transform-box:fill-box;transform-origin:center;animation:rip 15s ease-out infinite}
+  @keyframes rip{0%,31%{transform:scale(.3);opacity:0}33%{opacity:.7}39%{transform:scale(2.2);opacity:0}
+    100%{transform:scale(.3);opacity:0}}
+
+  /* scene 3 — the press */
+  .press{transform-box:fill-box;transform-origin:center;animation:press 15s linear infinite}
+  @keyframes press{0%,50%{transform:scale(1)}52%{transform:scale(.94)}54.5%,100%{transform:scale(1)}}
+  .tap2{transform-box:fill-box;transform-origin:center;animation:tap2 15s linear infinite}
+  @keyframes tap2{0%,50%{transform:scale(.2);opacity:0}51%{opacity:.8}55%{transform:scale(2.4);opacity:0}
+    100%{transform:scale(.2);opacity:0}}
+  .chipsel{animation:chipsel 15s linear infinite}
+  @keyframes chipsel{0%,43%{fill:#FFFFFF}46%,100%{fill:#0DA1A7}}
+
+  /* scene 4 — the send */
+  .bar{transform-box:fill-box;transform-origin:left center;animation:bar 15s linear infinite}
+  @keyframes bar{0%,60%{transform:scaleX(0)}71%{transform:scaleX(1)}100%{transform:scaleX(1)}}
+  .up{animation:up 15s ease-in-out infinite}
+  @keyframes up{0%,60%{transform:translateY(4px)}64%{transform:translateY(-4px)}
+    68%{transform:translateY(4px)}100%{transform:translateY(4px)}}
+
+  /* the report in flight */
+  .fly{opacity:0;animation:fly 15s cubic-bezier(.4,0,.3,1) infinite}
+  @keyframes fly{0%,62%{opacity:0;transform:translate(0,0) scale(.5)}
+    64%{opacity:1;transform:translate(20px,-24px) scale(1)}
+    70%{opacity:1;transform:translate(120px,-92px) scale(1)}
+    73%{opacity:0;transform:translate(168px,-124px) scale(.7)}
+    100%{opacity:0;transform:translate(0,0) scale(.5)}}
+  .route{stroke-dasharray:6 10;animation:route 15s linear infinite}
+  @keyframes route{0%,60%{opacity:0;stroke-dashoffset:0}63%{opacity:.9}
+    73%{opacity:.9;stroke-dashoffset:-96}76%,100%{opacity:0;stroke-dashoffset:-96}}
+  .stamp{transform-box:fill-box;transform-origin:center;animation:stamp 15s cubic-bezier(.3,1.6,.5,1) infinite}
+  @keyframes stamp{0%,72%{transform:scale(0);opacity:0}76%{transform:scale(1);opacity:1}
+    96%{transform:scale(1);opacity:1}100%{transform:scale(0);opacity:0}}
+
+  /* scene 5 — the tracker filling */
+  .d1{animation:dot 15s linear infinite}
+  .d2{animation:dot 15s linear infinite;animation-delay:1.2s}
+  .d3{animation:dot 15s linear infinite;animation-delay:2.4s}
+  @keyframes dot{0%,78%{fill:#FFFFFF}80%,100%{fill:#0DA1A7}}
+  .l1{transform-box:fill-box;transform-origin:top center;animation:lin 15s linear infinite}
+  .l2{transform-box:fill-box;transform-origin:top center;animation:lin 15s linear infinite;animation-delay:1.2s}
+  @keyframes lin{0%,79%{transform:scaleY(0)}83%,100%{transform:scaleY(1)}}
+
+  /* step scrubber */
+  .prog{transform-box:fill-box;transform-origin:left center;animation:prog 15s linear infinite}
+  @keyframes prog{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
+  .p1{animation:p 15s linear infinite}
+  .p2{animation:p 15s linear infinite;animation-delay:3.3s}
+  .p3{animation:p 15s linear infinite;animation-delay:6s}
+  .p4{animation:p 15s linear infinite;animation-delay:8.4s}
+  .p5{animation:p 15s linear infinite;animation-delay:11.1s}
+  @keyframes p{0%{fill:#C2E7E9}1%{fill:#0DA1A7}20%{fill:#0DA1A7}22%,100%{fill:#C2E7E9}}
+
+  @media (prefers-reduced-motion:reduce){
+    .s1,.s2,.s3,.s4,.retic,.flash,.tap1,.pin,.ripple,.press,.tap2,.chipsel,.bar,.up,
+    .fly,.route,.stamp,.d1,.d2,.d3,.l1,.l2,.prog,.p1,.p2,.p3,.p4,.p5{animation:none}
+    .s5{animation:none;opacity:1}
+    .d1,.d2,.d3{fill:#0DA1A7}.l1,.l2{transform:none}
+    .stamp{opacity:1;transform:none}.prog{transform:scaleX(1)}
+    .p1,.p2,.p3,.p4,.p5{fill:#0DA1A7}
+  }
+</style>
+
+<defs>
+  <clipPath id="screen"><rect x="183" y="118" width="174" height="340"/></clipPath>
+  <clipPath id="vf"><rect x="195" y="146" width="150" height="158" rx="12"/></clipPath>
+  <clipPath id="mapc"><rect x="195" y="208" width="150" height="124" rx="10"/></clipPath>
+</defs>
+
+<ellipse cx="270" cy="536" rx="128" ry="15" fill="#0DA1A7" opacity=".12"/>
+
+<!-- ══ the route the report takes ══ -->
+<path class="route" d="M300 400 Q380 360 448 268" fill="none" stroke="#0DA1A7" stroke-width="4"
+      stroke-linecap="round"/>
+
+<!-- ══ the authority ══ -->
+<rect x="392" y="150" width="128" height="106" rx="18" fill="#FFFFFF" stroke="#093C54" stroke-width="6"/>
+<path d="M418 236v-42h76v42" fill="none" stroke="#093C54" stroke-width="5.5" stroke-linejoin="round"/>
+<path d="M406 194l50-28 50 28Z" fill="#0DA1A7" stroke="#093C54" stroke-width="5.5" stroke-linejoin="round"/>
+<path d="M434 236v-30M456 236v-30M478 236v-30" stroke="#093C54" stroke-width="5" stroke-linecap="round"/>
+<path d="M412 236h88" stroke="#093C54" stroke-width="5.5" stroke-linecap="round"/>
+<text x="456" y="272" text-anchor="middle" fill="#093C54" opacity=".55"
+      style="font:400 9px 'JetBrains Mono',monospace;letter-spacing:.16em">AUTHORITY</text>
+<g class="stamp">
+  <circle cx="506" cy="162" r="17" fill="#0DA1A7" stroke="#093C54" stroke-width="5"/>
+  <path d="M498 162l6 6 10-12" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+
+<!-- ══ the phone ══ -->
+<rect x="170" y="30" width="200" height="470" rx="38" fill="#FFFFFF" stroke="#093C54" stroke-width="9"/>
+<rect x="238" y="50" width="64" height="9" rx="4.5" fill="#093C54" opacity=".3"/>
+<path d="M183 96a26 26 0 0 1 26-26h122a26 26 0 0 1 26 26v22H183Z" fill="#0DA1A7"/>
+<text x="200" y="105" fill="#FFFFFF" style="font:400 19px 'Instrument Serif',Georgia,serif">My Jalna</text>
+<circle cx="338" cy="98" r="8" fill="#FFFFFF" opacity=".9"/>
+<rect x="183" y="118" width="174" height="340" fill="#F5FBFB"/>
+
+<g clip-path="url(#screen)">
+  <!-- ─────── 1 · FRAME THE PROBLEM ─────── -->
+  <g class="sc s1">
+    <text x="195" y="138" fill="#093C54" opacity=".6"
+          style="font:400 9px 'JetBrains Mono',monospace;letter-spacing:.16em">FRAME THE PROBLEM</text>
+    <g clip-path="url(#vf)">
+      <rect x="195" y="146" width="150" height="158" fill="#D6EFF0"/>
+      <rect x="195" y="242" width="150" height="62" fill="#093C54" opacity=".85"/>
+      <ellipse cx="262" cy="272" rx="30" ry="12" fill="#06212F"/>
+      <ellipse cx="262" cy="270" rx="18" ry="6" fill="#0C4A66"/>
+      <g stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity=".55" stroke-dasharray="11 12">
+        <path d="M198 292h144"/>
+      </g>
+      <circle cx="316" cy="176" r="16" fill="#99D7DA"/>
+    </g>
+    <rect x="195" y="146" width="150" height="158" rx="12" fill="none" stroke="#093C54" stroke-width="5"/>
+    <g stroke="#0DA1A7" stroke-width="4.5" stroke-linecap="round" fill="none">
+      <path d="M206 166v-8h9M334 166v-8h-9M206 284v8h9M334 284v8h-9"/>
+    </g>
+    <circle class="retic" cx="262" cy="272" r="34" fill="none" stroke="#0DA1A7" stroke-width="3"
+            stroke-dasharray="8 9"/>
+    <circle class="tap1" cx="270" cy="368" r="26" fill="#0DA1A7" opacity="0"/>
+    <circle cx="270" cy="368" r="24" fill="#FFFFFF" stroke="#093C54" stroke-width="6"/>
+    <circle cx="270" cy="368" r="14" fill="#0DA1A7"/>
+    <rect x="195" y="408" width="150" height="8" rx="4" fill="#093C54" opacity=".12"/>
+    <rect x="195" y="424" width="98" height="8" rx="4" fill="#093C54" opacity=".08"/>
+  </g>
+
+  <!-- ─────── 2 · DROP THE PIN ─────── -->
+  <g class="sc s2">
+    <text x="195" y="138" fill="#093C54" opacity=".6"
+          style="font:400 9px 'JetBrains Mono',monospace;letter-spacing:.16em">WHERE IS IT?</text>
+    <rect x="195" y="150" width="60" height="44" rx="8" fill="#D6EFF0" stroke="#093C54" stroke-width="4"/>
+    <rect x="197" y="176" width="56" height="16" fill="#093C54" opacity=".85"/>
+    <ellipse cx="222" cy="182" rx="12" ry="5" fill="#06212F"/>
+    <path d="M268 162h72M268 178h48" stroke="#093C54" stroke-width="5" stroke-linecap="round" opacity=".22"/>
+    <g clip-path="url(#mapc)">
+      <rect x="195" y="208" width="150" height="124" fill="#EFF9F9"/>
+      <g stroke="#99D7DA" stroke-width="6" stroke-linecap="round">
+        <path d="M195 268h150M258 208v124"/>
+      </g>
+      <g stroke="#C2E7E9" stroke-width="4" stroke-linecap="round">
+        <path d="M195 232h63M300 208v60M300 300h45M195 306h63"/>
+      </g>
+    </g>
+    <rect x="195" y="208" width="150" height="124" rx="10" fill="none" stroke="#093C54" stroke-width="5"/>
+    <circle class="ripple" cx="288" cy="288" r="18" fill="#0DA1A7" opacity="0"/>
+    <g class="pin">
+      <path d="M288 300c0 0-17-19-17-29a17 17 0 0 1 34 0c0 10-17 29-17 29Z"
+            fill="#0DA1A7" stroke="#093C54" stroke-width="5" stroke-linejoin="round"/>
+      <circle cx="288" cy="271" r="6.5" fill="#FFFFFF"/>
+    </g>
+    <rect x="195" y="352" width="120" height="8" rx="4" fill="#093C54" opacity=".18"/>
+    <rect x="195" y="368" width="76" height="8" rx="4" fill="#093C54" opacity=".1"/>
+  </g>
+
+  <!-- ─────── 3 · SUBMIT ─────── -->
+  <g class="sc s3">
+    <text x="195" y="138" fill="#093C54" opacity=".6"
+          style="font:400 9px 'JetBrains Mono',monospace;letter-spacing:.16em">CHECK AND SEND</text>
+    <rect x="195" y="150" width="52" height="40" rx="8" fill="#D6EFF0" stroke="#093C54" stroke-width="4"/>
+    <rect x="197" y="174" width="48" height="14" fill="#093C54" opacity=".85"/>
+    <ellipse cx="220" cy="180" rx="10" ry="4" fill="#06212F"/>
+    <path d="M260 162h80M260 178h54" stroke="#093C54" stroke-width="5" stroke-linecap="round" opacity=".22"/>
+    <g>
+      <rect x="195" y="208" width="32" height="26" rx="13" fill="#FFFFFF" stroke="#093C54" stroke-width="4"/>
+      <path d="M205 214h12M207 214l1 11h6l1-11" fill="none" stroke="#093C54" stroke-width="3"
+            stroke-linecap="round" stroke-linejoin="round"/>
+      <rect class="chipsel" x="233" y="208" width="32" height="26" rx="13" stroke="#093C54" stroke-width="4"/>
+      <ellipse cx="249" cy="221" rx="9" ry="4.5" fill="#FFFFFF"/>
+      <rect x="271" y="208" width="32" height="26" rx="13" fill="#FFFFFF" stroke="#093C54" stroke-width="4"/>
+      <path d="M282 228h9M286.5 228v-9" fill="none" stroke="#093C54" stroke-width="3" stroke-linecap="round"/>
+      <path d="M286.5 219a5 5 0 0 1 5-5" fill="none" stroke="#093C54" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="291.5" cy="215" r="3.4" fill="#093C54"/>
+      <rect x="309" y="208" width="32" height="26" rx="13" fill="#FFFFFF" stroke="#093C54" stroke-width="4"/>
+      <path d="M317 228l3-13M333 228l-3-13" fill="none" stroke="#093C54" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <path d="M203 268c0 0-8-9-8-14a8 8 0 0 1 16 0c0 5-8 14-8 14Z"
+          fill="#0DA1A7" stroke="#093C54" stroke-width="4" stroke-linejoin="round"/>
+    <rect x="222" y="250" width="92" height="7" rx="3.5" fill="#093C54" opacity=".22"/>
+    <rect x="222" y="262" width="58" height="7" rx="3.5" fill="#093C54" opacity=".12"/>
+    <circle class="tap2" cx="270" cy="310" r="30" fill="#0DA1A7" opacity="0"/>
+    <g class="press">
+      <rect x="195" y="292" width="150" height="38" rx="19" fill="#093C54"/>
+      <text x="270" y="316" text-anchor="middle" fill="#FFFFFF"
+            style="font:600 12.5px 'Hanken Grotesk',Arial,sans-serif">Submit report</text>
+    </g>
+  </g>
+
+  <!-- ─────── 4 · SENDING ─────── -->
+  <g class="sc s4">
+    <text x="195" y="138" fill="#093C54" opacity=".6"
+          style="font:400 9px 'JetBrains Mono',monospace;letter-spacing:.16em">SENDING</text>
+    <circle cx="270" cy="238" r="52" fill="#D6EFF0"/>
+    <circle cx="270" cy="238" r="52" fill="none" stroke="#093C54" stroke-width="5"/>
+    <g class="up">
+      <path d="M270 262v-46M252 234l18-18 18 18" fill="none" stroke="#0DA1A7" stroke-width="8"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <rect x="195" y="320" width="150" height="12" rx="6" fill="#093C54" opacity=".12"/>
+    <rect class="bar" x="195" y="320" width="150" height="12" rx="6" fill="#0DA1A7"/>
+    <text x="270" y="366" text-anchor="middle" fill="#093C54" opacity=".5"
+          style="font:400 9.5px 'JetBrains Mono',monospace;letter-spacing:.14em">TO THE RIGHT DESK</text>
+  </g>
+
+  <!-- ─────── 5 · TRACKED ─────── -->
+  <g class="sc s5">
+    <text x="195" y="138" fill="#093C54" opacity=".6"
+          style="font:400 9px 'JetBrains Mono',monospace;letter-spacing:.16em">YOUR REPORT</text>
+    <rect class="l1" x="215.5" y="176" width="5" height="62" rx="2.5" fill="#0DA1A7"/>
+    <rect class="l2" x="215.5" y="248" width="5" height="62" rx="2.5" fill="#0DA1A7"/>
+    <circle class="d1" fill="#FFFFFF" cx="218" cy="166" r="12" stroke="#093C54" stroke-width="5"/>
+    <circle class="d2" fill="#FFFFFF" cx="218" cy="238" r="12" stroke="#093C54" stroke-width="5"/>
+    <circle class="d3" fill="#FFFFFF" cx="218" cy="310" r="12" stroke="#093C54" stroke-width="5"/>
+    <text x="244" y="164" fill="#093C54" style="font:600 13px 'Hanken Grotesk',Arial,sans-serif">Sent</text>
+    <text x="244" y="180" fill="#093C54" opacity=".5"
+          style="font:400 9px 'JetBrains Mono',monospace;letter-spacing:.1em">WITH PHOTO + PIN</text>
+    <text x="244" y="236" fill="#093C54" style="font:600 13px 'Hanken Grotesk',Arial,sans-serif">In review</text>
+    <text x="244" y="252" fill="#093C54" opacity=".5"
+          style="font:400 9px 'JetBrains Mono',monospace;letter-spacing:.1em">WARD OFFICE</text>
+    <text x="244" y="308" fill="#093C54" style="font:600 13px 'Hanken Grotesk',Arial,sans-serif">Resolved</text>
+    <text x="244" y="324" fill="#093C54" opacity=".5"
+          style="font:400 9px 'JetBrains Mono',monospace;letter-spacing:.1em">ROAD REPAIRED</text>
+    <rect x="195" y="368" width="150" height="52" rx="12" fill="#D6EFF0" stroke="#093C54" stroke-width="4"/>
+    <rect x="207" y="380" width="28" height="28" rx="7" fill="#FFFFFF"/>
+    <rect x="207" y="398" width="28" height="10" fill="#093C54" opacity=".8"/>
+    <rect x="247" y="382" width="62" height="6" rx="3" fill="#093C54" opacity=".24"/>
+    <rect x="247" y="394" width="40" height="6" rx="3" fill="#093C54" opacity=".14"/>
+    <circle cx="322" cy="394" r="11" fill="#0DA1A7"/>
+    <path d="M317 394l4 4 6-8" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</g>
+
+<!-- ══ the report, in flight ══ -->
+<g class="fly">
+  <rect x="248" y="374" width="52" height="42" rx="9" fill="#FFFFFF" stroke="#093C54" stroke-width="5"/>
+  <rect x="256" y="382" width="36" height="18" rx="4" fill="#D6EFF0"/>
+  <rect x="256" y="393" width="36" height="7" fill="#093C54" opacity=".8"/>
+  <rect x="256" y="406" width="24" height="4" rx="2" fill="#093C54" opacity=".3"/>
+  <circle cx="294" cy="378" r="8" fill="#0DA1A7" stroke="#093C54" stroke-width="3.5"/>
+</g>
+
+<!-- ══ step scrubber ══ -->
+<rect x="176" y="562" width="188" height="4" rx="2" fill="#C2E7E9"/>
+<rect class="prog" x="176" y="562" width="188" height="4" rx="2" fill="#0DA1A7"/>
+<g>
+  <circle class="p1" fill="#C2E7E9" cx="176" cy="564" r="7" stroke="#093C54" stroke-width="3.5"/>
+  <circle class="p2" fill="#C2E7E9" cx="223" cy="564" r="7" stroke="#093C54" stroke-width="3.5"/>
+  <circle class="p3" fill="#C2E7E9" cx="270" cy="564" r="7" stroke="#093C54" stroke-width="3.5"/>
+  <circle class="p4" fill="#C2E7E9" cx="317" cy="564" r="7" stroke="#093C54" stroke-width="3.5"/>
+  <circle class="p5" fill="#C2E7E9" cx="364" cy="564" r="7" stroke="#093C54" stroke-width="3.5"/>
+</g>
+<g fill="#093C54" opacity=".55" style="font:400 8px 'JetBrains Mono',monospace;letter-spacing:.12em">
+  <text x="176" y="588" text-anchor="middle">SEE</text>
+  <text x="223" y="588" text-anchor="middle">LOCATE</text>
+  <text x="270" y="588" text-anchor="middle">SEND</text>
+  <text x="317" y="588" text-anchor="middle">ROUTE</text>
+  <text x="364" y="588" text-anchor="middle">RESOLVE</text>
+</g>
+</svg>
