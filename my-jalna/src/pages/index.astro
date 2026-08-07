@@ -81,7 +81,7 @@ h1,h2,h3,h4{margin:0}
 .htop{display:flex;align-items:center;gap:24px;height:76px}
 .logo{display:flex;align-items:center;gap:13px;text-decoration:none;margin-right:auto}
 .head .logo{width:182px;height:70px;overflow:hidden;position:relative}
-.head .logo-img{display:block;width:182px;height:auto;transform:translateY(-4px);mix-blend-mode:multiply}
+.head .logo-img{display:block;width:182px;height:auto;transform:translateY(-4px)}
 .site-switch{flex:none;text-decoration:none;padding:11px 18px;border:1.5px solid var(--n16);border-radius:100px;
   font:600 12px/1 var(--body);color:var(--n72);transition:background .18s,color .18s,border-color .18s}
 .site-switch:hover{background:var(--navy);border-color:var(--navy);color:#fff}
@@ -239,8 +239,8 @@ h1,h2,h3,h4{margin:0}
 /* ═══════════ FOOTER ═══════════ */
 .foot{background:var(--navy);color:#fff;padding:clamp(56px,6vw,84px) 0 32px}
 .fg{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:clamp(26px,4vw,56px)}
-.foot .logo{display:inline-flex;width:auto;height:auto;overflow:visible;background:#fff;border-radius:4px;padding:4px}
-.foot .logo-img{display:block;width:220px;height:auto}
+.foot .logo{display:inline-flex;width:220px;height:82px;overflow:hidden;position:relative}
+.foot .logo-img{display:block;width:220px;height:auto;transform:translateY(-5px);filter:brightness(0) invert(1);opacity:.95}
 .ftag{font:italic 400 20px/1.35 var(--dsp);color:var(--teal-3);margin:18px 0 0}
 .fdesc{font-size:14.5px;color:rgba(255,255,255,.62);margin:14px 0 0;max-width:34ch}
 .foot h4{font:400 10.5px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--teal-3);
@@ -306,7 +306,8 @@ h1,h2,h3,h4{margin:0}
   body{font-size:16px}
   .head .logo{width:160px;height:64px}
   .head .logo-img{width:160px;transform:translateY(-3px)}
-  .foot .logo-img{width:200px}
+  .foot .logo{width:200px;height:76px}
+  .foot .logo-img{width:200px;transform:translateY(-4px)}
   .vg,.jg,.fg{grid-template-columns:1fr}
   .qr-row{grid-template-columns:1fr;max-width:290px}
   .hero .l1{font-size:clamp(44px,13vw,72px)}
