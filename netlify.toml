@@ -10,12 +10,24 @@
 
 [[redirects]]
   from = "/jalna-investment"
-  to = "/investment"
+  to = "/industrial-summit"
   status = 301
   force = true
 
 [[redirects]]
   from = "/jalna-investment/*"
-  to = "/investment/:splat"
+  to = "/industrial-summit/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/investment"
+  to = "/industrial-summit"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/investment/*"
+  to = "/industrial-summit/:splat"
   status = 301
   force = true

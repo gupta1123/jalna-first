@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const sites = [
   { name: 'my-jalna', output: '' },
-  { name: 'jalna-investment', output: 'investment' },
+  { name: 'jalna-investment', output: 'industrial-summit' },
 ];
 
 for (const site of sites) {
@@ -29,4 +29,4 @@ for (const site of sites) {
   await cp(join(root, site.name, 'dist'), destination, { recursive: true });
 }
 
-console.log('Combined site ready: / for Jalna First, /events for Upcoming Events and /investment for the Jalna Industrial Summit.');
+console.log('Combined site ready: / for Jalna First, /events for Upcoming Events and /industrial-summit for the Jalna Industrial Summit.');
