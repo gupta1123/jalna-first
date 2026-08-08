@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Jalna First">
+  <rect width="256" height="256" rx="52" fill="#F5FBFB"/>
+  <g transform="translate(128 128) scale(.82)">
+    <g transform="translate(40 -40)">
+      <path d="M-83.44 83.44 0 0A24 24 0 1 1-12 20.78" fill="none" stroke="#1A3B52" stroke-width="22" stroke-linecap="round"/>
+    </g>
+    <g transform="rotate(90) translate(40 -40)">
+      <path d="M-83.44 83.44 0 0A24 24 0 1 1-12 20.78" fill="none" stroke="#499FA6" stroke-width="22" stroke-linecap="round"/>
+    </g>
+    <g transform="rotate(180) translate(40 -40)">
+      <path d="M-83.44 83.44 0 0A24 24 0 1 1-12 20.78" fill="none" stroke="#1A3B52" stroke-width="22" stroke-linecap="round"/>
+    </g>
+    <g transform="rotate(270) translate(40 -40)">
+      <path d="M-83.44 83.44 0 0A24 24 0 1 1-12 20.78" fill="none" stroke="#499FA6" stroke-width="22" stroke-linecap="round"/>
+    </g>
+    <circle cx="0" cy="-100" r="11" fill="#499FA6"/>
+    <circle cx="100" cy="0" r="11" fill="#1A3B52"/>
+    <circle cx="0" cy="100" r="11" fill="#499FA6"/>
+    <circle cx="-100" cy="0" r="11" fill="#1A3B52"/>
+  </g>
+</svg>
