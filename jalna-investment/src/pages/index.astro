@@ -154,64 +154,112 @@ h1,h2,h3,h4{ margin:0 }
 .intro-b p.first{ font-size:20px; color:var(--ink); line-height:1.55 }
 
 /* ═════════ INVITEES ═════════ */
-.invitees{ background:var(--paper-deep) }
-.iv-lead{ display:grid; grid-template-columns:.78fr 1.22fr; gap:clamp(26px,4.2vw,68px); align-items:center }
-.iv-top{ max-width:24ch }
-.iv-top .lede{ margin-top:20px; max-width:34ch }
-.iv-deva{ display:block; margin-top:16px; font-family:var(--deva); font-size:15px; line-height:1.7; color:var(--navy) }
+.invitees{ background:var(--paper-deep); position:relative; overflow:hidden }
+.invitees::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    repeating-linear-gradient(60deg,transparent 0 42px,rgba(9,60,84,.05) 42px 43px),
+    repeating-linear-gradient(-60deg,transparent 0 42px,rgba(9,60,84,.05) 42px 43px);
+  -webkit-mask-image:radial-gradient(120% 78% at 50% 0%,#000 0%,transparent 74%);
+          mask-image:radial-gradient(120% 78% at 50% 0%,#000 0%,transparent 74%);
+}
+.invitees .wrap{ position:relative; z-index:1 }
+.invite-head{ display:grid; grid-template-columns:.86fr 1.14fr; gap:clamp(30px,5vw,84px); align-items:end }
+.invite-head .lede{ margin:0; max-width:60ch }
+.invite-count{ display:flex; flex-wrap:wrap; margin-top:34px; border-top:1.5px solid var(--ink) }
+.invite-count div{ flex:1 1 128px; padding:16px 22px 0 0 }
+.invite-count b{ display:block; font:400 clamp(30px,3.4vw,44px)/1 var(--dsp); letter-spacing:-.02em }
+.invite-count span{ display:block; margin-top:9px; font:400 9.5px/1.4 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--i48) }
 
-.iv-plan{ margin:0 }
-.iv-plan figcaption{ margin-top:12px; text-align:right; font:400 9.5px/1.6 var(--mono);
-  letter-spacing:.2em; text-transform:uppercase; color:var(--i48) }
+.dais{ margin-top:clamp(44px,5.4vw,74px) }
+.stage{ display:grid; grid-template-columns:1fr 1.2fr 1fr; gap:clamp(14px,1.7vw,24px); align-items:end }
+.seat{ position:relative; grid-row:1; background:var(--card); border:1.5px solid var(--ink); border-radius:2px; padding:clamp(24px,2.7vw,36px); overflow:hidden; transition:transform .24s,box-shadow .24s }
+.seat.hon-a{ grid-column:1 }.seat.chief{ grid-column:2 }.seat.hon-b{ grid-column:3 }
+.seat::after{ content:""; position:absolute; right:-58px; bottom:-84px; width:184px; height:184px; border:1px solid var(--brass); border-radius:50%; opacity:.26 }
+.seat:hover{ transform:translateY(-4px); box-shadow:7px 8px 0 var(--navy) }
+.seat.chief{ background:var(--navy-deep); color:var(--paper); border-color:var(--navy-deep); padding:clamp(30px,3.5vw,48px); box-shadow:9px 10px 0 var(--brass) }
+.seat.chief::after{ width:320px; height:320px; right:-96px; bottom:-150px; border-color:var(--paper); opacity:.13 }
+.seat.chief:hover{ transform:translateY(-5px); box-shadow:13px 14px 0 var(--brass) }
+.emblem{ position:relative; z-index:1; width:62px; height:62px; display:grid; place-items:center; border:1.5px solid var(--i16); border-radius:50%; background:var(--paper); color:var(--navy) }
+.emblem svg{ width:32px; height:32px }
+.seat.chief .emblem{ width:76px; height:76px; border-color:rgba(245,251,251,.28); background:rgba(245,251,251,.06); color:var(--brass) }
+.seat.chief .emblem svg{ width:40px; height:40px }
+.seat > *{ position:relative; z-index:1 }
+.seat-role{ display:inline-flex; align-items:center; gap:11px; margin:24px 0 0; font:400 10px/1 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--navy) }
+.seat-role::before{ content:""; width:26px; height:1.5px; background:var(--brass) }
+.seat.chief .seat-role{ color:var(--brass); font-size:10.5px }
+.seat .hon{ display:block; margin-top:20px; font:400 10.5px/1 var(--mono); letter-spacing:.22em; text-transform:uppercase; color:var(--i48) }
+.seat.chief .hon{ color:rgba(245,251,251,.5) }
+.seat .nm{ margin:11px 0 0; font:400 clamp(26px,2.5vw,33px)/1.06 var(--dsp); letter-spacing:-.018em }
+.seat.chief .nm{ font-size:clamp(34px,4.3vw,58px); max-width:14ch }
+.pd{ display:inline-block; margin-left:11px; padding:5px 10px; border:1px solid var(--i16); border-radius:100px; font:400 9.5px/1 var(--mono); letter-spacing:.16em; color:var(--navy); vertical-align:middle }
+.seat.chief .pd{ border-color:rgba(245,251,251,.3); color:var(--brass) }
+.seat .rl{ margin:18px 0 0; padding-top:18px; border-top:1px solid var(--i16); font-size:15.5px; line-height:1.5; color:var(--i72) }
+.seat.chief .rl{ margin-top:26px; padding-top:22px; border-top-color:rgba(245,251,251,.2); color:rgba(245,251,251,.72); font-size:17px }
+.seat .inst{ display:block; margin-top:6px; color:var(--brass) }
+.floor{ position:relative; height:1.5px; margin:26px 0 0; background:var(--ink) }
+.floor::before,.floor::after{ content:""; position:absolute; top:-4px; width:1.5px; height:10px; background:var(--ink) }
+.floor::before{ left:0 }.floor::after{ right:0 }
+.floor span{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); white-space:nowrap; background:var(--paper-deep); padding:0 18px; font:400 9.5px/1 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--i48) }
 
-.dig{ list-style:none; margin:clamp(38px,4.6vw,70px) 0 0; padding:0;
-  display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(18px,2.4vw,38px) }
-.dig li{ padding-top:17px; border-top:1.5px solid var(--ink) }
-.dig .rl{ display:flex; align-items:baseline; gap:11px; margin:0;
-  font:400 9.5px/1.7 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--i48) }
-.dig .no{ color:var(--brass); letter-spacing:.14em }
-.dig .nm{ margin:9px 0 0; font:400 clamp(20px,1.75vw,25px)/1.16 var(--dsp); letter-spacing:-.014em }
-.dig .nm .sfx{ margin-left:8px; font-size:.44em; letter-spacing:.16em; color:var(--navy); vertical-align:middle }
-.dig .of{ margin:8px 0 0; font-size:14.5px; line-height:1.5; color:var(--i72) }
-.dig .of b{ font-weight:400; color:var(--brass) }
+.room{ margin-top:clamp(44px,5.4vw,74px); border:1.5px solid var(--ink); border-radius:2px; background:var(--card); padding:clamp(28px,3.1vw,46px) }
+.room-head{ display:grid; grid-template-columns:1fr auto; gap:clamp(20px,3vw,44px); align-items:end }
+.room-head h3{ margin:14px 0 10px }
+.room-head p:not(.tag){ margin:0; max-width:46ch; color:var(--i72); font-size:15.5px }
+.legend{ display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end }
+.lg{ display:inline-flex; align-items:center; gap:9px; cursor:pointer; background:var(--paper); border:1.5px solid var(--i16); border-radius:100px; padding:9px 15px; font:500 12.5px/1 var(--body); color:var(--i72); transition:background .18s,border-color .18s,color .18s }
+.lg i{ width:9px; height:9px; border-radius:50%; background:var(--c,var(--ink)); box-shadow:0 0 0 1px rgba(9,60,84,.16) }
+.lg:hover{ border-color:rgba(9,60,84,.42); color:var(--ink) }
+.lg[aria-pressed="true"]{ background:var(--ink); border-color:var(--ink); color:var(--paper) }
+.roll{ list-style:none; margin:clamp(26px,3vw,40px) 0 0; padding:0; display:flex; flex-wrap:wrap; align-items:center }
+.roll li{ display:flex; align-items:center; gap:12px; padding:9px 0; margin-right:6px; font:400 clamp(19px,1.95vw,27px)/1.15 var(--dsp); letter-spacing:-.012em; color:var(--ink); transition:opacity .32s,color .2s,transform .2s }
+.roll li::before{ content:""; width:8px; height:8px; border-radius:50%; flex:none; background:var(--c,var(--ink)); box-shadow:0 0 0 1px rgba(9,60,84,.18) }
+.roll li::after{ content:"◆"; margin:0 22px 0 24px; font-size:7px; color:var(--brass); opacity:.5 }
+.roll li:last-child::after{ display:none }
+.roll li:hover{ color:var(--navy); transform:translateY(-2px) }
+.roll li.mute{ opacity:.18 }
+.roll li.mute:hover{ transform:none }
 
-.iv-also{ margin-top:clamp(50px,6vw,92px) }
-.iv-cap{ display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between;
-  gap:8px 24px; padding-bottom:16px; border-bottom:1.5px solid var(--ink) }
-.iv-cap h3{ font:400 clamp(20px,2vw,26px)/1.2 var(--dsp); letter-spacing:-.012em }
-.iv-cap span{ font:400 9.5px/1.6 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--i48) }
-.co{ list-style:none; margin:clamp(16px,2.2vw,26px) 0 0; padding:0; columns:4; column-gap:clamp(22px,3vw,48px) }
-.co li{ break-inside:avoid; padding:10px 0; font:400 17px/1.3 var(--dsp); color:var(--i72) }
+.themes{ margin-top:clamp(44px,5.4vw,74px); display:grid; grid-template-columns:.7fr 1.3fr; gap:clamp(28px,5vw,76px); align-items:start }
+.themes-copy{ position:sticky; top:calc(var(--head) + 26px) }
+.themes-copy h3{ margin:16px 0 12px }
+.tlist{ list-style:none; margin:0; padding:0; border-top:1.5px solid var(--ink) }
+.tlist li{ display:grid; grid-template-columns:auto 1fr; gap:clamp(16px,2.2vw,30px); padding:clamp(22px,2.4vw,30px) clamp(10px,1.4vw,18px); border-bottom:1px solid var(--i16); transition:background .22s }
+.tlist li:hover{ background:rgba(255,255,255,.6) }
+.tlist .mk{ width:11px; height:11px; margin-top:9px; transform:rotate(45deg); border:1.5px solid var(--brass) }
+.tlist li:hover .mk{ background:var(--brass) }
+.tlist h4{ margin:0 0 9px; font:400 clamp(20px,2vw,27px)/1.14 var(--dsp); letter-spacing:-.012em }
+.tlist p{ margin:0; font-size:15.5px; line-height:1.55; color:var(--i72) }
 
-.iv-th{ margin-top:clamp(46px,5.4vw,82px); display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,3vw,46px) }
-.iv-th div{ padding-top:17px; border-top:1.5px solid var(--ink) }
-.iv-th b{ display:block; font:400 clamp(19px,1.9vw,24px)/1.2 var(--dsp); font-weight:400; letter-spacing:-.01em }
-.iv-th p{ margin:9px 0 0; font-size:14.5px; line-height:1.55; color:var(--i72) }
-
-.iv-foot{ margin-top:clamp(44px,5.2vw,78px); padding-top:24px; border-top:1px solid var(--i16);
-  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:24px 46px }
-.iv-conv{ display:flex; flex-wrap:wrap; gap:18px clamp(28px,4vw,56px) }
-.iv-conv p{ margin:0; font:400 9.5px/1.6 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--i48) }
-.iv-conv b{ display:block; margin-top:6px; font:italic 400 clamp(19px,1.8vw,23px)/1.2 var(--dsp) }
-.iv-sp{ display:flex; align-items:center; gap:14px }
-.iv-sp span{ font:400 9px/1.5 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--brass); text-align:right }
-.iv-sp img{ width:clamp(112px,12vw,150px); height:auto; mix-blend-mode:multiply }
-
+.signoff{ margin-top:clamp(40px,4.6vw,66px); padding-top:26px; border-top:1.5px solid var(--ink); display:flex; flex-wrap:wrap; gap:22px clamp(28px,4vw,60px); align-items:baseline; justify-content:space-between }
+.signoff .lbl{ font:400 10px/1.7 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--i48) }
+.sig-names{ display:flex; flex-wrap:wrap; gap:18px clamp(30px,4vw,58px) }
+.sig-names b{ display:block; font:italic 400 clamp(22px,2.2vw,30px)/1.2 var(--dsp) }
+.sig-names span{ display:block; margin-top:7px; font:400 9.5px/1 var(--mono); letter-spacing:.18em; text-transform:uppercase; color:var(--brass) }
+.invitees [data-s="all"]{ --c:var(--ink) }
+.invitees [data-s="steel"]{ --c:#0C4A66 }
+.invitees [data-s="auto"]{ --c:#0DA1A7 }
+.invitees [data-s="agri"]{ --c:#2C8F99 }
+.invitees [data-s="infra"]{ --c:#7FC0C8 }
 @media (max-width:1040px){
-  .iv-lead{ grid-template-columns:1fr; gap:clamp(24px,4vw,40px) }
-  .iv-top{ max-width:32ch }
-  .iv-plan figcaption{ text-align:left }
-  .dig{ grid-template-columns:repeat(2,1fr) }
-  .co{ columns:3 }
-  .iv-th{ grid-template-columns:1fr }
+  .invite-head,.themes{ grid-template-columns:1fr }
+  .themes-copy{ position:static }
+  .stage{ grid-template-columns:1fr 1fr }
+  .seat{ grid-row:auto }
+  .seat.chief{ grid-column:1 / -1 }
+  .seat.hon-a{ grid-column:1 }.seat.hon-b{ grid-column:2 }
+  .seat.chief .nm{ max-width:20ch }
+  .room-head{ grid-template-columns:1fr }
+  .legend{ justify-content:flex-start }
 }
 @media (max-width:760px){
-  .dig{ grid-template-columns:1fr; gap:0 }
-  .dig li{ padding:17px 0 20px }
-  .co{ columns:2 }
-  .iv-sp span{ text-align:left }
+  .stage{ grid-template-columns:1fr }
+  .seat.hon-a,.seat.hon-b,.seat.chief{ grid-column:auto }
+  .roll li{ font-size:19px }
+  .roll li::after{ margin:0 15px 0 17px }
+  .floor span{ font-size:9px; padding:0 12px }
+  .signoff{ flex-direction:column; gap:20px }
 }
-@media (max-width:460px){ .co{ columns:1 } }
 
 /* ═════════ WHY GRID ═════════ */
 .band{ background:var(--paper-deep) }
@@ -374,9 +422,6 @@ h1,h2,h3,h4{ margin:0 }
 .foot a{ font-size:14.5px; color:rgba(245,251,251,.76); text-decoration:none; transition:color .16s }
 .foot a:hover{ color:var(--brass) }
 .fdesc{ font-size:14.5px; color:rgba(245,251,251,.58); margin:16px 0 0; max-width:32ch }
-.fsponsor{ margin-top:24px }
-.fsponsor span{ display:block; font:400 9.5px/1 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--brass); margin-bottom:11px }
-.fsponsor img{ width:186px; height:auto; background:#fff; padding:11px 15px; border-radius:4px }
 .flegal{ margin-top:clamp(42px,5vw,66px); padding-top:26px; border-top:1px solid rgba(245,251,251,.14);
   display:flex; flex-wrap:wrap; gap:10px 28px; justify-content:space-between;
   font:400 12px/1.7 var(--mono); color:rgba(245,251,251,.45) }
@@ -457,7 +502,7 @@ h1,h2,h3,h4{ margin:0 }
 <header class="head">
   <div class="wrap htop">
     <a class="logo" href="#top" aria-label="Industrial Summit 2026 home">
-      <span class="logo-img" style="display:block;font:400 25px/1.05 var(--dsp)">Industrial Summit<br><em style="font-size:11px;letter-spacing:.2em;font-style:normal;color:var(--brass)">JALNA 2026</em></span>
+      <img class="logo-img" src="/industrial-summit/industrial-summit-logo.png" alt="Industrial Summit 2026 — Jalna, The Gateway to Growth">
     </a>
     <a class="site-switch" href="/">Jalna First</a>
     <p class="when"><b>Thu 3 September 2026</b><br>Hotel Siddharth The Fern, Jalna</p>
@@ -503,7 +548,7 @@ h1,h2,h3,h4{ margin:0 }
 
     <!-- ─── SIGNATURE: corridor & freight-flow schematic ─── -->
     <div>
-      <svg viewBox="0 0 1120 830" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Axonometric master plan of a Jalna multi-modal logistics platform: seed processing silos, a steel and engineering works, a gantry-served container yard, warehousing, a highway and a rail spur."><g transform="translate(545,180)"><polygon points="0.00,0.00 415.69,240.00 0.00,480.00 -415.69,240.00" fill="#E7F4F5" stroke="#093C54" stroke-width="1.6" stroke-linejoin="round" opacity="1.0"/><line x1="0.00" y1="0.00" x2="-415.69" y2="240.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="51.96" y1="30.00" x2="-363.73" y2="270.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="103.92" y1="60.00" x2="-311.77" y2="300.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="155.88" y1="90.00" x2="-259.81" y2="330.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="207.85" y1="120.00" x2="-207.85" y2="360.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="259.81" y1="150.00" x2="-155.88" y2="390.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="311.77" y1="180.00" x2="-103.92" y2="420.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="363.73" y1="210.00" x2="-51.96" y2="450.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="415.69" y1="240.00" x2="0.00" y2="480.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="0.00" y1="0.00" x2="415.69" y2="240.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="-51.96" y1="30.00" x2="363.73" y2="270.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="-103.92" y1="60.00" x2="311.77" y2="300.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="-155.88" y1="90.00" x2="259.81" y2="330.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="-207.85" y1="120.00" x2="207.85" y2="360.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="-259.81" y1="150.00" x2="155.88" y2="390.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="-311.77" y1="180.00" x2="103.92" y2="420.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="-363.73" y1="210.00" x2="51.96" y2="450.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="-415.69" y1="240.00" x2="0.00" y2="480.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><polygon points="0.00,12.00 135.10,90.00 10.39,162.00 -124.71,84.00" fill="#DDF1EC" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="0.9"/><polygon points="155.88,102.00 285.79,177.00 161.08,249.00 31.18,174.00" fill="#DBEBF2" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="0.9"/><polygon points="-150.69,99.00 20.78,198.00 -93.53,264.00 -265.00,165.00" fill="#E2F0F2" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="0.9"/><polygon points="306.57,189.00 394.91,240.00 129.90,393.00 41.57,342.00" fill="#F4FBFB" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="0.9"/><polygon points="-298.78,172.50 116.91,412.50 77.94,435.00 -337.75,195.00" fill="#CBE4E8" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="1.0"/><polygon points="-355.94,205.50 59.76,445.50 33.77,460.50 -381.92,220.50" fill="#BFDCE1" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="1.0"/><line x1="-362.43" y1="208.65" x2="53.26" y2="448.65" stroke="#093C54" stroke-width="1.6" stroke-linecap="round" opacity="0.5"/><line x1="-374.64" y1="215.70" x2="41.05" y2="455.70" stroke="#093C54" stroke-width="1.6" stroke-linecap="round" opacity="0.5"/><line x1="-358.53" y1="206.10" x2="-378.02" y2="217.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-345.54" y1="213.60" x2="-365.03" y2="224.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-332.55" y1="221.10" x2="-352.04" y2="232.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-319.56" y1="228.60" x2="-339.05" y2="239.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-306.57" y1="236.10" x2="-326.06" y2="247.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-293.58" y1="243.60" x2="-313.07" y2="254.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-280.59" y1="251.10" x2="-300.08" y2="262.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-267.60" y1="258.60" x2="-287.09" y2="269.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-254.61" y1="266.10" x2="-274.10" y2="277.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-241.62" y1="273.60" x2="-261.11" y2="284.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-228.63" y1="281.10" x2="-248.12" y2="292.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-215.64" y1="288.60" x2="-235.13" y2="299.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-202.65" y1="296.10" x2="-222.14" y2="307.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-189.66" y1="303.60" x2="-209.15" y2="314.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-176.67" y1="311.10" x2="-196.15" y2="322.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-163.68" y1="318.60" x2="-183.16" y2="329.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-150.69" y1="326.10" x2="-170.17" y2="337.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-137.70" y1="333.60" x2="-157.18" y2="344.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-124.71" y1="341.10" x2="-144.19" y2="352.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-111.72" y1="348.60" x2="-131.20" y2="359.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-98.73" y1="356.10" x2="-118.21" y2="367.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-85.74" y1="363.60" x2="-105.22" y2="374.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-72.75" y1="371.10" x2="-92.23" y2="382.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-59.76" y1="378.60" x2="-79.24" y2="389.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-46.77" y1="386.10" x2="-66.25" y2="397.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-33.77" y1="393.60" x2="-53.26" y2="404.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-20.78" y1="401.10" x2="-40.27" y2="412.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-7.79" y1="408.60" x2="-27.28" y2="419.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="5.20" y1="416.10" x2="-14.29" y2="427.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="18.19" y1="423.60" x2="-1.30" y2="434.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="31.18" y1="431.10" x2="11.69" y2="442.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="44.17" y1="438.60" x2="24.68" y2="449.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="57.16" y1="446.10" x2="37.67" y2="457.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><g class="flowline"><line x1="-318.26" y1="182.55" x2="97.43" y2="422.55" stroke="#0DA1A7" stroke-width="2.8" stroke-linecap="round" opacity="1.0" stroke-dasharray="11 13"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-29.39,45.00 A29.39,16.97 0 0 0 29.39,45.00 L29.39,-60.00 A29.39,16.97 0 0 1 -29.39,-60.00 Z" fill="#E4F2F4"/><ellipse cx="0.00" cy="-60.00" rx="29.39" ry="16.97" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-29.39,-60.00 A29.39,16.97 0 0 0 29.39,-60.00 L0.00,-85.50 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M25.17,64.50 A29.39,16.97 0 0 0 83.95,64.50 L83.95,-40.50 A29.39,16.97 0 0 1 25.17,-40.50 Z" fill="#E4F2F4"/><ellipse cx="54.56" cy="-40.50" rx="29.39" ry="16.97" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M25.17,-40.50 A29.39,16.97 0 0 0 83.95,-40.50 L54.56,-66.00 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-44.98,81.00 A29.39,16.97 0 0 0 13.80,81.00 L13.80,-24.00 A29.39,16.97 0 0 1 -44.98,-24.00 Z" fill="#E4F2F4"/><ellipse cx="-15.59" cy="-24.00" rx="29.39" ry="16.97" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-44.98,-24.00 A29.39,16.97 0 0 0 13.80,-24.00 L-15.59,-49.50 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M19.97,100.50 A29.39,16.97 0 0 0 78.76,100.50 L78.76,-4.50 A29.39,16.97 0 0 1 19.97,-4.50 Z" fill="#E4F2F4"/><ellipse cx="49.36" cy="-4.50" rx="29.39" ry="16.97" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M19.97,-4.50 A29.39,16.97 0 0 0 78.76,-4.50 L49.36,-30.00 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="-114.32,96.00 0.00,162.00 0.00,123.00 -114.32,57.00" fill="#E4F2F4"/><polygon points="36.37,141.00 0.00,162.00 0.00,123.00 36.37,102.00" fill="#BFE2E6"/><polygon points="-77.94,36.00 36.37,102.00 0.00,123.00 -114.32,57.00" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-174.07,130.50 -109.12,168.00 -109.12,141.00 -174.07,103.50" fill="#0F5878"/><polygon points="-80.54,151.50 -109.12,168.00 -109.12,141.00 -80.54,124.50" fill="#093C54"/><polygon points="-145.49,87.00 -80.54,124.50 -109.12,141.00 -174.07,103.50" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-174.07,102.00 -109.12,139.50 -109.12,112.50 -174.07,75.00" fill="#17ABB1"/><polygon points="-80.54,123.00 -109.12,139.50 -109.12,112.50 -80.54,96.00" fill="#0B8A90"/><polygon points="-145.49,58.50 -80.54,96.00 -109.12,112.50 -174.07,75.00" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-174.07,73.50 -109.12,111.00 -109.12,84.00 -174.07,46.50" fill="#0F5878"/><polygon points="-80.54,94.50 -109.12,111.00 -109.12,84.00 -80.54,67.50" fill="#093C54"/><polygon points="-145.49,30.00 -80.54,67.50 -109.12,84.00 -174.07,46.50" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M166.72,60.00 A7.35,4.24 0 0 0 181.42,60.00 L181.42,-18.00 A7.35,4.24 0 0 1 166.72,-18.00 Z" fill="#7FC0C8"/><ellipse cx="174.07" cy="-18.00" rx="7.35" ry="4.24" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-215.64,154.50 -150.69,192.00 -150.69,165.00 -215.64,127.50" fill="#17ABB1"/><polygon points="-122.11,175.50 -150.69,192.00 -150.69,165.00 -122.11,148.50" fill="#0B8A90"/><polygon points="-187.06,111.00 -122.11,148.50 -150.69,165.00 -215.64,127.50" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-215.64,126.00 -150.69,163.50 -150.69,136.50 -215.64,99.00" fill="#7FC0C8"/><polygon points="-122.11,147.00 -150.69,163.50 -150.69,136.50 -122.11,120.00" fill="#5EA5AF"/><polygon points="-187.06,82.50 -122.11,120.00 -150.69,136.50 -215.64,99.00" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M192.70,75.00 A7.35,4.24 0 0 0 207.40,75.00 L207.40,-3.00 A7.35,4.24 0 0 1 192.70,-3.00 Z" fill="#7FC0C8"/><ellipse cx="200.05" cy="-3.00" rx="7.35" ry="4.24" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M218.68,90.00 A7.35,4.24 0 0 0 233.38,90.00 L233.38,12.00 A7.35,4.24 0 0 1 218.68,12.00 Z" fill="#7FC0C8"/><ellipse cx="226.03" cy="12.00" rx="7.35" ry="4.24" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="72.75,162.00 187.06,228.00 187.06,171.00 72.75,105.00" fill="#0F4A68"/><polygon points="275.40,177.00 187.06,228.00 187.06,171.00 275.40,120.00" fill="#052C3E"/><polygon points="161.08,54.00 275.40,120.00 187.06,171.00 72.75,105.00" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="72.75,105.00 187.06,171.00 187.06,159.00 72.75,93.00" fill="#7FC0C8"/><polygon points="275.40,120.00 187.06,171.00 187.06,159.00 275.40,108.00" fill="#5EA5AF"/><polygon points="161.08,42.00 275.40,108.00 187.06,159.00 72.75,93.00" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-98.73,174.00 -33.77,211.50 -33.77,184.50 -98.73,147.00" fill="#7FC0C8"/><polygon points="-5.20,195.00 -33.77,211.50 -33.77,184.50 -5.20,168.00" fill="#5EA5AF"/><polygon points="-70.15,130.50 -5.20,168.00 -33.77,184.50 -98.73,147.00" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-98.73,145.50 -33.77,183.00 -33.77,156.00 -98.73,118.50" fill="#0F5878"/><polygon points="-5.20,166.50 -33.77,183.00 -33.77,156.00 -5.20,139.50" fill="#093C54"/><polygon points="-70.15,102.00 -5.20,139.50 -33.77,156.00 -98.73,118.50" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-98.73,117.00 -33.77,154.50 -33.77,127.50 -98.73,90.00" fill="#17ABB1"/><polygon points="-5.20,138.00 -33.77,154.50 -33.77,127.50 -5.20,111.00" fill="#0B8A90"/><polygon points="-70.15,73.50 -5.20,111.00 -33.77,127.50 -98.73,90.00" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-140.30,198.00 -75.34,235.50 -75.34,208.50 -140.30,171.00" fill="#0F5878"/><polygon points="-46.77,219.00 -75.34,235.50 -75.34,208.50 -46.77,192.00" fill="#093C54"/><polygon points="-111.72,154.50 -46.77,192.00 -75.34,208.50 -140.30,171.00" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-140.30,169.50 -75.34,207.00 -75.34,180.00 -140.30,142.50" fill="#17ABB1"/><polygon points="-46.77,190.50 -75.34,207.00 -75.34,180.00 -46.77,163.50" fill="#0B8A90"/><polygon points="-111.72,126.00 -46.77,163.50 -75.34,180.00 -140.30,142.50" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="53.00,176.40 162.12,239.40 162.12,229.20 53.00,166.20" fill="#17ABB1"/><polygon points="174.07,232.50 162.12,239.40 162.12,229.20 174.07,222.30" fill="#0B8A90"/><polygon points="64.95,159.30 174.07,222.30 162.12,229.20 53.00,166.20" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="37.93,185.10 147.05,248.10 147.05,237.90 37.93,174.90" fill="#17ABB1"/><polygon points="159.00,241.20 147.05,248.10 147.05,237.90 159.00,231.00" fill="#0B8A90"/><polygon points="49.88,168.00 159.00,231.00 147.05,237.90 37.93,174.90" fill="#4FC6CB"/></g><line x1="-140.30" y1="105.00" x2="-140.30" y2="-15.00" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity="1.0"/><line x1="-244.22" y1="165.00" x2="-244.22" y2="45.00" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity="1.0"/><line x1="10.39" y1="192.00" x2="10.39" y2="72.00" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity="1.0"/><line x1="-93.53" y1="252.00" x2="-93.53" y2="132.00" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity="1.0"/><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-147.57,-15.30 10.91,76.20 10.91,67.80 -147.57,-23.70" fill="#7FC0C8"/><polygon points="18.19,72.00 10.91,76.20 10.91,67.80 18.19,63.60" fill="#5EA5AF"/><polygon points="-140.30,-27.90 18.19,63.60 10.91,67.80 -147.57,-23.70" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-251.49,44.70 -93.01,136.20 -93.01,127.80 -251.49,36.30" fill="#7FC0C8"/><polygon points="-85.74,132.00 -93.01,136.20 -93.01,127.80 -85.74,123.60" fill="#5EA5AF"/><polygon points="-244.22,32.10 -85.74,123.60 -93.01,127.80 -251.49,36.30" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-189.66,74.10 -163.68,89.10 -163.68,81.90 -189.66,66.90" fill="#17ABB1"/><polygon points="-49.36,23.10 -163.68,89.10 -163.68,81.90 -49.36,15.90" fill="#0B8A90"/><polygon points="-75.34,0.90 -49.36,15.90 -163.68,81.90 -189.66,66.90" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-5.04,213.00 A15.43,8.91 0 0 0 25.82,213.00 L25.82,189.60 A15.43,8.91 0 0 1 -5.04,189.60 Z" fill="#7FC0C8"/><ellipse cx="10.39" cy="189.60" rx="15.43" ry="8.91" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-261.89,223.20 -209.92,253.20 -209.92,234.00 -261.89,204.00" fill="#0F5878"/><polygon points="-189.66,241.50 -209.92,253.20 -209.92,234.00 -189.66,222.30" fill="#093C54"/><polygon points="-241.62,192.30 -189.66,222.30 -209.92,234.00 -261.89,204.00" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-208.63,253.95 -189.92,264.75 -189.92,240.15 -208.63,229.35" fill="#0F4A68"/><polygon points="-169.65,253.05 -189.92,264.75 -189.92,240.15 -169.65,228.45" fill="#052C3E"/><polygon points="-188.36,217.65 -169.65,228.45 -189.92,240.15 -208.63,229.35" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="22.86,193.80 131.98,256.80 131.98,246.60 22.86,183.60" fill="#17ABB1"/><polygon points="143.93,249.90 131.98,256.80 131.98,246.60 143.93,239.70" fill="#0B8A90"/><polygon points="34.81,176.70 143.93,239.70 131.98,246.60 22.86,183.60" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="7.79,202.50 116.91,265.50 116.91,255.30 7.79,192.30" fill="#17ABB1"/><polygon points="128.86,258.60 116.91,265.50 116.91,255.30 128.86,248.40" fill="#0B8A90"/><polygon points="19.75,185.40 128.86,248.40 116.91,255.30 7.79,192.30" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-349.96,231.45 -288.91,266.70 -288.91,245.10 -349.96,209.85" fill="#17ABB1"/><polygon points="-270.20,255.90 -288.91,266.70 -288.91,245.10 -270.20,234.30" fill="#0B8A90"/><polygon points="-331.25,199.05 -270.20,234.30 -288.91,245.10 -349.96,209.85" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M23.54,229.50 A15.43,8.91 0 0 0 54.40,229.50 L54.40,206.10 A15.43,8.91 0 0 1 23.54,206.10 Z" fill="#7FC0C8"/><ellipse cx="38.97" cy="206.10" rx="15.43" ry="8.91" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-33.62,229.50 A15.43,8.91 0 0 0 -2.76,229.50 L-2.76,206.10 A15.43,8.91 0 0 1 -33.62,206.10 Z" fill="#7FC0C8"/><ellipse cx="-18.19" cy="206.10" rx="15.43" ry="8.91" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.0" stroke-linejoin="round"><path d="M-397.09,238.50 A4.78,2.76 0 0 0 -387.53,238.50 L-387.53,220.50 A4.78,2.76 0 0 1 -397.09,220.50 Z" fill="#0F4A68"/><ellipse cx="-392.31" cy="220.50" rx="4.78" ry="2.76" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-412.52,223.50 A20.21,11.67 0 0 0 -372.10,223.50 L-392.31,181.50 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M52.12,246.00 A15.43,8.91 0 0 0 82.98,246.00 L82.98,222.60 A15.43,8.91 0 0 1 52.12,222.60 Z" fill="#7FC0C8"/><ellipse cx="67.55" cy="222.60" rx="15.43" ry="8.91" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-5.04,246.00 A15.43,8.91 0 0 0 25.82,246.00 L25.82,222.60 A15.43,8.91 0 0 1 -5.04,222.60 Z" fill="#7FC0C8"/><ellipse cx="10.39" cy="222.60" rx="15.43" ry="8.91" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="192.26,261.00 270.20,306.00 270.20,246.00 192.26,201.00" fill="#E4F2F4"/><polygon points="384.52,240.00 270.20,306.00 270.20,246.00 384.52,180.00" fill="#BFE2E6"/><polygon points="306.57,135.00 384.52,180.00 270.20,246.00 192.26,201.00" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><polygon points="306.57,135.00 384.52,180.00 327.36,186.00 249.42,141.00" fill="#FFFFFF"/><polygon points="192.26,201.00 270.20,246.00 327.36,186.00 249.42,141.00" fill="#E4F2F4"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M80.70,262.50 A15.43,8.91 0 0 0 111.56,262.50 L111.56,239.10 A15.43,8.91 0 0 1 80.70,239.10 Z" fill="#7FC0C8"/><ellipse cx="96.13" cy="239.10" rx="15.43" ry="8.91" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M23.54,262.50 A15.43,8.91 0 0 0 54.40,262.50 L54.40,239.10 A15.43,8.91 0 0 1 23.54,239.10 Z" fill="#7FC0C8"/><ellipse cx="38.97" cy="239.10" rx="15.43" ry="8.91" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.0" stroke-linejoin="round"><path d="M-358.11,264.00 A4.78,2.76 0 0 0 -348.56,264.00 L-348.56,246.00 A4.78,2.76 0 0 1 -358.11,246.00 Z" fill="#0F4A68"/><ellipse cx="-353.34" cy="246.00" rx="4.78" ry="2.76" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-373.55,249.00 A20.21,11.67 0 0 0 -333.13,249.00 L-353.34,207.00 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.0" stroke-linejoin="round"><path d="M343.37,267.00 A4.78,2.76 0 0 0 352.92,267.00 L352.92,249.00 A4.78,2.76 0 0 1 343.37,249.00 Z" fill="#0F4A68"/><ellipse cx="348.14" cy="249.00" rx="4.78" ry="2.76" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M327.93,252.00 A20.21,11.67 0 0 0 368.35,252.00 L348.14,210.00 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-278.51,272.70 -217.46,307.95 -217.46,286.35 -278.51,251.10" fill="#0F5878"/><polygon points="-198.75,297.15 -217.46,307.95 -217.46,286.35 -198.75,275.55" fill="#093C54"/><polygon points="-259.81,240.30 -198.75,275.55 -217.46,286.35 -278.51,251.10" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M52.12,279.00 A15.43,8.91 0 0 0 82.98,279.00 L82.98,255.60 A15.43,8.91 0 0 1 52.12,255.60 Z" fill="#7FC0C8"/><ellipse cx="67.55" cy="255.60" rx="15.43" ry="8.91" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-207.07,313.95 -146.01,349.20 -146.01,327.60 -207.07,292.35" fill="#7FC0C8"/><polygon points="-127.31,338.40 -146.01,349.20 -146.01,327.60 -127.31,316.80" fill="#5EA5AF"/><polygon points="-188.36,281.55 -127.31,316.80 -146.01,327.60 -207.07,292.35" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-69.63,334.20 -17.67,364.20 -17.67,345.00 -69.63,315.00" fill="#17ABB1"/><polygon points="2.60,352.50 -17.67,364.20 -17.67,345.00 2.60,333.30" fill="#0B8A90"/><polygon points="-49.36,303.30 2.60,333.30 -17.67,345.00 -69.63,315.00" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-16.37,364.95 2.34,375.75 2.34,351.15 -16.37,340.35" fill="#0F4A68"/><polygon points="22.60,364.05 2.34,375.75 2.34,351.15 22.60,339.45" fill="#052C3E"/><polygon points="3.90,328.65 22.60,339.45 2.34,351.15 -16.37,340.35" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="62.35,336.00 140.30,381.00 140.30,324.00 62.35,279.00" fill="#E4F2F4"/><polygon points="249.42,318.00 140.30,381.00 140.30,324.00 249.42,261.00" fill="#BFE2E6"/><polygon points="171.47,216.00 249.42,261.00 140.30,324.00 62.35,279.00" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><polygon points="171.47,216.00 249.42,261.00 194.86,267.00 116.91,222.00" fill="#FFFFFF"/><polygon points="62.35,279.00 140.30,324.00 194.86,267.00 116.91,222.00" fill="#E4F2F4"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-135.62,355.20 -74.56,390.45 -74.56,368.85 -135.62,333.60" fill="#17ABB1"/><polygon points="-55.86,379.65 -74.56,390.45 -74.56,368.85 -55.86,358.05" fill="#0B8A90"/><polygon points="-116.91,322.80 -55.86,358.05 -74.56,368.85 -135.62,333.60" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="28.58,358.50 101.32,400.50 101.32,355.50 28.58,313.50" fill="#0F5878"/><polygon points="132.50,382.50 101.32,400.50 101.32,355.50 132.50,337.50" fill="#093C54"/><polygon points="59.76,295.50 132.50,337.50 101.32,355.50 28.58,313.50" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-64.17,396.45 -3.12,431.70 -3.12,410.10 -64.17,374.85" fill="#0F5878"/><polygon points="15.59,420.90 -3.12,431.70 -3.12,410.10 15.59,399.30" fill="#093C54"/><polygon points="-45.47,364.05 15.59,399.30 -3.12,410.10 -64.17,374.85" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.0" stroke-linejoin="round"><path d="M-2.18,466.50 A4.78,2.76 0 0 0 7.37,466.50 L7.37,448.50 A4.78,2.76 0 0 1 -2.18,448.50 Z" fill="#0F4A68"/><ellipse cx="2.60" cy="448.50" rx="4.78" ry="2.76" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-17.61,451.50 A20.21,11.67 0 0 0 22.81,451.50 L2.60,409.50 Z" fill="#42B0B8"/></g><g><path d="M-15.59,-51.00 L129.90,-135.00" stroke="#093C54" stroke-width="1" opacity=".45" fill="none"/><circle cx="-15.59" cy="-51.00" r="2.4" fill="#093C54" opacity=".55"/><text x="129.90" y="-135.00" text-anchor="middle" fill="#093C54" style="font:400 11px 'Instrument Serif',monospace;letter-spacing:.18em">SEED PROCESSING</text><path d="M200.05,-7.50 L363.73,-36.00" stroke="#093C54" stroke-width="1" opacity=".45" fill="none"/><circle cx="200.05" cy="-7.50" r="2.4" fill="#093C54" opacity=".55"/><text x="363.73" y="-36.00" text-anchor="middle" fill="#093C54" style="font:400 11px 'Instrument Serif',monospace;letter-spacing:.18em">STEEL &amp; ENGINEERING</text><path d="M288.39,160.50 L420.89,147.00" stroke="#093C54" stroke-width="1" opacity=".45" fill="none"/><circle cx="288.39" cy="160.50" r="2.4" fill="#093C54" opacity=".55"/><text x="420.89" y="147.00" text-anchor="start" fill="#093C54" style="font:400 11px 'Instrument Serif',monospace;letter-spacing:.18em">WAREHOUSING</text><path d="M-116.91,25.50 L-270.20,-72.00" stroke="#093C54" stroke-width="1" opacity=".45" fill="none"/><circle cx="-116.91" cy="25.50" r="2.4" fill="#093C54" opacity=".55"/><text x="-270.20" y="-72.00" text-anchor="end" fill="#093C54" style="font:400 11px 'Instrument Serif',monospace;letter-spacing:.18em">CONTAINER YARD</text><path d="M5.20,418.50 L140.30,423.00" stroke="#093C54" stroke-width="1" opacity=".45" fill="none"/><circle cx="5.20" cy="418.50" r="2.4" fill="#093C54" opacity=".55"/><text x="140.30" y="423.00" text-anchor="start" fill="#093C54" style="font:400 11px 'Instrument Serif',monospace;letter-spacing:.18em">RAIL SPUR</text><path d="M-290.98,194.40 L-379.32,117.00" stroke="#093C54" stroke-width="1" opacity=".45" fill="none"/><circle cx="-290.98" cy="194.40" r="2.4" fill="#093C54" opacity=".55"/><text x="-379.32" y="117.00" text-anchor="end" fill="#093C54" style="font:400 11px 'Instrument Serif',monospace;letter-spacing:.18em">HIGHWAY</text><path d="M-415.7,292.0 L0.0,532.0" stroke="#093C54" stroke-width="1" opacity=".35"/><path d="M-415.7,285.0 L-415.7,299.0" stroke="#093C54" stroke-width="1" opacity=".35"/><path d="M0.0,525.0 L0.0,539.0" stroke="#093C54" stroke-width="1" opacity=".35"/></g></g></svg>
+      <svg viewBox="0 0 1120 830" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Axonometric master plan of a Jalna multi-modal logistics platform: seed processing silos, a steel and engineering works, a gantry-served container yard, warehousing, a highway and a rail spur."><g transform="translate(545,180)"><polygon points="0.00,0.00 415.69,240.00 0.00,480.00 -415.69,240.00" fill="#E7F4F5" stroke="#093C54" stroke-width="1.6" stroke-linejoin="round" opacity="1.0"/><line x1="0.00" y1="0.00" x2="-415.69" y2="240.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="51.96" y1="30.00" x2="-363.73" y2="270.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="103.92" y1="60.00" x2="-311.77" y2="300.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="155.88" y1="90.00" x2="-259.81" y2="330.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="207.85" y1="120.00" x2="-207.85" y2="360.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="259.81" y1="150.00" x2="-155.88" y2="390.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="311.77" y1="180.00" x2="-103.92" y2="420.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="363.73" y1="210.00" x2="-51.96" y2="450.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="415.69" y1="240.00" x2="0.00" y2="480.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="0.00" y1="0.00" x2="415.69" y2="240.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="-51.96" y1="30.00" x2="363.73" y2="270.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="-103.92" y1="60.00" x2="311.77" y2="300.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="-155.88" y1="90.00" x2="259.81" y2="330.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="-207.85" y1="120.00" x2="207.85" y2="360.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="-259.81" y1="150.00" x2="155.88" y2="390.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="-311.77" y1="180.00" x2="103.92" y2="420.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="-363.73" y1="210.00" x2="51.96" y2="450.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><line x1="-415.69" y1="240.00" x2="0.00" y2="480.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.09"/><polygon points="0.00,12.00 135.10,90.00 10.39,162.00 -124.71,84.00" fill="#DDF1EC" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="0.9"/><polygon points="155.88,102.00 285.79,177.00 161.08,249.00 31.18,174.00" fill="#DBEBF2" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="0.9"/><polygon points="-150.69,99.00 20.78,198.00 -93.53,264.00 -265.00,165.00" fill="#E2F0F2" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="0.9"/><polygon points="306.57,189.00 394.91,240.00 129.90,393.00 41.57,342.00" fill="#F4FBFB" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="0.9"/><polygon points="-298.78,172.50 116.91,412.50 77.94,435.00 -337.75,195.00" fill="#CBE4E8" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="1.0"/><polygon points="-355.94,205.50 59.76,445.50 33.77,460.50 -381.92,220.50" fill="#BFDCE1" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="1.0"/><line x1="-362.43" y1="208.65" x2="53.26" y2="448.65" stroke="#093C54" stroke-width="1.6" stroke-linecap="round" opacity="0.5"/><line x1="-374.64" y1="215.70" x2="41.05" y2="455.70" stroke="#093C54" stroke-width="1.6" stroke-linecap="round" opacity="0.5"/><line x1="-358.53" y1="206.10" x2="-378.02" y2="217.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-345.54" y1="213.60" x2="-365.03" y2="224.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-332.55" y1="221.10" x2="-352.04" y2="232.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-319.56" y1="228.60" x2="-339.05" y2="239.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-306.57" y1="236.10" x2="-326.06" y2="247.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-293.58" y1="243.60" x2="-313.07" y2="254.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-280.59" y1="251.10" x2="-300.08" y2="262.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-267.60" y1="258.60" x2="-287.09" y2="269.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-254.61" y1="266.10" x2="-274.10" y2="277.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-241.62" y1="273.60" x2="-261.11" y2="284.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-228.63" y1="281.10" x2="-248.12" y2="292.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-215.64" y1="288.60" x2="-235.13" y2="299.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-202.65" y1="296.10" x2="-222.14" y2="307.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-189.66" y1="303.60" x2="-209.15" y2="314.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-176.67" y1="311.10" x2="-196.15" y2="322.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-163.68" y1="318.60" x2="-183.16" y2="329.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-150.69" y1="326.10" x2="-170.17" y2="337.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-137.70" y1="333.60" x2="-157.18" y2="344.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-124.71" y1="341.10" x2="-144.19" y2="352.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-111.72" y1="348.60" x2="-131.20" y2="359.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-98.73" y1="356.10" x2="-118.21" y2="367.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-85.74" y1="363.60" x2="-105.22" y2="374.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-72.75" y1="371.10" x2="-92.23" y2="382.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-59.76" y1="378.60" x2="-79.24" y2="389.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-46.77" y1="386.10" x2="-66.25" y2="397.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-33.77" y1="393.60" x2="-53.26" y2="404.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-20.78" y1="401.10" x2="-40.27" y2="412.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="-7.79" y1="408.60" x2="-27.28" y2="419.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="5.20" y1="416.10" x2="-14.29" y2="427.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="18.19" y1="423.60" x2="-1.30" y2="434.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="31.18" y1="431.10" x2="11.69" y2="442.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="44.17" y1="438.60" x2="24.68" y2="449.85" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><line x1="57.16" y1="446.10" x2="37.67" y2="457.35" stroke="#093C54" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/><g class="flowline"><line x1="-318.26" y1="182.55" x2="97.43" y2="422.55" stroke="#0DA1A7" stroke-width="2.8" stroke-linecap="round" opacity="1.0" stroke-dasharray="11 13"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-29.39,45.00 A29.39,16.97 0 0 0 29.39,45.00 L29.39,-60.00 A29.39,16.97 0 0 1 -29.39,-60.00 Z" fill="#E4F2F4"/><ellipse cx="0.00" cy="-60.00" rx="29.39" ry="16.97" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-29.39,-60.00 A29.39,16.97 0 0 0 29.39,-60.00 L0.00,-85.50 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M25.17,64.50 A29.39,16.97 0 0 0 83.95,64.50 L83.95,-40.50 A29.39,16.97 0 0 1 25.17,-40.50 Z" fill="#E4F2F4"/><ellipse cx="54.56" cy="-40.50" rx="29.39" ry="16.97" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M25.17,-40.50 A29.39,16.97 0 0 0 83.95,-40.50 L54.56,-66.00 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-44.98,81.00 A29.39,16.97 0 0 0 13.80,81.00 L13.80,-24.00 A29.39,16.97 0 0 1 -44.98,-24.00 Z" fill="#E4F2F4"/><ellipse cx="-15.59" cy="-24.00" rx="29.39" ry="16.97" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-44.98,-24.00 A29.39,16.97 0 0 0 13.80,-24.00 L-15.59,-49.50 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M19.97,100.50 A29.39,16.97 0 0 0 78.76,100.50 L78.76,-4.50 A29.39,16.97 0 0 1 19.97,-4.50 Z" fill="#E4F2F4"/><ellipse cx="49.36" cy="-4.50" rx="29.39" ry="16.97" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M19.97,-4.50 A29.39,16.97 0 0 0 78.76,-4.50 L49.36,-30.00 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="-114.32,96.00 0.00,162.00 0.00,123.00 -114.32,57.00" fill="#E4F2F4"/><polygon points="36.37,141.00 0.00,162.00 0.00,123.00 36.37,102.00" fill="#BFE2E6"/><polygon points="-77.94,36.00 36.37,102.00 0.00,123.00 -114.32,57.00" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-174.07,130.50 -109.12,168.00 -109.12,141.00 -174.07,103.50" fill="#0F5878"/><polygon points="-80.54,151.50 -109.12,168.00 -109.12,141.00 -80.54,124.50" fill="#093C54"/><polygon points="-145.49,87.00 -80.54,124.50 -109.12,141.00 -174.07,103.50" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-174.07,102.00 -109.12,139.50 -109.12,112.50 -174.07,75.00" fill="#17ABB1"/><polygon points="-80.54,123.00 -109.12,139.50 -109.12,112.50 -80.54,96.00" fill="#0B8A90"/><polygon points="-145.49,58.50 -80.54,96.00 -109.12,112.50 -174.07,75.00" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-174.07,73.50 -109.12,111.00 -109.12,84.00 -174.07,46.50" fill="#0F5878"/><polygon points="-80.54,94.50 -109.12,111.00 -109.12,84.00 -80.54,67.50" fill="#093C54"/><polygon points="-145.49,30.00 -80.54,67.50 -109.12,84.00 -174.07,46.50" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M166.72,60.00 A7.35,4.24 0 0 0 181.42,60.00 L181.42,-18.00 A7.35,4.24 0 0 1 166.72,-18.00 Z" fill="#7FC0C8"/><ellipse cx="174.07" cy="-18.00" rx="7.35" ry="4.24" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-215.64,154.50 -150.69,192.00 -150.69,165.00 -215.64,127.50" fill="#17ABB1"/><polygon points="-122.11,175.50 -150.69,192.00 -150.69,165.00 -122.11,148.50" fill="#0B8A90"/><polygon points="-187.06,111.00 -122.11,148.50 -150.69,165.00 -215.64,127.50" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-215.64,126.00 -150.69,163.50 -150.69,136.50 -215.64,99.00" fill="#7FC0C8"/><polygon points="-122.11,147.00 -150.69,163.50 -150.69,136.50 -122.11,120.00" fill="#5EA5AF"/><polygon points="-187.06,82.50 -122.11,120.00 -150.69,136.50 -215.64,99.00" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M192.70,75.00 A7.35,4.24 0 0 0 207.40,75.00 L207.40,-3.00 A7.35,4.24 0 0 1 192.70,-3.00 Z" fill="#7FC0C8"/><ellipse cx="200.05" cy="-3.00" rx="7.35" ry="4.24" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M218.68,90.00 A7.35,4.24 0 0 0 233.38,90.00 L233.38,12.00 A7.35,4.24 0 0 1 218.68,12.00 Z" fill="#7FC0C8"/><ellipse cx="226.03" cy="12.00" rx="7.35" ry="4.24" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="72.75,162.00 187.06,228.00 187.06,171.00 72.75,105.00" fill="#0F4A68"/><polygon points="275.40,177.00 187.06,228.00 187.06,171.00 275.40,120.00" fill="#052C3E"/><polygon points="161.08,54.00 275.40,120.00 187.06,171.00 72.75,105.00" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="72.75,105.00 187.06,171.00 187.06,159.00 72.75,93.00" fill="#7FC0C8"/><polygon points="275.40,120.00 187.06,171.00 187.06,159.00 275.40,108.00" fill="#5EA5AF"/><polygon points="161.08,42.00 275.40,108.00 187.06,159.00 72.75,93.00" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-98.73,174.00 -33.77,211.50 -33.77,184.50 -98.73,147.00" fill="#7FC0C8"/><polygon points="-5.20,195.00 -33.77,211.50 -33.77,184.50 -5.20,168.00" fill="#5EA5AF"/><polygon points="-70.15,130.50 -5.20,168.00 -33.77,184.50 -98.73,147.00" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-98.73,145.50 -33.77,183.00 -33.77,156.00 -98.73,118.50" fill="#0F5878"/><polygon points="-5.20,166.50 -33.77,183.00 -33.77,156.00 -98.73,139.50" fill="#093C54"/><polygon points="-70.15,102.00 -5.20,139.50 -33.77,156.00 -98.73,118.50" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-98.73,117.00 -33.77,154.50 -33.77,127.50 -98.73,90.00" fill="#17ABB1"/><polygon points="-5.20,138.00 -33.77,154.50 -33.77,127.50 -5.20,111.00" fill="#0B8A90"/><polygon points="-70.15,73.50 -5.20,111.00 -33.77,127.50 -98.73,90.00" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-140.30,198.00 -75.34,235.50 -75.34,208.50 -140.30,171.00" fill="#0F5878"/><polygon points="-46.77,219.00 -75.34,235.50 -75.34,208.50 -46.77,192.00" fill="#093C54"/><polygon points="-111.72,154.50 -46.77,192.00 -75.34,208.50 -140.30,171.00" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-140.30,169.50 -75.34,207.00 -75.34,180.00 -140.30,142.50" fill="#17ABB1"/><polygon points="-46.77,190.50 -75.34,207.00 -75.34,180.00 -46.77,163.50" fill="#0B8A90"/><polygon points="-111.72,126.00 -46.77,163.50 -75.34,180.00 -140.30,142.50" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="53.00,176.40 162.12,239.40 162.12,229.20 53.00,166.20" fill="#17ABB1"/><polygon points="174.07,232.50 162.12,239.40 162.12,229.20 174.07,222.30" fill="#0B8A90"/><polygon points="64.95,159.30 174.07,222.30 162.12,229.20 53.00,166.20" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="37.93,185.10 147.05,248.10 147.05,237.90 37.93,174.90" fill="#17ABB1"/><polygon points="159.00,241.20 147.05,248.10 147.05,237.90 159.00,231.00" fill="#0B8A90"/><polygon points="49.88,168.00 159.00,231.00 147.05,237.90 37.93,174.90" fill="#4FC6CB"/></g><line x1="-140.30" y1="105.00" x2="-140.30" y2="-15.00" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity="1.0"/><line x1="-244.22" y1="165.00" x2="-244.22" y2="45.00" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity="1.0"/><line x1="10.39" y1="192.00" x2="10.39" y2="72.00" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity="1.0"/><line x1="-93.53" y1="252.00" x2="-93.53" y2="132.00" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" opacity="1.0"/><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-147.57,-15.30 10.91,76.20 10.91,67.80 -147.57,-23.70" fill="#7FC0C8"/><polygon points="18.19,72.00 10.91,76.20 10.91,67.80 18.19,63.60" fill="#5EA5AF"/><polygon points="-140.30,-27.90 18.19,63.60 10.91,67.80 -147.57,-23.70" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-251.49,44.70 -93.01,136.20 -93.01,127.80 -251.49,36.30" fill="#7FC0C8"/><polygon points="-85.74,132.00 -93.01,136.20 -93.01,127.80 -85.74,123.60" fill="#5EA5AF"/><polygon points="-244.22,32.10 -85.74,123.60 -93.01,127.80 -251.49,36.30" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-189.66,74.10 -163.68,89.10 -163.68,81.90 -189.66,66.90" fill="#17ABB1"/><polygon points="-49.36,23.10 -163.68,89.10 -163.68,81.90 -49.36,15.90" fill="#0B8A90"/><polygon points="-75.34,0.90 -49.36,15.90 -163.68,81.90 -189.66,66.90" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-5.04,213.00 A15.43,8.91 0 0 0 25.82,213.00 L25.82,189.60 A15.43,8.91 0 0 1 -5.04,189.60 Z" fill="#7FC0C8"/><ellipse cx="10.39" cy="189.60" rx="15.43" ry="8.91" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-261.89,223.20 -209.92,253.20 -209.92,234.00 -261.89,204.00" fill="#0F5878"/><polygon points="-189.66,241.50 -209.92,253.20 -209.92,234.00 -189.66,222.30" fill="#093C54"/><polygon points="-241.62,192.30 -189.66,222.30 -209.92,234.00 -261.89,204.00" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-208.63,253.95 -189.92,264.75 -189.92,240.15 -208.63,229.35" fill="#0F4A68"/><polygon points="-169.65,253.05 -189.92,264.75 -189.92,240.15 -169.65,228.45" fill="#052C3E"/><polygon points="-188.36,217.65 -169.65,228.45 -189.92,240.15 -208.63,229.35" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="22.86,193.80 131.98,256.80 131.98,246.60 22.86,183.60" fill="#17ABB1"/><polygon points="143.93,249.90 131.98,256.80 131.98,246.60 143.93,239.70" fill="#0B8A90"/><polygon points="34.81,176.70 143.93,239.70 131.98,246.60 22.86,183.60" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="7.79,202.50 116.91,265.50 116.91,255.30 7.79,192.30" fill="#17ABB1"/><polygon points="128.86,258.60 116.91,265.50 116.91,255.30 128.86,248.40" fill="#0B8A90"/><polygon points="19.75,185.40 128.86,248.40 116.91,255.30 7.79,192.30" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-349.96,231.45 -288.91,266.70 -288.91,245.10 -349.96,209.85" fill="#17ABB1"/><polygon points="-270.20,255.90 -288.91,266.70 -288.91,245.10 -270.20,234.30" fill="#0B8A90"/><polygon points="-331.25,199.05 -270.20,234.30 -288.91,245.10 -349.96,209.85" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M23.54,229.50 A15.43,8.91 0 0 0 54.40,229.50 L54.40,206.10 A15.43,8.91 0 0 1 23.54,206.10 Z" fill="#7FC0C8"/><ellipse cx="38.97" cy="206.10" rx="15.43" ry="8.91" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-33.62,229.50 A15.43,8.91 0 0 0 -2.76,229.50 L-2.76,206.10 A15.43,8.91 0 0 1 -33.62,206.10 Z" fill="#7FC0C8"/><ellipse cx="-18.19" cy="206.10" rx="15.43" ry="8.91" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.0" stroke-linejoin="round"><path d="M-397.09,238.50 A4.78,2.76 0 0 0 -387.53,238.50 L-387.53,220.50 A4.78,2.76 0 0 1 -397.09,220.50 Z" fill="#0F4A68"/><ellipse cx="-392.31" cy="220.50" rx="4.78" ry="2.76" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-412.52,223.50 A20.21,11.67 0 0 0 -372.10,223.50 L-392.31,181.50 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M52.12,246.00 A15.43,8.91 0 0 0 82.98,246.00 L82.98,222.60 A15.43,8.91 0 0 1 52.12,222.60 Z" fill="#7FC0C8"/><ellipse cx="67.55" cy="222.60" rx="15.43" ry="8.91" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-5.04,246.00 A15.43,8.91 0 0 0 25.82,246.00 L25.82,222.60 A15.43,8.91 0 0 1 -5.04,222.60 Z" fill="#7FC0C8"/><ellipse cx="10.39" cy="222.60" rx="15.43" ry="8.91" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="192.26,261.00 270.20,306.00 270.20,246.00 192.26,201.00" fill="#E4F2F4"/><polygon points="384.52,240.00 270.20,306.00 270.20,246.00 384.52,180.00" fill="#BFE2E6"/><polygon points="306.57,135.00 384.52,180.00 270.20,246.00 192.26,201.00" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><polygon points="306.57,135.00 384.52,180.00 327.36,186.00 249.42,141.00" fill="#FFFFFF"/><polygon points="192.26,201.00 270.20,246.00 327.36,186.00 249.42,141.00" fill="#E4F2F4"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M80.70,262.50 A15.43,8.91 0 0 0 111.56,262.50 L111.56,239.10 A15.43,8.91 0 0 1 80.70,239.10 Z" fill="#7FC0C8"/><ellipse cx="96.13" cy="239.10" rx="15.43" ry="8.91" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M23.54,262.50 A15.43,8.91 0 0 0 54.40,262.50 L54.40,239.10 A15.43,8.91 0 0 1 23.54,239.10 Z" fill="#7FC0C8"/><ellipse cx="38.97" cy="239.10" rx="15.43" ry="8.91" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.0" stroke-linejoin="round"><path d="M-358.11,264.00 A4.78,2.76 0 0 0 -348.56,264.00 L-348.56,246.00 A4.78,2.76 0 0 1 -358.11,246.00 Z" fill="#0F4A68"/><ellipse cx="-353.34" cy="246.00" rx="4.78" ry="2.76" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-373.55,249.00 A20.21,11.67 0 0 0 -333.13,249.00 L-353.34,207.00 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.0" stroke-linejoin="round"><path d="M343.37,267.00 A4.78,2.76 0 0 0 352.92,267.00 L352.92,249.00 A4.78,2.76 0 0 1 343.37,249.00 Z" fill="#0F4A68"/><ellipse cx="348.14" cy="249.00" rx="4.78" ry="2.76" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M327.93,252.00 A20.21,11.67 0 0 0 368.35,252.00 L348.14,210.00 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-278.51,272.70 -217.46,307.95 -217.46,286.35 -278.51,251.10" fill="#0F5878"/><polygon points="-198.75,297.15 -217.46,307.95 -217.46,286.35 -198.75,275.55" fill="#093C54"/><polygon points="-259.81,240.30 -198.75,275.55 -217.46,286.35 -278.51,251.10" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M52.12,279.00 A15.43,8.91 0 0 0 82.98,279.00 L82.98,255.60 A15.43,8.91 0 0 1 52.12,255.60 Z" fill="#7FC0C8"/><ellipse cx="67.55" cy="255.60" rx="15.43" ry="8.91" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-207.07,313.95 -146.01,349.20 -146.01,327.60 -207.07,292.35" fill="#7FC0C8"/><polygon points="-127.31,338.40 -146.01,349.20 -146.01,327.60 -127.31,316.80" fill="#5EA5AF"/><polygon points="-188.36,281.55 -127.31,316.80 -146.01,327.60 -207.07,292.35" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-69.63,334.20 -17.67,364.20 -17.67,345.00 -69.63,315.00" fill="#17ABB1"/><polygon points="2.60,352.50 -17.67,364.20 -17.67,345.00 2.60,333.30" fill="#0B8A90"/><polygon points="-49.36,303.30 2.60,333.30 -17.67,345.00 -69.63,315.00" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-16.37,364.95 2.34,375.75 2.34,351.15 -16.37,340.35" fill="#0F4A68"/><polygon points="22.60,364.05 2.34,375.75 2.34,351.15 22.60,339.45" fill="#052C3E"/><polygon points="3.90,328.65 22.60,339.45 2.34,351.15 -16.37,340.35" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="62.35,336.00 140.30,381.00 140.30,324.00 62.35,279.00" fill="#E4F2F4"/><polygon points="249.42,318.00 140.30,381.00 140.30,324.00 249.42,261.00" fill="#BFE2E6"/><polygon points="171.47,216.00 249.42,261.00 140.30,324.00 62.35,279.00" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><polygon points="171.47,216.00 249.42,261.00 194.86,267.00 116.91,222.00" fill="#FFFFFF"/><polygon points="62.35,279.00 140.30,324.00 194.86,267.00 116.91,222.00" fill="#E4F2F4"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-135.62,355.20 -74.56,390.45 -74.56,368.85 -135.62,333.60" fill="#17ABB1"/><polygon points="-55.86,379.65 -74.56,390.45 -74.56,368.85 -55.86,358.05" fill="#0B8A90"/><polygon points="-116.91,322.80 -55.86,358.05 -74.56,368.85 -135.62,333.60" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="28.58,358.50 101.32,400.50 101.32,355.50 28.58,313.50" fill="#0F5878"/><polygon points="132.50,382.50 101.32,400.50 101.32,355.50 132.50,337.50" fill="#093C54"/><polygon points="59.76,295.50 132.50,337.50 101.32,355.50 28.58,313.50" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-64.17,396.45 -3.12,431.70 -3.12,410.10 -64.17,374.85" fill="#0F5878"/><polygon points="15.59,420.90 -3.12,431.70 -3.12,410.10 15.59,399.30" fill="#093C54"/><polygon points="-45.47,364.05 15.59,399.30 -3.12,410.10 -64.17,374.85" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.0" stroke-linejoin="round"><path d="M-2.18,466.50 A4.78,2.76 0 0 0 7.37,466.50 L7.37,448.50 A4.78,2.76 0 0 1 -2.18,448.50 Z" fill="#0F4A68"/><ellipse cx="2.60" cy="448.50" rx="4.78" ry="2.76" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-17.61,451.50 A20.21,11.67 0 0 0 22.81,451.50 L2.60,409.50 Z" fill="#42B0B8"/></g><g><path d="M-15.59,-51.00 L129.90,-135.00" stroke="#093C54" stroke-width="1" opacity=".45" fill="none"/><circle cx="-15.59" cy="-51.00" r="2.4" fill="#093C54" opacity=".55"/><text x="129.90" y="-135.00" text-anchor="middle" fill="#093C54" style="font:400 11px 'Instrument Serif',monospace;letter-spacing:.18em">SEED PROCESSING</text><path d="M200.05,-7.50 L363.73,-36.00" stroke="#093C54" stroke-width="1" opacity=".45" fill="none"/><circle cx="200.05" cy="-7.50" r="2.4" fill="#093C54" opacity=".55"/><text x="363.73" y="-36.00" text-anchor="middle" fill="#093C54" style="font:400 11px 'Instrument Serif',monospace;letter-spacing:.18em">STEEL &amp; ENGINEERING</text><path d="M288.39,160.50 L420.89,147.00" stroke="#093C54" stroke-width="1" opacity=".45" fill="none"/><circle cx="288.39" cy="160.50" r="2.4" fill="#093C54" opacity=".55"/><text x="420.89" y="147.00" text-anchor="start" fill="#093C54" style="font:400 11px 'Instrument Serif',monospace;letter-spacing:.18em">WAREHOUSING</text><path d="M-116.91,25.50 L-270.20,-72.00" stroke="#093C54" stroke-width="1" opacity=".45" fill="none"/><circle cx="-116.91" cy="25.50" r="2.4" fill="#093C54" opacity=".55"/><text x="-270.20" y="-72.00" text-anchor="end" fill="#093C54" style="font:400 11px 'Instrument Serif',monospace;letter-spacing:.18em">CONTAINER YARD</text><path d="M5.20,418.50 L140.30,423.00" stroke="#093C54" stroke-width="1" opacity=".45" fill="none"/><circle cx="5.20" cy="418.50" r="2.4" fill="#093C54" opacity=".55"/><text x="140.30" y="423.00" text-anchor="start" fill="#093C54" style="font:400 11px 'Instrument Serif',monospace;letter-spacing:.18em">RAIL SPUR</text><path d="M-290.98,194.40 L-379.32,117.00" stroke="#093C54" stroke-width="1" opacity=".45" fill="none"/><circle cx="-290.98" cy="194.40" r="2.4" fill="#093C54" opacity=".55"/><text x="-379.32" y="117.00" text-anchor="end" fill="#093C54" style="font:400 11px 'Instrument Serif',monospace;letter-spacing:.18em">HIGHWAY</text><path d="M-415.7,292.0 L0.0,532.0" stroke="#093C54" stroke-width="1" opacity=".35"/><path d="M-415.7,285.0 L-415.7,299.0" stroke="#093C54" stroke-width="1" opacity=".35"/><path d="M0.0,525.0 L0.0,539.0" stroke="#093C54" stroke-width="1" opacity=".35"/></g></g></svg>
     </div>
   </div>
 </section>
@@ -522,265 +567,124 @@ h1,h2,h3,h4{ margin:0 }
 <section class="sec invitees" id="invitees">
   <div class="wrap">
 
-    <div class="iv-lead">
-    <div class="iv-top rv">
-      <p class="tag"><i>02</i> Invited leadership</p>
-      <h2 class="h2" style="margin-top:20px">Who sits at the <em>head table</em>.</h2>
-      <p class="lede">Two chief guests and two guests of honour, seated where the district's next decisions get made.</p>
-      <span class="iv-deva marathi">निमंत्रित मान्यवर</span>
-    </div>
-
-      <figure class="iv-plan rv">
-        <svg class="iv-svg" viewBox="-333.0 -79.0 712.7 487.9" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Axonometric view of the summit room: a raised dais with four marked seats at the head table, a podium, a presentation screen showing the dry port, and rows of seating for delegates.">
-<polygon points="0.00,0.00 363.73,210.00 64.95,382.50 -298.78,172.50" fill="#E7F4F5" stroke="#093C54" stroke-width="1.6" stroke-linejoin="round" opacity="1.0"/>
-<line x1="25.98" y1="15.00" x2="-272.80" y2="187.50" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="51.96" y1="30.00" x2="-246.82" y2="202.50" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="77.94" y1="45.00" x2="-220.84" y2="217.50" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="103.92" y1="60.00" x2="-194.86" y2="232.50" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="129.90" y1="75.00" x2="-168.87" y2="247.50" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="155.88" y1="90.00" x2="-142.89" y2="262.50" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="181.87" y1="105.00" x2="-116.91" y2="277.50" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="207.85" y1="120.00" x2="-90.93" y2="292.50" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="233.83" y1="135.00" x2="-64.95" y2="307.50" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="259.81" y1="150.00" x2="-38.97" y2="322.50" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="285.79" y1="165.00" x2="-12.99" y2="337.50" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="311.77" y1="180.00" x2="12.99" y2="352.50" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="337.75" y1="195.00" x2="38.97" y2="367.50" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="-25.98" y1="15.00" x2="337.75" y2="225.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="-51.96" y1="30.00" x2="311.77" y2="240.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="-77.94" y1="45.00" x2="285.79" y2="255.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="-103.92" y1="60.00" x2="259.81" y2="270.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="-129.90" y1="75.00" x2="233.83" y2="285.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="-155.88" y1="90.00" x2="207.85" y2="300.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="-181.87" y1="105.00" x2="181.87" y2="315.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="-207.85" y1="120.00" x2="155.88" y2="330.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="-233.83" y1="135.00" x2="129.90" y2="345.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="-259.81" y1="150.00" x2="103.92" y2="360.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<line x1="-285.79" y1="165.00" x2="77.94" y2="375.00" stroke="#093C54" stroke-width="1" stroke-linecap="round" opacity="0.07"/>
-<polygon points="62.35,36.00 285.79,165.00 285.79,75.00 62.35,-54.00" fill="#DDF1EC" stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="62.35,-54.00 285.79,75.00 285.79,70.20 62.35,-58.80" fill="#BFE2E6" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="119.77,49.35 169.13,77.85 169.13,65.85 119.77,37.35" fill="#17ABB1" stroke="#093C54" stroke-width="1.0" stroke-linejoin="round" opacity="0.9"/>
-<polygon points="119.77,35.25 169.13,63.75 169.13,51.75 119.77,23.25" fill="#1E6285" stroke="#093C54" stroke-width="1.0" stroke-linejoin="round" opacity="0.9"/>
-<polygon points="119.77,21.15 169.13,49.65 169.13,37.65 119.77,9.15" fill="#4FC6CB" stroke="#093C54" stroke-width="1.0" stroke-linejoin="round" opacity="0.9"/>
-<polygon points="184.72,86.85 244.48,121.35 244.48,94.35 184.72,59.85" fill="#FFFFFF" stroke="#093C54" stroke-width="1.0" stroke-linejoin="round" opacity="0.95"/>
-<line x1="192.78" y1="82.20" x2="236.94" y2="107.70" stroke="#0DA1A7" stroke-width="2.2" stroke-linecap="round" opacity="0.9"/>
-<line x1="192.78" y1="73.20" x2="236.94" y2="98.70" stroke="#0DA1A7" stroke-width="2.2" stroke-linecap="round" opacity="0.5"/>
-<line x1="91.19" y1="43.35" x2="257.47" y2="139.35" stroke="#093C54" stroke-width="1.2" stroke-linecap="round" opacity="0.25"/>
-<polygon points="-33.77,97.50 210.44,238.50 210.44,228.30 -33.77,87.30" fill="#BFE2E6" stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="285.79,195.00 210.44,238.50 210.44,228.30 285.79,184.80" fill="#CBE4E8" stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="41.57,43.80 285.79,184.80 210.44,228.30 -33.77,87.30" fill="#F4FBFB" stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"/>
-<line x1="-33.77" y1="87.30" x2="210.44" y2="228.30" stroke="#0DA1A7" stroke-width="2.4" stroke-linecap="round" opacity="0.6"/>
-<polygon points="37.15,73.35 58.46,85.65 58.46,73.05 37.15,60.75" fill="#17ABB1" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="79.76,73.35 58.46,85.65 58.46,73.05 79.76,60.75" fill="#0B8A90" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="58.46,48.45 79.76,60.75 58.46,73.05 37.15,60.75" fill="#A9D6DC" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="37.15,60.75 58.46,73.05 58.46,42.45 37.15,30.15" fill="#17ABB1" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="62.61,70.65 58.46,73.05 58.46,42.45 62.61,40.05" fill="#0B8A90" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="41.31,27.75 62.61,40.05 58.46,42.45 37.15,30.15" fill="#A9D6DC" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="90.41,104.10 111.72,116.40 111.72,103.80 90.41,91.50" fill="#17ABB1" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="133.02,104.10 111.72,116.40 111.72,103.80 133.02,91.50" fill="#0B8A90" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="111.72,79.20 133.02,91.50 111.72,103.80 90.41,91.50" fill="#A9D6DC" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="90.41,91.50 111.72,103.80 111.72,73.20 90.41,60.90" fill="#17ABB1" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="115.87,101.40 111.72,103.80 111.72,73.20 115.87,70.80" fill="#0B8A90" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="94.57,58.50 115.87,70.80 111.72,73.20 90.41,60.90" fill="#A9D6DC" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="143.67,134.85 164.98,147.15 164.98,134.55 143.67,122.25" fill="#17ABB1" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="186.28,134.85 164.98,147.15 164.98,134.55 186.28,122.25" fill="#0B8A90" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="164.98,109.95 186.28,122.25 164.98,134.55 143.67,122.25" fill="#A9D6DC" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="143.67,122.25 164.98,134.55 164.98,103.95 143.67,91.65" fill="#17ABB1" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="169.13,132.15 164.98,134.55 164.98,103.95 169.13,101.55" fill="#0B8A90" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="147.83,89.25 169.13,101.55 164.98,103.95 143.67,91.65" fill="#A9D6DC" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="196.93,165.60 218.24,177.90 218.24,165.30 196.93,153.00" fill="#17ABB1" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="239.54,165.60 218.24,177.90 218.24,165.30 239.54,153.00" fill="#0B8A90" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="218.24,140.70 239.54,153.00 218.24,165.30 196.93,153.00" fill="#A9D6DC" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="196.93,153.00 218.24,165.30 218.24,134.70 196.93,122.40" fill="#17ABB1" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="222.40,162.90 218.24,165.30 218.24,134.70 222.40,132.30" fill="#0B8A90" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="201.09,120.00 222.40,132.30 218.24,134.70 196.93,122.40" fill="#A9D6DC" stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-15.59,88.80 207.85,217.80 207.85,193.80 -15.59,64.80" fill="#E4F2F4" stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="236.42,201.30 207.85,217.80 207.85,193.80 236.42,177.30" fill="#BFE2E6" stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="12.99,48.30 236.42,177.30 207.85,193.80 -15.59,64.80" fill="#FFFFFF" stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-15.59,64.80 207.85,193.80 207.85,192.00 -15.59,63.00" fill="#A9D6DC" stroke="#093C54" stroke-width="1.1" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="236.42,177.30 207.85,193.80 207.85,192.00 236.42,175.50" fill="#5EA5AF" stroke="#093C54" stroke-width="1.1" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="12.99,46.50 236.42,175.50 207.85,192.00 -15.59,63.00" fill="#FFFFFF" stroke="#093C54" stroke-width="1.1" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="17.15,59.70 36.89,71.10 36.89,63.90 17.15,52.50" fill="#FFFFFF" stroke="#093C54" stroke-width="1.0" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="17.15,52.50 36.89,63.90 29.62,68.10 9.87,56.70" fill="#E4F2F4" stroke="#093C54" stroke-width="1.0" stroke-linejoin="round" opacity="1.0"/>
-<line x1="20.52" y1="58.35" x2="33.52" y2="65.85" stroke="#0DA1A7" stroke-width="1.6" stroke-linecap="round" opacity="0.75"/>
-<polygon points="70.41,90.45 90.15,101.85 90.15,94.65 70.41,83.25" fill="#FFFFFF" stroke="#093C54" stroke-width="1.0" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="70.41,83.25 90.15,94.65 82.88,98.85 63.13,87.45" fill="#E4F2F4" stroke="#093C54" stroke-width="1.0" stroke-linejoin="round" opacity="1.0"/>
-<line x1="73.79" y1="89.10" x2="86.78" y2="96.60" stroke="#0DA1A7" stroke-width="1.6" stroke-linecap="round" opacity="0.75"/>
-<polygon points="123.67,121.20 143.41,132.60 143.41,125.40 123.67,114.00" fill="#FFFFFF" stroke="#093C54" stroke-width="1.0" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="123.67,114.00 143.41,125.40 136.14,129.60 116.39,118.20" fill="#E4F2F4" stroke="#093C54" stroke-width="1.0" stroke-linejoin="round" opacity="1.0"/>
-<line x1="127.05" y1="119.85" x2="140.04" y2="127.35" stroke="#0DA1A7" stroke-width="1.6" stroke-linecap="round" opacity="0.75"/>
-<polygon points="176.93,151.95 196.67,163.35 196.67,156.15 176.93,144.75" fill="#FFFFFF" stroke="#093C54" stroke-width="1.0" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="176.93,144.75 196.67,156.15 189.40,160.35 169.65,148.95" fill="#E4F2F4" stroke="#093C54" stroke-width="1.0" stroke-linejoin="round" opacity="1.0"/>
-<line x1="180.31" y1="150.60" x2="193.30" y2="158.10" stroke="#0DA1A7" stroke-width="1.6" stroke-linecap="round" opacity="0.75"/>
-<line x1="58.46" y1="30.15" x2="58.46" y2="-46.95" stroke="#093C54" stroke-width="1.1" stroke-linecap="round" opacity="0.45" stroke-dasharray="4 5"/>
-<line x1="111.72" y1="60.90" x2="111.72" y2="-16.20" stroke="#093C54" stroke-width="1.1" stroke-linecap="round" opacity="0.45" stroke-dasharray="4 5"/>
-<line x1="164.98" y1="91.65" x2="164.98" y2="14.55" stroke="#093C54" stroke-width="1.1" stroke-linecap="round" opacity="0.45" stroke-dasharray="4 5"/>
-<line x1="218.24" y1="122.40" x2="218.24" y2="45.30" stroke="#093C54" stroke-width="1.1" stroke-linecap="round" opacity="0.45" stroke-dasharray="4 5"/>
-<polygon points="-83.66,144.30 -62.35,156.60 -62.35,144.00 -83.66,131.70" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-41.05,144.30 -62.35,156.60 -62.35,144.00 -41.05,131.70" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-62.35,119.40 -41.05,131.70 -62.35,144.00 -83.66,131.70" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-83.66,131.70 -62.35,144.00 -62.35,129.00 -83.66,116.70" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-58.20,141.60 -62.35,144.00 -62.35,129.00 -58.20,126.60" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-79.50,114.30 -58.20,126.60 -62.35,129.00 -83.66,116.70" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-51.18,163.05 -29.88,175.35 -29.88,162.75 -51.18,150.45" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-8.57,163.05 -29.88,175.35 -29.88,162.75 -8.57,150.45" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-29.88,138.15 -8.57,150.45 -29.88,162.75 -51.18,150.45" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-51.18,150.45 -29.88,162.75 -29.88,147.75 -51.18,135.45" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-25.72,160.35 -29.88,162.75 -29.88,147.75 -25.72,145.35" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-47.03,133.05 -25.72,145.35 -29.88,147.75 -51.18,135.45" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-18.71,181.80 2.60,194.10 2.60,181.50 -18.71,169.20" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="23.90,181.80 2.60,194.10 2.60,181.50 23.90,169.20" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="2.60,156.90 23.90,169.20 2.60,181.50 -18.71,169.20" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-18.71,169.20 2.60,181.50 2.60,166.50 -18.71,154.20" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="6.75,179.10 2.60,181.50 2.60,166.50 6.75,164.10" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-14.55,151.80 6.75,164.10 2.60,166.50 -18.71,154.20" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="24.16,206.55 45.47,218.85 45.47,206.25 24.16,193.95" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="66.77,206.55 45.47,218.85 45.47,206.25 66.77,193.95" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="45.47,181.65 66.77,193.95 45.47,206.25 24.16,193.95" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="24.16,193.95 45.47,206.25 45.47,191.25 24.16,178.95" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="49.62,203.85 45.47,206.25 45.47,191.25 49.62,188.85" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="28.32,176.55 49.62,188.85 45.47,191.25 24.16,178.95" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="56.64,225.30 77.94,237.60 77.94,225.00 56.64,212.70" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="99.25,225.30 77.94,237.60 77.94,225.00 99.25,212.70" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="77.94,200.40 99.25,212.70 77.94,225.00 56.64,212.70" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="56.64,212.70 77.94,225.00 77.94,210.00 56.64,197.70" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="82.10,222.60 77.94,225.00 77.94,210.00 82.10,207.60" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="60.79,195.30 82.10,207.60 77.94,210.00 56.64,197.70" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="89.11,244.05 110.42,256.35 110.42,243.75 89.11,231.45" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="131.72,244.05 110.42,256.35 110.42,243.75 131.72,231.45" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="110.42,219.15 131.72,231.45 110.42,243.75 89.11,231.45" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="89.11,231.45 110.42,243.75 110.42,228.75 89.11,216.45" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="114.58,241.35 110.42,243.75 110.42,228.75 114.58,226.35" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="93.27,214.05 114.58,226.35 110.42,228.75 89.11,216.45" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-164.20,190.80 -142.89,203.10 -142.89,190.50 -164.20,178.20" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-121.59,190.80 -142.89,203.10 -142.89,190.50 -121.59,178.20" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-142.89,165.90 -121.59,178.20 -142.89,190.50 -164.20,178.20" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-164.20,178.20 -142.89,190.50 -142.89,175.50 -164.20,163.20" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-138.74,188.10 -142.89,190.50 -142.89,175.50 -138.74,173.10" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-160.04,160.80 -138.74,173.10 -142.89,175.50 -164.20,163.20" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-131.72,209.55 -110.42,221.85 -110.42,209.25 -131.72,196.95" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-89.11,209.55 -110.42,221.85 -110.42,209.25 -89.11,196.95" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-110.42,184.65 -89.11,196.95 -110.42,209.25 -131.72,196.95" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-131.72,196.95 -110.42,209.25 -110.42,194.25 -131.72,181.95" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-106.26,206.85 -110.42,209.25 -110.42,194.25 -106.26,191.85" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-127.57,179.55 -106.26,191.85 -110.42,194.25 -131.72,181.95" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-99.25,228.30 -77.94,240.60 -77.94,228.00 -99.25,215.70" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-56.64,228.30 -77.94,240.60 -77.94,228.00 -56.64,215.70" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-77.94,203.40 -56.64,215.70 -77.94,228.00 -99.25,215.70" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-99.25,215.70 -77.94,228.00 -77.94,213.00 -99.25,200.70" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-73.79,225.60 -77.94,228.00 -77.94,213.00 -73.79,210.60" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-95.09,198.30 -73.79,210.60 -77.94,213.00 -99.25,200.70" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-56.38,253.05 -35.07,265.35 -35.07,252.75 -56.38,240.45" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-13.77,253.05 -35.07,265.35 -35.07,252.75 -13.77,240.45" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-35.07,228.15 -13.77,240.45 -35.07,252.75 -56.38,240.45" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-56.38,240.45 -35.07,252.75 -35.07,237.75 -56.38,225.45" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-30.92,250.35 -35.07,252.75 -35.07,237.75 -30.92,235.35" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-52.22,223.05 -30.92,235.35 -35.07,237.75 -56.38,225.45" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-23.90,271.80 -2.60,284.10 -2.60,271.50 -23.90,259.20" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="18.71,271.80 -2.60,284.10 -2.60,271.50 18.71,259.20" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-2.60,246.90 18.71,259.20 -2.60,271.50 -23.90,259.20" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-23.90,259.20 -2.60,271.50 -2.60,256.50 -23.90,244.20" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="1.56,269.10 -2.60,271.50 -2.60,256.50 1.56,254.10" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="-19.75,241.80 1.56,254.10 -2.60,256.50 -23.90,244.20" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="8.57,290.55 29.88,302.85 29.88,290.25 8.57,277.95" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="51.18,290.55 29.88,302.85 29.88,290.25 51.18,277.95" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="29.88,265.65 51.18,277.95 29.88,290.25 8.57,277.95" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="8.57,277.95 29.88,290.25 29.88,275.25 8.57,262.95" fill="#E4F2F4" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="34.03,287.85 29.88,290.25 29.88,275.25 34.03,272.85" fill="#7FC0C8" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="12.73,260.55 34.03,272.85 29.88,275.25 8.57,262.95" fill="#A9D6DC" stroke="#093C54" stroke-width="0.9" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="232.53,228.75 257.21,243.00 257.21,208.50 232.53,194.25" fill="#0F4A68" stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="277.99,231.00 257.21,243.00 257.21,208.50 277.99,196.50" fill="#052C3E" stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="253.31,182.25 277.99,196.50 257.21,208.50 232.53,194.25" fill="#E4F2F4" stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="227.33,194.25 257.21,211.50 257.21,209.10 227.33,191.85" fill="#5EA5AF" stroke="#093C54" stroke-width="1.1" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="283.19,196.50 257.21,211.50 257.21,209.10 283.19,194.10" fill="#1E6285" stroke="#093C54" stroke-width="1.1" stroke-linejoin="round" opacity="1.0"/>
-<polygon points="253.31,176.85 283.19,194.10 257.21,209.10 227.33,191.85" fill="#FFFFFF" stroke="#093C54" stroke-width="1.1" stroke-linejoin="round" opacity="1.0"/>
-<line x1="-316.97" y1="183.00" x2="46.77" y2="393.00" stroke="#093C54" stroke-width="1" opacity=".3"/>
-<circle cx="58.46" cy="-46.95" r="15" fill="#FFFFFF" stroke="#093C54" stroke-width="1.4"/>
-<circle cx="58.46" cy="-46.95" r="15" fill="none" stroke="#0DA1A7" stroke-width="1.4"/>
-<text x="58.46" y="-42.35" text-anchor="middle" fill="#093C54" style="font:400 13px 'Instrument Serif',serif;letter-spacing:.06em">01</text>
-<circle cx="111.72" cy="-16.20" r="15" fill="#FFFFFF" stroke="#093C54" stroke-width="1.4"/>
-<circle cx="111.72" cy="-16.20" r="15" fill="none" stroke="#0DA1A7" stroke-width="1.4"/>
-<text x="111.72" y="-11.60" text-anchor="middle" fill="#093C54" style="font:400 13px 'Instrument Serif',serif;letter-spacing:.06em">02</text>
-<circle cx="164.98" cy="14.55" r="15" fill="#FFFFFF" stroke="#093C54" stroke-width="1.4"/>
-<circle cx="164.98" cy="14.55" r="15" fill="none" stroke="#0DA1A7" stroke-width="1.4"/>
-<text x="164.98" y="19.15" text-anchor="middle" fill="#093C54" style="font:400 13px 'Instrument Serif',serif;letter-spacing:.06em">03</text>
-<circle cx="218.24" cy="45.30" r="15" fill="#FFFFFF" stroke="#093C54" stroke-width="1.4"/>
-<circle cx="218.24" cy="45.30" r="15" fill="none" stroke="#0DA1A7" stroke-width="1.4"/>
-<text x="218.24" y="49.90" text-anchor="middle" fill="#093C54" style="font:400 13px 'Instrument Serif',serif;letter-spacing:.06em">04</text>
-</svg>
-        <figcaption>The head table · Hotel Siddharth The Fern, Jalna</figcaption>
-      </figure>
-    </div>
-
-    <ol class="dig rv">
-      <li>
-        <p class="rl"><span class="no">01</span>Chief Guest</p>
-        <h3 class="nm">Shri Gaurav Dayal<span class="sfx">IAS</span></h3>
-        <p class="of">Chairman, <b>JNPA</b></p>
-      </li>
-      <li>
-        <p class="rl"><span class="no">02</span>Chief Guest</p>
-        <h3 class="nm">Shri Deependra Singh Kushwah<span class="sfx">IAS</span></h3>
-        <p class="of">Chief Executive Officer, <b>MIDC</b></p>
-      </li>
-      <li>
-        <p class="rl"><span class="no">03</span>Guest of Honour</p>
-        <h3 class="nm">Shri G. Shrikanth<span class="sfx">IAS</span></h3>
-        <p class="of">Divisional Commissioner, <b>Chh. Sambhajinagar</b></p>
-      </li>
-      <li>
-        <p class="rl"><span class="no">04</span>Guest of Honour</p>
-        <h3 class="nm">Shri Pradeep Kamle</h3>
-        <p class="of">Divisional Railway Manager, <b>Railways</b></p>
-      </li>
-    </ol>
-
-    <div class="iv-also rv">
-      <div class="iv-cap">
-        <h3>Also in the room.</h3>
-        <span>14 organisations invited</span>
+    <div class="invite-head rv">
+      <div>
+        <p class="tag"><i>02</i> Invited leadership</p>
+        <h2 class="h2" style="margin-top:20px">Meet the leaders<br>shaping Jalna's <em>next chapter</em>.</h2>
       </div>
-      <ul class="co">
-        <li>Waaree</li>
-        <li>Toyota</li>
-        <li>Ather Energy</li>
-        <li>JNPA</li>
-        <li>UltraTech Cement</li>
-        <li>Maharashtra PWD</li>
-        <li>Lloyds Metals &amp; Energy</li>
-        <li>Saint-Gobain</li>
-        <li>Vikas Group of Companies</li>
-        <li>Indian Railways</li>
-        <li>Mahyco</li>
-        <li>LGB</li>
-        <li>NHAI</li>
-        <li>NHLML</li>
+      <div>
+        <p class="lede">The official invitation brings decision-makers from industrial development, regional administration, railways and leading private-sector organisations into one focused room.</p>
+        <div class="invite-count">
+          <div><b>3</b><span>On the dais</span></div>
+          <div><b>15</b><span>Organisations invited</span></div>
+          <div><b>4</b><span>Sectors in the room</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dais rv">
+      <div class="stage">
+        <article class="seat chief">
+          <span class="emblem" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 27h26"/><path d="M6 27V15l6 4v-4l6 4V11h5v16"/><path d="M25 11V5h3v22"/>
+              <path d="M9.5 23h2M15.5 23h2M21.5 23h2" opacity=".6"/>
+            </svg>
+          </span>
+          <p class="seat-role">Chief Guest</p>
+          <span class="hon">Shri</span>
+          <h3 class="nm">Deependra Singh Kushwah<span class="pd">IAS</span></h3>
+          <p class="rl">Chief Executive Officer
+            <span class="inst">Maharashtra Industrial Development Corporation (MIDC)</span>
+          </p>
+        </article>
+
+        <article class="seat hon-a">
+          <span class="emblem" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 27h24"/><path d="M5 13h22"/><path d="M16 5l11 8H5z"/>
+              <path d="M9 24V13M14 24V13M18 24V13M23 24V13"/>
+            </svg>
+          </span>
+          <p class="seat-role">Guest of Honour</p>
+          <span class="hon">Shri</span>
+          <h3 class="nm">G. Shrikanth<span class="pd">IAS</span></h3>
+          <p class="rl">Divisional Commissioner
+            <span class="inst">Chhatrapati Sambhajinagar Division</span>
+          </p>
+        </article>
+
+        <article class="seat hon-b">
+          <span class="emblem" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 28L15 4M23 28L17 4"/>
+              <path d="M7.5 25h17M9 19h14M10.5 13h11M12 8h8"/>
+            </svg>
+          </span>
+          <p class="seat-role">Guest of Honour</p>
+          <span class="hon">Shri</span>
+          <h3 class="nm">Pradeep Kamle</h3>
+          <p class="rl">Divisional Railway Manager
+            <span class="inst">Indian Railways</span>
+          </p>
+        </article>
+      </div>
+      <p class="floor"><span>Head table · Industrial Summit 2026</span></p>
+    </div>
+
+    <div class="room rv">
+      <div class="room-head">
+        <div>
+          <p class="tag"><i>◆</i> Key attendees</p>
+          <h3 class="h3">Fifteen organisations named in the invitation.</h3>
+          <p>Manufacturing, mobility, energy, agri-processing, logistics and public infrastructure — filter by sector to see who you would be sitting with.</p>
+        </div>
+        <div class="legend" role="group" aria-label="Filter organisations by sector">
+          <button type="button" class="lg" data-s="all" aria-pressed="true"><i></i>All 15</button>
+          <button type="button" class="lg" data-s="steel" aria-pressed="false"><i></i>Steel &amp; materials</button>
+          <button type="button" class="lg" data-s="auto" aria-pressed="false"><i></i>Mobility &amp; auto</button>
+          <button type="button" class="lg" data-s="agri" aria-pressed="false"><i></i>Agri, food &amp; energy</button>
+          <button type="button" class="lg" data-s="infra" aria-pressed="false"><i></i>Infrastructure &amp; rail</button>
+        </div>
+      </div>
+
+      <ul class="roll" aria-label="Key attendee organisations">
+        <li data-s="steel">JSW</li>
+        <li data-s="steel">UltraTech Cement</li>
+        <li data-s="steel">Lloyds Metals &amp; Energy</li>
+        <li data-s="steel">Saint-Gobain</li>
+        <li data-s="steel">Vikas Group of Companies</li>
+        <li data-s="auto">Toyota</li>
+        <li data-s="auto">MG Motor</li>
+        <li data-s="auto">Ather Energy</li>
+        <li data-s="auto">LGB</li>
+        <li data-s="agri">Mahyco</li>
+        <li data-s="agri">Ruchi Soya Industries</li>
+        <li data-s="agri">Waaree</li>
+        <li data-s="infra">Indian Railways</li>
+        <li data-s="infra">NHAI</li>
+        <li data-s="infra">NHLML</li>
       </ul>
     </div>
 
-    <div class="iv-th rv">
-      <div>
-        <b>The Dry Port</b>
-        <p>Exploring the MMLP Dry Port as a global logistics hub.</p>
+    <div class="themes">
+      <div class="themes-copy rv">
+        <p class="tag"><i>◆</i> Strategic themes</p>
+        <h3 class="h3">What the room will move forward.</h3>
+        <p class="lede" style="margin:0">Three questions the invitation puts on the table — and the people invited are the ones who can answer them.</p>
       </div>
-      <div>
-        <b>Where capital goes</b>
-        <p>Investment in steel, auto and ancillaries, agri-processing, wine and silk.</p>
-      </div>
-      <div>
-        <b>Speed through the system</b>
-        <p>Strategic location, favourable government schemes and an investment-friendly administration.</p>
-      </div>
+      <ul class="tlist rv">
+        <li><span class="mk" aria-hidden="true"></span><div><h4>The Dry Port, positioned</h4><p>Establishing the MMLP Dry Port as a global logistics hub for Central Maharashtra.</p></div></li>
+        <li><span class="mk" aria-hidden="true"></span><div><h4>Capital into five sectors</h4><p>Investment in steel, auto and ancillaries, agri-processing, wine and silk.</p></div></li>
+        <li><span class="mk" aria-hidden="true"></span><div><h4>Speed through the system</h4><p>Accelerating industrial growth through Jalna's strategic location, investor-friendly schemes and a responsive administration.</p></div></li>
+      </ul>
     </div>
 
-    <div class="iv-foot rv">
-      <div class="iv-conv">
-        <div><p>Convenor</p><b>Mr Dhawal Mishrikotkar</b></div>
-        <div><p>Co-Convenor</p><b>Mr Shubham Soni</b></div>
-      </div>
-      <div class="iv-sp">
-        <span>Title<br>sponsor</span>
-        <img src="/industrial-summit/Sponsor.jpeg" alt="Title Sponsor — Vikas Group of Companies">
+    <div class="signoff rv">
+      <p class="lbl">Convened by<br>District Administration, Jalna × Jalna First</p>
+      <div class="sig-names">
+        <div><b>Mr Dhawal Mishrikotkar</b><span>Convenor</span></div>
+        <div><b>Mr Shubham Soni</b><span>Co-Convenor</span></div>
       </div>
     </div>
 
@@ -791,17 +695,28 @@ h1,h2,h3,h4{ margin:0 }
 <section class="sec" id="about">
   <div class="wrap intro">
     <div class="intro-l rv">
-      <p class="tag"><i>03</i> About the summit</p>
-      <h2 class="h2" style="margin-top:20px">Moving Jalna from <em>aspiration</em> to execution.</h2>
-      <p class="lede">A focused, single-session summit aligning government, infrastructure and enterprise for practical outcome.</p>
+      <p class="tag"><i>03</i> About Jalna</p>
+      <h2 class="h2" style="margin-top:20px">Manufacturing gateway<br>of <em>Central India</em>.</h2>
+      <svg viewBox="0 0 320 190" style="margin-top:38px" aria-hidden="true">
+        <g fill="none" stroke="#093C54" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 168h296" opacity=".3"/>
+          <!-- handshake over a table -->
+          <rect x="46" y="118" width="228" height="14" fill="#0C4A66" fill-opacity=".2"/>
+          <path d="M70 132v36M250 132v36"/>
+          <path d="M104 112 78 90l16-16 30 24" fill="#0DA1A7" fill-opacity=".5"/>
+          <path d="M216 112l26-22-16-16-30 24" fill="#2C8F99" fill-opacity=".4"/>
+          <path d="M124 98h72v14a10 10 0 0 1-10 10h-52a10 10 0 0 1-10-10Z" fill="#FFFFFF"/>
+          <!-- rising bars behind -->
+          <path d="M96 78V54M136 78V38M176 78V46M216 78V28" opacity=".35"/>
+          <circle cx="216" cy="24" r="6" fill="#0DA1A7" stroke="none"/>
+        </g>
+      </svg>
     </div>
-
     <div class="intro-b rv">
-      <p class="first">Jalna Industrial Summit 2026 brings together senior leaders from government, public infrastructure and industry to advance the MMLP Dry Port and accelerate investment across key sectors.</p>
-
-      <p>Organised by District Administration Jalna in collaboration with Jalna First, the summit serves as a dedicated platform for strategic dialogue, sector roadmaps and business-to-government interaction.</p>
-
-      <p>Delegates will gain direct insights into government policies, infrastructure timelines and investment incentives, while connecting with key decision-makers driving the district's industrial growth.</p>
+      <p class="first">Jalna is not starting from zero. It already makes steel, seed and feed for the country, with the industrial base to support what investors build next.</p>
+      <p>More than 10% of India's long steel products are manufactured and rolled here. Jalna is also Maharashtra's seed capital and an established centre for feed processing. Industry benefits from continuous, uninterrupted CNG supply and a workforce built for manufacturing at scale.</p>
+      <p>A national-scale Multi-Modal Logistics Park anchors the district's freight economy. With the Samruddhi Mahamarg, rail sidings, the nearest airport 45 minutes away, multiple airports within 300 km and India's top six industrial hubs within 500 km, Jalna is positioned as a manufacturing and logistics gateway for Central India.</p>
+      <p>The summit brings investors into this existing ecosystem - where power, finance and responsive administration are aligned with industry - to explore new facilities, supplier opportunities and value-added manufacturing.</p>
     </div>
   </div>
 </section>
@@ -809,126 +724,124 @@ h1,h2,h3,h4{ margin:0 }
 <!-- ═══════ WHY JALNA ═══════ -->
 <section class="sec band" id="why">
   <div class="wrap">
-    <div class="rv">
-      <p class="tag"><i>04</i> Strategic advantage</p>
-      <h2 class="h2" style="margin-top:20px">Why Jalna, <em>why now.</em></h2>
-      <p class="lede">Five structural advantages positioning Jalna as Central Maharashtra's fastest growing industrial node.</p>
+    <div class="rv" style="max-width:30ch">
+      <p class="tag"><i>04</i> Investor tailwinds</p>
+      <h2 class="h2 two-line-title" style="margin-top:20px">
+        <span>Why invest in Jalna.</span>
+        <span>The <em>tailwinds</em> are here.</span>
+      </h2>
     </div>
 
     <div class="why rv">
-      <div class="wc">
+      <article class="wc">
         <span class="n">01</span>
-        <svg viewBox="0 0 76 76" fill="none" stroke="var(--ink)" stroke-width="1.8"><rect x="12" y="32" width="52" height="32" rx="2"/><path d="M12 32l26-18 26 18"/><circle cx="38" cy="48" r="7"/></svg>
-        <h3 class="h3">MMLP Dry Port</h3>
-        <p>Direct rail connectivity to JNPT Mumbai, reducing export-import transit time and freight costs significantly for regional industry.</p>
-      </div>
+        <svg viewBox="0 0 96 96" fill="none" stroke="#093C54" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 78h84" stroke-width="1.8"/><path d="M12 78V50h9v28zM27 78V34h9v44zM42 78V44h9v34zM57 78V26h9v52zM72 78V56h9v22z" fill="#0C4A66" fill-opacity=".18"/><path d="M57 78V26h9v52z" fill="#0DA1A7" fill-opacity=".55"/><g stroke-width="1.1" opacity=".45"><path d="M6 84v4M27 84v4M48 84v4M69 84v4M90 84v4"/><path d="M6 86h84"/></g><path d="M6 26h5M6 44h5M6 62h5" stroke-width="1.1" opacity=".4"/></svg>
+        <h3 class="h3">Power &amp; capital, aligned</h3>
+        <p>MSEB and financial institutions actively partner with industry to back manufacturing growth.</p>
+      </article>
 
-      <div class="wc">
+      <article class="wc">
         <span class="n">02</span>
-        <svg viewBox="0 0 76 76" fill="none" stroke="var(--ink)" stroke-width="1.8"><circle cx="38" cy="38" r="28"/><path d="M38 10v56M10 38h56M18 24l40 28M18 52l40-28"/></svg>
-        <h3 class="h3">Samruddhi Mahamarg</h3>
-        <p>Direct access to the Mumbai–Nagpur Super Communication Expressway, linking Jalna to JNPA port and major consumer hubs in hours.</p>
-      </div>
+        <svg viewBox="0 0 96 96" fill="none" stroke="#093C54" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 20h16M10 34h16M10 62h16M10 76h16" stroke-width="1.6" opacity=".55"/><path d="M26 20q22 0 22 28M26 34q14 0 14 14M26 76q22 0 22-28M26 62q14 0 14-14"/><path d="M40 48h46" stroke="#0DA1A7" stroke-width="2.6"/><path d="M78 41l8 7-8 7" stroke="#0DA1A7" stroke-width="2.6"/><circle cx="48" cy="48" r="5" fill="#0DA1A7"/><g opacity=".5"><circle cx="10" cy="20" r="2.4" fill="#093C54"/><circle cx="10" cy="34" r="2.4" fill="#093C54"/><circle cx="10" cy="62" r="2.4" fill="#093C54"/><circle cx="10" cy="76" r="2.4" fill="#093C54"/></g></svg>
+        <h3 class="h3">Multi-Modal Logistics Park</h3>
+        <p>A national-scale MMLP anchoring the district's freight economy.</p>
+      </article>
 
-      <div class="wc">
+      <article class="wc">
         <span class="n">03</span>
-        <svg viewBox="0 0 76 76" fill="none" stroke="var(--ink)" stroke-width="1.8"><path d="M14 62L38 14l24 48H14z"/><path d="M26 38h24"/></svg>
-        <h3 class="h3">Steel City of Marathwada</h3>
-        <p>Established ecosystem of steel re-rolling mills, TMT plants and engineering units producing over 1.2 million tonnes annually.</p>
-      </div>
+        <svg viewBox="0 0 96 96" fill="none" stroke="#093C54" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="48" cy="48" r="34" stroke-dasharray="4 6" opacity=".4"/><circle cx="48" cy="48" r="20" stroke-dasharray="4 6" opacity=".3"/><path d="M48 48 48 8M48 48 82 28M48 48 82 68M48 48 48 88M48 48 14 68M48 48 14 28" stroke-width="1.4" opacity=".45"/><path d="M48 48 82 28M48 48 48 8" stroke="#0DA1A7" stroke-width="2.4" opacity="1"/><circle cx="48" cy="48" r="7" fill="#0C4A66"/><g fill="#093C54" opacity=".55"><circle cx="48" cy="8" r="3"/><circle cx="82" cy="28" r="3"/><circle cx="82" cy="68" r="3"/><circle cx="48" cy="88" r="3"/><circle cx="14" cy="68" r="3"/><circle cx="14" cy="28" r="3"/></g></svg>
+        <h3 class="h3">Road, rail and air</h3>
+        <p>On the Samruddhi Mahamarg, with rail sidings, the nearest airport 45 minutes away and multiple airports within 300 km.</p>
+      </article>
 
-      <div class="wc">
+      <article class="wc">
         <span class="n">04</span>
-        <svg viewBox="0 0 76 76" fill="none" stroke="var(--ink)" stroke-width="1.8"><path d="M20 56V26l18-10 18 10v30"/><path d="M30 56V38h16v18"/></svg>
-        <h3 class="h3">Maharashtra's Seed Capital</h3>
-        <p>Home to India's leading agri-biotech firms, seed processing hubs and cold storage network serving millions of farmers nationwide.</p>
-      </div>
+        <svg viewBox="0 0 96 96" fill="none" stroke="#093C54" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 24h80v56H8z" fill="#2C8F99" fill-opacity=".14"/><path d="M8 24h80v56H8z"/><g stroke-width="1.1" opacity=".5"><path d="M18 24v56M28 24v56M38 24v56M48 24v56M58 24v56M68 24v56M78 24v56"/></g><path d="M8 44h80M8 62h80" stroke-width="1.4" opacity=".7"/><path d="M38 24v56" stroke="#0DA1A7" stroke-width="2.4" opacity="1"/><path d="M8 16h80" stroke-width="1.1" opacity=".4"/><path d="M8 12v8M88 12v8" stroke-width="1.1" opacity=".4"/></svg>
+        <h3 class="h3">Ease of governance</h3>
+        <p>Responsive administration and hands-on support through approvals.</p>
+      </article>
 
-      <div class="wc">
+      <article class="wc">
         <span class="n">05</span>
-        <svg viewBox="0 0 76 76" fill="none" stroke="var(--ink)" stroke-width="1.8"><rect x="14" y="14" width="48" height="48" rx="4"/><path d="M26 38l8 8 16-16"/></svg>
-        <h3 class="h3">Pro-Business Administration</h3>
-        <p>Streamlined MIDC land allocation, single-window clearances and dedicated district administration support for new investments.</p>
-      </div>
+        <svg viewBox="0 0 96 96" fill="none" stroke="#093C54" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="48" cy="48" r="15" fill="#0C4A66" fill-opacity=".3"/><circle cx="48" cy="48" r="15"/><circle cx="48" cy="48" r="32" stroke-dasharray="3 6" opacity=".4"/><g><circle cx="48" cy="16" r="7" fill="#0DA1A7" fill-opacity=".6"/><circle cx="76" cy="32" r="6" fill="#2C8F99" fill-opacity=".5"/><circle cx="76" cy="64" r="6" fill="#2C8F99" fill-opacity=".5"/><circle cx="48" cy="80" r="7" fill="#0DA1A7" fill-opacity=".6"/><circle cx="20" cy="64" r="6" fill="#2C8F99" fill-opacity=".5"/><circle cx="20" cy="32" r="6" fill="#0DA1A7" fill-opacity=".6"/></g><g stroke-width="1.2" opacity=".45"><path d="M48 33V23M63 40l7-4M63 56l7 4M48 63v10M33 56l-7 4M33 40l-7-4"/></g></svg>
+        <h3 class="h3">Labour-ready ecosystem</h3>
+        <p>An existing base built to run labour-intensive operations at scale.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ═══════ FOCUS SECTORS ═══════ -->
+<!-- ═══════ SECTORS ═══════ -->
 <section class="sec" id="sectors">
   <div class="wrap">
-    <div class="rv">
-      <p class="tag"><i>05</i> Investment avenues</p>
-      <h2 class="h2" style="margin-top:20px">Focus <em>sectors.</em></h2>
-      <p class="lede">Core sectors driving Jalna's next wave of industrial expansion and supply chain integration.</p>
+    <div class="rv" style="max-width:32ch">
+      <p class="tag"><i>05</i> Focus sectors</p>
+      <h2 class="h2 two-line-title" style="margin-top:20px">
+        <span>Build on what</span>
+        <span>Jalna <em>already does well</em>.</span>
+      </h2>
     </div>
 
-    <div class="sg rv">
-      <div class="sc sky1">
-        <figure>
+    <div class="sg">
+      <!-- 1 seeds -->
+      <article class="sc rv">
+        <figure class="sky3">
           <span class="n">01</span>
-          <svg viewBox="0 0 400 180" fill="none" stroke="var(--ink)" stroke-width="1.6"><path d="M60 140h280M100 140V70l40-30 40 30v70M220 140V90l30-20 30 20v70"/><circle cx="140" cy="95" r="14"/><circle cx="250" cy="110" r="10"/></svg>
+          <svg viewBox="0 0 300 200" role="img" aria-label="Axonometric: seed silos, a grading shed and a conveyor line."><g transform="translate(152,30)"><polygon points="0.00,0.00 142.89,82.50 37.15,143.55 -105.74,61.05" fill="#E4F5F0" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="1.0"/><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-10.85,29.70 A16.57,9.57 0 0 0 22.29,29.70 L22.29,-23.10 A16.57,9.57 0 0 1 -10.85,-23.10 Z" fill="#E4F2F4"/><ellipse cx="5.72" cy="-23.10" rx="16.57" ry="9.57" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-10.85,-23.10 A16.57,9.57 0 0 0 22.29,-23.10 L5.72,-36.30 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M19.15,40.43 A16.57,9.57 0 0 0 52.29,40.43 L52.29,-12.38 A16.57,9.57 0 0 1 19.15,-12.38 Z" fill="#E4F2F4"/><ellipse cx="35.72" cy="-12.38" rx="16.57" ry="9.57" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M19.15,-12.38 A16.57,9.57 0 0 0 52.29,-12.38 L35.72,-25.57 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-20.86,50.32 A16.57,9.57 0 0 0 12.28,50.32 L12.28,-2.48 A16.57,9.57 0 0 1 -20.86,-2.48 Z" fill="#E4F2F4"/><ellipse cx="-4.29" cy="-2.48" rx="16.57" ry="9.57" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-20.86,-2.48 A16.57,9.57 0 0 0 12.28,-2.48 L-4.29,-15.68 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="-78.59,55.27 -12.86,93.22 -12.86,73.42 -78.59,35.47" fill="#E4F2F4"/><polygon points="8.57,80.85 -12.86,93.22 -12.86,73.42 8.57,61.05" fill="#BFE2E6"/><polygon points="-57.16,23.10 8.57,61.05 -12.86,73.42 -78.59,35.47" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M14.87,62.70 A16.57,9.57 0 0 0 48.01,62.70 L48.01,9.90 A16.57,9.57 0 0 1 14.87,9.90 Z" fill="#E4F2F4"/><ellipse cx="31.44" cy="9.90" rx="16.57" ry="9.57" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M14.87,9.90 A16.57,9.57 0 0 0 48.01,9.90 L31.44,-3.30 Z" fill="#42B0B8"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="42.87,84.15 74.30,102.30 74.30,75.90 42.87,57.75" fill="#42B0B8"/><polygon points="105.74,84.15 74.30,102.30 74.30,75.90 105.74,57.75" fill="#2C8F99"/><polygon points="74.30,39.60 105.74,57.75 74.30,75.90 42.87,57.75" fill="#7ACDD3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-85.74,62.70 37.15,133.65 37.15,127.88 -85.74,56.92" fill="#17ABB1"/><polygon points="44.30,129.53 37.15,133.65 37.15,127.88 44.30,123.75" fill="#0B8A90"/><polygon points="-78.59,52.80 44.30,123.75 37.15,127.88 -85.74,56.92" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="5.72,102.30 42.87,123.75 42.87,108.90 5.72,87.45" fill="#0F5878"/><polygon points="65.73,110.55 42.87,123.75 42.87,108.90 65.73,95.70" fill="#093C54"/><polygon points="28.58,74.25 65.73,95.70 42.87,108.90 5.72,87.45" fill="#2E7FA3"/></g></g></svg>
         </figure>
         <div class="txt">
-          <h3 class="h3">Steel, Auto &amp; Ancillaries</h3>
-          <p>TMT bars, structural steel, auto components, forging, casting and specialized engineering fabrication.</p>
+          <h3 class="h3">Maharashtra's seed capital</h3>
+          <p>Build beside a premier centre for hybrid seed development and an established seed-industry ecosystem.</p>
         </div>
-      </div>
+      </article>
 
-      <div class="sc sky2">
-        <figure>
+      <!-- 2 steel -->
+      <article class="sc rv">
+        <figure class="sky1">
           <span class="n">02</span>
-          <svg viewBox="0 0 400 180" fill="none" stroke="var(--ink)" stroke-width="1.6"><path d="M80 140C80 90 140 50 200 50s120 40 120 90H80z"/><path d="M200 50v90M140 140c0-30 27-55 60-55s60 25 60 55"/></svg>
+          <svg viewBox="0 0 300 200" role="img" aria-label="Axonometric: a rolling mill with stacks, bar racks and steel coils."><g transform="translate(150,34)"><polygon points="0.00,0.00 134.32,77.55 25.72,140.25 -108.60,62.70" fill="#DDEEF5" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="1.0"/><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M28.82,-4.12 A4.04,2.33 0 0 0 36.91,-4.12 L36.91,-43.73 A4.04,2.33 0 0 1 28.82,-43.73 Z" fill="#7FC0C8"/><ellipse cx="32.87" cy="-43.73" rx="4.04" ry="2.33" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M44.54,4.95 A4.04,2.33 0 0 0 52.63,4.95 L52.63,-34.65 A4.04,2.33 0 0 1 44.54,-34.65 Z" fill="#7FC0C8"/><ellipse cx="48.58" cy="-34.65" rx="4.04" ry="2.33" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-62.35,46.20 A10.91,6.30 0 0 0 -40.53,46.20 L-40.53,30.52 A10.91,6.30 0 0 1 -62.35,30.52 Z" fill="#7FC0C8"/><ellipse cx="-51.44" cy="30.52" rx="10.91" ry="6.30" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M60.26,14.03 A4.04,2.33 0 0 0 68.34,14.03 L68.34,-25.57 A4.04,2.33 0 0 1 60.26,-25.57 Z" fill="#7FC0C8"/><ellipse cx="64.30" cy="-25.57" rx="4.04" ry="2.33" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-43.78,56.92 A10.91,6.30 0 0 0 -21.95,56.92 L-21.95,41.25 A10.91,6.30 0 0 1 -43.78,41.25 Z" fill="#7FC0C8"/><ellipse cx="-32.87" cy="41.25" rx="10.91" ry="6.30" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-80.93,56.92 A10.91,6.30 0 0 0 -59.11,56.92 L-59.11,41.25 A10.91,6.30 0 0 1 -80.93,41.25 Z" fill="#7FC0C8"/><ellipse cx="-70.02" cy="41.25" rx="10.91" ry="6.30" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="-20.01,51.15 51.44,92.40 51.44,59.40 -20.01,18.15" fill="#0F4A68"/><polygon points="97.17,66.00 51.44,92.40 51.44,59.40 97.17,33.00" fill="#052C3E"/><polygon points="25.72,-8.25 97.17,33.00 51.44,59.40 -20.01,18.15" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="-20.01,18.15 51.44,59.40 51.44,52.80 -20.01,11.55" fill="#7FC0C8"/><polygon points="97.17,33.00 51.44,59.40 51.44,52.80 97.17,26.40" fill="#5EA5AF"/><polygon points="25.72,-14.85 97.17,26.40 51.44,52.80 -20.01,11.55" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-25.20,67.65 A10.91,6.30 0 0 0 -3.38,67.65 L-3.38,51.97 A10.91,6.30 0 0 1 -25.20,51.97 Z" fill="#7FC0C8"/><ellipse cx="-14.29" cy="51.97" rx="10.91" ry="6.30" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-62.35,67.65 A10.91,6.30 0 0 0 -40.53,67.65 L-40.53,51.97 A10.91,6.30 0 0 1 -62.35,51.97 Z" fill="#7FC0C8"/><ellipse cx="-51.44" cy="51.97" rx="10.91" ry="6.30" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-38.30,58.41 38.87,102.96 38.87,97.02 -38.30,52.47" fill="#17ABB1"/><polygon points="45.73,99.00 38.87,102.96 38.87,97.02 45.73,93.06" fill="#0B8A90"/><polygon points="-31.44,48.51 45.73,93.06 38.87,97.02 -38.30,52.47" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round"><path d="M-43.78,78.38 A10.91,6.30 0 0 0 -21.95,78.38 L-21.95,62.70 A10.91,6.30 0 0 1 -43.78,62.70 Z" fill="#7FC0C8"/><ellipse cx="-32.87" cy="62.70" rx="10.91" ry="6.30" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-46.87,63.36 30.29,107.91 30.29,101.97 -46.87,57.42" fill="#17ABB1"/><polygon points="37.15,103.95 30.29,107.91 30.29,101.97 37.15,98.01" fill="#0B8A90"/><polygon points="-40.01,53.46 37.15,98.01 30.29,101.97 -46.87,57.42" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-55.44,68.31 21.72,112.86 21.72,106.92 -55.44,62.37" fill="#17ABB1"/><polygon points="28.58,108.90 21.72,112.86 21.72,106.92 28.58,102.96" fill="#0B8A90"/><polygon points="-48.58,58.41 28.58,102.96 21.72,106.92 -55.44,62.37" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-64.02,73.26 13.15,117.81 13.15,111.87 -64.02,67.32" fill="#17ABB1"/><polygon points="20.01,113.85 13.15,117.81 13.15,111.87 20.01,107.91" fill="#0B8A90"/><polygon points="-57.16,63.36 20.01,107.91 13.15,111.87 -64.02,67.32" fill="#4FC6CB"/></g></g></svg>
         </figure>
         <div class="txt">
-          <h3 class="h3">Agri-Processing &amp; Seeds</h3>
-          <p>Hybrid seed production, dal mills, oilseed extraction, bio-fertilizers and food processing units.</p>
+          <h3 class="h3">Downstream steel manufacturing</h3>
+          <p>A built ecosystem of 800+ vendors and OEMs, 10,000+ direct jobs, 50,000+ indirect jobs and exports to 35 countries supports the next downstream opportunity: galvanising, processing workshops, scaffolding, formwork, pre-engineered systems and precast structures.</p>
         </div>
-      </div>
+      </article>
 
-      <div class="sc sky3">
-        <figure>
+      <!-- 3 agro -->
+      <article class="sc rv">
+        <figure class="sky2">
           <span class="n">03</span>
-          <svg viewBox="0 0 400 180" fill="none" stroke="var(--ink)" stroke-width="1.6"><rect x="80" y="60" width="240" height="80" rx="4"/><path d="M140 60V40h120v20M80 100h240M160 100v40M240 100v40"/></svg>
+          <svg viewBox="0 0 300 200" role="img" aria-label="Axonometric: a processing hall, grain silos, produce crates and a cold store."><g transform="translate(152,32)"><polygon points="0.00,0.00 137.18,79.20 37.15,136.95 -100.03,57.75" fill="#DFF2F3" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="1.0"/><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="-37.15,34.65 14.29,64.35 14.29,28.05 -37.15,-1.65" fill="#E4F2F4"/><polygon points="54.30,41.25 14.29,64.35 14.29,28.05 54.30,4.95" fill="#BFE2E6"/><polygon points="2.86,-24.75 54.30,4.95 14.29,28.05 -37.15,-1.65" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-37.15,-1.65 14.29,28.05 14.29,22.28 -37.15,-7.43" fill="#7FC0C8"/><polygon points="54.30,4.95 14.29,28.05 14.29,22.28 54.30,-0.83" fill="#5EA5AF"/><polygon points="2.86,-30.53 54.30,-0.83 14.29,22.28 -37.15,-7.43" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-64.30,51.98 -47.16,61.88 -47.16,53.62 -64.30,43.73" fill="#42B0B8"/><polygon points="-32.87,53.62 -47.16,61.88 -47.16,53.62 -32.87,45.38" fill="#2C8F99"/><polygon points="-50.01,35.48 -32.87,45.38 -47.16,53.62 -64.30,43.73" fill="#7ACDD3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-64.30,43.73 -47.16,53.62 -47.16,45.38 -64.30,35.48" fill="#17ABB1"/><polygon points="-32.87,45.38 -47.16,53.62 -47.16,45.38 -32.87,37.12" fill="#0B8A90"/><polygon points="-50.01,27.23 -32.87,37.12 -47.16,45.38 -64.30,35.48" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-81.45,61.88 -64.30,71.77 -64.30,63.52 -81.45,53.62" fill="#42B0B8"/><polygon points="-50.01,63.52 -64.30,71.77 -64.30,63.52 -50.01,55.27" fill="#2C8F99"/><polygon points="-67.16,45.38 -50.01,55.27 -64.30,63.52 -81.45,53.62" fill="#7ACDD3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-81.45,53.62 -64.30,63.52 -64.30,55.27 -81.45,45.38" fill="#17ABB1"/><polygon points="-50.01,55.27 -64.30,63.52 -64.30,55.27 -50.01,47.02" fill="#0B8A90"/><polygon points="-67.16,37.12 -50.01,47.02 -64.30,55.27 -81.45,45.38" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-42.87,64.35 -25.72,74.25 -25.72,66.00 -42.87,56.10" fill="#42B0B8"/><polygon points="-11.43,66.00 -25.72,74.25 -25.72,66.00 -11.43,57.75" fill="#2C8F99"/><polygon points="-28.58,47.85 -11.43,57.75 -25.72,66.00 -42.87,56.10" fill="#7ACDD3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-42.87,56.10 -25.72,66.00 -25.72,57.75 -42.87,47.85" fill="#17ABB1"/><polygon points="-11.43,57.75 -25.72,66.00 -25.72,57.75 -11.43,49.50" fill="#0B8A90"/><polygon points="-28.58,39.60 -11.43,49.50 -25.72,57.75 -42.87,47.85" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M48.92,61.88 A12.53,7.23 0 0 0 73.97,61.88 L73.97,22.28 A12.53,7.23 0 0 1 48.92,22.28 Z" fill="#E4F2F4"/><ellipse cx="61.44" cy="22.28" rx="12.53" ry="7.23" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M48.92,22.28 A12.53,7.23 0 0 0 73.97,22.28 L61.44,12.38 Z" fill="#17ABB1"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-60.02,74.25 -42.87,84.15 -42.87,75.90 -60.02,66.00" fill="#42B0B8"/><polygon points="-28.58,75.90 -42.87,84.15 -42.87,75.90 -28.58,67.65" fill="#2C8F99"/><polygon points="-45.73,57.75 -28.58,67.65 -42.87,75.90 -60.02,66.00" fill="#7ACDD3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-60.02,66.00 -42.87,75.90 -42.87,67.65 -60.02,57.75" fill="#17ABB1"/><polygon points="-28.58,67.65 -42.87,75.90 -42.87,67.65 -28.58,59.40" fill="#0B8A90"/><polygon points="-45.73,49.50 -28.58,59.40 -42.87,67.65 -60.02,57.75" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M67.49,72.60 A12.53,7.23 0 0 0 92.55,72.60 L92.55,33.00 A12.53,7.23 0 0 1 67.49,33.00 Z" fill="#E4F2F4"/><ellipse cx="80.02" cy="33.00" rx="12.53" ry="7.23" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M67.49,33.00 A12.53,7.23 0 0 0 92.55,33.00 L80.02,23.10 Z" fill="#17ABB1"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M86.07,83.33 A12.53,7.23 0 0 0 111.13,83.33 L111.13,43.73 A12.53,7.23 0 0 1 86.07,43.73 Z" fill="#E4F2F4"/><ellipse cx="98.60" cy="43.73" rx="12.53" ry="7.23" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M86.07,43.73 A12.53,7.23 0 0 0 111.13,43.73 L98.60,33.82 Z" fill="#17ABB1"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="-11.43,95.70 40.01,125.40 40.01,97.35 -11.43,67.65" fill="#0F5878"/><polygon points="68.59,108.90 40.01,125.40 40.01,97.35 68.59,80.85" fill="#093C54"/><polygon points="17.15,51.15 68.59,80.85 40.01,97.35 -11.43,67.65" fill="#2E7FA3"/></g></g></svg>
         </figure>
         <div class="txt">
-          <h3 class="h3">MMLP &amp; Logistics</h3>
-          <p>Warehousing, cold storage, ICD container operations, freight forwarding and supply chain services.</p>
+          <h3 class="h3">Feed processing</h3>
+          <p>Expand a working base for high-protein animal and poultry feed ingredients.</p>
         </div>
-      </div>
+      </article>
 
-      <div class="sc sky2">
-        <figure>
+      <!-- 4 logistics -->
+      <article class="sc rv">
+        <figure class="sky1">
           <span class="n">04</span>
-          <svg viewBox="0 0 400 180" fill="none" stroke="var(--ink)" stroke-width="1.6"><path d="M120 140V80l80-40 80 40v60H120z"/><path d="M170 140v-30h60v30"/><circle cx="200" cy="80" r="12"/></svg>
+          <svg viewBox="0 0 300 200" role="img" aria-label="Axonometric: a warehouse, stacked containers, a truck and a rail wagon."><g transform="translate(150,32)"><polygon points="0.00,0.00 134.32,77.55 34.29,135.30 -100.03,57.75" fill="#DBEDF4" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="1.0"/><polygon points="-70.02,40.43 64.30,117.98 47.16,127.88 -87.17,50.33" fill="#C6E4EC" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="1.0"/><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="-42.87,34.65 8.57,64.35 8.57,36.30 -42.87,6.60" fill="#E4F2F4"/><polygon points="51.44,39.60 8.57,64.35 8.57,36.30 51.44,11.55" fill="#BFE2E6"/><polygon points="0.00,-18.15 51.44,11.55 8.57,36.30 -42.87,6.60" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><polygon points="0.00,-18.15 51.44,11.55 30.01,10.73 -21.43,-18.97" fill="#FFFFFF"/><polygon points="-42.87,6.60 8.57,36.30 30.01,10.73 -21.43,-18.97" fill="#E4F2F4"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="42.87,57.75 75.73,76.73 75.73,63.53 42.87,44.55" fill="#17ABB1"/><polygon points="90.02,68.48 75.73,76.73 75.73,63.53 90.02,55.28" fill="#0B8A90"/><polygon points="57.16,36.30 90.02,55.28 75.73,63.53 42.87,44.55" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="42.87,43.73 75.73,62.70 75.73,49.50 42.87,30.53" fill="#0F5878"/><polygon points="90.02,54.45 75.73,62.70 75.73,49.50 90.02,41.25" fill="#093C54"/><polygon points="57.16,22.28 90.02,41.25 75.73,49.50 42.87,30.53" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="42.87,29.70 75.73,48.68 75.73,35.48 42.87,16.50" fill="#7FC0C8"/><polygon points="90.02,40.43 75.73,48.68 75.73,35.48 90.02,27.23" fill="#5EA5AF"/><polygon points="57.16,8.25 90.02,27.23 75.73,35.48 42.87,16.50" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-68.59,59.40 -37.15,77.55 -37.15,66.66 -68.59,48.51" fill="#0F5878"/><polygon points="-25.72,70.95 -37.15,77.55 -37.15,66.66 -25.72,60.06" fill="#093C54"/><polygon points="-57.16,41.91 -25.72,60.06 -37.15,66.66 -68.59,48.51" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-36.44,77.96 -26.15,83.90 -26.15,70.37 -36.44,64.43" fill="#0F4A68"/><polygon points="-14.72,77.30 -26.15,83.90 -26.15,70.37 -14.72,63.77" fill="#052C3E"/><polygon points="-25.01,57.83 -14.72,63.77 -26.15,70.37 -36.44,64.43" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="22.86,69.30 55.73,88.27 55.73,75.08 22.86,56.10" fill="#0F5878"/><polygon points="70.02,80.02 55.73,88.27 55.73,75.08 70.02,66.83" fill="#093C54"/><polygon points="37.15,47.85 70.02,66.83 55.73,75.08 22.86,56.10" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="22.86,55.27 55.73,74.25 55.73,61.05 22.86,42.08" fill="#17ABB1"/><polygon points="70.02,66.00 55.73,74.25 55.73,61.05 70.02,52.80" fill="#0B8A90"/><polygon points="37.15,33.83 70.02,52.80 55.73,61.05 22.86,42.08" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="2.86,80.85 35.72,99.83 35.72,86.62 2.86,67.65" fill="#7FC0C8"/><polygon points="50.01,91.58 35.72,99.83 35.72,86.62 50.01,78.38" fill="#5EA5AF"/><polygon points="17.15,59.40 50.01,78.38 35.72,86.62 2.86,67.65" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="2.86,66.83 35.72,85.80 35.72,72.60 2.86,53.63" fill="#17ABB1"/><polygon points="50.01,77.55 35.72,85.80 35.72,72.60 50.01,64.35" fill="#0B8A90"/><polygon points="17.15,45.38 50.01,64.35 35.72,72.60 2.86,53.63" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="2.86,52.80 35.72,71.77 35.72,58.57 2.86,39.60" fill="#0F5878"/><polygon points="50.01,63.52 35.72,71.77 35.72,58.57 50.01,50.32" fill="#093C54"/><polygon points="17.15,31.35 50.01,50.32 35.72,58.57 2.86,39.60" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.2" stroke-linejoin="round" opacity="1.0"><polygon points="-9.86,94.79 24.43,114.59 24.43,102.38 -9.86,82.58" fill="#17ABB1"/><polygon points="35.01,108.49 24.43,114.59 24.43,102.38 35.01,96.28" fill="#0B8A90"/><polygon points="0.71,76.48 35.01,96.28 24.43,102.38 -9.86,82.58" fill="#4FC6CB"/></g></g></svg>
         </figure>
         <div class="txt">
-          <h3 class="h3">Textiles &amp; Silk Processing</h3>
-          <p>Cotton ginning, pressing, spinning mills, sericulture, silk reeling and weaving clusters.</p>
+          <h3 class="h3">Silk &amp; sericulture</h3>
+          <p>A genuine open field for sericulture and value-added silk production.</p>
         </div>
-      </div>
+      </article>
 
-      <div class="sc sky3">
-        <figure>
+      <!-- 5 automotive -->
+      <article class="sc rv">
+        <figure class="sky2">
           <span class="n">05</span>
-          <svg viewBox="0 0 400 180" fill="none" stroke="var(--ink)" stroke-width="1.6"><path d="M100 130a60 60 0 10120 0 60 60 0 10-120 0z"/><path d="M220 130a40 40 0 1080 0 40 40 0 10-80 0z"/><path d="M160 70V40M260 90V50"/></svg>
+          <svg viewBox="0 0 300 200" role="img" aria-label="Axonometric: a machined flange, a press cell and pallets of components."><g transform="translate(150,28)"><polygon points="0.00,0.00 137.18,79.20 37.15,136.95 -100.03,57.75" fill="#DFF2F3" stroke="#093C54" stroke-width="0" stroke-linejoin="round" opacity="1.0"/><g stroke="#093C54" stroke-width="1.0" stroke-linejoin="round"><path d="M-27.59,23.76 A4.45,2.57 0 0 0 -18.70,23.76 L-18.70,21.78 A4.45,2.57 0 0 1 -27.59,21.78 Z" fill="#0F4A68"/><ellipse cx="-23.15" cy="21.78" rx="4.45" ry="2.57" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.0" stroke-linejoin="round"><path d="M18.70,23.76 A4.45,2.57 0 0 0 27.59,23.76 L27.59,21.78 A4.45,2.57 0 0 1 18.70,21.78 Z" fill="#0F4A68"/><ellipse cx="23.15" cy="21.78" rx="4.45" ry="2.57" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-40.42,46.20 A40.42,23.33 0 0 0 40.42,46.20 L40.42,37.12 A40.42,23.33 0 0 1 -40.42,37.12 Z" fill="#7FC0C8"/><ellipse cx="0.00" cy="37.12" rx="40.42" ry="23.33" fill="#A9D6DC"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-25.26,37.12 A25.26,14.58 0 0 0 25.26,37.12 L25.26,24.75 A25.26,14.58 0 0 1 -25.26,24.75 Z" fill="#0F5878"/><ellipse cx="0.00" cy="24.75" rx="25.26" ry="14.58" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round"><path d="M-10.10,24.75 A10.10,5.83 0 0 0 10.10,24.75 L10.10,16.50 A10.10,5.83 0 0 1 -10.10,16.50 Z" fill="#17ABB1"/><ellipse cx="0.00" cy="16.50" rx="10.10" ry="5.83" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.1" stroke-linejoin="round" opacity="1.0"><polygon points="-80.02,61.05 -60.02,72.60 -60.02,67.98 -80.02,56.43" fill="#E4F2F4"/><polygon points="-44.30,63.52 -60.02,72.60 -60.02,67.98 -44.30,58.91" fill="#BFE2E6"/><polygon points="-64.30,47.36 -44.30,58.91 -60.02,67.98 -80.02,56.43" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.1" stroke-linejoin="round" opacity="1.0"><polygon points="-76.16,56.68 -60.44,65.75 -60.44,56.68 -76.16,47.60" fill="#0F5878"/><polygon points="-48.16,58.66 -60.44,65.75 -60.44,56.68 -48.16,49.58" fill="#093C54"/><polygon points="-63.87,40.51 -48.16,49.58 -60.44,56.68 -76.16,47.60" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.0" stroke-linejoin="round"><path d="M18.70,50.49 A4.45,2.57 0 0 0 27.59,50.49 L27.59,48.51 A4.45,2.57 0 0 1 18.70,48.51 Z" fill="#0F4A68"/><ellipse cx="23.15" cy="48.51" rx="4.45" ry="2.57" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.0" stroke-linejoin="round"><path d="M-27.59,50.49 A4.45,2.57 0 0 0 -18.70,50.49 L-18.70,48.51 A4.45,2.57 0 0 1 -27.59,48.51 Z" fill="#0F4A68"/><ellipse cx="-23.15" cy="48.51" rx="4.45" ry="2.57" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.1" stroke-linejoin="round" opacity="1.0"><polygon points="-55.73,75.08 -35.72,86.62 -35.72,82.00 -55.73,70.45" fill="#E4F2F4"/><polygon points="-20.01,77.55 -35.72,86.62 -35.72,82.00 -20.01,72.93" fill="#BFE2E6"/><polygon points="-40.01,61.38 -20.01,72.93 -35.72,82.00 -55.73,70.45" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.1" stroke-linejoin="round" opacity="1.0"><polygon points="-51.87,70.70 -36.15,79.78 -36.15,70.70 -51.87,61.63" fill="#0F5878"/><polygon points="-23.86,72.68 -36.15,79.78 -36.15,70.70 -23.86,63.61" fill="#093C54"/><polygon points="-39.58,54.53 -23.86,63.61 -36.15,70.70 -51.87,61.63" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="48.58,74.25 85.74,95.70 85.74,56.10 48.58,34.65" fill="#0F4A68"/><polygon points="114.32,79.20 85.74,95.70 85.74,56.10 114.32,39.60" fill="#052C3E"/><polygon points="77.16,18.15 114.32,39.60 85.74,56.10 48.58,34.65" fill="#1E6285"/></g><g stroke="#093C54" stroke-width="1.3" stroke-linejoin="round" opacity="1.0"><polygon points="42.87,34.65 85.74,59.40 85.74,54.45 42.87,29.70" fill="#17ABB1"/><polygon points="120.03,39.60 85.74,59.40 85.74,54.45 120.03,34.65" fill="#0B8A90"/><polygon points="77.16,9.90 120.03,34.65 85.74,54.45 42.87,29.70" fill="#4FC6CB"/></g><g stroke="#093C54" stroke-width="1.1" stroke-linejoin="round" opacity="1.0"><polygon points="-31.44,89.10 -11.43,100.65 -11.43,96.03 -31.44,84.48" fill="#E4F2F4"/><polygon points="4.29,91.58 -11.43,100.65 -11.43,96.03 4.29,86.95" fill="#BFE2E6"/><polygon points="-15.72,75.40 4.29,86.95 -11.43,96.03 -31.44,84.48" fill="#FFFFFF"/></g><g stroke="#093C54" stroke-width="1.1" stroke-linejoin="round" opacity="1.0"><polygon points="-27.58,84.73 -11.86,93.80 -11.86,84.73 -27.58,75.65" fill="#0F5878"/><polygon points="0.43,86.71 -11.86,93.80 -11.86,84.73 0.43,77.63" fill="#093C54"/><polygon points="-15.29,68.56 0.43,77.63 -11.86,84.73 -27.58,75.65" fill="#2E7FA3"/></g><g stroke="#093C54" stroke-width="1.5" stroke-linejoin="round" opacity="1.0"><polygon points="17.15,89.10 60.02,113.85 60.02,99.00 17.15,74.25" fill="#7FC0C8"/><polygon points="80.02,102.30 60.02,113.85 60.02,99.00 80.02,87.45" fill="#5EA5AF"/><polygon points="37.15,62.70 80.02,87.45 60.02,99.00 17.15,74.25" fill="#A9D6DC"/></g></g></svg>
         </figure>
         <div class="txt">
-          <h3 class="h3">Wine &amp; Beverage Industry</h3>
-          <p>Grape processing, wineries, fruit processing, bottling plants and beverage manufacturing.</p>
+          <h3 class="h3">Auto ancillaries</h3>
+          <p>AURIC, 60 km away, has attracted more than ₹93,000 crore and plans capacity for 25 lakh EVs a year. Jalna offers the land, power and labour needed for its supplier belt.</p>
         </div>
-      </div>
-
-      <div class="sc sky1">
-        <figure>
-          <span class="n">06</span>
-          <svg viewBox="0 0 400 180" fill="none" stroke="var(--ink)" stroke-width="1.6"><path d="M80 130l60-80 60 40 60-50 60 90H80z"/><circle cx="320" cy="50" r="10"/></svg>
-        </figure>
-        <div class="txt">
-          <h3 class="h3">Green Energy &amp; Infrastructure</h3>
-          <p>Solar manufacturing, industrial parks, effluent treatment and sustainable infrastructure.</p>
-        </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
@@ -936,205 +849,148 @@ h1,h2,h3,h4{ margin:0 }
 <!-- ═══════ OBJECTIVES ═══════ -->
 <section class="sec obj">
   <div class="wrap">
-    <div class="rv">
-      <p class="tag inv"><i>06</i> Core objectives</p>
-      <h2 class="h2" style="margin-top:20px">What the summit <em>delivers.</em></h2>
-      <p class="lede">Clear, actionable outcomes designed for both investors and government policy makers.</p>
+    <div class="rv" style="max-width:34ch">
+      <p class="tag inv"><i>◆</i> The road ahead</p>
+      <h2 class="h2 two-line-title" style="margin-top:20px">
+        <span>A four-part vision</span>
+        <span>for <em>Jalna</em>.</span>
+      </h2>
+      <p class="lede" style="margin-top:24px">Four things the district intends to become - and is building towards now.</p>
     </div>
-
-    <ul class="olist rv">
-      <li><i>01</i><span>Position Jalna MMLP Dry Port as Marathwada's premier freight &amp; export hub.</span></li>
-      <li><i>02</i><span>Showcase investible MIDC land parcels and industrial park infrastructure.</span></li>
-      <li><i>03</i><span>Facilitate direct B2G interactions with senior government secretaries &amp; MIDC officials.</span></li>
-      <li><i>04</i><span>Present state industrial incentives, PSI schemes and customized support packages.</span></li>
-      <li><i>05</i><span>Connect global investors with local industry leaders for joint ventures &amp; partnerships.</span></li>
-      <li><i>06</i><span>Announce new MoUs and investment commitments across focus sectors.</span></li>
-    </ul>
+    <ol class="olist rv">
+      <li><i>01</i>Future-ready talent and innovation through ICT, ITI and an incubation centre</li>
+      <li><i>02</i>Industry-friendly investment backed by ease of doing business and administrative support</li>
+      <li><i>03</i>An MMLP and logistics gateway connecting Central Maharashtra to global manufacturing</li>
+      <li><i>04</i>A manufacturing hub for anchor industries with globally competitive, plug-and-play infrastructure</li>
+    </ol>
   </div>
 </section>
 
-<!-- ═══════ EXPERIENCE / THE DAY ═══════ -->
-<section class="sec" id="experience">
+<!-- ═══════ EXPERIENCE ═══════ -->
+<section class="sec band" id="experience">
   <div class="wrap">
-    <div class="rv">
-      <p class="tag"><i>07</i> The experience</p>
-      <h2 class="h2" style="margin-top:20px">A day designed for <em>outcomes.</em></h2>
-      <p class="lede">Every session structured to maximize interaction, clarity and momentum.</p>
+    <div class="rv" style="max-width:34ch">
+      <p class="tag"><i>06</i> The day</p>
+      <h2 class="h2" style="margin-top:20px">What actually<br><em>happens</em>.</h2>
+      <p class="lede" style="margin-top:24px">A focused programme built around Jalna's industrial base, the MMLP logistics gateway, new manufacturing investment and the people who can move projects forward.</p>
     </div>
-
-    <div class="eg rv">
-      <div class="ec">
-        <svg viewBox="0 0 52 52" fill="none" stroke="var(--ink)" stroke-width="1.8"><rect x="6" y="10" width="40" height="32" rx="3"/><path d="M6 20h40M18 32h16"/></svg>
-        <h3 class="h3">Keynote &amp; Policy Briefings</h3>
-        <p>Direct presentations by Chief Guests and senior government leadership on policy, infrastructure and roadmap.</p>
-      </div>
-
-      <div class="ec">
-        <svg viewBox="0 0 52 52" fill="none" stroke="var(--ink)" stroke-width="1.8"><circle cx="20" cy="18" r="8"/><circle cx="34" cy="34" r="8"/><path d="M26 24l3 4"/></svg>
-        <h3 class="h3">Sectoral Panel Discussions</h3>
-        <p>Interactive sessions on Dry Port logistics, steel manufacturing, seed biotech and industrial infrastructure.</p>
-      </div>
-
-      <div class="ec">
-        <svg viewBox="0 0 52 52" fill="none" stroke="var(--ink)" stroke-width="1.8"><path d="M10 14h32v24H10z"/><path d="M18 22l6 6 10-10"/></svg>
-        <h3 class="h3">MoU Exchange &amp; Announcements</h3>
-        <p>Formal signing and announcement of strategic investment commitments before government dignitaries.</p>
-      </div>
-
-      <div class="ec">
-        <svg viewBox="0 0 52 52" fill="none" stroke="var(--ink)" stroke-width="1.8"><circle cx="26" cy="20" r="10"/><path d="M10 42c0-8.8 7.2-16 16-16s16 7.2 16 16"/></svg>
-        <h3 class="h3">B2G &amp; B2B Networking</h3>
-        <p>Dedicated networking breaks to connect investors, industrialist invitees and administration officials.</p>
-      </div>
-
-      <div class="ec">
-        <svg viewBox="0 0 52 52" fill="none" stroke="var(--ink)" stroke-width="1.8"><path d="M12 40V16l14-6 14 6v24H12z"/><path d="M20 40V28h12v12"/></svg>
-        <h3 class="h3">Dry Port (MMLP) Site Visit</h3>
-        <p>Post-lunch guided visit to the Multi-Modal Logistics Park site to inspect infrastructure firsthand.</p>
-      </div>
-
-      <div class="ec">
-        <svg viewBox="0 0 52 52" fill="none" stroke="var(--ink)" stroke-width="1.8"><path d="M8 12h36v28H8z"/><path d="M8 22h36M22 12v28"/></svg>
-        <h3 class="h3">Executive Lunch &amp; Exchange</h3>
-        <p>High-level networking lunch providing informal access to government guests and industry leaders.</p>
-      </div>
+    <div class="eg">
+      <article class="ec rv">
+        <svg viewBox="0 0 52 52" fill="none" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="4" y="8" width="44" height="30" fill="#0C4A66" fill-opacity=".25"/>
+          <path d="M26 38v8M16 46h20"/><path d="M12 30l8-10 7 8 6-8 7 10" stroke="#0DA1A7"/>
+        </svg>
+        <h3 class="h3">Leadership in the room</h3>
+        <p>The chief guest, guests of honour, district administration and invited organisations open a direct, decision-led conversation.</p>
+      </article>
+      <article class="ec rv">
+        <svg viewBox="0 0 52 52" fill="none" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="16" cy="14" r="6" fill="#0DA1A7" fill-opacity=".55"/><circle cx="36" cy="14" r="6" fill="#2C8F99" fill-opacity=".5"/>
+          <path d="M6 34c0-6 4-10 10-10s10 4 10 10M26 34c0-6 4-10 10-10s10 4 10 10"/><path d="M6 44h40"/>
+        </svg>
+        <h3 class="h3">The MMLP opportunity</h3>
+        <p>Explore how Jalna's Dry Port can develop into a global logistics hub for Central Maharashtra.</p>
+      </article>
+      <article class="ec rv">
+        <svg viewBox="0 0 52 52" fill="none" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="10" y="5" width="30" height="38" fill="#FFFFFF"/>
+          <path d="M17 16h16M17 24h16M17 32h9"/><circle cx="36" cy="36" r="10" fill="#0DA1A7" fill-opacity=".55"/><path d="M31 36l4 4 7-8"/>
+        </svg>
+        <h3 class="h3">Investment conversations</h3>
+        <p>Connect around opportunities in steel, auto and ancillaries, agri-processing, wine and silk.</p>
+      </article>
+      <article class="ec rv">
+        <svg viewBox="0 0 52 52" fill="none" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <ellipse cx="26" cy="30" rx="20" ry="10" fill="#0C4A66" fill-opacity=".25"/>
+          <circle cx="10" cy="16" r="5"/><circle cx="26" cy="12" r="5" fill="#0DA1A7" fill-opacity=".5"/><circle cx="42" cy="16" r="5"/>
+        </svg>
+        <h3 class="h3">Government and industry</h3>
+        <p>Understand how strategic location, government schemes and a responsive administration can help projects move.</p>
+      </article>
+      <article class="ec rv">
+        <svg viewBox="0 0 52 52" fill="none" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="4" y="12" width="20" height="16" fill="#0DA1A7" fill-opacity=".5"/><rect x="28" y="24" width="20" height="16" fill="#2C8F99" fill-opacity=".45"/>
+          <path d="M24 20h8M20 32h8" stroke="#093C54"/><path d="M14 28v6M38 12v6"/>
+        </svg>
+        <h3 class="h3">High-value introductions</h3>
+        <p>Meet potential partners across manufacturing, mobility, energy, logistics, rail and public infrastructure.</p>
+      </article>
+      <article class="ec rv">
+        <svg viewBox="0 0 52 52" fill="none" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M26 6l5 12 13 1-10 9 3 13-11-7-11 7 3-13-10-9 13-1Z" fill="#0DA1A7" fill-opacity=".55"/>
+          <path d="M10 46h32"/>
+        </svg>
+        <h3 class="h3">Lunch and MMLP visit</h3>
+        <p>The formal programme is followed by lunch and a visit to the Dry Port (MMLP).</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ═══════ PROGRAMME ═══════ -->
-<section class="sec band" id="programme">
+<!-- ═══════ AGENDA ═══════ -->
+<section class="sec" id="programme">
   <div class="wrap">
-    <div class="rv">
-      <p class="tag"><i>08</i> Agenda &amp; schedule</p>
-      <h2 class="h2" style="margin-top:20px">Summit <em>programme.</em></h2>
-      <p class="lede">Thursday, 3 September 2026 — Hotel Siddharth The Fern, Jalna</p>
-    </div>
-
-    <div class="programme-summary rv">
-      <div class="programme-copy">
-        <div class="when-card">
-          <div class="d">03</div>
-          <div>
-            <b>Thursday, Sept 2026</b>
-            <span>9:00 AM – 2:30 PM</span>
-            <span class="ven">Hotel Siddharth The Fern, Jalna</span>
-          </div>
-        </div>
-        <div class="note">
-          Followed by networking lunch and an optional site visit to the MMLP Dry Port facility.
+    <div class="ag-head rv">
+      <div>
+        <p class="tag"><i>07</i> Programme</p>
+        <h2 class="h2" style="margin-top:20px">One focused day.<br><em>Three outcomes</em>.</h2>
+      </div>
+      <div class="when-card">
+        <span class="d">03</span>
+        <div>
+          <b>Thursday, 3 September 2026</b>
+          <span>9:00 AM – 2:30 PM · Jalna, Maharashtra</span>
+          <span class="ven">Hotel Siddharth The Fern, Jalna</span>
         </div>
       </div>
+    </div>
 
-      <ol class="programme-flow">
-        <li>
-          <time>09:00 - 09:45</time>
-          <div>
-            <h3>Registration &amp; Welcome Tea</h3>
-            <p>Delegate check-in, networking and arrival of dignitary guests.</p>
-          </div>
-        </li>
-        <li>
-          <time>09:45 - 10:30</time>
-          <div>
-            <h3>Inaugural Session &amp; Lamp Lighting</h3>
-            <p>Welcome address by District Administration &amp; Jalna First convenors, followed by dignitary opening remarks.</p>
-          </div>
-        </li>
-        <li>
-          <time>10:30 - 11:30</time>
-          <div>
-            <h3>Keynote Addresses — Chief Guests</h3>
-            <p>Address by Shri Gaurav Dayal (Chairman JNPA) on Dry Port integration &amp; Shri Deependra Singh Kushwah (CEO MIDC) on industrial policy.</p>
-          </div>
-        </li>
-        <li>
-          <time>11:30 - 12:30</time>
-          <div>
-            <h3>Sectoral Presentations &amp; Panel Discussion</h3>
-            <p>Focus sessions on steel &amp; engineering, seed capital innovation, textile-silk expansion and MMLP freight advantage.</p>
-          </div>
-        </li>
-        <li>
-          <time>12:30 - 13:15</time>
-          <div>
-            <h3>MoU Signing &amp; Valedictory Session</h3>
-            <p>Official exchange of investment MoUs, announcements and guest of honour remarks.</p>
-          </div>
-        </li>
-        <li>
-          <time>13:15 - 14:30</time>
-          <div>
-            <h3>Networking Lunch &amp; MMLP Site Visit</h3>
-            <p>Executive networking lunch followed by guided delegation visit to the Jalna Dry Port (MMLP) project site.</p>
-          </div>
-        </li>
+    <div class="stats rv">
+      <div class="st"><span class="n">5.5h</span><span class="l">Summit programme</span><span class="s">9:00 AM – 2:30 PM</span></div>
+      <div class="st"><span class="n">3</span><span class="l">Strategic themes</span><span class="s">Logistics, investment and growth</span></div>
+      <div class="st"><span class="n">3</span><span class="l">Invited leaders</span><span class="s">Chief guest and guests of honour</span></div>
+      <div class="st"><span class="n">1</span><span class="l">Site visit</span><span class="s">Dry Port (MMLP), after lunch</span></div>
+    </div>
+
+    <div class="programme-summary">
+      <div class="programme-copy rv">
+        <p class="tag"><i>◆</i> The flow of the day</p>
+        <h3 class="h3" style="margin:16px 0 12px">Leadership, investment and the infrastructure behind both.</h3>
+        <p class="lede" style="margin:0">The invitation sets the summit's overall timing and outcomes. Session-level timings will be shared by the organiser.</p>
+      </div>
+      <ol class="programme-flow rv">
+        <li><time>9:00 AM</time><div><h3>Arrival and opening</h3><p>Registration, welcome and the opening of the Industrial Summit 2026 programme.</p></div></li>
+        <li><time>Summit</time><div><h3>Leadership and strategic exchange</h3><p>Government, rail, infrastructure and industry leaders focus on the MMLP Dry Port, investment opportunities and an investor-friendly path to growth.</p></div></li>
+        <li><time>2:30 PM</time><div><h3>Formal programme concludes</h3><p>The summit programme closes and attendees move into the hosted lunch.</p></div></li>
+        <li><time>After lunch</time><div><h3>Visit to the Dry Port (MMLP)</h3><p>Participants see the logistics asset at the centre of Jalna's gateway-to-growth proposition.</p></div></li>
       </ol>
     </div>
   </div>
 </section>
 
-<!-- ═══════ ATTEND / WHO SHOULD ATTEND ═══════ -->
-<section class="sec" id="attend">
-  <div class="wrap">
+<!-- ═══════ ATTEND ═══════ -->
+<section class="sec band" id="attend">
+  <div class="wrap att">
     <div class="rv">
-      <p class="tag"><i>09</i> Target audience</p>
-      <h2 class="h2" style="margin-top:20px">Who should <em>attend.</em></h2>
-      <p class="lede">Designed for decision-makers looking to deploy capital, expand manufacturing or integrate into Central Maharashtra's supply chain.</p>
+      <p class="tag"><i>08</i> Who should attend</p>
+      <h2 class="h2" style="margin:20px 0 22px">If you can unlock a project,<br>this room is <em>for you</em>.</h2>
+      <p class="lede">The summit is designed for decision-makers who can invest, approve, finance, connect, supply or build the next phase of Jalna's industrial growth.</p>
+      <div class="who">
+        <span><i style="background:var(--navy)"></i>Manufacturing investors</span>
+        <span><i style="background:var(--brass)"></i>Steel mills, vendors &amp; OEMs</span>
+        <span><i style="background:var(--seed)"></i>Downstream steel manufacturers</span>
+        <span><i style="background:var(--navy)"></i>Hybrid seed developers &amp; processors</span>
+        <span><i style="background:var(--brass)"></i>Feed-processing businesses</span>
+        <span><i style="background:var(--seed)"></i>Silk &amp; sericulture entrepreneurs</span>
+        <span><i style="background:var(--navy)"></i>Auto-ancillary suppliers</span>
+        <span><i style="background:var(--brass)"></i>Logistics &amp; warehousing operators</span>
+        <span><i style="background:var(--seed)"></i>Power &amp; infrastructure partners</span>
+        <span><i style="background:var(--navy)"></i>Banks &amp; financial institutions</span>
+        <span><i style="background:var(--brass)"></i>Government &amp; administration</span>
+        <span><i style="background:var(--seed)"></i>ITI, ICT &amp; incubation institutions</span>
+      </div>
     </div>
 
-    <div class="who rv">
-      <span><i style="background:var(--brass)"></i>Industrial Investors</span>
-      <span><i style="background:var(--navy)"></i>Steel Manufacturers</span>
-      <span><i style="background:var(--seed)"></i>Agri-Biotech &amp; Seed Companies</span>
-      <span><i style="background:var(--steel)"></i>Auto Ancillary Units</span>
-      <span><i style="background:var(--brass)"></i>Logistics &amp; Warehouse Developers</span>
-      <span><i style="background:var(--navy)"></i>Textile &amp; Silk Processors</span>
-      <span><i style="background:var(--seed)"></i>Food Processing Enterprises</span>
-      <span><i style="background:var(--steel)"></i>Exporters &amp; Freight Forwarders</span>
-      <span><i style="background:var(--brass)"></i>Infrastructure Funds &amp; Bankers</span>
-      <span><i style="background:var(--navy)"></i>Government Policy Makers</span>
-      <span><i style="background:var(--seed)"></i>MSME Entrepreneurs</span>
-      <span><i style="background:var(--steel)"></i>Industry Association Leaders</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ SUPPORT ═══════ -->
-<section class="sec sup">
-  <div class="wrap sgrid">
-    <div class="rv">
-      <p class="tag inv"><i>10</i> Government support</p>
-      <h2 class="h2" style="margin-top:20px">Full institutional <em>backing.</em></h2>
-      <p class="lede">Organised with active participation and support of key administrative and industrial bodies.</p>
-    </div>
-
-    <ul class="slist rv">
-      <li>
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="var(--brass)" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="var(--brass)" stroke-width="1.5"/></svg>
-        <span>District Administration, Jalna</span>
-      </li>
-      <li>
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="var(--brass)" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="var(--brass)" stroke-width="1.5"/></svg>
-        <span>Jawaharlal Nehru Port Authority (JNPA)</span>
-      </li>
-      <li>
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="var(--brass)" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="var(--brass)" stroke-width="1.5"/></svg>
-        <span>Maharashtra Industrial Development Corporation (MIDC)</span>
-      </li>
-      <li>
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="var(--brass)" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="var(--brass)" stroke-width="1.5"/></svg>
-        <span>Divisional Commissionerate, Chh. Sambhajinagar</span>
-      </li>
-      <li>
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="var(--brass)" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="var(--brass)" stroke-width="1.5"/></svg>
-        <span>Indian Railways — Nanded Division</span>
-      </li>
-      <li>
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="var(--brass)" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="var(--brass)" stroke-width="1.5"/></svg>
-        <span>Jalna First Citizen Forum</span>
-      </li>
-    </ul>
   </div>
 </section>
 
@@ -1142,107 +998,88 @@ h1,h2,h3,h4{ margin:0 }
 <section class="sec vis">
   <div class="wrap vg">
     <div class="rv">
-      <p class="tag"><i>11</i> Leadership vision</p>
-      <h2 class="h2" style="margin-top:20px">A collective <em>commitment.</em></h2>
+      <p class="tag"><i>◆</i> Our purpose</p>
+      <h2 class="h2" style="margin:20px 0 22px">Build on Jalna's<br><em>industrial foundation</em>.</h2>
+      <p class="lede">The summit's purpose is to turn Jalna's existing industrial strength into its next phase of growth. It brings investors, industry, financial institutions, infrastructure partners and government together around four priorities: a future-ready talent and innovation ecosystem, an industry-friendly investment destination, an MMLP-led logistics gateway, and a manufacturing hub that supports anchor industries.</p>
+      <blockquote class="quote">Build the talent. Back the industry. Open the gateway.<cite>Jalna Industrial Summit 2026</cite></blockquote>
     </div>
-
     <div class="rv">
-      <blockquote class="quote">
-        "Jalna stands at a inflection point. With the MMLP Dry Port coming online and direct expressway connectivity, we are positioning Jalna not just as a regional market, but as a competitive industrial hub for India."
-        <cite>— District Administration, Jalna</cite>
-      </blockquote>
+      <svg viewBox="0 0 620 400" role="img" aria-label="Flow diagram: capital enters industry in Jalna and returns as exports, employment and a local supply chain."><g stroke="#093C54" stroke-width="1.6" stroke-linejoin="round"><path d="M18 152h84v96H18z" fill="#0DA1A7" fill-opacity=".55"/><path d="M102 152h48c34 0 22 -6 46 -6h6v108h-6c-24 0-12-6-46-6h-48z" fill="#0DA1A7" fill-opacity=".32"/><path d="M202 132h116v136H202z" fill="#0C4A66" fill-opacity=".9"/><path d="M318 144h30c28 0 30-10 30-34V78h68v52h-68c-24 0-26 26-54 26h-6z" fill="#2C8F99" fill-opacity=".5"/><path d="M318 174h128v52H318z" fill="#56AEBB" fill-opacity=".55"/><path d="M318 256h6c28 0 30 26 54 26h68v52h-68v-32c0-24-2-34-30-34h-30z" fill="#0DA1A7" fill-opacity=".5"/></g><text x="18" y="132" text-anchor="start" fill="#093C54" style="font:400 10.5px 'Instrument Serif',monospace;letter-spacing:.14em">CAPITAL</text><text x="18" y="147" text-anchor="start" fill="#093C54" opacity=".55" style="font:400 9px 'Instrument Serif',monospace;letter-spacing:.08em">INVESTMENT IN</text><text x="260" y="196" text-anchor="middle" fill="#F5FBFB" style="font:400 27px 'Instrument Serif',serif">Industry</text><text x="260" y="220" text-anchor="middle" fill="#0DA1A7" style="font:400 9px 'Instrument Serif',monospace;letter-spacing:.2em">IN JALNA</text><text x="456" y="98" text-anchor="start" fill="#093C54" style="font:400 10.5px 'Instrument Serif',monospace;letter-spacing:.14em">EXPORTS</text><text x="456" y="113" text-anchor="start" fill="#093C54" opacity=".55" style="font:400 9px 'Instrument Serif',monospace;letter-spacing:.08em">MARKET REACH</text><text x="456" y="194" text-anchor="start" fill="#093C54" style="font:400 10.5px 'Instrument Serif',monospace;letter-spacing:.14em">EMPLOYMENT</text><text x="456" y="209" text-anchor="start" fill="#093C54" opacity=".55" style="font:400 9px 'Instrument Serif',monospace;letter-spacing:.08em">LOCAL JOBS</text><text x="456" y="302" text-anchor="start" fill="#093C54" style="font:400 10.5px 'Instrument Serif',monospace;letter-spacing:.14em">SUPPLY CHAIN</text><text x="456" y="317" text-anchor="start" fill="#093C54" opacity=".55" style="font:400 9px 'Instrument Serif',monospace;letter-spacing:.08em">MSMEs &amp; SUPPLIERS</text><path d="M18 360h522" stroke="#093C54" stroke-width="1" opacity=".28"/><path d="M18 354v12M260 354v12M540 354v12" stroke="#093C54" stroke-width="1" opacity=".28"/><text x="260" y="382" text-anchor="middle" fill="#093C54" opacity=".5" style="font:400 9px 'Instrument Serif',monospace;letter-spacing:.18em">VALUE RETAINED IN THE REGION</text></svg>
     </div>
   </div>
 </section>
 
-<!-- ═══════ FINAL CTA ═══════ -->
+<!-- ═══════ FINAL ═══════ -->
 <section class="sec fin">
-  <div class="wrap rv">
-    <p class="tag inv" style="justify-content:center"><i>12</i> Registration</p>
-    <h2 class="h2" style="margin-top:24px">Be in the room where <em>Jalna's next chapter</em> is decided.</h2>
-    <p>Join senior government officials, infrastructure leaders and industrial peers on Thursday, 3 September 2026 at Hotel Siddharth The Fern, Jalna.</p>
-
-    <div style="margin-top:36px">
-      <a class="btn b-navy" href="https://register.jalnafirst.in" target="_blank" rel="noopener noreferrer" style="background:var(--brass);border-color:var(--brass);color:var(--navy-deep);box-shadow:4px 4px 0 var(--paper)">Register to attend ↗</a>
-    </div>
-
-    <p class="sig">Jalna Industrial Summit 2026 · District Administration × Jalna First</p>
+  <svg class="blob" style="top:-120px;right:-90px;width:420px" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="#0DA1A7"/></svg>
+  <svg class="blob" style="bottom:-150px;left:-80px;width:340px" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="#F5FBFB"/></svg>
+  <div class="wrap" style="position:relative">
+    <h2 class="h2 rv">Jalna's next industrial chapter starts with the <em>right people in the room</em>.</h2>
+    <p class="rv">Meet the leaders, institutions and businesses who can turn infrastructure advantage into investment, partnerships and projects on the ground.</p>
+    <p class="sig rv">Leadership. Industry. Opportunity.</p>
   </div>
 </section>
-
 </main>
 
 <!-- ═══════ FOOTER ═══════ -->
 <footer class="foot">
-  <div class="wrap fg">
-    <div>
-      <a class="logo" href="#top" aria-label="Industrial Summit 2026 home">
-        <span class="logo-img" style="display:block;font:400 28px/1.05 var(--dsp);color:var(--paper)">Industrial Summit<br><em style="font-size:12px;letter-spacing:.2em;font-style:normal;color:var(--brass)">JALNA 2026</em></span>
-      </a>
-      <p class="fdesc">Organised by District Administration Jalna in collaboration with Jalna First Citizen Forum.</p>
-      <div class="fsponsor">
-        <span>Title Sponsor</span>
-        <img src="/industrial-summit/Sponsor.jpeg" alt="Title Sponsor — Vikas Group of Companies">
+  <div class="wrap">
+    <div class="fg">
+      <div>
+        <a class="logo" href="#top" style="margin:0" aria-label="Industrial Summit 2026 home">
+          <img class="logo-img" src="/industrial-summit/industrial-summit-logo.png" alt="Industrial Summit 2026 — Jalna, The Gateway to Growth">
+        </a>
+        <p class="fdesc">Thursday, 3 September 2026 · 9:00 AM–2:30 PM<br>Hotel Siddharth The Fern, Jalna</p>
+        <p class="fdesc">Followed by lunch and a visit to the Dry Port (MMLP).</p>
+      </div>
+      <div>
+        <h4>Summit</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#invitees">Invited leadership</a></li>
+          <li><a href="#why">Why Jalna</a></li>
+          <li><a href="#sectors">Focus sectors</a></li>
+          <li><a href="#programme">Programme</a></li>
+          <li><a href="#attend">Who attends</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#sectors">Focus sectors</a></li>
+          <li><a href="https://www.instagram.com/jalnafirstcf/" target="_blank" rel="noopener noreferrer">Summit updates on Instagram</a></li>
+          <li><a href="/">Jalna First Citizen Forum</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>References</h4>
+        <ul>
+          <li><a href="https://jalna.gov.in/en/about-district/jalna-industries/" target="_blank" rel="noopener">Jalna district industrial profile</a></li>
+          <li><a href="https://jalna.gov.in/en/about-district/economy/" target="_blank" rel="noopener">Jalna economy profile</a></li>
+          <li><a href="https://www.pib.gov.in/Pressreleaseshare.aspx?PRID=1861169&amp;lang=2&amp;reg=48" target="_blank" rel="noopener">PIB: Jalna MMLP</a></li>
+          <li><a href="https://maitri.mahaonline.gov.in/" target="_blank" rel="noopener">MAITRI investor portal</a></li>
+        </ul>
       </div>
     </div>
-
-    <div>
-      <h4>Navigation</h4>
-      <ul>
-        <li><a href="#top">Overview</a></li>
-        <li><a href="#invitees">Invitees</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#why">Why Jalna</a></li>
-        <li><a href="#sectors">Focus sectors</a></li>
-        <li><a href="#programme">Programme</a></li>
-      </ul>
+    <div class="flegal">
+      <span>Programme updates · Investor information · Official references</span>
+      <span>Programme details remain subject to organiser confirmation.</span>
     </div>
-
-    <div>
-      <h4>Sectors</h4>
-      <ul>
-        <li><a href="#sectors">Steel &amp; Engineering</a></li>
-        <li><a href="#sectors">Agri-Processing &amp; Seeds</a></li>
-        <li><a href="#sectors">MMLP &amp; Logistics</a></li>
-        <li><a href="#sectors">Textiles &amp; Silk</a></li>
-        <li><a href="#sectors">Wine &amp; Beverage</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="mailto:info@jalnafirst.in">info@jalnafirst.in</a></li>
-        <li><a href="https://jalnafirst.in" target="_blank" rel="noopener noreferrer">jalnafirst.in</a></li>
-        <li><a href="https://register.jalnafirst.in" target="_blank" rel="noopener noreferrer">register.jalnafirst.in</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="wrap flegal">
-    <span>© 2026 Jalna Industrial Summit. All rights reserved.</span>
-    <span>District Administration Jalna × Jalna First</span>
   </div>
 </footer>
 
-<script is:inline>
+<script>
 (function(){
-  'use me'
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* header rail active state & smooth scroll indicator */
-  var rail=document.getElementById('rail'), ind=document.getElementById('ind');
-  var links=rail ? Array.prototype.slice.call(rail.querySelectorAll('a')) : [];
-  var secs=links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  /* section rail */
+  var rail=document.getElementById('rail'), ind=document.getElementById('ind'),
+      links=Array.prototype.slice.call(rail.querySelectorAll('a')),
+      secs=links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
 
-  function move(a){
-    if(!ind || !a) return;
-    ind.style.width=a.offsetWidth+'px';
-    ind.style.transform='translateX('+a.offsetLeft+'px)';
-  }
+  function move(a){ if(!a) return; ind.style.width=a.offsetWidth+'px'; ind.style.transform='translateX('+a.offsetLeft+'px)'; }
   function setActive(a){
-    links.forEach(function(l){ l.classList.remove('on'); });
-    a.classList.add('on');
+    links.forEach(function(l){ l.classList.toggle('on', l===a); });
     move(a);
     var l=a.offsetLeft, r=l+a.offsetWidth;
     if(l<rail.scrollLeft+12 || r>rail.scrollLeft+rail.clientWidth-12){
@@ -1270,6 +1107,28 @@ h1,h2,h3,h4{ margin:0 }
     tick=false;
   }
   window.addEventListener('scroll', function(){ if(!tick){ tick=true; window.requestAnimationFrame(onScroll); } }, { passive:true });
+
+  /* agenda filter */
+  var chips=document.querySelectorAll('.chip'), events=document.querySelectorAll('.ev');
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(item){ item.classList.toggle('on', item===chip); });
+      var filter=chip.dataset.f;
+      events.forEach(function(event){ event.classList.toggle('dim', filter!=='all' && event.dataset.k!==filter); });
+    });
+  });
+
+  /* invitee organisation filter */
+  var lgs=document.querySelectorAll('.legend .lg'), orgs=document.querySelectorAll('.roll li');
+  lgs.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var sector=btn.getAttribute('data-s');
+      lgs.forEach(function(item){ item.setAttribute('aria-pressed', String(item===btn)); });
+      orgs.forEach(function(org){
+        org.classList.toggle('mute', sector!=='all' && org.getAttribute('data-s')!==sector);
+      });
+    });
+  });
 
   /* reveal */
   var items=document.querySelectorAll('.rv');
