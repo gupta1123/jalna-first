@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Discover Jalna's established steel, seed and feed economy, investor tailwinds, logistics advantage and next manufacturing opportunities.">
+<meta name="description" content="Meet the government, infrastructure and industry leaders coming together at Jalna Industrial Summit 2026 to advance the MMLP Dry Port and the district's next investment opportunities.">
 <meta name="theme-color" content="#093C54">
-<link rel="icon" type="image/png" sizes="256x256" href="/industrial-summit/industrial-summit-favicon-transparent.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/industrial-summit/industrial-summit-favicon-transparent.png">
 <link rel="shortcut icon" type="image/png" href="/industrial-summit/industrial-summit-favicon-transparent.png">
 <link rel="apple-touch-icon" href="/industrial-summit/industrial-summit-favicon-transparent.png">
-<title>Jalna Industrial Summit 2026 - A Land of Opportunity</title>
+<title>Jalna Industrial Summit 2026 — Leaders, Invitees &amp; Opportunities</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
@@ -83,7 +83,7 @@ h1,h2,h3,h4{ margin:0 }
 .htop{ display:flex; align-items:center; gap:24px; height:76px }
 .logo{ display:flex; align-items:center; gap:13px; text-decoration:none; margin-right:auto }
 .head .logo{ position:absolute; left:clamp(20px,2.6vw,52px); top:4px }
-.head .logo-img{ display:block; width:210px; height:auto; mix-blend-mode:multiply }
+.head .logo-img{ display:block; width:185px; height:auto; mix-blend-mode:multiply }
 .site-switch{
   flex:none; margin-left:auto; text-decoration:none; padding:9px 14px; border:1.5px solid var(--i16); border-radius:100px;
   font:600 12px/1 var(--body); color:var(--i72); transition:background .18s,color .18s,border-color .18s;
@@ -152,6 +152,114 @@ h1,h2,h3,h4{ margin:0 }
 .intro-l{ position:sticky; top:calc(var(--head) + 26px) }
 .intro-b p{ margin:0 0 20px; color:var(--i72) }
 .intro-b p.first{ font-size:20px; color:var(--ink); line-height:1.55 }
+
+/* ═════════ INVITEES ═════════ */
+.invitees{ background:var(--paper-deep); position:relative; overflow:hidden }
+.invitees::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    repeating-linear-gradient(60deg,transparent 0 42px,rgba(9,60,84,.05) 42px 43px),
+    repeating-linear-gradient(-60deg,transparent 0 42px,rgba(9,60,84,.05) 42px 43px);
+  -webkit-mask-image:radial-gradient(120% 78% at 50% 0%,#000 0%,transparent 74%);
+          mask-image:radial-gradient(120% 78% at 50% 0%,#000 0%,transparent 74%);
+}
+.invitees .wrap{ position:relative; z-index:1 }
+.invite-head{ display:grid; grid-template-columns:.86fr 1.14fr; gap:clamp(30px,5vw,84px); align-items:end }
+.invite-head .lede{ margin:0; max-width:60ch }
+.invite-count{ display:flex; flex-wrap:wrap; margin-top:34px; border-top:1.5px solid var(--ink) }
+.invite-count div{ flex:1 1 128px; padding:16px 22px 0 0 }
+.invite-count b{ display:block; font:400 clamp(30px,3.4vw,44px)/1 var(--dsp); letter-spacing:-.02em }
+.invite-count span{ display:block; margin-top:9px; font:400 9.5px/1.4 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--i48) }
+
+.dais{ margin-top:clamp(44px,5.4vw,74px) }
+.stage{ display:grid; grid-template-columns:1fr 1.2fr 1fr; gap:clamp(14px,1.7vw,24px); align-items:end }
+.seat{ position:relative; grid-row:1; background:var(--card); border:1.5px solid var(--ink); border-radius:2px; padding:clamp(24px,2.7vw,36px); overflow:hidden; transition:transform .24s,box-shadow .24s }
+.seat.hon-a{ grid-column:1 }.seat.chief{ grid-column:2 }.seat.hon-b{ grid-column:3 }
+.seat::after{ content:""; position:absolute; right:-58px; bottom:-84px; width:184px; height:184px; border:1px solid var(--brass); border-radius:50%; opacity:.26 }
+.seat:hover{ transform:translateY(-4px); box-shadow:7px 8px 0 var(--navy) }
+.seat.chief{ background:var(--navy-deep); color:var(--paper); border-color:var(--navy-deep); padding:clamp(30px,3.5vw,48px); box-shadow:9px 10px 0 var(--brass) }
+.seat.chief::after{ width:320px; height:320px; right:-96px; bottom:-150px; border-color:var(--paper); opacity:.13 }
+.seat.chief:hover{ transform:translateY(-5px); box-shadow:13px 14px 0 var(--brass) }
+.emblem{ position:relative; z-index:1; width:62px; height:62px; display:grid; place-items:center; border:1.5px solid var(--i16); border-radius:50%; background:var(--paper); color:var(--navy) }
+.emblem svg{ width:32px; height:32px }
+.seat.chief .emblem{ width:76px; height:76px; border-color:rgba(245,251,251,.28); background:rgba(245,251,251,.06); color:var(--brass) }
+.seat.chief .emblem svg{ width:40px; height:40px }
+.seat > *{ position:relative; z-index:1 }
+.seat-role{ display:inline-flex; align-items:center; gap:11px; margin:24px 0 0; font:400 10px/1 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--navy) }
+.seat-role::before{ content:""; width:26px; height:1.5px; background:var(--brass) }
+.seat.chief .seat-role{ color:var(--brass); font-size:10.5px }
+.seat .hon{ display:block; margin-top:20px; font:400 10.5px/1 var(--mono); letter-spacing:.22em; text-transform:uppercase; color:var(--i48) }
+.seat.chief .hon{ color:rgba(245,251,251,.5) }
+.seat .nm{ margin:11px 0 0; font:400 clamp(26px,2.5vw,33px)/1.06 var(--dsp); letter-spacing:-.018em }
+.seat.chief .nm{ font-size:clamp(34px,4.3vw,58px); max-width:14ch }
+.pd{ display:inline-block; margin-left:11px; padding:5px 10px; border:1px solid var(--i16); border-radius:100px; font:400 9.5px/1 var(--mono); letter-spacing:.16em; color:var(--navy); vertical-align:middle }
+.seat.chief .pd{ border-color:rgba(245,251,251,.3); color:var(--brass) }
+.seat .rl{ margin:18px 0 0; padding-top:18px; border-top:1px solid var(--i16); font-size:15.5px; line-height:1.5; color:var(--i72) }
+.seat.chief .rl{ margin-top:26px; padding-top:22px; border-top-color:rgba(245,251,251,.2); color:rgba(245,251,251,.72); font-size:17px }
+.seat .inst{ display:block; margin-top:6px; color:var(--brass) }
+.floor{ position:relative; height:1.5px; margin:26px 0 0; background:var(--ink) }
+.floor::before,.floor::after{ content:""; position:absolute; top:-4px; width:1.5px; height:10px; background:var(--ink) }
+.floor::before{ left:0 }.floor::after{ right:0 }
+.floor span{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); white-space:nowrap; background:var(--paper-deep); padding:0 18px; font:400 9.5px/1 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--i48) }
+
+.room{ margin-top:clamp(44px,5.4vw,74px); border:1.5px solid var(--ink); border-radius:2px; background:var(--card); padding:clamp(28px,3.1vw,46px) }
+.room-head{ display:grid; grid-template-columns:1fr auto; gap:clamp(20px,3vw,44px); align-items:end }
+.room-head h3{ margin:14px 0 10px }
+.room-head p:not(.tag){ margin:0; max-width:46ch; color:var(--i72); font-size:15.5px }
+.legend{ display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end }
+.lg{ display:inline-flex; align-items:center; gap:9px; cursor:pointer; background:var(--paper); border:1.5px solid var(--i16); border-radius:100px; padding:9px 15px; font:500 12.5px/1 var(--body); color:var(--i72); transition:background .18s,border-color .18s,color .18s }
+.lg i{ width:9px; height:9px; border-radius:50%; background:var(--c,var(--ink)); box-shadow:0 0 0 1px rgba(9,60,84,.16) }
+.lg:hover{ border-color:rgba(9,60,84,.42); color:var(--ink) }
+.lg[aria-pressed="true"]{ background:var(--ink); border-color:var(--ink); color:var(--paper) }
+.roll{ list-style:none; margin:clamp(26px,3vw,40px) 0 0; padding:0; display:flex; flex-wrap:wrap; align-items:center }
+.roll li{ display:flex; align-items:center; gap:12px; padding:9px 0; margin-right:6px; font:400 clamp(19px,1.95vw,27px)/1.15 var(--dsp); letter-spacing:-.012em; color:var(--ink); transition:opacity .32s,color .2s,transform .2s }
+.roll li::before{ content:""; width:8px; height:8px; border-radius:50%; flex:none; background:var(--c,var(--ink)); box-shadow:0 0 0 1px rgba(9,60,84,.18) }
+.roll li::after{ content:"◆"; margin:0 22px 0 24px; font-size:7px; color:var(--brass); opacity:.5 }
+.roll li:last-child::after{ display:none }
+.roll li:hover{ color:var(--navy); transform:translateY(-2px) }
+.roll li.mute{ opacity:.18 }
+.roll li.mute:hover{ transform:none }
+
+.themes{ margin-top:clamp(44px,5.4vw,74px); display:grid; grid-template-columns:.7fr 1.3fr; gap:clamp(28px,5vw,76px); align-items:start }
+.themes-copy{ position:sticky; top:calc(var(--head) + 26px) }
+.themes-copy h3{ margin:16px 0 12px }
+.tlist{ list-style:none; margin:0; padding:0; border-top:1.5px solid var(--ink) }
+.tlist li{ display:grid; grid-template-columns:auto 1fr; gap:clamp(16px,2.2vw,30px); padding:clamp(22px,2.4vw,30px) clamp(10px,1.4vw,18px); border-bottom:1px solid var(--i16); transition:background .22s }
+.tlist li:hover{ background:rgba(255,255,255,.6) }
+.tlist .mk{ width:11px; height:11px; margin-top:9px; transform:rotate(45deg); border:1.5px solid var(--brass) }
+.tlist li:hover .mk{ background:var(--brass) }
+.tlist h4{ margin:0 0 9px; font:400 clamp(20px,2vw,27px)/1.14 var(--dsp); letter-spacing:-.012em }
+.tlist p{ margin:0; font-size:15.5px; line-height:1.55; color:var(--i72) }
+
+.signoff{ margin-top:clamp(40px,4.6vw,66px); padding-top:26px; border-top:1.5px solid var(--ink); display:flex; flex-wrap:wrap; gap:22px clamp(28px,4vw,60px); align-items:baseline; justify-content:space-between }
+.signoff .lbl{ font:400 10px/1.7 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--i48) }
+.sig-names{ display:flex; flex-wrap:wrap; gap:18px clamp(30px,4vw,58px) }
+.sig-names b{ display:block; font:italic 400 clamp(22px,2.2vw,30px)/1.2 var(--dsp) }
+.sig-names span{ display:block; margin-top:7px; font:400 9.5px/1 var(--mono); letter-spacing:.18em; text-transform:uppercase; color:var(--brass) }
+.invitees [data-s="all"]{ --c:var(--ink) }
+.invitees [data-s="steel"]{ --c:#0C4A66 }
+.invitees [data-s="auto"]{ --c:#0DA1A7 }
+.invitees [data-s="agri"]{ --c:#2C8F99 }
+.invitees [data-s="infra"]{ --c:#7FC0C8 }
+@media (max-width:1040px){
+  .invite-head,.themes{ grid-template-columns:1fr }
+  .themes-copy{ position:static }
+  .stage{ grid-template-columns:1fr 1fr }
+  .seat{ grid-row:auto }
+  .seat.chief{ grid-column:1 / -1 }
+  .seat.hon-a{ grid-column:1 }.seat.hon-b{ grid-column:2 }
+  .seat.chief .nm{ max-width:20ch }
+  .room-head{ grid-template-columns:1fr }
+  .legend{ justify-content:flex-start }
+}
+@media (max-width:760px){
+  .stage{ grid-template-columns:1fr }
+  .seat.hon-a,.seat.hon-b,.seat.chief{ grid-column:auto }
+  .roll li{ font-size:19px }
+  .roll li::after{ margin:0 15px 0 17px }
+  .floor span{ font-size:9px; padding:0 12px }
+  .signoff{ flex-direction:column; gap:20px }
+}
 
 /* ═════════ WHY GRID ═════════ */
 .band{ background:var(--paper-deep) }
@@ -266,6 +374,17 @@ h1,h2,h3,h4{ margin:0 }
 .who span:hover{ border-color:var(--ink); transform:translateY(-2px) }
 .who i{ width:6px; height:6px; border-radius:50%; flex:none; font-style:normal }
 
+/* ═════════ PROGRAMME SUMMARY ═════════ */
+.programme-summary{ display:grid; grid-template-columns:.75fr 1.25fr; gap:clamp(30px,5vw,76px); align-items:start; margin-top:clamp(38px,5vw,64px) }
+.programme-copy{ position:sticky; top:calc(var(--head) + 26px) }
+.programme-flow{ list-style:none; margin:0; padding:0; border:1.5px solid var(--ink); background:var(--card) }
+.programme-flow li{ display:grid; grid-template-columns:96px 1fr; gap:22px; padding:24px clamp(22px,2.5vw,32px); border-bottom:1px solid var(--i16) }
+.programme-flow li:last-child{ border-bottom:0; background:var(--navy-deep); color:var(--paper) }
+.programme-flow time{ font:400 11px/1.45 var(--mono); letter-spacing:.1em; text-transform:uppercase; color:var(--brass) }
+.programme-flow h3{ font:400 23px/1.15 var(--dsp); margin:0 0 7px }
+.programme-flow p{ margin:0; font-size:14.5px; line-height:1.55; color:var(--i72) }
+.programme-flow li:last-child p{ color:rgba(245,251,251,.7) }
+
 /* ═════════ SUPPORT ═════════ */
 .sup{ background:var(--navy); color:var(--paper) }
 .sup .h2{ color:var(--paper) } .sup .h2 em{ color:var(--brass) }
@@ -330,8 +449,9 @@ h1,h2,h3,h4{ margin:0 }
 /* ═════════ RESPONSIVE ═════════ */
 @media (max-width:1040px){
   :root{ --head:126px }
-  .hg,.intro,.att,.sgrid,.vg{ grid-template-columns:1fr }
+  .hg,.intro,.att,.sgrid,.vg,.programme-summary{ grid-template-columns:1fr }
   .intro-l{ position:static }
+  .programme-copy{ position:static }
   .why,.sg,.eg{ grid-template-columns:repeat(2,1fr) }
   .why .wc{ grid-column:auto }
   .why .wc:last-child{ grid-column:1 / -1 }
@@ -356,7 +476,7 @@ h1,h2,h3,h4{ margin:0 }
   .btn{ padding:15px 22px }
   .htop{ height:68px }
   .head .logo{ left:18px; top:5px }
-  .head .logo-img{ width:185px }
+  .head .logo-img{ width:165px }
   .foot .logo-img{ width:245px }
   .htop > .site-switch,.htop > .hcta{ display:none }
   .mobile-actions{ display:grid; grid-template-columns:1fr 1fr; gap:8px; padding-bottom:9px }
@@ -364,6 +484,7 @@ h1,h2,h3,h4{ margin:0 }
   .ev{ grid-template-columns:64px 1fr; gap:14px }
   .ev .len{ display:none }
   .when-card{ width:100% }
+  .programme-flow li{ grid-template-columns:1fr; gap:9px }
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{ animation:none !important; transition-duration:.01ms !important }
@@ -381,26 +502,27 @@ h1,h2,h3,h4{ margin:0 }
 <header class="head">
   <div class="wrap htop">
     <a class="logo" href="#top" aria-label="Industrial Summit 2026 home">
-      <img class="logo-img" src="/industrial-summit/industrial-summit-logo (1).png" alt="Industrial Summit 2026 — A Jalna First Initiative">
+      <img class="logo-img" src="/industrial-summit/industrial-summit-logo.png" alt="Industrial Summit 2026 — Jalna, The Gateway to Growth">
     </a>
     <a class="site-switch" href="/">Jalna First</a>
-    <p class="when"><b>Thu 3 September 2026</b><br>The Fern Hotel, Jalna</p>
-    <a class="btn b-navy hcta" href="https://register.jalnafirst.in" target="_blank" rel="noopener noreferrer">Register your interest</a>
+    <p class="when"><b>Thu 3 September 2026</b><br>Hotel Siddharth The Fern, Jalna</p>
+    <a class="btn b-navy hcta" href="https://register.jalnafirst.in" target="_blank" rel="noopener noreferrer">Register to attend</a>
   </div>
   <div class="wrap mobile-actions" aria-label="Quick links">
     <a class="mobile-action" href="/">Jalna First</a>
-    <a class="mobile-action primary" href="https://register.jalnafirst.in" target="_blank" rel="noopener noreferrer">Register interest</a>
+    <a class="mobile-action primary" href="https://register.jalnafirst.in" target="_blank" rel="noopener noreferrer">Register to attend</a>
   </div>
   <div class="railw">
     <nav class="wrap rail" id="rail" aria-label="Sections">
       <span class="ind" id="ind" aria-hidden="true"></span>
       <a href="#top" class="on"><em>01</em>Overview</a>
-      <a href="#about"><em>02</em>About</a>
-      <a href="#why"><em>03</em>Why Jalna</a>
-      <a href="#sectors"><em>04</em>Focus sectors</a>
-      <a href="#experience"><em>05</em>The day</a>
-      <a href="#programme"><em>06</em>Agenda</a>
-      <a href="#attend"><em>07</em>Who attends</a>
+      <a href="#invitees"><em>02</em>Invitees</a>
+      <a href="#about"><em>03</em>About</a>
+      <a href="#why"><em>04</em>Why Jalna</a>
+      <a href="#sectors"><em>05</em>Focus sectors</a>
+      <a href="#experience"><em>06</em>The day</a>
+      <a href="#programme"><em>07</em>Programme</a>
+      <a href="#attend"><em>08</em>Who should attend</a>
     </nav>
   </div>
 </header>
@@ -410,18 +532,18 @@ h1,h2,h3,h4{ margin:0 }
 <section class="sec hero">
   <div class="wrap hg">
     <div>
-      <p class="tag anim d1"><i>◆</i> Jalna Industrial Summit 2026</p>
+      <p class="tag anim d1"><i>◆</i> District Administration, Jalna × Jalna First</p>
       <h1>
-        <span class="l1 anim d2">Jalna.</span>
-        <span class="l2 anim d3">A land of <em>opportunity.</em></span>
+        <span class="l1 anim d2">The right people.</span>
+        <span class="l2 anim d3">In one room, for <em>Jalna.</em></span>
       </h1>
-      <p class="lede anim d4">Central Maharashtra's next investment hub - already making steel, seed and feed for the country, and now open for what you build next.</p>
+      <p class="lede anim d4">Join senior government, infrastructure and industry leaders for a focused exchange on the MMLP Dry Port and new investment across steel, auto and ancillaries, agri-processing, wine and silk.</p>
       <div class="meta anim d5">
         <div><span>Date</span><b>Thu 3 Sept 2026</b></div>
-        <div><span>Programme</span><b>9:00 AM – 3:00 PM</b></div>
-        <div><span>Venue</span><b>The Fern Hotel, Jalna</b></div>
+        <div><span>Programme</span><b>9:00 AM – 2:30 PM</b></div>
+        <div><span>Venue</span><b>Hotel Siddharth The Fern, Jalna</b></div>
       </div>
-      <p class="hline anim d5">Steel. Seed. Feed. Logistics. Growth.</p>
+      <p class="hline anim d5">Followed by lunch and a visit to the Dry Port (MMLP).</p>
     </div>
 
     <!-- ─── SIGNATURE: corridor & freight-flow schematic ─── -->
@@ -441,11 +563,139 @@ h1,h2,h3,h4{ margin:0 }
   </div>
 </div>
 
+<!-- ═══════ INVITEES ═══════ -->
+<section class="sec invitees" id="invitees">
+  <div class="wrap">
+
+    <div class="invite-head rv">
+      <div>
+        <p class="tag"><i>02</i> Invited leadership</p>
+        <h2 class="h2" style="margin-top:20px">Meet the leaders<br>shaping Jalna's <em>next chapter</em>.</h2>
+      </div>
+      <div>
+        <p class="lede">The official invitation brings decision-makers from industrial development, regional administration, railways and leading private-sector organisations into one focused room.</p>
+        <div class="invite-count">
+          <div><b>3</b><span>On the dais</span></div>
+          <div><b>15</b><span>Organisations invited</span></div>
+          <div><b>4</b><span>Sectors in the room</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dais rv">
+      <div class="stage">
+        <article class="seat chief">
+          <span class="emblem" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 27h26"/><path d="M6 27V15l6 4v-4l6 4V11h5v16"/><path d="M25 11V5h3v22"/>
+              <path d="M9.5 23h2M15.5 23h2M21.5 23h2" opacity=".6"/>
+            </svg>
+          </span>
+          <p class="seat-role">Chief Guest</p>
+          <span class="hon">Shri</span>
+          <h3 class="nm">Deependra Singh Kushwah<span class="pd">IAS</span></h3>
+          <p class="rl">Chief Executive Officer
+            <span class="inst">Maharashtra Industrial Development Corporation (MIDC)</span>
+          </p>
+        </article>
+
+        <article class="seat hon-a">
+          <span class="emblem" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 27h24"/><path d="M5 13h22"/><path d="M16 5l11 8H5z"/>
+              <path d="M9 24V13M14 24V13M18 24V13M23 24V13"/>
+            </svg>
+          </span>
+          <p class="seat-role">Guest of Honour</p>
+          <span class="hon">Shri</span>
+          <h3 class="nm">G. Shrikanth<span class="pd">IAS</span></h3>
+          <p class="rl">Divisional Commissioner
+            <span class="inst">Chhatrapati Sambhajinagar Division</span>
+          </p>
+        </article>
+
+        <article class="seat hon-b">
+          <span class="emblem" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 28L15 4M23 28L17 4"/>
+              <path d="M7.5 25h17M9 19h14M10.5 13h11M12 8h8"/>
+            </svg>
+          </span>
+          <p class="seat-role">Guest of Honour</p>
+          <span class="hon">Shri</span>
+          <h3 class="nm">Pradeep Kamle</h3>
+          <p class="rl">Divisional Railway Manager
+            <span class="inst">Indian Railways</span>
+          </p>
+        </article>
+      </div>
+      <p class="floor"><span>Head table · Industrial Summit 2026</span></p>
+    </div>
+
+    <div class="room rv">
+      <div class="room-head">
+        <div>
+          <p class="tag"><i>◆</i> Key attendees</p>
+          <h3 class="h3">Fifteen organisations named in the invitation.</h3>
+          <p>Manufacturing, mobility, energy, agri-processing, logistics and public infrastructure — filter by sector to see who you would be sitting with.</p>
+        </div>
+        <div class="legend" role="group" aria-label="Filter organisations by sector">
+          <button type="button" class="lg" data-s="all" aria-pressed="true"><i></i>All 15</button>
+          <button type="button" class="lg" data-s="steel" aria-pressed="false"><i></i>Steel &amp; materials</button>
+          <button type="button" class="lg" data-s="auto" aria-pressed="false"><i></i>Mobility &amp; auto</button>
+          <button type="button" class="lg" data-s="agri" aria-pressed="false"><i></i>Agri, food &amp; energy</button>
+          <button type="button" class="lg" data-s="infra" aria-pressed="false"><i></i>Infrastructure &amp; rail</button>
+        </div>
+      </div>
+
+      <ul class="roll" aria-label="Key attendee organisations">
+        <li data-s="steel">JSW</li>
+        <li data-s="steel">UltraTech Cement</li>
+        <li data-s="steel">Lloyds Metals &amp; Energy</li>
+        <li data-s="steel">Saint-Gobain</li>
+        <li data-s="steel">Vikas Group of Companies</li>
+        <li data-s="auto">Toyota</li>
+        <li data-s="auto">MG Motor</li>
+        <li data-s="auto">Ather Energy</li>
+        <li data-s="auto">LGB</li>
+        <li data-s="agri">Mahyco</li>
+        <li data-s="agri">Ruchi Soya Industries</li>
+        <li data-s="agri">Waaree</li>
+        <li data-s="infra">Indian Railways</li>
+        <li data-s="infra">NHAI</li>
+        <li data-s="infra">NHLML</li>
+      </ul>
+    </div>
+
+    <div class="themes">
+      <div class="themes-copy rv">
+        <p class="tag"><i>◆</i> Strategic themes</p>
+        <h3 class="h3">What the room will move forward.</h3>
+        <p class="lede" style="margin:0">Three questions the invitation puts on the table — and the people invited are the ones who can answer them.</p>
+      </div>
+      <ul class="tlist rv">
+        <li><span class="mk" aria-hidden="true"></span><div><h4>The Dry Port, positioned</h4><p>Establishing the MMLP Dry Port as a global logistics hub for Central Maharashtra.</p></div></li>
+        <li><span class="mk" aria-hidden="true"></span><div><h4>Capital into five sectors</h4><p>Investment in steel, auto and ancillaries, agri-processing, wine and silk.</p></div></li>
+        <li><span class="mk" aria-hidden="true"></span><div><h4>Speed through the system</h4><p>Accelerating industrial growth through Jalna's strategic location, investor-friendly schemes and a responsive administration.</p></div></li>
+      </ul>
+    </div>
+
+    <div class="signoff rv">
+      <p class="lbl">Convened by<br>District Administration, Jalna × Jalna First</p>
+      <div class="sig-names">
+        <div><b>Mr Dhawal Mishrikotkar</b><span>Convenor</span></div>
+        <div><b>Mr Shubham Soni</b><span>Co-Convenor</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ═══════ ABOUT ═══════ -->
 <section class="sec" id="about">
   <div class="wrap intro">
     <div class="intro-l rv">
-      <p class="tag"><i>02</i> About Jalna</p>
+      <p class="tag"><i>03</i> About Jalna</p>
       <h2 class="h2" style="margin-top:20px">Manufacturing gateway<br>of <em>Central India</em>.</h2>
       <svg viewBox="0 0 320 190" style="margin-top:38px" aria-hidden="true">
         <g fill="none" stroke="#093C54" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -475,7 +725,7 @@ h1,h2,h3,h4{ margin:0 }
 <section class="sec band" id="why">
   <div class="wrap">
     <div class="rv" style="max-width:30ch">
-      <p class="tag"><i>03</i> Investor tailwinds</p>
+      <p class="tag"><i>04</i> Investor tailwinds</p>
       <h2 class="h2 two-line-title" style="margin-top:20px">
         <span>Why invest in Jalna.</span>
         <span>The <em>tailwinds</em> are here.</span>
@@ -534,7 +784,7 @@ h1,h2,h3,h4{ margin:0 }
 <section class="sec" id="sectors">
   <div class="wrap">
     <div class="rv" style="max-width:32ch">
-      <p class="tag"><i>04</i> Focus sectors</p>
+      <p class="tag"><i>05</i> Focus sectors</p>
       <h2 class="h2 two-line-title" style="margin-top:20px">
         <span>Build on what</span>
         <span>Jalna <em>already does well</em>.</span>
@@ -643,7 +893,7 @@ h1,h2,h3,h4{ margin:0 }
 <section class="sec band" id="experience">
   <div class="wrap">
     <div class="rv" style="max-width:34ch">
-      <p class="tag"><i>05</i> The day</p>
+      <p class="tag"><i>06</i> The day</p>
       <h2 class="h2" style="margin-top:20px">What actually<br><em>happens</em>.</h2>
       <p class="lede" style="margin-top:24px">A focused programme built around Jalna's industrial base, the MMLP logistics gateway, new manufacturing investment and the people who can move projects forward.</p>
     </div>
@@ -653,48 +903,48 @@ h1,h2,h3,h4{ margin:0 }
           <rect x="4" y="8" width="44" height="30" fill="#0C4A66" fill-opacity=".25"/>
           <path d="M26 38v8M16 46h20"/><path d="M12 30l8-10 7 8 6-8 7 10" stroke="#0DA1A7"/>
         </svg>
-        <h3 class="h3">Ceremonial opening</h3>
-        <p>Registration and tea are followed by lamp lighting, a welcome to dignitaries and context setting.</p>
+        <h3 class="h3">Leadership in the room</h3>
+        <p>The chief guest, guests of honour, district administration and invited organisations open a direct, decision-led conversation.</p>
       </article>
       <article class="ec rv">
         <svg viewBox="0 0 52 52" fill="none" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="16" cy="14" r="6" fill="#0DA1A7" fill-opacity=".55"/><circle cx="36" cy="14" r="6" fill="#2C8F99" fill-opacity=".5"/>
           <path d="M6 34c0-6 4-10 10-10s10 4 10 10M26 34c0-6 4-10 10-10s10 4 10 10"/><path d="M6 44h40"/>
         </svg>
-        <h3 class="h3">Institutional addresses</h3>
-        <p>District administration, industry bodies, logistics authorities and infrastructure institutions address the room.</p>
+        <h3 class="h3">The MMLP opportunity</h3>
+        <p>Explore how Jalna's Dry Port can develop into a global logistics hub for Central Maharashtra.</p>
       </article>
       <article class="ec rv">
         <svg viewBox="0 0 52 52" fill="none" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <rect x="10" y="5" width="30" height="38" fill="#FFFFFF"/>
           <path d="M17 16h16M17 24h16M17 32h9"/><circle cx="36" cy="36" r="10" fill="#0DA1A7" fill-opacity=".55"/><path d="M31 36l4 4 7-8"/>
         </svg>
-        <h3 class="h3">Keynotes</h3>
-        <p>Three keynote slots bring perspectives from industry voices with a direct stake in the region's growth.</p>
+        <h3 class="h3">Investment conversations</h3>
+        <p>Connect around opportunities in steel, auto and ancillaries, agri-processing, wine and silk.</p>
       </article>
       <article class="ec rv">
         <svg viewBox="0 0 52 52" fill="none" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <ellipse cx="26" cy="30" rx="20" ry="10" fill="#0C4A66" fill-opacity=".25"/>
           <circle cx="10" cy="16" r="5"/><circle cx="26" cy="12" r="5" fill="#0DA1A7" fill-opacity=".5"/><circle cx="42" cy="16" r="5"/>
         </svg>
-        <h3 class="h3">Focused panels</h3>
-        <p>Two moderated panels focus on the MMLP opportunity and the next wave of investment into Jalna.</p>
+        <h3 class="h3">Government and industry</h3>
+        <p>Understand how strategic location, government schemes and a responsive administration can help projects move.</p>
       </article>
       <article class="ec rv">
         <svg viewBox="0 0 52 52" fill="none" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <rect x="4" y="12" width="20" height="16" fill="#0DA1A7" fill-opacity=".5"/><rect x="28" y="24" width="20" height="16" fill="#2C8F99" fill-opacity=".45"/>
           <path d="M24 20h8M20 32h8" stroke="#093C54"/><path d="M14 28v6M38 12v6"/>
         </svg>
-        <h3 class="h3">Open-floor Q&amp;A</h3>
-        <p>Short audience question sessions follow the panels so participants can engage directly with the discussion.</p>
+        <h3 class="h3">High-value introductions</h3>
+        <p>Meet potential partners across manufacturing, mobility, energy, logistics, rail and public infrastructure.</p>
       </article>
       <article class="ec rv">
         <svg viewBox="0 0 52 52" fill="none" stroke="#093C54" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M26 6l5 12 13 1-10 9 3 13-11-7-11 7 3-13-10-9 13-1Z" fill="#0DA1A7" fill-opacity=".55"/>
           <path d="M10 46h32"/>
         </svg>
-        <h3 class="h3">Lunch and site visit</h3>
-        <p>The formal programme is followed by a networking lunch and a proposed visit to the dry-port site.</p>
+        <h3 class="h3">Lunch and MMLP visit</h3>
+        <p>The formal programme is followed by lunch and a visit to the Dry Port (MMLP).</p>
       </article>
     </div>
   </div>
@@ -705,71 +955,38 @@ h1,h2,h3,h4{ margin:0 }
   <div class="wrap">
     <div class="ag-head rv">
       <div>
-        <p class="tag"><i>06</i> Agenda</p>
-        <h2 class="h2" style="margin-top:20px">One room.<br><em>One day</em>.</h2>
+        <p class="tag"><i>07</i> Programme</p>
+        <h2 class="h2" style="margin-top:20px">One focused day.<br><em>Three outcomes</em>.</h2>
       </div>
       <div class="when-card">
         <span class="d">03</span>
         <div>
           <b>Thursday, 3 September 2026</b>
-          <span>9:00 AM – 3:00 PM · Jalna, Maharashtra</span>
-          <span class="ven">The Fern Hotel, Jalna</span>
+          <span>9:00 AM – 2:30 PM · Jalna, Maharashtra</span>
+          <span class="ven">Hotel Siddharth The Fern, Jalna</span>
         </div>
       </div>
     </div>
 
     <div class="stats rv">
-      <div class="st"><span class="n">6h</span><span class="l">Formal programme</span><span class="s">9:00 AM – 3:00 PM</span></div>
-      <div class="st"><span class="n">3</span><span class="l">Keynotes</span><span class="s">Industry perspectives</span></div>
-      <div class="st"><span class="n">2</span><span class="l">Panels</span><span class="s">Each with an open floor</span></div>
-      <div class="st"><span class="n">1</span><span class="l">Site visit</span><span class="s">Networking lunch, then Dry-port visit</span></div>
+      <div class="st"><span class="n">5.5h</span><span class="l">Summit programme</span><span class="s">9:00 AM – 2:30 PM</span></div>
+      <div class="st"><span class="n">3</span><span class="l">Strategic themes</span><span class="s">Logistics, investment and growth</span></div>
+      <div class="st"><span class="n">3</span><span class="l">Invited leaders</span><span class="s">Chief guest and guests of honour</span></div>
+      <div class="st"><span class="n">1</span><span class="l">Site visit</span><span class="s">Dry Port (MMLP), after lunch</span></div>
     </div>
 
-    <div class="ag-bar rv">
-      <p class="lede" style="margin:0">The programme is shown to scale: taller blocks represent longer sessions.</p>
-      <div class="chips" aria-label="Filter agenda">
-        <button class="chip on" data-f="all" type="button">Everything</button>
-        <button class="chip" data-f="key" type="button"><i style="background:#0DA1A7"></i>Keynotes</button>
-        <button class="chip" data-f="pan" type="button"><i style="background:#2C8F99"></i>Panels</button>
-        <button class="chip" data-f="adr" type="button"><i style="background:#0C4A66"></i>Addresses</button>
-        <button class="chip" data-f="cer" type="button"><i style="background:#A9D6DC"></i>Ceremony</button>
-        <button class="chip" data-f="brk" type="button"><i style="background:#CBE4E8"></i>Breaks</button>
+    <div class="programme-summary">
+      <div class="programme-copy rv">
+        <p class="tag"><i>◆</i> The flow of the day</p>
+        <h3 class="h3" style="margin:16px 0 12px">Leadership, investment and the infrastructure behind both.</h3>
+        <p class="lede" style="margin:0">The invitation sets the summit's overall timing and outcomes. Session-level timings will be shared by the organiser.</p>
       </div>
-    </div>
-
-    <div class="day rv" id="day">
-      <div class="gutter" style="height:1313px">
-        <span class="hm" style="top:-8px">9:00</span><span class="hm" style="top:208px">10:00</span>
-        <span class="hm" style="top:424px">11:00</span><span class="hm" style="top:640px">12:00</span>
-        <span class="hm" style="top:856px">13:00</span><span class="hm" style="top:1072px">14:00</span>
-        <span class="hm end" style="top:1288px">3:00 PM</span>
-      </div>
-      <div class="track" style="height:1313px">
-        <span class="hl" style="top:0"></span><span class="hl" style="top:216px"></span><span class="hl" style="top:432px"></span><span class="hl" style="top:648px"></span><span class="hl" style="top:864px"></span><span class="hl" style="top:1080px"></span><span class="hl" style="top:1296px"></span>
-        <article class="ev arr" data-k="brk" style="top:0;height:108px;--c:#BFE6E9"><span class="clock">09:00<s>09:30</s></span><div><h3>Registration and tea</h3></div><span class="len">30<em>min</em></span></article>
-        <article class="ev cer short" data-k="cer" style="top:108px;height:54px;--c:#7FC0C8"><span class="clock">09:30<s>09:45</s></span><div><h3>Lamp lighting</h3></div><span class="len">15<em>min</em></span></article>
-        <article class="ev cer short" data-k="cer" style="top:162px;height:54px;--c:#7FC0C8"><span class="clock">09:45<s>10:00</s></span><div><h3>Welcome to dignitaries</h3></div><span class="len">15<em>min</em></span></article>
-        <article class="ev adr short" data-k="adr" style="top:216px;height:54px;--c:#56AEBB"><span class="clock">10:00<s>10:15</s></span><div><h3>Context setting</h3><p class="who">Summit convenor</p></div><span class="len">15<em>min</em></span></article>
-        <article class="ev adr" data-k="adr" style="top:270px;height:72px;--c:#56AEBB"><span class="clock">10:15<s>10:35</s></span><div><h3>Opening remarks</h3><p class="who">District administration and Jalna First Citizen Forum</p></div><span class="len">20<em>min</em></span></article>
-        <article class="ev adr short" data-k="adr" style="top:342px;height:54px;--c:#56AEBB"><span class="clock">10:35<s>10:50</s></span><div><h3>Address by JNPA</h3><p class="who">Jawaharlal Nehru Port Authority</p></div><span class="len">15<em>min</em></span></article>
-        <article class="ev adr" data-k="adr" style="top:396px;height:72px;--c:#56AEBB"><span class="clock">10:50<s>11:10</s></span><div><h3>Address by MIDC</h3><p class="who">Maharashtra Industrial Development Corporation</p></div><span class="len">20<em>min</em></span></article>
-        <article class="ev key big short" data-k="key" style="top:468px;height:54px;--c:#0DA1A7"><span class="clock">11:10<s>11:25</s></span><div><h3>Keynote 1</h3></div><span class="len">15<em>min</em></span></article>
-        <article class="ev pan big" data-k="pan" style="top:522px;height:162px;--c:#093C54"><span class="clock">11:25<s>12:10</s></span><div><h3>Panel 1 — The MMLP</h3><p class="xtra">40 min panel + 5 min open floor</p></div><span class="len">45<em>min</em></span></article>
-        <article class="ev key big" data-k="key" style="top:684px;height:90px;--c:#0DA1A7"><span class="clock">12:10<s>12:35</s></span><div><h3>Keynote 2</h3></div><span class="len">25<em>min</em></span></article>
-        <article class="ev pan big" data-k="pan" style="top:774px;height:126px;--c:#093C54"><span class="clock">12:35<s>13:10</s></span><div><h3>Panel 2 — New investments</h3><p class="xtra">30 min panel + 5 min open floor</p></div><span class="len">35<em>min</em></span></article>
-        <article class="ev brk short" data-k="brk" style="top:900px;height:54px;--c:#CBE4E8"><span class="clock">13:10<s>13:25</s></span><div><h3>Tea break</h3></div><span class="len">15<em>min</em></span></article>
-        <article class="ev key big" data-k="key" style="top:954px;height:90px;--c:#0DA1A7"><span class="clock">13:25<s>13:50</s></span><div><h3>Keynote 3</h3></div><span class="len">25<em>min</em></span></article>
-        <article class="ev adr short" data-k="adr" style="top:1044px;height:36px;--c:#56AEBB"><span class="clock">13:50<s>14:00</s></span><div><h3>The future of rail connectivity</h3><p class="who">South Central Railway</p></div><span class="len">10<em>min</em></span></article>
-        <article class="ev cer" data-k="cer" style="top:1080px;height:216px;--c:#7FC0C8"><span class="clock">2:00 PM<s>3:00 PM</s></span><div><h3>Closing session</h3><p class="who">Vote of thanks and national anthem</p></div><span class="len">60<em>min</em></span></article>
-      </div>
-    </div>
-
-    <div class="after rv">
-      <p class="tag"><i>◆</i> After the programme</p>
-      <h3 class="h3" style="margin:16px 0 10px">Networking lunch, then the dry port.</h3>
-      <p style="margin:0;color:var(--i72);font-size:15.5px">The formal agenda closes at 3:00 PM. Lunch is planned to lead into a visit to the dry port so participants can see the core MMLP asset on the ground.</p>
-      <ul class="after-list"><li><span>Next</span>Networking lunch</li><li><span>Then</span>Dry-port visit</li></ul>
-      <p class="note">Participant names and any changes to timings will be confirmed by the summit organiser.</p>
+      <ol class="programme-flow rv">
+        <li><time>9:00 AM</time><div><h3>Arrival and opening</h3><p>Registration, welcome and the opening of the Industrial Summit 2026 programme.</p></div></li>
+        <li><time>Summit</time><div><h3>Leadership and strategic exchange</h3><p>Government, rail, infrastructure and industry leaders focus on the MMLP Dry Port, investment opportunities and an investor-friendly path to growth.</p></div></li>
+        <li><time>2:30 PM</time><div><h3>Formal programme concludes</h3><p>The summit programme closes and attendees move into the hosted lunch.</p></div></li>
+        <li><time>After lunch</time><div><h3>Visit to the Dry Port (MMLP)</h3><p>Participants see the logistics asset at the centre of Jalna's gateway-to-growth proposition.</p></div></li>
+      </ol>
     </div>
   </div>
 </section>
@@ -778,9 +995,9 @@ h1,h2,h3,h4{ margin:0 }
 <section class="sec band" id="attend">
   <div class="wrap att">
     <div class="rv">
-      <p class="tag"><i>07</i> Who should attend</p>
-      <h2 class="h2" style="margin:20px 0 22px">For the people who can<br><em>build on Jalna</em>.</h2>
-      <p class="lede">The summit connects the industries Jalna already has with the investors, suppliers and institutions needed for its next phase.</p>
+      <p class="tag"><i>08</i> Who should attend</p>
+      <h2 class="h2" style="margin:20px 0 22px">If you can unlock a project,<br>this room is <em>for you</em>.</h2>
+      <p class="lede">The summit is designed for decision-makers who can invest, approve, finance, connect, supply or build the next phase of Jalna's industrial growth.</p>
       <div class="who">
         <span><i style="background:var(--navy)"></i>Manufacturing investors</span>
         <span><i style="background:var(--brass)"></i>Steel mills, vendors &amp; OEMs</span>
@@ -843,9 +1060,9 @@ h1,h2,h3,h4{ margin:0 }
   <svg class="blob" style="top:-120px;right:-90px;width:420px" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="#0DA1A7"/></svg>
   <svg class="blob" style="bottom:-150px;left:-80px;width:340px" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="#F5FBFB"/></svg>
   <div class="wrap" style="position:relative">
-    <h2 class="h2 rv">Jalna doesn't need to be discovered. It needs to be <em>built on</em>.</h2>
-    <p class="rv">The steel ecosystem is established. The seed and feed industries are working. The logistics gateway, investor support and talent ecosystem are being built for the next phase.</p>
-    <p class="sig rv">A land of opportunity.</p>
+    <h2 class="h2 rv">Jalna's next industrial chapter starts with the <em>right people in the room</em>.</h2>
+    <p class="rv">Meet the leaders, institutions and businesses who can turn infrastructure advantage into investment, partnerships and projects on the ground.</p>
+    <p class="sig rv">Leadership. Industry. Opportunity.</p>
   </div>
 </section>
 </main>
@@ -856,15 +1073,16 @@ h1,h2,h3,h4{ margin:0 }
     <div class="fg">
       <div>
         <a class="logo" href="#top" style="margin:0" aria-label="Industrial Summit 2026 home">
-          <img class="logo-img" src="/industrial-summit/industrailsummitlogo.jpeg" alt="Industrial Summit 2026 — Maharashtra Center Point of Growth">
+          <img class="logo-img" src="/industrial-summit/industrial-summit-logo.png" alt="Industrial Summit 2026 — Jalna, The Gateway to Growth">
         </a>
-        <p class="fdesc">Thursday, 3 September 2026 · Jalna, Maharashtra<br>The Fern Hotel, Jalna</p>
-        <p class="fdesc">Participant, partner and speaker details will be confirmed by the summit organiser.</p>
+        <p class="fdesc">Thursday, 3 September 2026 · 9:00 AM–2:30 PM<br>Hotel Siddharth The Fern, Jalna</p>
+        <p class="fdesc">Followed by lunch and a visit to the Dry Port (MMLP).</p>
       </div>
       <div>
         <h4>Summit</h4>
         <ul>
           <li><a href="#about">About</a></li>
+          <li><a href="#invitees">Invited leadership</a></li>
           <li><a href="#why">Why Jalna</a></li>
           <li><a href="#sectors">Focus sectors</a></li>
           <li><a href="#programme">Programme</a></li>
@@ -891,7 +1109,7 @@ h1,h2,h3,h4{ margin:0 }
     </div>
     <div class="flegal">
       <span>Programme updates · Investor information · Official references</span>
-      <span>Participant names and speaker details remain subject to organiser confirmation.</span>
+      <span>Programme details remain subject to organiser confirmation.</span>
     </div>
   </div>
 </footer>
@@ -943,6 +1161,18 @@ h1,h2,h3,h4{ margin:0 }
       chips.forEach(function(item){ item.classList.toggle('on', item===chip); });
       var filter=chip.dataset.f;
       events.forEach(function(event){ event.classList.toggle('dim', filter!=='all' && event.dataset.k!==filter); });
+    });
+  });
+
+  /* invitee organisation filter */
+  var lgs=document.querySelectorAll('.legend .lg'), orgs=document.querySelectorAll('.roll li');
+  lgs.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var sector=btn.getAttribute('data-s');
+      lgs.forEach(function(item){ item.setAttribute('aria-pressed', String(item===btn)); });
+      orgs.forEach(function(org){
+        org.classList.toggle('mute', sector!=='all' && org.getAttribute('data-s')!==sector);
+      });
     });
   });
 
