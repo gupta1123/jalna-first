@@ -133,7 +133,65 @@ h1 em { display: inline-block; color: var(--gold); font-style: normal; }
 .summit-steps p { margin: 0; color: rgba(255,255,255,.5); font-size: 14px; }
 
 .audience { text-align: center; }
-.audience-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 1000px; margin: 55px auto 0; }
+.sponsors-grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 32px;
+  margin: 48px auto 44px;
+  flex-wrap: wrap;
+}
+.sponsor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 36px;
+  width: min(100%, 380px);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(17, 43, 54, .05);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.sponsor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(17, 43, 54, .1);
+}
+.sponsor-badge {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #7b6b4a;
+  margin-bottom: 20px;
+}
+.sponsor-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 110px;
+  padding: 10px;
+  background: transparent;
+}
+.sponsor-logo {
+  max-width: 100%;
+  max-height: 90px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  background-color: transparent;
+  filter: contrast(1.04);
+}
+.sponsor-name {
+  margin: 16px 0 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.audience-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 1000px; margin: 40px auto 0; }
 .audience-row span { padding: 12px 17px; color: #53686e; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; }
 .register { position: relative; overflow: hidden; min-height: 620px; display: grid; place-items: center; padding: 100px 24px; color: var(--cream); background: var(--navy); text-align: center; }
 .register-grid { opacity: .2; mask-image: radial-gradient(circle at center, #000, transparent 70%); }
